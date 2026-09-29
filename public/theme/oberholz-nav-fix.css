@@ -1,5 +1,27 @@
 /* Oberholz: stabiles Desktop-Flyout ohne Hover-Abriss */
 
+/*
+  Desktop-Topbar ist fixed-top (~31px). mt-lg-4 kollabiert durch .main-header
+  und greift nicht zwischen Topbar und Navbar. Zusaetzlich zieht eine leere
+  .ratings-list.row.g-3 (Bootstrap-Gutter, margin-top: -1rem) den Header nach oben.
+*/
+@media (min-width: 992px) {
+  .main-header {
+    display: flow-root; /* verhindert Margin-Collapse */
+    padding-top: 2rem; /* Platz fuer fixed Topbar */
+  }
+
+  .main-header .navbar-wrapper.mt-lg-4 {
+    margin-top: 0 !important;
+  }
+}
+
+/* Leere Ratings-Liste: :empty greift wegen Whitespace nicht */
+body > .ratings-list.row:not(:has(*)) {
+  display: none !important;
+  margin: 0 !important;
+}
+
 #navbar .navbar-brand img {
   max-height: 54px;
   width: auto;
