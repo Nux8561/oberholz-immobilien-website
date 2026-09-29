@@ -1,0 +1,101 @@
+/* Oberholz: stabiles Desktop-Flyout ohne Hover-Abriss */
+
+#navbar .navbar-brand img {
+  max-height: 54px;
+  width: auto;
+  height: auto;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1200px) {
+  /* Navbar und Innencontainer strecken, damit Menuepunkte die volle Hoehe nutzen */
+  #navbar.navbar {
+    align-items: stretch !important;
+  }
+
+  #navbar > .container {
+    align-items: stretch !important;
+  }
+
+  #navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  #navbar #navbarmain,
+  #navbar .navbar-nav {
+    align-items: stretch !important;
+    align-self: stretch;
+  }
+
+  #navbar .navbar-nav > .nav-item {
+    display: flex;
+    align-items: stretch;
+  }
+
+  #navbar .navbar-nav > .nav-item > .nav-link {
+    position: relative;
+    z-index: 1031;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  /*
+    Unsichtbare Hover-Verlaengerung unter dem Linktext:
+    schliesst die tote Zone bis ins Mega-Menue (top: 100% der #navbar).
+  */
+  #navbar .navbar-nav > .nav-item.dropdown > .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 48px;
+  }
+
+  /* Zusaetzliche Bruecke unter der gesamten Navbar */
+  #navbar .nav-item.dropdown:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 36px;
+    z-index: 1030;
+  }
+
+  /* Kein Abstand / Slide mehr zwischen Trigger und Mega-Menue */
+  #navbar.navigation .dropdown-menu,
+  #navbar .dropdown-menu {
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+
+  #navbar .nav-item.dropdown:hover > .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  #navbar .nav-item.dropdown > .dropdown-menu {
+    pointer-events: none;
+  }
+
+  #navbar .nav-item.dropdown:hover > .dropdown-menu,
+  #navbar .nav-item.dropdown > .dropdown-menu.show {
+    pointer-events: auto;
+  }
+
+  #navbar .nav-item.dropdown.is-dismissed > .dropdown-menu {
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
+
+/* EE-Energie-Referenzslider aus der Vorlage ausblenden */
+[class*="referencesSwiper"],
+div.py-0.bg-white:has([class*="referencesSwiper"]) {
+  display: none !important;
+}

@@ -1,0 +1,337 @@
+{
+  "start": "art",
+  "submit": "local only, preventDefault, no request to immobilien-experten.de",
+  "paths": {
+    "Wohnhaus": [
+      "art",
+      "wohnart",
+      "wohnungen",
+      "grundstueck",
+      "absicht",
+      "kontakt"
+    ],
+    "Wohnung": [
+      "art",
+      "flaeche",
+      "absicht",
+      "kontakt"
+    ],
+    "Gewerbe": [
+      "art",
+      "gewerbeart",
+      "flaeche",
+      "absicht",
+      "kontakt"
+    ],
+    "Grundstueck": [
+      "art",
+      "grundstueck",
+      "absicht",
+      "kontakt"
+    ],
+    "Sonstiges": [
+      "art",
+      "absicht",
+      "kontakt"
+    ]
+  },
+  "steps": [
+    {
+      "state": "art",
+      "question": "Verkaufen oder vermieten?",
+      "hint": "Welche Art von Immobilie möchten Sie verkaufen oder vermieten?",
+      "options": [
+        {
+          "label": "Wohnhaus",
+          "value": "Wohnhaus",
+          "next": "wohnart",
+          "field": "art"
+        },
+        {
+          "label": "Wohnung",
+          "value": "Wohnung",
+          "next": "flaeche",
+          "field": "art"
+        },
+        {
+          "label": "Gewerbe",
+          "value": "Gewerbe",
+          "next": "gewerbeart",
+          "field": "art"
+        },
+        {
+          "label": "Grundstück",
+          "value": "Grundstück",
+          "next": "grundstueck",
+          "field": "art"
+        },
+        {
+          "label": "Sonstiges",
+          "value": "Sonstiges",
+          "next": "absicht",
+          "field": "art"
+        }
+      ],
+      "next_control": null,
+      "next_state": null,
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "wohnart",
+      "question": "Um welche Art Wohn-Immobilie handelt es sich?",
+      "hint": "Bitte wählen Sie die passende Kategorie.",
+      "options": [
+        {
+          "label": "Einfamilienhaus",
+          "value": "Einfamilienhaus",
+          "next": "wohnungen",
+          "field": "wohnart"
+        },
+        {
+          "label": "Reihenhaus",
+          "value": "Reihenhaus",
+          "next": "wohnungen",
+          "field": "wohnart"
+        },
+        {
+          "label": "Doppelhaus / Hälfte",
+          "value": "Doppelhaus / Hälfte",
+          "next": "wohnungen",
+          "field": "wohnart"
+        },
+        {
+          "label": "Mehrfamilienhaus",
+          "value": "Mehrfamilienhaus",
+          "next": "wohnungen",
+          "field": "wohnart"
+        },
+        {
+          "label": "Wohn- & Geschäftshaus",
+          "value": "Wohn- & Geschäftshaus",
+          "next": "wohnungen",
+          "field": "wohnart"
+        }
+      ],
+      "next_control": null,
+      "next_state": null,
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "wohnungen",
+      "question": "Anzahl der Wohneinheiten",
+      "hint": "Wie viele Wohnungen umfasst das Objekt?",
+      "options": [
+        {
+          "label": "1",
+          "value": "1",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "2",
+          "value": "2",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "3",
+          "value": "3",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "4",
+          "value": "4",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "6",
+          "value": "6",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "10",
+          "value": "10",
+          "next": null,
+          "field": null
+        }
+      ],
+      "next_control": "Weiter",
+      "next_state": "absicht",
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "grundstueck",
+      "question": "Wie groß ist das Grundstück?",
+      "hint": "Ziehen Sie den Regler oder wählen Sie einen Richtwert.",
+      "options": [
+        {
+          "label": "200 m²",
+          "value": "200",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "500 m²",
+          "value": "500",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "800 m²",
+          "value": "800",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "1200 m²",
+          "value": "1200",
+          "next": null,
+          "field": null
+        }
+      ],
+      "next_control": "Weiter",
+      "next_state": "absicht",
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "flaeche",
+      "question": "Wie groß ist die Nutzfläche?",
+      "hint": "Ziehen Sie den Regler oder wählen Sie einen Richtwert.",
+      "options": [
+        {
+          "label": "60 m²",
+          "value": "60",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "90 m²",
+          "value": "90",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "120 m²",
+          "value": "120",
+          "next": null,
+          "field": null
+        },
+        {
+          "label": "160 m²",
+          "value": "160",
+          "next": null,
+          "field": null
+        }
+      ],
+      "next_control": "Weiter",
+      "next_state": "absicht",
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "gewerbeart",
+      "question": "Um welche Art von Gewerbe handelt es sich?",
+      "hint": "Bitte wählen Sie die passende Kategorie.",
+      "options": [
+        {
+          "label": "Produktion",
+          "value": "Produktion",
+          "next": "grundstueck",
+          "field": "gewerbeart"
+        },
+        {
+          "label": "Lager / Logistik",
+          "value": "Lager / Logistik",
+          "next": "grundstueck",
+          "field": "gewerbeart"
+        },
+        {
+          "label": "Büro / Praxis",
+          "value": "Büro / Praxis",
+          "next": "grundstueck",
+          "field": "gewerbeart"
+        },
+        {
+          "label": "Handel",
+          "value": "Handel",
+          "next": "grundstueck",
+          "field": "gewerbeart"
+        },
+        {
+          "label": "Sonstiges",
+          "value": "Sonstiges",
+          "next": "grundstueck",
+          "field": "gewerbeart"
+        }
+      ],
+      "next_control": null,
+      "next_state": null,
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "absicht",
+      "question": "Möchten Sie verkaufen oder vermieten?",
+      "hint": "Mehrfachauswahl möglich.",
+      "options": [
+        {
+          "label": "Verkaufen",
+          "value": "verkaufen",
+          "type": "checkbox"
+        },
+        {
+          "label": "Vermieten",
+          "value": "vermieten",
+          "type": "checkbox"
+        }
+      ],
+      "next_control": "Weiter",
+      "next_state": "kontakt",
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    },
+    {
+      "state": "kontakt",
+      "question": "Wie können wir Sie erreichen?",
+      "hint": "Ihre Daten werden vertraulich behandelt und nicht weitergegeben.",
+      "options": [
+        {
+          "label": "Morgens",
+          "value": "morgens",
+          "type": "checkbox"
+        },
+        {
+          "label": "Mittags",
+          "value": "mittags",
+          "type": "checkbox"
+        },
+        {
+          "label": "Abends",
+          "value": "abends",
+          "type": "checkbox"
+        },
+        {
+          "label": "Egal",
+          "value": "egal",
+          "type": "checkbox"
+        },
+        {
+          "label": "Ich habe die Datenschutzerklärung zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu. *",
+          "value": "1",
+          "type": "checkbox"
+        }
+      ],
+      "next_control": "Anfrage absenden →",
+      "next_state": null,
+      "back_state": "history",
+      "validation": "required value or selection before continue; contact requires name, place, phone, email and privacy checkbox"
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+<div class="iwf-wrap" id="iwf">
+ <div class="iwf-card">
+  <div class="iwf-progress">
+   <div class="iwf-progress__bar" id="iwf-bar" style="width: 20%;">
+   </div>
+  </div>
+  <div class="iwf-body">
+   <form action="/#iwf" id="iwf-form" method="post" novalidate="">
+    <div aria-hidden="true" style="display:none;">
+     <input autocomplete="off" name="fax" tabindex="-1" type="text"/>
+    </div>
+    <input name="iwf_submit" type="hidden" value="1"/>
+    <input id="f-art" name="art" type="hidden" value=""/>
+    <input id="f-wohnart" name="wohnart" type="hidden" value=""/>
+    <input id="f-wohnungen" name="wohnungen" type="hidden" value=""/>
+    <input id="f-grundstueck_qm" name="grundstueck_qm" type="hidden" value=""/>
+    <input id="f-flaeche_qm" name="flaeche_qm" type="hidden" value=""/>
+    <input id="f-gewerbeart" name="gewerbeart" type="hidden" value=""/>
+    <section class="iwf-step is-active" data-step="art">
+     <span class="iwf-kicker">
+      Immobilien-Vermittlung
+     </span>
+     <h3 class="iwf-q">
+      Verkaufen oder vermieten?
+     </h3>
+     <p class="iwf-sub">
+      Welche Art von Immobilie möchten Sie verkaufen oder vermieten?
+     </p>
+     <div class="iwf-choices">
+      <button class="iwf-choice" data-field="art" data-next="wohnart" data-total="5" data-value="Wohnhaus" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-art-wohnhaus.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Wohnhaus
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="art" data-next="flaeche" data-total="4" data-value="Wohnung" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-art-wohnung.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Wohnung
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="art" data-next="gewerbeart" data-total="5" data-value="Gewerbe" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-art-gewerbe.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Gewerbe
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="art" data-next="grundstueck" data-total="4" data-value="Grundstück" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-art-grundstueck.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Grundstück
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="art" data-next="absicht" data-total="3" data-value="Sonstiges" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-art-sonstiges.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Sonstiges
+       </span>
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="wohnart">
+     <h3 class="iwf-q">
+      Um welche Art Wohn-Immobilie handelt es sich?
+     </h3>
+     <p class="iwf-sub">
+      Bitte wählen Sie die passende Kategorie.
+     </p>
+     <div class="iwf-choices">
+      <button class="iwf-choice" data-field="wohnart" data-next="wohnungen" data-value="Einfamilienhaus" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-wohn-einfamilienhaus.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Einfamilienhaus
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="wohnart" data-next="wohnungen" data-value="Reihenhaus" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-wohn-reihenhaus.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Reihenhaus
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="wohnart" data-next="wohnungen" data-value="Doppelhaus / Hälfte" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-wohn-doppelhaus.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Doppelhaus / Hälfte
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="wohnart" data-next="wohnungen" data-value="Mehrfamilienhaus" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-wohn-mehrfamilienhaus.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Mehrfamilienhaus
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="wohnart" data-next="wohnungen" data-value="Wohn- &amp; Geschäftshaus" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-wohn-geschaeftshaus.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Wohn- &amp; Geschäftshaus
+       </span>
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="wohnungen">
+     <h3 class="iwf-q">
+      Anzahl der Wohneinheiten
+     </h3>
+     <p class="iwf-sub">
+      Wie viele Wohnungen umfasst das Objekt?
+     </p>
+     <div class="iwf-stepper-wrap" data-max="99" data-min="1" data-stepper="" data-unit-p="Einheiten" data-unit-s="Einheit">
+      <div class="iwf-stepper">
+       <button aria-label="weniger" class="iwf-stepper__btn" data-dir="-1" disabled="" type="button">
+        −
+       </button>
+       <div class="iwf-stepper__val">
+        <span class="iwf-stepper__num" data-display="">
+         1
+        </span>
+        <span class="iwf-stepper__unit" data-unit="">
+         Einheit
+        </span>
+       </div>
+       <button aria-label="mehr" class="iwf-stepper__btn" data-dir="1" type="button">
+        +
+       </button>
+      </div>
+      <div class="iwf-quick">
+       <button class="iwf-quick__chip is-active" data-val="1" type="button">
+        1
+       </button>
+       <button class="iwf-quick__chip" data-val="2" type="button">
+        2
+       </button>
+       <button class="iwf-quick__chip" data-val="3" type="button">
+        3
+       </button>
+       <button class="iwf-quick__chip" data-val="4" type="button">
+        4
+       </button>
+       <button class="iwf-quick__chip" data-val="6" type="button">
+        6
+       </button>
+       <button class="iwf-quick__chip" data-val="10" type="button">
+        10
+       </button>
+      </div>
+      <input class="iwf-num" data-field="wohnungen" type="hidden" value="1"/>
+      <div class="iwf-hint" data-hint="">
+      </div>
+     </div>
+     <div class="iwf-nav">
+      <span>
+      </span>
+      <button class="iwf-btn iwf-weiter" data-next="absicht" type="button">
+       Weiter
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="grundstueck">
+     <h3 class="iwf-q">
+      Wie groß ist das Grundstück?
+     </h3>
+     <p class="iwf-sub">
+      Ziehen Sie den Regler oder wählen Sie einen Richtwert.
+     </p>
+     <div class="iwf-slider" data-slider="">
+      <div class="iwf-slider__badge">
+       <span class="iwf-slider__num" data-display="">
+        500
+       </span>
+       <span class="iwf-slider__unit">
+        m²
+       </span>
+      </div>
+      <input class="iwf-range" max="2000" min="50" step="10" style="background: linear-gradient(to right, var(--iwf-accent) 0%, var(--iwf-accent) 23.076923076923077%, var(--iwf-gray) 23.076923076923077%, var(--iwf-gray) 100%);" type="range" value="500"/>
+      <div class="iwf-slider__scale">
+       <span>
+        50 m²
+       </span>
+       <span>
+        2000+ m²
+       </span>
+      </div>
+      <div class="iwf-quick">
+       <button class="iwf-quick__chip" data-val="200" type="button">
+        200 m²
+       </button>
+       <button class="iwf-quick__chip is-active" data-val="500" type="button">
+        500 m²
+       </button>
+       <button class="iwf-quick__chip" data-val="800" type="button">
+        800 m²
+       </button>
+       <button class="iwf-quick__chip" data-val="1200" type="button">
+        1200 m²
+       </button>
+      </div>
+      <input class="iwf-num" data-field="grundstueck_qm" type="hidden" value="500"/>
+      <div class="iwf-hint" data-hint="">
+      </div>
+      <output class="rangeslider__value-bubble" style="left: calc(23.0769% + 10.7692px);">
+       500
+      </output>
+     </div>
+     <div class="iwf-nav">
+      <span>
+      </span>
+      <button class="iwf-btn iwf-weiter" data-next="absicht" type="button">
+       Weiter
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="flaeche">
+     <h3 class="iwf-q">
+      Wie groß ist die Nutzfläche?
+     </h3>
+     <p class="iwf-sub">
+      Ziehen Sie den Regler oder wählen Sie einen Richtwert.
+     </p>
+     <div class="iwf-slider" data-slider="">
+      <div class="iwf-slider__badge">
+       <span class="iwf-slider__num" data-display="">
+        90
+       </span>
+       <span class="iwf-slider__unit">
+        m²
+       </span>
+      </div>
+      <input class="iwf-range" max="400" min="20" step="5" style="background: linear-gradient(to right, var(--iwf-accent) 0%, var(--iwf-accent) 18.421052631578945%, var(--iwf-gray) 18.421052631578945%, var(--iwf-gray) 100%);" type="range" value="90"/>
+      <div class="iwf-slider__scale">
+       <span>
+        20 m²
+       </span>
+       <span>
+        400+ m²
+       </span>
+      </div>
+      <div class="iwf-quick">
+       <button class="iwf-quick__chip" data-val="60" type="button">
+        60 m²
+       </button>
+       <button class="iwf-quick__chip is-active" data-val="90" type="button">
+        90 m²
+       </button>
+       <button class="iwf-quick__chip" data-val="120" type="button">
+        120 m²
+       </button>
+       <button class="iwf-quick__chip" data-val="160" type="button">
+        160 m²
+       </button>
+      </div>
+      <input class="iwf-num" data-field="flaeche_qm" type="hidden" value="90"/>
+      <div class="iwf-hint" data-hint="">
+      </div>
+      <output class="rangeslider__value-bubble" style="left: calc(18.4211% + 12.6316px);">
+       90
+      </output>
+     </div>
+     <div class="iwf-nav">
+      <span>
+      </span>
+      <button class="iwf-btn iwf-weiter" data-next="absicht" type="button">
+       Weiter
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="gewerbeart">
+     <h3 class="iwf-q">
+      Um welche Art von Gewerbe handelt es sich?
+     </h3>
+     <p class="iwf-sub">
+      Bitte wählen Sie die passende Kategorie.
+     </p>
+     <div class="iwf-choices">
+      <button class="iwf-choice" data-field="gewerbeart" data-next="grundstueck" data-value="Produktion" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-gew-produktion.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Produktion
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="gewerbeart" data-next="grundstueck" data-value="Lager / Logistik" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-gew-lager.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Lager / Logistik
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="gewerbeart" data-next="grundstueck" data-value="Büro / Praxis" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-gew-buero.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Büro / Praxis
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="gewerbeart" data-next="grundstueck" data-value="Handel" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-gew-handel.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Handel
+       </span>
+      </button>
+      <button class="iwf-choice" data-field="gewerbeart" data-next="grundstueck" data-value="Sonstiges" type="button">
+       <span class="iwf-choice__img" style="background-image:url(/media/imexp-gew-sonstiges.jpg);">
+       </span>
+       <span class="iwf-choice__label">
+        Sonstiges
+       </span>
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="absicht">
+     <h3 class="iwf-q">
+      Möchten Sie verkaufen oder vermieten?
+     </h3>
+     <p class="iwf-sub">
+      Mehrfachauswahl möglich.
+     </p>
+     <div class="iwf-toggles">
+      <label class="iwf-toggle">
+       <input name="absicht[]" type="checkbox" value="verkaufen"/>
+       <span>
+        Verkaufen
+       </span>
+      </label>
+      <label class="iwf-toggle">
+       <input name="absicht[]" type="checkbox" value="vermieten"/>
+       <span>
+        Vermieten
+       </span>
+      </label>
+     </div>
+     <div class="iwf-hint" data-hint="">
+     </div>
+     <div class="iwf-nav">
+      <span>
+      </span>
+      <button class="iwf-btn iwf-weiter-plain" data-next="kontakt" data-require-check="absicht" type="button">
+       Weiter
+      </button>
+     </div>
+    </section>
+    <section class="iwf-step" data-step="kontakt">
+     <span class="iwf-kicker">
+      Fast geschafft
+     </span>
+     <h3 class="iwf-q">
+      Wie können wir Sie erreichen?
+     </h3>
+     <p class="iwf-sub">
+      Ihre Daten werden vertraulich behandelt und nicht weitergegeben.
+     </p>
+     <div class="iwf-grid2" style="margin-bottom:1rem;">
+      <div class="iwf-field">
+       <label for="iwf-name">
+        Name
+        <span class="req">
+         *
+        </span>
+       </label>
+       <input autocomplete="name" class="" id="iwf-name" name="name" placeholder="Vor- und Nachname" required="" type="text" value=""/>
+      </div>
+      <div class="iwf-field">
+       <label for="iwf-ort">
+        Ort der Immobilie
+        <span class="req">
+         *
+        </span>
+       </label>
+       <input class="" id="iwf-ort" name="ort" placeholder="PLZ, Ort" required="" type="text" value=""/>
+      </div>
+      <div class="iwf-field">
+       <label for="iwf-telefon">
+        Telefon
+        <span class="req">
+         *
+        </span>
+       </label>
+       <input autocomplete="tel" class="" id="iwf-telefon" name="telefon" placeholder="Für Rückfragen" required="" type="tel" value=""/>
+      </div>
+      <div class="iwf-field">
+       <label for="iwf-email">
+        E-Mail
+        <span class="req">
+         *
+        </span>
+       </label>
+       <input autocomplete="email" class="" id="iwf-email" name="email" placeholder="ihre@email.de" required="" type="email" value=""/>
+      </div>
+     </div>
+     <div class="iwf-field" style="margin-bottom:.4rem;">
+      <label>
+       Wann erreichen wir Sie am besten?
+      </label>
+      <div class="iwf-chips">
+       <label class="iwf-chip">
+        <input name="erreichbar[]" type="checkbox" value="morgens"/>
+        <span>
+         Morgens
+        </span>
+       </label>
+       <label class="iwf-chip">
+        <input name="erreichbar[]" type="checkbox" value="mittags"/>
+        <span>
+         Mittags
+        </span>
+       </label>
+       <label class="iwf-chip">
+        <input name="erreichbar[]" type="checkbox" value="abends"/>
+        <span>
+         Abends
+        </span>
+       </label>
+       <label class="iwf-chip">
+        <input name="erreichbar[]" type="checkbox" value="egal"/>
+        <span>
+         Egal
+        </span>
+       </label>
+      </div>
+     </div>
+     <div class="iwf-field" style="margin:0 0 .2rem;">
+      <label for="iwf-mitteilung">
+       Ihre Nachricht (optional)
+      </label>
+      <textarea class="iwf-textarea" id="iwf-mitteilung" name="mitteilung" placeholder="Möchten Sie uns sonst noch etwas mitteilen?" rows="3"></textarea>
+     </div>
+     <label class="iwf-check">
+      <input name="dsgvo" required="" type="checkbox" value="1"/>
+      <span>
+       Ich habe die
+       <a href="/datenschutzerklaerung.html" rel="noopener" target="_blank">
+        Datenschutzerklärung
+       </a>
+       zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.
+       <span class="req">
+        *
+       </span>
+      </span>
+     </label>
+     <div class="iwf-nav">
+      <button class="iwf-back" data-back="" style="visibility: hidden;" type="button">
+       ← Zurück
+      </button>
+      <button class="iwf-btn" type="submit">
+       Anfrage absenden →
+      </button>
+     </div>
+    </section>
+    <div class="iwf-nav" id="iwf-globalnav" style="display: flex;">
+     <button class="iwf-back" data-back="" style="visibility: hidden;" type="button">
+      ← Zurück
+     </button>
+     <span>
+     </span>
+    </div>
+   </form>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,1 @@
+ '<img src="' + teamImg + '" alt="Ute Schorpp" loading="lazy">' + '<div class="sp-msg-person"><span class="sp-msg-name">Ute Schorpp</span><span class="sp-msg-role">Teamleiterin Kundenberatung</span></div>' + '</div>'; } html += '<div class="sp-msg-content">'; 

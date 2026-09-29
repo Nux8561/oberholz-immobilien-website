@@ -1,0 +1,458 @@
+{
+  "styles": [
+    {
+      "i": 0,
+      "len": 694,
+      "start": ":root {--light: rgba(255, 255, 255, 1);--primary-color: rgba(91, 89, 90, 1);--secondary-color: rgba(34, 58, 102, 1);--se"
+    },
+    {
+      "i": 1,
+      "len": 308106,
+      "start": "@font-face { font-family: \"Lato\"; font-style: normal; font-weight: 400; font-display: swap; src: local(\"\"), url(\"/theme/"
+    },
+    {
+      "i": 2,
+      "len": 272,
+      "start": " #bundeslandModal .selektor { border-color: #759e17; border-width: 3px; } #bundeslandModal.modal { z-index: 10080 !impor"
+    },
+    {
+      "i": 3,
+      "len": 1267,
+      "start": " .main-header-scale { /* Deko-Leiste darf den Hover auf dem Weg zum Flyout nicht abfangen */ pointer-events: none; posit"
+    },
+    {
+      "i": 4,
+      "len": 60,
+      "start": " .meta-navigation { white-space: nowrap; font-size: .9rem; }"
+    },
+    {
+      "i": 5,
+      "len": 2296,
+      "start": " #mobileMenu .ocv-overview { display: flex; align-items: center; gap: .8rem; padding: .4rem 0 .85rem; margin-bottom: .35"
+    },
+    {
+      "i": 6,
+      "len": 106,
+      "start": " @media (max-width: 429.98px) { .hotline-mobile-bar .hotline-mobile-label { display: none !important; } } "
+    },
+    {
+      "i": 7,
+      "len": 2517,
+      "start": " #cw-trigger { position: fixed; bottom: 3.5rem; right: 3.5rem; z-index: 1049; width: 68px; height: 68px; border-radius: "
+    },
+    {
+      "i": 8,
+      "len": 7411,
+      "start": " nav .dropdown-menu { min-width: 550px !important; width: auto !important; padding: 1rem 1.5rem; } nav .dropdown-menu.dr"
+    },
+    {
+      "i": 9,
+      "len": 7629,
+      "start": " .navigation .dropdown-menu .nav-overview-link { border-bottom: 1px solid rgba(0, 0, 0, 0.1); margin-bottom: 0.5rem; pad"
+    },
+    {
+      "i": 10,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 11,
+      "len": 744,
+      "start": ".regio-rotor{display:grid;justify-items:center;align-items:end}.regio-rotor .regio-rotor-slide{grid-area:1/1;opacity:0;t"
+    },
+    {
+      "i": 12,
+      "len": 102,
+      "start": ".regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f2f7fd 55%, #ebf3f7 100%) !important; }"
+    },
+    {
+      "i": 13,
+      "len": 660,
+      "start": " ul.icon_list { position: relative; padding-right: 2rem !important; } ul.icon_list::before { content: \"\"; position: abso"
+    },
+    {
+      "i": 14,
+      "len": 12880,
+      "start": " /* ============================================= HOTSPOTS – Fragment Styles ==========================================="
+    },
+    {
+      "i": 15,
+      "len": 10559,
+      "start": " .iwf-wrap { --iwf-accent: var(--secondary-color, #223a66); --iwf-accent-dark: #172542; --iwf-title: var(--title-color, "
+    },
+    {
+      "i": 16,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 17,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 18,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 19,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 20,
+      "len": 1050,
+      "start": "/* Primaer/Sekundaer-Bildwechsel bei Hover: gehoert zur Karte selbst, nicht zum jeweiligen Wrapper (listing/grid.php, se"
+    },
+    {
+      "i": 21,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 22,
+      "len": 4180,
+      "start": " .regio-hero { background: linear-gradient(180deg, #dfeafa 0%, #f4f9ff 70%, #ffffff 100%) !important; } .regio-hero-bull"
+    },
+    {
+      "i": 23,
+      "len": 119,
+      "start": " .partner-logos img { max-height: 50px; margin: 5px 20px; object-fit: contain; } .partner-section { padding: 30px 0; } "
+    },
+    {
+      "i": 24,
+      "len": 73,
+      "start": " @media (max-width: 575.98px) { .footer .logo img { max-width: 200px; } }"
+    },
+    {
+      "i": 25,
+      "len": 2965,
+      "start": " #sp-msg-overlay { position: fixed; inset: 0; z-index: 999999999; /* muss alle anderen Layer (max. 99999991) überlagern "
+    }
+  ],
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "https://www.immobilien-experten.de/",
+      "as": null
+    },
+    {
+      "rel": "alternate",
+      "href": "https://www.immobilien-experten.de/",
+      "as": null
+    },
+    {
+      "rel": "alternate",
+      "href": "https://www.immobilien-experten.de/",
+      "as": null
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-400.woff2",
+      "as": "font"
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-700.woff2",
+      "as": "font"
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-400.woff2",
+      "as": "font"
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-500.woff2",
+      "as": "font"
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-600.woff2",
+      "as": "font"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/style.css?v=1773318545",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/assets/addons/plyr/vendor/plyr/dist/plyr.css?v=1727455808",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/assets/addons/mf_typeform/swiper-bundle.min.css?v=1696607867",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/service-selektor.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/tables.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/toc.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/button-glow.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/autolinker.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/container-collapse.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/feature.min.css?v=1778841604",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/text-mehrspaltig.min.css?v=1788443889",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/about.min.css?v=1778841605",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/counter.min.css?v=1778841605",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/team.min.css?v=1778841605",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/service.min.css?v=1778841605",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/department.min.css?v=1778841606",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/cta.min.css?v=1778841606",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/contact.min.css?v=1788444532",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/blog.min.css?v=1778841606",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/single-post.min.css?v=1778841606",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/blog-sidebar.min.css?v=1778841607",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/footer.min.css?v=1778841607",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/ee-wizard.min.css?v=1778841607",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/calculator.min.css?v=1778841607",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/rangeslider.min.css?v=1778841607",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/typeform-ratings-schema.min.css?v=1778841607",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/whatsapp-cta-footer.min.css?v=1778841608",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/piggy.min.css?v=1778841608",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/comparison-table.min.css?v=1778841608",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/kooperationspartner.min.css?v=1778841608",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/steps.min.css?v=1778841608",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/faq.min.css?v=1778841609",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/seo-map.min.css?v=1778841609",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/videocard.min.css?v=1778841609",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/quiz.min.css?v=1778841609",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/before-after.min.css?v=1778841609",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_shop.min.css?v=1778841609",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_countdown.min.css?v=1778841610",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_productcard.min.css?v=1778841610",
+      "as": "style"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_cart.min.css?v=1778841610",
+      "as": "style"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-16x16-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-32x32-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-96x96-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-128x128-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-57x57-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-60x60-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-72x72-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-76x76-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-114x114-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-120x120-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-144x144-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-152x152-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-180x180-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/android-chrome-192x192-0c3161--16.png",
+      "as": null
+    },
+    {
+      "rel": "manifest",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/manifest-0c3161--16.json",
+      "as": null
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon--16.ico",
+      "as": null
+    }
+  ],
+  "inlineCount": 388770,
+  "htmlLen": 561674
+}

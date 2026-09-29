@@ -1,0 +1,130 @@
+[
+  {
+    "viewport": "1024x1366",
+    "file": "1024x1366-full.png",
+    "original_size": [
+      1024,
+      9340
+    ],
+    "local_size": [
+      1024,
+      9340
+    ],
+    "percentage_difference": 0.09,
+    "mean_pixel_error": 0.132,
+    "different_pixels": 8628,
+    "total_pixels": 9564160
+  },
+  {
+    "viewport": "1366x768",
+    "file": "1366x768-full.png",
+    "original_size": [
+      1366,
+      8844
+    ],
+    "local_size": [
+      1366,
+      8844
+    ],
+    "percentage_difference": 0.212,
+    "mean_pixel_error": 0.174,
+    "different_pixels": 25571,
+    "total_pixels": 12080904
+  },
+  {
+    "viewport": "1440x900",
+    "file": "1440x900-full.png",
+    "original_size": [
+      1440,
+      8844
+    ],
+    "local_size": [
+      1440,
+      8844
+    ],
+    "percentage_difference": 0.204,
+    "mean_pixel_error": 0.169,
+    "different_pixels": 25924,
+    "total_pixels": 12735360
+  },
+  {
+    "viewport": "1920x1080",
+    "file": "1920x1080-full.png",
+    "original_size": [
+      1920,
+      8844
+    ],
+    "local_size": [
+      1920,
+      8844
+    ],
+    "percentage_difference": 0.153,
+    "mean_pixel_error": 0.127,
+    "different_pixels": 25932,
+    "total_pixels": 16980480
+  },
+  {
+    "viewport": "375x812",
+    "file": "375x812-full.png",
+    "original_size": [
+      418,
+      14832
+    ],
+    "local_size": [
+      418,
+      14832
+    ],
+    "percentage_difference": 0.037,
+    "mean_pixel_error": 0.057,
+    "different_pixels": 2316,
+    "total_pixels": 6199776
+  },
+  {
+    "viewport": "390x844",
+    "file": "390x844-full.png",
+    "original_size": [
+      418,
+      14557
+    ],
+    "local_size": [
+      418,
+      14557
+    ],
+    "percentage_difference": 0.365,
+    "mean_pixel_error": 0.269,
+    "different_pixels": 22181,
+    "total_pixels": 6084826
+  },
+  {
+    "viewport": "430x932",
+    "file": "430x932-full.png",
+    "original_size": [
+      430,
+      14002
+    ],
+    "local_size": [
+      430,
+      14002
+    ],
+    "percentage_difference": 0.34,
+    "mean_pixel_error": 0.271,
+    "different_pixels": 20442,
+    "total_pixels": 6020860
+  },
+  {
+    "viewport": "768x1024",
+    "file": "768x1024-full.png",
+    "original_size": [
+      768,
+      11411
+    ],
+    "local_size": [
+      768,
+      11411
+    ],
+    "percentage_difference": 0.443,
+    "mean_pixel_error": 0.218,
+    "different_pixels": 38787,
+    "total_pixels": 8763648
+  }
+]

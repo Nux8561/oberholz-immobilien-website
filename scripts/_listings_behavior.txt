@@ -1,0 +1,9 @@
+ert; Wrapper wie regio/objekte.php hatten dadurch gar keine Opacity-Regel fuer .immo-img-secondary, wodurch das per JS nachgeladene Bild nach dem Hover sichtbar blieb (kein Revert bei mouseout, da :hover mangels CSS-Re
+
+g-secondary { opacity: 1; } .immo-card:hover .immo-img-primary { opacity: 0; } .immo-card:hover .immo-img img { transform: scale(1.05); }}</style><script>(function () { /* Hover-Bild je Objektkarte erst bei ec
+
+per closest('.immo-img') vom Event-Target aus. */ var geladen = new WeakSet(); function laden(box) { if (!box || geladen.has(box)) { return; }
+
+ var tpl = box.querySelector('.immo-img-secondary-tpl'); if (!tpl) { return; } geladen.add(box); box.appendChild(tpl.content.cloneNode(true)); } function behandeln(e) { var 
+
+card = e.target.closest && e.target.closest('.immo-card'); var box = card && card.querySelector('.immo-img'); if (box) { laden(box); } } ['mouseover', 'pointerover', 'touchsta

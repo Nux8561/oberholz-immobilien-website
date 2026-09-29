@@ -1,0 +1,5 @@
+function render(msg) { /* layout='custom' → nur der gelieferte Body; sonst Default-Visitenkarte mit Ute Schorpp */ var isCustom = msg.layout === 'custom'; var card = document.createElement('div'); card.className = 'sp-ms
+---
+pan class="sp-msg-aside-bg bg-overlay-title opacity-08"></span>' + '<img src="' + teamImg + '" alt="Ute Schorpp" loading="lazy">' + '<div class="sp-msg-person"><span class="sp-msg-name">Ute Schorpp</span><span class="sp-
+---
+Img + '" alt="Ute Schorpp" loading="lazy">' + '<div class="sp-msg-person"><span class="sp-msg-name">Ute Schorpp</span><span class="sp-msg-role">Teamleiterin Kundenberatung</span></div>' + '</div>'; } html += '<div class=

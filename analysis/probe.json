@@ -1,0 +1,1736 @@
+{
+  "title": "Ihr Partner für den erfolgreichen Immobilienverkauf",
+  "htmlClass": "",
+  "bodyClass": "",
+  "scrollHeight": 8844,
+  "bodyFont": "Roboto, sans-serif",
+  "bodySize": "16px",
+  "bodyColor": "rgb(91, 89, 90)",
+  "bodyBg": "rgb(255, 255, 255)",
+  "headings": [
+    {
+      "tag": "H1",
+      "className": "mb-2",
+      "text": "Ihr Immobilienmakler mit 360°-Energie-Kompetenz",
+      "box": {
+        "x": 162,
+        "y": 278,
+        "w": 641,
+        "h": 88
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Verkaufen oder vermieten?",
+      "box": {
+        "x": 335,
+        "y": 1917,
+        "w": 770,
+        "h": 37
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Um welche Art Wohn-Immobilie handelt es sich?",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Anzahl der Wohneinheiten",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Wie groß ist das Grundstück?",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Wie groß ist die Nutzfläche?",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Um welche Art von Gewerbe handelt es sich?",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Möchten Sie verkaufen oder vermieten?",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "iwf-q",
+      "text": "Wie können wir Sie erreichen?",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "H2",
+      "className": "mt-3 mb-2",
+      "text": "Ihr Energieausweis: bei Beauftragung komplett kostenlos",
+      "box": {
+        "x": 210,
+        "y": 2910,
+        "w": 672,
+        "h": 106
+      }
+    },
+    {
+      "tag": "H2",
+      "className": "mt-3 mb-2",
+      "text": "360°-Immobilien-Service: mehr als ein klassischer Makler",
+      "box": {
+        "x": 744,
+        "y": 3661,
+        "w": 485,
+        "h": 158
+      }
+    },
+    {
+      "tag": "H2",
+      "className": "pb-4",
+      "text": "So verkaufen wir Ihre Immobilie",
+      "box": {
+        "x": 162,
+        "y": 4622,
+        "w": 1116,
+        "h": 77
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold",
+      "text": "Bewertung & Energie-Analyse",
+      "box": {
+        "x": 187,
+        "y": 4783,
+        "w": 211,
+        "h": 48
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold",
+      "text": "Exposé & komplette Unterlagen",
+      "box": {
+        "x": 472,
+        "y": 4783,
+        "w": 211,
+        "h": 48
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold",
+      "text": "Vermarktung & Besichtigungen",
+      "box": {
+        "x": 757,
+        "y": 4783,
+        "w": 211,
+        "h": 48
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold",
+      "text": "Finanzierung, Verhandlung & Notar",
+      "box": {
+        "x": 1042,
+        "y": 4783,
+        "w": 211,
+        "h": 48
+      }
+    },
+    {
+      "tag": "H2",
+      "className": "pb-1",
+      "text": "Aktuelle Immobilien aus unserer Vermittlung",
+      "box": {
+        "x": 162,
+        "y": 5140,
+        "w": 1116,
+        "h": 57
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold lh-base title-2lines mb-3 title-color",
+      "text": "Attraktive sowie geräumige Wohnung im Zweifamilienhaus. Ideal für die große Familie",
+      "box": {
+        "x": 186,
+        "y": 5604,
+        "w": 308,
+        "h": 90
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold lh-base title-2lines mb-3 title-color",
+      "text": "Kleines Handwerkerhaus zur Kernsanierung",
+      "box": {
+        "x": 566,
+        "y": 5604,
+        "w": 308,
+        "h": 60
+      }
+    },
+    {
+      "tag": "H3",
+      "className": "h5 fw-bold lh-base title-2lines mb-3 title-color",
+      "text": "Geräumiges Einfamilienhaus mit viel Potential",
+      "box": {
+        "x": 946,
+        "y": 5589,
+        "w": 308,
+        "h": 60
+      }
+    },
+    {
+      "tag": "H2",
+      "className": "pb-1",
+      "text": "Unsere Broschüren und Leitfäden",
+      "box": {
+        "x": 162,
+        "y": 6785,
+        "w": 1116,
+        "h": 57
+      }
+    },
+    {
+      "tag": "H2",
+      "className": "mb-4",
+      "text": "Partner",
+      "box": {
+        "x": 150,
+        "y": 7687,
+        "w": 1140,
+        "h": 53
+      }
+    }
+  ],
+  "sections": [
+    {
+      "tag": "HEADER",
+      "id": "",
+      "className": "main-header",
+      "text": "Beratung & Förderungen: 0800 - 220 33 30 Gebührenfrei Sehr gut4.9/5 🏆 BAFA-zertifizierte Energieberater | 🇩🇪 Förderexperten des Bundes Immobilien Leistungen immotipp Service Rat",
+      "box": {
+        "x": 0,
+        "y": 24,
+        "w": 1440,
+        "h": 86
+      }
+    },
+    {
+      "tag": "NAV",
+      "id": "navbar",
+      "className": "navbar navbar-expand-xl navigation",
+      "text": "Immobilien Leistungen immotipp Service Ratgeber Über uns Kontakt",
+      "box": {
+        "x": 0,
+        "y": 24,
+        "w": 1440,
+        "h": 86
+      }
+    },
+    {
+      "tag": "MAIN",
+      "id": "",
+      "className": "",
+      "text": "🥇 Deutschlandweit einmalig: 360° Immobilien-Service Ihr Immobilienmakler mit 360°-Energie-Kompetenz Immobilienvermittlung, Energieberatung und Planungsleistungen aus einer Hand. P",
+      "box": {
+        "x": 0,
+        "y": 110,
+        "w": 1440,
+        "h": 7744
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "banner headbanner regio-hero overflow-hidden",
+      "text": "🥇 Deutschlandweit einmalig: 360° Immobilien-Service Ihr Immobilienmakler mit 360°-Energie-Kompetenz Immobilienvermittlung, Energieberatung und Planungsleistungen aus einer Hand. P",
+      "box": {
+        "x": 0,
+        "y": 110,
+        "w": 1440,
+        "h": 693
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "module-5193",
+      "className": "text-area bg-gray mt-0 mb-0 pt-4 pb-0 ",
+      "text": "",
+      "box": {
+        "x": 0,
+        "y": 803,
+        "w": 1440,
+        "h": 236
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "module-5192",
+      "className": "hotspots bg-gray mt-0 mb-0",
+      "text": "Gutachten Verkehrsgutachten Mietwertgutachten Planungsleistungen 3D-Visualisierung Grundrisse & Ansichten Wohnflächenberechnung Vermarktung Social Media Portale & Medien Foto- / Vi",
+      "box": {
+        "x": 0,
+        "y": 1014,
+        "w": 1440,
+        "h": 768
+      }
+    },
+    {
+      "tag": "FORM",
+      "id": "iwf-form",
+      "className": "",
+      "text": "IMMOBILIEN-VERMITTLUNG Verkaufen oder vermieten? Welche Art von Immobilie möchten Sie verkaufen oder vermieten? Wohnhaus Wohnung Gewerbe Grundstück Sonstiges",
+      "box": {
+        "x": 335,
+        "y": 1886,
+        "w": 770,
+        "h": 733
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step is-active",
+      "text": "IMMOBILIEN-VERMITTLUNG Verkaufen oder vermieten? Welche Art von Immobilie möchten Sie verkaufen oder vermieten? Wohnhaus Wohnung Gewerbe Grundstück Sonstiges",
+      "box": {
+        "x": 335,
+        "y": 1886,
+        "w": 770,
+        "h": 664
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Um welche Art Wohn-Immobilie handelt es sich? Bitte wählen Sie die passende Kategorie. EinfamilienhausReihenhausDoppelhaus / HälfteMehrfamilienhausWohn- & Geschäftshaus",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Anzahl der Wohneinheiten Wie viele Wohnungen umfasst das Objekt? −1Einheit+1234610 Weiter",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Wie groß ist das Grundstück? Ziehen Sie den Regler oder wählen Sie einen Richtwert. 500m²50 m²2000+ m²200 m²500 m²800 m²1200 m²500 Weiter",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Wie groß ist die Nutzfläche? Ziehen Sie den Regler oder wählen Sie einen Richtwert. 90m²20 m²400+ m²60 m²90 m²120 m²160 m²90 Weiter",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Um welche Art von Gewerbe handelt es sich? Bitte wählen Sie die passende Kategorie. ProduktionLager / LogistikBüro / PraxisHandelSonstiges",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Möchten Sie verkaufen oder vermieten? Mehrfachauswahl möglich. Verkaufen Vermieten Weiter",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "iwf-step",
+      "text": "Fast geschafft Wie können wir Sie erreichen? Ihre Daten werden vertraulich behandelt und nicht weitergegeben. Name * Ort der Immobilie * Telefon * E-Mail * Wann erreichen wir Sie a",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "py-5",
+      "text": "UNSER DANKESCHÖN FÜR IHREN AUFTRAG Ihr Energieausweis: bei Beauftragung komplett kostenlos Beauftragen Sie uns mit dem Verkauf oder der Vermietung Ihrer Immobilie, erstellt unser z",
+      "box": {
+        "x": 0,
+        "y": 2749,
+        "w": 1440,
+        "h": 751
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "py-5 bg-light",
+      "text": "DEUTSCHLANDWEIT EINMALIG 360°-Immobilien-Service: mehr als ein klassischer Makler Ein konventioneller Makler inseriert und vermittelt. Wir beurteilen Ihre Immobilie zusätzlich als ",
+      "box": {
+        "x": 0,
+        "y": 3500,
+        "w": 1440,
+        "h": 1075
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "py-5",
+      "text": "So verkaufen wir Ihre Immobilie SCHRITT 1 Bewertung & Energie-Analyse Marktgerechte Einwertung plus energetische Einordnung durch zertifizierte Energieberater, die Basis für Preis ",
+      "box": {
+        "x": 0,
+        "y": 4574,
+        "w": 1440,
+        "h": 518
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "py-5 bg-light",
+      "text": "Aktuelle Immobilien aus unserer Vermittlung Ein Auszug aus unseren aktuellen Objekten in ganz Deutschland. Ausweis folgt Wohnung Kauf 78148 Gütenbach Baden-Württemberg Attraktive s",
+      "box": {
+        "x": 0,
+        "y": 5092,
+        "w": 1440,
+        "h": 918
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "bg-white pt-4",
+      "text": "Immobilien Experten ist bekannt aus:",
+      "box": {
+        "x": 0,
+        "y": 6010,
+        "w": 1440,
+        "h": 76
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "",
+      "className": "py-5",
+      "text": "Unsere Broschüren und Leitfäden Lernen Sie uns in Ruhe kennen: unser 360°-Immobilien-Service, unsere Energieberatung und unsere Leitfäden für Eigentümer und Erben. 360° Immobilien-",
+      "box": {
+        "x": 0,
+        "y": 6737,
+        "w": 1440,
+        "h": 920
+      }
+    },
+    {
+      "tag": "FOOTER",
+      "id": "",
+      "className": "footer section gray-bg pt-5 pb-2 pb-sm-5 border-1 border-top border-light ",
+      "text": "Die Immobilien Experten verbinden Immobilienvermittlung mit einzigartiger Energiekompetenz. Wir ermitteln den realistischen Marktwert, bereiten alle Unterlagen von Grundrissen bis ",
+      "box": {
+        "x": 0,
+        "y": 7854,
+        "w": 1440,
+        "h": 990
+      }
+    }
+  ],
+  "links": [
+    {
+      "text": "",
+      "href": "#typeform-rating-origin-collapse"
+    },
+    {
+      "text": "Keine Auswahl (Hinweis nicht mehr anzeigen)",
+      "href": null
+    },
+    {
+      "text": "0800 - 220 33 30",
+      "href": "tel://+498002203330"
+    },
+    {
+      "text": "",
+      "href": "/"
+    },
+    {
+      "text": "Immobilien",
+      "href": "/immobilien.html"
+    },
+    {
+      "text": "Leistungen",
+      "href": "/leistungen.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/vermietung-und-verpachtung.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/immobilienverkauf.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/immobilienfinanzierung.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/immobilienvermarktung.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/immobilienbewertung.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/energieberatung.html"
+    },
+    {
+      "text": "",
+      "href": "/leistungen/energieausweis-kostenlos.html"
+    },
+    {
+      "text": "immotipp",
+      "href": "/immotipp.html"
+    },
+    {
+      "text": "Service",
+      "href": "/service.html"
+    },
+    {
+      "text": "",
+      "href": "/service.html"
+    },
+    {
+      "text": "",
+      "href": "/service/finanzierungsrechner.html"
+    },
+    {
+      "text": "",
+      "href": "/service/kann-ich-kaufen.html"
+    },
+    {
+      "text": "",
+      "href": "/service/wert-hebel-rechner.html"
+    },
+    {
+      "text": "Ratgeber",
+      "href": "/ratgeber.html"
+    },
+    {
+      "text": "Über uns",
+      "href": "/ueber-uns.html"
+    },
+    {
+      "text": "",
+      "href": "/ueber-uns.html"
+    },
+    {
+      "text": "",
+      "href": "/ueber-uns/qualifikation.html"
+    },
+    {
+      "text": "",
+      "href": "/ueber-uns/iso-9001-zertifizierung.html"
+    },
+    {
+      "text": "Kontakt",
+      "href": "/kontakt/kontakt-aufnehmen.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/kontakt-aufnehmen.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/kontakt-aufnehmen.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-hamburg.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-duesseldorf.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-hannover.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-stuttgart.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-villingen-schwenningen.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-frankfurt-am-main.html"
+    },
+    {
+      "text": "",
+      "href": "/kontakt/immobilienmakler-muenchen.html"
+    },
+    {
+      "text": "",
+      "href": "/"
+    },
+    {
+      "text": "Immobilien",
+      "href": "/immobilien.html"
+    },
+    {
+      "text": "Leistungen",
+      "href": "#collapse-lev1-699"
+    },
+    {
+      "text": "Leistungenim Überblick",
+      "href": "/leistungen.html"
+    },
+    {
+      "text": "Vermietung und VerpachtungSolvente Mieter finden und rechtssicher vermieten",
+      "href": "/leistungen/vermietung-und-verpachtung.html"
+    },
+    {
+      "text": "ImmobilienverkaufBegleitet von der Bewertung bis zum Notartermin",
+      "href": "/leistungen/immobilienverkauf.html"
+    },
+    {
+      "text": "ImmobilienfinanzierungBeratung zur passenden Finanzierung Ihres Vorhabens",
+      "href": "/leistungen/immobilienfinanzierung.html"
+    },
+    {
+      "text": "ImmobilienvermarktungStarke Exposés, Fotos und Reichweite für Ihr Objekt",
+      "href": "/leistungen/immobilienvermarktung.html"
+    },
+    {
+      "text": "ImmobilienbewertungMarktgerechter Wert, fundiert und nachvollziehbar",
+      "href": "/leistungen/immobilienbewertung.html"
+    },
+    {
+      "text": "EnergieberatungEnergieausweis, Förderung und Sanierungsfahrplan",
+      "href": "/leistungen/energieberatung.html"
+    },
+    {
+      "text": "Energieausweis kostenlosBei Beauftragung inklusive: Energieausweis vom zertifizi",
+      "href": "/leistungen/energieausweis-kostenlos.html"
+    },
+    {
+      "text": "immotipp",
+      "href": "/immotipp.html"
+    },
+    {
+      "text": "Service",
+      "href": "#collapse-lev1-1207"
+    },
+    {
+      "text": "Serviceim Überblick",
+      "href": "/service.html"
+    },
+    {
+      "text": "FinanzierungsrechnerMonatsrate, Zinskosten und Laufzeit direkt berechnen",
+      "href": "/service/finanzierungsrechner.html"
+    },
+    {
+      "text": "Kann ich kaufen?In zwei Minuten zum realistischen Kaufbudget",
+      "href": "/service/kann-ich-kaufen.html"
+    },
+    {
+      "text": "Wert-Hebel-RechnerWas Modernisierung beim Verkaufswert bewirken kann",
+      "href": "/service/wert-hebel-rechner.html"
+    },
+    {
+      "text": "Ratgeber",
+      "href": "/ratgeber.html"
+    },
+    {
+      "text": "Über uns",
+      "href": "#collapse-lev1-547"
+    },
+    {
+      "text": "Über unsim Überblick",
+      "href": "/ueber-uns.html"
+    },
+    {
+      "text": "QualifikationUnsere Abschlüsse, Zulassungen und Zertifizierungen im Überblick",
+      "href": "/ueber-uns/qualifikation.html"
+    },
+    {
+      "text": "ISO 9001 ZertifizierungQualitätsmanagement nach DIN EN ISO 9001, TÜV-Zertifizier",
+      "href": "/ueber-uns/iso-9001-zertifizierung.html"
+    },
+    {
+      "text": "Kontakt",
+      "href": "#collapse-lev1-707"
+    },
+    {
+      "text": "Kontaktim Überblick",
+      "href": "/kontakt/kontakt-aufnehmen.html"
+    },
+    {
+      "text": "Kontakt aufnehmen",
+      "href": "/kontakt/kontakt-aufnehmen.html"
+    },
+    {
+      "text": "Immobilienmakler Hamburg",
+      "href": "/kontakt/immobilienmakler-hamburg.html"
+    },
+    {
+      "text": "Immobilienmakler Düsseldorf",
+      "href": "/kontakt/immobilienmakler-duesseldorf.html"
+    },
+    {
+      "text": "Immobilienmakler Hannover",
+      "href": "/kontakt/immobilienmakler-hannover.html"
+    },
+    {
+      "text": "Immobilienmakler Stuttgart",
+      "href": "/kontakt/immobilienmakler-stuttgart.html"
+    },
+    {
+      "text": "Immobilienmakler Villingen-Schwenningen",
+      "href": "/kontakt/immobilienmakler-villingen-schwenningen.html"
+    },
+    {
+      "text": "Immobilienmakler Frankfurt am Main",
+      "href": "/kontakt/immobilienmakler-frankfurt-am-main.html"
+    },
+    {
+      "text": "Immobilienmakler München",
+      "href": "/kontakt/immobilienmakler-muenchen.html"
+    },
+    {
+      "text": "0800 - 220 33 30",
+      "href": "tel:+498002203330"
+    },
+    {
+      "text": "info@immobilien-experten.de",
+      "href": "mailto:info@immobilien-experten.de"
+    },
+    {
+      "text": "0800 - 220 33 30",
+      "href": "tel:+498002203330"
+    },
+    {
+      "text": "0800 - 220 33 30",
+      "href": "tel:+498002203330"
+    },
+    {
+      "text": "VERKAUF ODER VERMIETUNG ANFRAGEN",
+      "href": "#regio-funnel"
+    },
+    {
+      "text": "ANRUFEN: 0800 - 220 33 30",
+      "href": "tel:08002203330"
+    },
+    {
+      "text": "Datenschutzerklärung",
+      "href": "/datenschutzerklaerung.html"
+    },
+    {
+      "text": "VERKAUF ODER VERMIETUNG ANFRAGEN",
+      "href": "#regio-funnel"
+    },
+    {
+      "text": "Mehr zum kostenlosen Energieausweis",
+      "href": "/leistungen/energieausweis-kostenlos.html"
+    },
+    {
+      "text": "Attraktive sowie geräumige Wohnung im Zweifamilienhaus. Ideal für die große Fami",
+      "href": "/immobilien/guetenbach/attraktive-sowie-geraeumige-wohnung-im-zweifamilienhaus-ideal-fuer-die-grosse-familie-6153157.html"
+    },
+    {
+      "text": "Kleines Handwerkerhaus zur Kernsanierung",
+      "href": "/immobilien/zizishausen-nuertingen/kleines-handwerkerhaus-zur-kernsanierung-5910483.html"
+    },
+    {
+      "text": "Geräumiges Einfamilienhaus mit viel Potential",
+      "href": "/immobilien/oberteuringen-bitzenhofen/geraeumiges-einfamilienhaus-mit-viel-potential-6007149.html"
+    },
+    {
+      "text": "ALLE AKTUELLEN IMMOBILIEN ANSEHEN",
+      "href": "/immobilien.html"
+    },
+    {
+      "text": "In welchen Regionen sind die EE-Experten als Immobilienmakler tätig?",
+      "href": "#collapse-3307-1"
+    },
+    {
+      "text": "Unterstützen Sie auch Käufer oder Mieter bei der Auswahl?",
+      "href": "#collapse-3307-2"
+    },
+    {
+      "text": "Vermitteln Sie nur energieeffiziente Immobilien?",
+      "href": "#collapse-3307-3"
+    },
+    {
+      "text": "Warum vermittelt EE-Experten jetzt auch Immobilien?",
+      "href": "#collapse-3307-4"
+    },
+    {
+      "text": "Was unterscheidet EE-Experten von klassischen Maklern?",
+      "href": "#collapse-3307-5"
+    },
+    {
+      "text": "Welche Vorteile habe ich als Verkäufer durch Ihre Energiekompetenz?",
+      "href": "#collapse-3307-6"
+    },
+    {
+      "text": "Wie läuft die Zusammenarbeit mit EE-Experten bei der Immobilienvermittlung ab?",
+      "href": "#collapse-3307-7"
+    },
+    {
+      "text": "DOWNLOAD",
+      "href": "/media/broschuere_ee-immobilien_web.pdf"
+    },
+    {
+      "text": "DOWNLOAD",
+      "href": "/media/broschuere_ee-experten_web.pdf"
+    },
+    {
+      "text": "ANFORDERN",
+      "href": "/whitepaper-generationenwechsel.html"
+    },
+    {
+      "text": "ANFORDERN",
+      "href": "/erben-kompass.html"
+    },
+    {
+      "text": "ANFORDERN",
+      "href": "/whitepaper-sanieren-vor-dem-verkauf.html"
+    },
+    {
+      "text": "ANFORDERN",
+      "href": "/whitepaper-unterlagen-und-finanzierung.html"
+    },
+    {
+      "text": "ANFORDERN",
+      "href": "/whitepaper-leerstand-vermietung-oder-verkauf.html"
+    },
+    {
+      "text": "ANFORDERN",
+      "href": "/whitepaper-wohnwechsel-im-alter.html"
+    },
+    {
+      "text": "",
+      "href": "https://www.immowelt.de/profil/ee-experten"
+    },
+    {
+      "text": "",
+      "href": "https://www.immobilienscout24.de/anbieter/profil/ee-experten-gmbh"
+    },
+    {
+      "text": "0800 - 220 33 30",
+      "href": "tel:+498002203330"
+    },
+    {
+      "text": "E-MAIL",
+      "href": "mailto:info@immobilien-experten.de?subject=Kontaktanfrage%20von%20Immobilien Experten&body=Hallo,%0A%0Aich%20habe%20folgende%20Frage:%0A"
+    },
+    {
+      "text": "» Energieeffizienz Experten",
+      "href": "https://www.ee-experten.com"
+    },
+    {
+      "text": "» Immobilienwert Experten",
+      "href": "https://www.immobilienwert-experten.com"
+    },
+    {
+      "text": "» .mattomedia Werbeagentur",
+      "href": "https://www.mattomedia.de"
+    },
+    {
+      "text": "info@immobilien-experten.de",
+      "href": "mailto:info@immobilien-experten.de"
+    },
+    {
+      "text": "0800 - 220 33 30",
+      "href": "tel:+498002203330"
+    },
+    {
+      "text": "",
+      "href": "https://www.youtube.com/@jonaspischner"
+    },
+    {
+      "text": "EE-Experten YouTube-Channel",
+      "href": "https://www.youtube.com/@jonaspischner"
+    },
+    {
+      "text": "Impressum",
+      "href": "/impressum.html"
+    },
+    {
+      "text": "Datenschutz",
+      "href": "/datenschutzerklaerung.html"
+    },
+    {
+      "text": "Unsere Regionen",
+      "href": "/regionen.html"
+    },
+    {
+      "text": "Erfahrungen & Bewertungen",
+      "href": "https://www.ee-experten.com/erfahrungen-und-bewertungen.html?bundesland=immo"
+    },
+    {
+      "text": "Dokumente & Downloads",
+      "href": "/dokumente-downloads.html"
+    },
+    {
+      "text": "Immopedia",
+      "href": "/immopedia.html"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "className": "btn-close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "navbar-toggler collapsed border-0",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "nav-flyout-close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "nav-flyout-close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "nav-flyout-close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "nav-flyout-close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "p-2 btn-close opacity-50",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "cw-trigger-hidden",
+      "type": null
+    },
+    {
+      "text": "✕",
+      "className": "",
+      "type": null
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hs-card__chevron",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "className": "hotspot-sheet__close",
+      "type": "button"
+    },
+    {
+      "text": "Wohnhaus",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Wohnung",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Gewerbe",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Grundstück",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Sonstiges",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Einfamilienhaus",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Reihenhaus",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Doppelhaus / Hälfte",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Mehrfamilienhaus",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Wohn- & Geschäftshaus",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "−",
+      "className": "iwf-stepper__btn",
+      "type": "button"
+    },
+    {
+      "text": "+",
+      "className": "iwf-stepper__btn",
+      "type": "button"
+    },
+    {
+      "text": "1",
+      "className": "iwf-quick__chip is-active",
+      "type": "button"
+    },
+    {
+      "text": "2",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "3",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "4",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "6",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "10",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "Weiter",
+      "className": "iwf-btn iwf-weiter",
+      "type": "button"
+    },
+    {
+      "text": "200 m²",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "500 m²",
+      "className": "iwf-quick__chip is-active",
+      "type": "button"
+    },
+    {
+      "text": "800 m²",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "1200 m²",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "Weiter",
+      "className": "iwf-btn iwf-weiter",
+      "type": "button"
+    },
+    {
+      "text": "60 m²",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "90 m²",
+      "className": "iwf-quick__chip is-active",
+      "type": "button"
+    },
+    {
+      "text": "120 m²",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "160 m²",
+      "className": "iwf-quick__chip",
+      "type": "button"
+    },
+    {
+      "text": "Weiter",
+      "className": "iwf-btn iwf-weiter",
+      "type": "button"
+    },
+    {
+      "text": "Produktion",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Lager / Logistik",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Büro / Praxis",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Handel",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Sonstiges",
+      "className": "iwf-choice",
+      "type": "button"
+    },
+    {
+      "text": "Weiter",
+      "className": "iwf-btn iwf-weiter-plain",
+      "type": "button"
+    },
+    {
+      "text": "← Zurück",
+      "className": "iwf-back",
+      "type": "button"
+    },
+    {
+      "text": "Anfrage absenden →",
+      "className": "iwf-btn",
+      "type": "submit"
+    },
+    {
+      "text": "",
+      "className": "iwf-back",
+      "type": "button"
+    }
+  ],
+  "imgs": [
+    {
+      "src": "https://www.immobilien-experten.de/media/ie_logo.svg",
+      "alt": "Logo Immobilien Experten",
+      "w": 300,
+      "h": 74,
+      "className": "d-block d-md-none"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/ie_logo.svg",
+      "alt": "Logo Immobilien Experten",
+      "w": 300,
+      "h": 74,
+      "className": "d-none d-md-block"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/mediatypes/logonavi/bmwi_eneffi_keyvis_rgb_1.png",
+      "alt": "Deutschland machts effizient Logo",
+      "w": 150,
+      "h": 108,
+      "className": "d-block d-lg-none"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/pillar-card/muenchen.jpg",
+      "alt": "Kontakt im Überblick",
+      "w": 250,
+      "h": 120,
+      "className": "nav-overview-img"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/mediatypes/logonavi/bmwi_eneffi_keyvis_rgb_1.png",
+      "alt": "Deutschland machts effizient Logo",
+      "w": 150,
+      "h": 108,
+      "className": "effizienz-logo"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/ie_logo.svg",
+      "alt": "Logo Immobilien Experten",
+      "w": 300,
+      "h": 74,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/pillar-card/muenchen.jpg",
+      "alt": "Kontakt im Überblick",
+      "w": 250,
+      "h": 120,
+      "className": "ocv-overview__img"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/contentimg/32697_3_3.png",
+      "alt": "Wüstenrot Energieberatung Logo",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid w-100"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/videocard_avatar/streit_facepile.jpg",
+      "alt": "Kersten Streit",
+      "w": 220,
+      "h": 220,
+      "className": "img-rounded"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/bannerright-1440/t7a3420.png",
+      "alt": "Kersten Streit - Leitung Immobilienverkauf",
+      "w": 720,
+      "h": 985,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/bannerright-1440/t7a7913_1.png",
+      "alt": "Axel Winkler - Gebietsleiter Immobilienverkauf",
+      "w": 720,
+      "h": 818,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/bannerright-1440/t7a7897.png",
+      "alt": "Wolfgang Mayer - Gebietsleiter Immobilienverkauf",
+      "w": 720,
+      "h": 831,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/bannerright-1440/t7a0115_kopie.png",
+      "alt": "René Mohr - Gebietsleiter Immobilienverkauf",
+      "w": 720,
+      "h": 921,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/bannerright-1440/t7a9283_kopie.png",
+      "alt": "Christian Munz - Gebietsleiter Immobilienverkauf",
+      "w": 720,
+      "h": 1029,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/headline_360_kopie.svg",
+      "alt": "",
+      "w": 300,
+      "h": 59,
+      "className": "img-fluid w-100 mx-auto d-block my-3"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/focuspoint_media_detail/haus360.png",
+      "alt": "",
+      "w": 1024,
+      "h": 683,
+      "className": "img-fluid w-100 rounded-4 hotspot-main-img"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/images/contentimg2/haus360_web.jpg",
+      "alt": "360° Immobilien-Service: alle Leistungen rund um Ihre Immobilie",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/object-thumbnail-780/6153157_000.jpg",
+      "alt": "Attraktive sowie geräumige Wohnung im Zweifamilienhaus. Ideal für die große Familie",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid w-100 h-100 object-fit-cover immo-img-primary"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/object-thumbnail-780/5910483_000.jpg",
+      "alt": "Kleines Handwerkerhaus zur Kernsanierung",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid w-100 h-100 object-fit-cover immo-img-primary"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/object-thumbnail-780/6007149_000.jpg",
+      "alt": "Geräumiges Einfamilienhaus mit viel Potential",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid w-100 h-100 object-fit-cover immo-img-primary"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/ard_logo_2019.svg",
+      "alt": "ARD Logo",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/prosieben_logo.svg",
+      "alt": "Logo Pro7",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/galileo_logo.svg",
+      "alt": "Logo Galileo",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/logo-rtl.svg",
+      "alt": "Logo RTL",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/neues_sat-_1_logo_transparent.png",
+      "alt": "Logo Sat1",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/logo-swr.svg",
+      "alt": "Logo SWR",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/logo-kabel_1.svg",
+      "alt": "Logo Kabel 1",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/logo_antenne_1.svg",
+      "alt": "Logo Antenne 1",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/logo-sz.svg",
+      "alt": "Logo Süddeutsche Zeitung",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/kleinanzeigen.svg",
+      "alt": "Kleinanzeigen Logo",
+      "w": 787,
+      "h": 132,
+      "className": ""
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/flowfact.png",
+      "alt": "FLOWFACT Logo",
+      "w": 164,
+      "h": 26,
+      "className": ""
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/immowelt.png",
+      "alt": "Immonet Logo",
+      "w": 1920,
+      "h": 443,
+      "className": ""
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/immoscout.png",
+      "alt": "ImmoScout24 Logo",
+      "w": 330,
+      "h": 199,
+      "className": ""
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/ie_logo.svg",
+      "alt": "Logo Immobilien Experten",
+      "w": 300,
+      "h": 74,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/wuestenrot_bank_201x_logo.svg",
+      "alt": "Die EE-Experten GmbH kooperiert mit Wüstenrot",
+      "w": 0,
+      "h": 0,
+      "className": "img-fluid"
+    },
+    {
+      "src": "https://www.immobilien-experten.de/media/play.svg",
+      "alt": "YouTube-Logo EE-Experten",
+      "w": 0,
+      "h": 0,
+      "className": ""
+    }
+  ],
+  "stylesheets": [
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/style.css?v=1773318545",
+    "https://www.immobilien-experten.de/assets/addons/plyr/vendor/plyr/dist/plyr.css?v=1727455808",
+    "https://www.immobilien-experten.de/assets/addons/mf_typeform/swiper-bundle.min.css?v=1696607867",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/service-selektor.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/tables.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/toc.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/button-glow.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/autolinker.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/container-collapse.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/feature.min.css?v=1778841604",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/text-mehrspaltig.min.css?v=1788443889",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/about.min.css?v=1778841605",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/counter.min.css?v=1778841605",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/team.min.css?v=1778841605",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/service.min.css?v=1778841605",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/department.min.css?v=1778841606",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/cta.min.css?v=1778841606",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/contact.min.css?v=1788444532",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/blog.min.css?v=1778841606",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/single-post.min.css?v=1778841606",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/blog-sidebar.min.css?v=1778841607",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/footer.min.css?v=1778841607",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/ee-wizard.min.css?v=1778841607",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/calculator.min.css?v=1778841607",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/rangeslider.min.css?v=1778841607",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/typeform-ratings-schema.min.css?v=1778841607",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/whatsapp-cta-footer.min.css?v=1778841608",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/piggy.min.css?v=1778841608",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/comparison-table.min.css?v=1778841608",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/kooperationspartner.min.css?v=1778841608",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/steps.min.css?v=1778841608",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/faq.min.css?v=1778841609",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/seo-map.min.css?v=1778841609",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/videocard.min.css?v=1778841609",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/quiz.min.css?v=1778841609",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/before-after.min.css?v=1778841609",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_shop.min.css?v=1778841609",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_countdown.min.css?v=1778841610",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_productcard.min.css?v=1778841610",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_cart.min.css?v=1778841610"
+  ],
+  "scripts": [
+    "https://www.googletagmanager.com/gtag/js?id=G-5708K8XJS6&cx=c&gtm=4e69i2",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js?v=1708442069",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/counterup.js?v=1756819175",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/hotspots.js?v=1782652594",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/table-of-contents.js?v=1769607064",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/container-collapse.js?v=1773152116",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/script-vanilla.js?v=1785363451",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/quiz.js?v=1761736798",
+    "https://www.immobilien-experten.de/assets/addons/mf_typeform/swiper-bundle.min.js?v=1696607880",
+    "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/before-after.js?v=1744363658",
+    "https://www.googletagmanager.com/gtm.js?id=GTM-M7QLTN7L"
+  ],
+  "vars": {
+    "--light": "rgba(255, 255, 255, 1)",
+    "--primary-color": "rgba(91, 89, 90, 1)",
+    "--secondary-color": "rgba(34, 58, 102, 1)",
+    "--secondary-color-dark": "rgba(38, 65, 113, 1)",
+    "--secondary-color-light": "rgba(53, 91, 159, 1)",
+    "--base-color": "rgba(91, 89, 90, 1)",
+    "--color-text-links": "rgba(34, 58, 102, 1)",
+    "--title-color": "rgba(34, 58, 102, 1)",
+    "--title-color-dark": "rgba(0, 0, 0, 1)",
+    "--title-color-light": "rgba(53, 91, 159, 1)",
+    "--black": "rgba(34, 34, 34, 1)",
+    "--gray": "rgba(235, 243, 247, 1)",
+    "--secondary-bg": "rgba(244, 249, 252, 1)",
+    "--border-color": "rgba(250, 250, 250, 1)",
+    "--primary-font": "'Lato', sans-serif",
+    "--secondary-font": "'Roboto', sans-serif",
+    "--grad-color": "linear-gradient(to bottom, rgba(34, 58, 102, 1), rgba(23, 37, 66, 1))",
+    "--bs-breakpoint-xs": "0",
+    "--bs-breakpoint-sm": "576px",
+    "--bs-breakpoint-md": "768px",
+    "--bs-breakpoint-lg": "992px",
+    "--bs-breakpoint-xl": "1200px",
+    "--bs-breakpoint-xxl": "1400px",
+    "--swiper-theme-color": "#007aff",
+    "--swiper-navigation-size": "44px",
+    "--mq-bg": "var(--title-color)",
+    "--mq-card": "#fff",
+    "--mq-correct": "rgba(79, 128, 0, 1)",
+    "--mq-wrong": "#ff3b3b",
+    "--mq-text": "#f3f3f3",
+    "--mq-border-radius": "0px",
+    "--mq-transition": "all 0.25s ease",
+    "--mq-accent": "rgba(79, 128, 0, 1)",
+    "--mq-bg-ring": "rgba(255, 255, 255, 0.1)",
+    "--mq-muted": "rgba(255, 255, 255, 0.6)"
+  },
+  "fonts": [
+    {
+      "family": "Lato",
+      "weight": "400",
+      "style": "normal",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-400.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Lato",
+      "weight": "400",
+      "style": "italic",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-italic-400.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Lato",
+      "weight": "700",
+      "style": "normal",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-700.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Roboto",
+      "weight": "400",
+      "style": "normal",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-400.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Roboto",
+      "weight": "400",
+      "style": "italic",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-400.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Roboto",
+      "weight": "500",
+      "style": "normal",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-500.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Roboto",
+      "weight": "500",
+      "style": "italic",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-500.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Roboto",
+      "weight": "600",
+      "style": "normal",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-600.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "Roboto",
+      "weight": "600",
+      "style": "italic",
+      "src": "local(\"\"), url(\"/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-600.woff2\") format(\"woff2\")"
+    },
+    {
+      "family": "custom-icons",
+      "weight": "normal",
+      "style": "normal",
+      "src": "url(\"fonts/custom-icons.ttf?bx3xp1\") format(\"truetype\"), url(\"fonts/custom-icons.woff?bx3xp1\") format(\"woff\")"
+    },
+    {
+      "family": "swiper-icons",
+      "weight": "400",
+      "style": "normal",
+      "src": "url(\"data:application/font-woff;charset=utf-8;base64, d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAA"
+    }
+  ],
+  "generator": null,
+  "request_count": 83,
+  "request_types": {
+    "document": 1,
+    "font": 7,
+    "stylesheet": 40,
+    "image": 22,
+    "script": 11,
+    "fetch": 2
+  }
+}

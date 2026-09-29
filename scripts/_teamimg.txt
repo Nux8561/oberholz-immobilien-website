@@ -1,0 +1,1 @@
+var teamImg = "\/media\/team\/team_schorpp.jpg"; var doPoll = false; var doPreview = false; var previewLayout = "default"; var overlay = document.getElementById('sp-msg-overlay'); var cards = document.getElementById('sp-msg-cards'); if (!overlay || !cards) { return; } /* Plain-Text sicher escapen (t

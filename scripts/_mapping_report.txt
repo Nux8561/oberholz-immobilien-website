@@ -1,0 +1,37 @@
+=== NAME MAPPING (old → Oberholz) ===
+  Kersten Streit  →  Michael Oberholz
+  Wolfgang Mayer  →  Felix Lesch
+  Axel Winkler  →  Michael Penn
+  René Mohr / Rene Mohr  →  Pascal Kopp
+  Christian Munz  →  Lubka Röger
+  Ute Schorpp  →  Lubka Röger
+
+=== BANNER SLOT ORDER (idx % 5 team cycle) ===
+  t7a0115_kopie.png → Michael Oberholz (michael-oberholz.png) exists=True ok (420, 560) mode=RGBA
+  t7a3306.png → Felix Lesch (felix-lesch.png) exists=True ok (420, 554) mode=RGBA
+  t7a3373.png → Michael Penn (michael-penn.png) exists=True ok (420, 560) mode=RGBA
+  t7a3420.png → Pascal Kopp (pascal-kopp.png) exists=True ok (420, 560) mode=RGBA
+  t7a7869.png → Lubka Röger (lubka-roeger.png) exists=True ok (420, 560) mode=RGBA
+  t7a7897.png → Michael Oberholz (michael-oberholz.png) exists=True ok (420, 560) mode=RGBA
+  t7a7913_1.png → Felix Lesch (felix-lesch.png) exists=True ok (420, 554) mode=RGBA
+  t7a9283_kopie.png → Michael Penn (michael-penn.png) exists=True ok (420, 560) mode=RGBA
+  t7a9489_copy.png → Pascal Kopp (pascal-kopp.png) exists=True ok (420, 560) mode=RGBA
+
+=== FACEPILE / TEAM FILES ===
+  facepile/profilbild_winkler.jpg → Michael Penn (was Axel Winkler) ok (480, 640) mode=RGB
+  facepile/profilbild_mayer.jpg → Felix Lesch (was Wolfgang Mayer) ok (480, 634) mode=RGB
+  facepile/streit_facepile.jpg → Michael Oberholz (was Kersten Streit) ok (480, 640) mode=RGB
+  facepile/team_mohr.jpg → Pascal Kopp (was René Mohr) ok (480, 640) mode=RGB
+  facepile/munz_ie.png → Lubka Röger (was Christian Munz) ok (480, 640) mode=RGBA
+  team/lubka-roeger.jpg → Lubka Röger (was Ute Schorpp slot) ok (480, 640) mode=RGB
+  team/team_schorpp.jpg → Lubka Röger (was Ute Schorpp) ok (480, 640) mode=RGB
+
+=== FELDE immobilienmakler: img src+alt (portrait-ish) ===
+  /media/facepile/profilbild_winkler.jpg | Michael Penn
+  /media/bannerright-780/t7a7913_1.png | Michael Penn - Immobilienberater
+  /media/bannerright-780/t7a7913_1.png | Michael Penn, Immobilienberater, Oberholz Immobilien
+
+=== CONSISTENCY NOTE ===
+Banner cycle idx: t7a7913_1 = index 6 → Felix Lesch
+Name replace: Axel Winkler → Michael Penn (often paired with winkler/t7a3373 or similar)
+If HTML alt says Penn next to t7a7913_1.png, alt/file can disagree — need fix.

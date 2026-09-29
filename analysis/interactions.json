@@ -1,0 +1,45 @@
+{
+  "notes": [
+    {
+      "action": "hover Leistungen",
+      "open_menus": 0
+    },
+    {
+      "action": "hover Service",
+      "open_menus": 0
+    },
+    {
+      "action": "hover Über uns",
+      "open_menus": 0
+    },
+    {
+      "action": "hover Kontakt",
+      "open_menus": 0
+    },
+    {
+      "action": "form Wohnhaus",
+      "question": "Um welche Art Wohn-Immobilie handelt es sich?"
+    },
+    {
+      "action": "form Einfamilienhaus",
+      "question": "Anzahl der Wohneinheiten"
+    },
+    {
+      "action": "back visibility",
+      "visibility": "visible"
+    },
+    {
+      "action": "form back",
+      "question": "Um welche Art Wohn-Immobilie handelt es sich?"
+    },
+    {
+      "action": "faq first",
+      "expanded": "false"
+    },
+    {
+      "action": "mobile menu",
+      "visible": 1
+    }
+  ],
+  "leaks": []
+}

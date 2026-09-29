@@ -1,0 +1,1036 @@
+[
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/android-chrome-192x192-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/android-chrome-192x192-0c3161--16.png",
+    "status": "ok",
+    "bytes": 9833
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-114x114-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-114x114-0c3161--16.png",
+    "status": "ok",
+    "bytes": 5655
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-120x120-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-120x120-0c3161--16.png",
+    "status": "ok",
+    "bytes": 5971
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-144x144-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-144x144-0c3161--16.png",
+    "status": "ok",
+    "bytes": 7279
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-152x152-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-152x152-0c3161--16.png",
+    "status": "ok",
+    "bytes": 7638
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-180x180-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-180x180-0c3161--16.png",
+    "status": "ok",
+    "bytes": 9072
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-57x57-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-57x57-0c3161--16.png",
+    "status": "ok",
+    "bytes": 2685
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-60x60-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-60x60-0c3161--16.png",
+    "status": "ok",
+    "bytes": 2816
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-72x72-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-72x72-0c3161--16.png",
+    "status": "ok",
+    "bytes": 3413
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/apple-touch-icon-76x76-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/apple-touch-icon-76x76-0c3161--16.png",
+    "status": "ok",
+    "bytes": 3610
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon--16.ico",
+    "local_path": "/assets/addons/be_branding/fe_favicon/favicon--16.ico",
+    "status": "ok",
+    "bytes": 85886
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-128x128-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/favicon-128x128-0c3161--16.png",
+    "status": "ok",
+    "bytes": 6410
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-16x16-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/favicon-16x16-0c3161--16.png",
+    "status": "ok",
+    "bytes": 1021
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-32x32-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/favicon-32x32-0c3161--16.png",
+    "status": "ok",
+    "bytes": 1870
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/favicon-96x96-0c3161--16.png",
+    "local_path": "/assets/addons/be_branding/fe_favicon/favicon-96x96-0c3161--16.png",
+    "status": "ok",
+    "bytes": 4734
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/be_branding/fe_favicon/manifest-0c3161--16.json",
+    "local_path": "/assets/addons/be_branding/fe_favicon/manifest-0c3161--16.json",
+    "status": "ok",
+    "bytes": 997
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/mf_typeform/swiper-bundle.min.css",
+    "local_path": "/assets/addons/mf_typeform/swiper-bundle.min.css",
+    "status": "ok",
+    "bytes": 18451
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/mf_typeform/swiper-bundle.min.js",
+    "local_path": "/assets/addons/mf_typeform/swiper-bundle.min.js",
+    "status": "ok",
+    "bytes": 143046
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/assets/addons/plyr/vendor/plyr/dist/plyr.css",
+    "local_path": "/assets/addons/plyr/vendor/plyr/dist/plyr.css",
+    "status": "ok",
+    "bytes": 32564
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/images/bg/slider-bg-1.jpg",
+    "local_path": "/images/bg/slider-bg-1.jpg",
+    "status": "http:404"
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/images/contentimg2/haus360_web.jpg",
+    "local_path": "/images/contentimg2/haus360_web.jpg",
+    "status": "ok",
+    "bytes": 134205
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/ard_logo_2019.svg",
+    "local_path": "/media/ard_logo_2019.svg",
+    "status": "ok",
+    "bytes": 3014
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1024/t7a0115_kopie.png",
+    "local_path": "/media/bannerright-1024/t7a0115_kopie.png",
+    "status": "ok",
+    "bytes": 647818
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1024/t7a3420.png",
+    "local_path": "/media/bannerright-1024/t7a3420.png",
+    "status": "ok",
+    "bytes": 683664
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1024/t7a7897.png",
+    "local_path": "/media/bannerright-1024/t7a7897.png",
+    "status": "ok",
+    "bytes": 653106
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1024/t7a7913_1.png",
+    "local_path": "/media/bannerright-1024/t7a7913_1.png",
+    "status": "ok",
+    "bytes": 407492
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1024/t7a9283_kopie.png",
+    "local_path": "/media/bannerright-1024/t7a9283_kopie.png",
+    "status": "ok",
+    "bytes": 753626
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1440/t7a0115_kopie.png",
+    "local_path": "/media/bannerright-1440/t7a0115_kopie.png",
+    "status": "ok",
+    "bytes": 614969
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1440/t7a3420.png",
+    "local_path": "/media/bannerright-1440/t7a3420.png",
+    "status": "ok",
+    "bytes": 649734
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1440/t7a7897.png",
+    "local_path": "/media/bannerright-1440/t7a7897.png",
+    "status": "ok",
+    "bytes": 619771
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1440/t7a7913_1.png",
+    "local_path": "/media/bannerright-1440/t7a7913_1.png",
+    "status": "ok",
+    "bytes": 386817
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-1440/t7a9283_kopie.png",
+    "local_path": "/media/bannerright-1440/t7a9283_kopie.png",
+    "status": "ok",
+    "bytes": 713295
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-2400/t7a0115_kopie.png",
+    "local_path": "/media/bannerright-2400/t7a0115_kopie.png",
+    "status": "ok",
+    "bytes": 433560
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-2400/t7a3420.png",
+    "local_path": "/media/bannerright-2400/t7a3420.png",
+    "status": "ok",
+    "bytes": 468207
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-2400/t7a7897.png",
+    "local_path": "/media/bannerright-2400/t7a7897.png",
+    "status": "ok",
+    "bytes": 434315
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-2400/t7a7913_1.png",
+    "local_path": "/media/bannerright-2400/t7a7913_1.png",
+    "status": "ok",
+    "bytes": 271963
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-2400/t7a9283_kopie.png",
+    "local_path": "/media/bannerright-2400/t7a9283_kopie.png",
+    "status": "ok",
+    "bytes": 498662
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-780/t7a0115_kopie.png",
+    "local_path": "/media/bannerright-780/t7a0115_kopie.png",
+    "status": "ok",
+    "bytes": 212585
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-780/t7a3420.png",
+    "local_path": "/media/bannerright-780/t7a3420.png",
+    "status": "ok",
+    "bytes": 232225
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-780/t7a7897.png",
+    "local_path": "/media/bannerright-780/t7a7897.png",
+    "status": "ok",
+    "bytes": 207450
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-780/t7a7913_1.png",
+    "local_path": "/media/bannerright-780/t7a7913_1.png",
+    "status": "ok",
+    "bytes": 131869
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/bannerright-780/t7a9283_kopie.png",
+    "local_path": "/media/bannerright-780/t7a9283_kopie.png",
+    "status": "ok",
+    "bytes": 244826
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/broschuere_ee-experten_web.pdf",
+    "local_path": "/media/broschuere_ee-experten_web.pdf",
+    "status": "ok",
+    "bytes": 3755282
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/broschuere_ee-immobilien_web.pdf",
+    "local_path": "/media/broschuere_ee-immobilien_web.pdf",
+    "status": "ok",
+    "bytes": 2318657
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/contentimg/32697_3_3.png",
+    "local_path": "/media/contentimg/32697_3_3.png",
+    "status": "ok",
+    "bytes": 13779
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/flowfact.png",
+    "local_path": "/media/flowfact.png",
+    "status": "ok",
+    "bytes": 980
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/focuspoint_media_detail/haus360.png",
+    "local_path": "/media/focuspoint_media_detail/haus360.png",
+    "status": "ok",
+    "bytes": 1101142
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/fragezeichen.svg",
+    "local_path": "/media/fragezeichen.svg",
+    "status": "ok",
+    "bytes": 4465
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/galileo_logo.svg",
+    "local_path": "/media/galileo_logo.svg",
+    "status": "ok",
+    "bytes": 4972
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/headline_360_kopie.svg",
+    "local_path": "/media/headline_360_kopie.svg",
+    "status": "ok",
+    "bytes": 13187
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/icon-navi-hover.svg",
+    "local_path": "/media/icon-navi-hover.svg",
+    "status": "ok",
+    "bytes": 265
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/ie_logo.svg",
+    "local_path": "/media/ie_logo.svg",
+    "status": "ok",
+    "bytes": 6338
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-art-gewerbe.jpg",
+    "local_path": "/media/imexp-art-gewerbe.jpg",
+    "status": "ok",
+    "bytes": 184615
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-art-grundstueck.jpg",
+    "local_path": "/media/imexp-art-grundstueck.jpg",
+    "status": "ok",
+    "bytes": 206205
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-art-sonstiges.jpg",
+    "local_path": "/media/imexp-art-sonstiges.jpg",
+    "status": "ok",
+    "bytes": 261829
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-art-wohnhaus.jpg",
+    "local_path": "/media/imexp-art-wohnhaus.jpg",
+    "status": "ok",
+    "bytes": 257745
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-art-wohnung.jpg",
+    "local_path": "/media/imexp-art-wohnung.jpg",
+    "status": "ok",
+    "bytes": 262883
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-gew-buero.jpg",
+    "local_path": "/media/imexp-gew-buero.jpg",
+    "status": "ok",
+    "bytes": 245695
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-gew-handel.jpg",
+    "local_path": "/media/imexp-gew-handel.jpg",
+    "status": "ok",
+    "bytes": 281596
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-gew-lager.jpg",
+    "local_path": "/media/imexp-gew-lager.jpg",
+    "status": "ok",
+    "bytes": 234218
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-gew-produktion.jpg",
+    "local_path": "/media/imexp-gew-produktion.jpg",
+    "status": "ok",
+    "bytes": 197782
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-gew-sonstiges.jpg",
+    "local_path": "/media/imexp-gew-sonstiges.jpg",
+    "status": "ok",
+    "bytes": 187931
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-wohn-doppelhaus.jpg",
+    "local_path": "/media/imexp-wohn-doppelhaus.jpg",
+    "status": "ok",
+    "bytes": 290708
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-wohn-einfamilienhaus.jpg",
+    "local_path": "/media/imexp-wohn-einfamilienhaus.jpg",
+    "status": "ok",
+    "bytes": 257745
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-wohn-geschaeftshaus.jpg",
+    "local_path": "/media/imexp-wohn-geschaeftshaus.jpg",
+    "status": "ok",
+    "bytes": 302868
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-wohn-mehrfamilienhaus.jpg",
+    "local_path": "/media/imexp-wohn-mehrfamilienhaus.jpg",
+    "status": "ok",
+    "bytes": 228643
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/imexp-wohn-reihenhaus.jpg",
+    "local_path": "/media/imexp-wohn-reihenhaus.jpg",
+    "status": "ok",
+    "bytes": 270228
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/immoscout.png",
+    "local_path": "/media/immoscout.png",
+    "status": "ok",
+    "bytes": 15792
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/immowelt.png",
+    "local_path": "/media/immowelt.png",
+    "status": "ok",
+    "bytes": 55074
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/kleinanzeigen.svg",
+    "local_path": "/media/kleinanzeigen.svg",
+    "status": "ok",
+    "bytes": 4836
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/liste.svg",
+    "local_path": "/media/liste.svg",
+    "status": "ok",
+    "bytes": 4443
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/logo-kabel_1.svg",
+    "local_path": "/media/logo-kabel_1.svg",
+    "status": "ok",
+    "bytes": 2193
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/logo-rtl.svg",
+    "local_path": "/media/logo-rtl.svg",
+    "status": "ok",
+    "bytes": 3115
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/logo-swr.svg",
+    "local_path": "/media/logo-swr.svg",
+    "status": "ok",
+    "bytes": 38684
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/logo-sz.svg",
+    "local_path": "/media/logo-sz.svg",
+    "status": "ok",
+    "bytes": 905
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/logo_antenne_1.svg",
+    "local_path": "/media/logo_antenne_1.svg",
+    "status": "ok",
+    "bytes": 9272
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/money.svg",
+    "local_path": "/media/money.svg",
+    "status": "ok",
+    "bytes": 4473
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/neues_sat-_1_logo_transparent.png",
+    "local_path": "/media/neues_sat-_1_logo_transparent.png",
+    "status": "ok",
+    "bytes": 8590
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1024/5910483_000.jpg",
+    "local_path": "/media/object-thumbnail-1024/5910483_000.jpg",
+    "status": "ok",
+    "bytes": 157154
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1024/5910483_001.jpg",
+    "local_path": "/media/object-thumbnail-1024/5910483_001.jpg",
+    "status": "ok",
+    "bytes": 217184
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1024/6007149_000.jpg",
+    "local_path": "/media/object-thumbnail-1024/6007149_000.jpg",
+    "status": "ok",
+    "bytes": 114664
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1024/6007149_001.jpg",
+    "local_path": "/media/object-thumbnail-1024/6007149_001.jpg",
+    "status": "ok",
+    "bytes": 165600
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1024/6153157_000.jpg",
+    "local_path": "/media/object-thumbnail-1024/6153157_000.jpg",
+    "status": "ok",
+    "bytes": 155986
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1024/6153157_001.jpg",
+    "local_path": "/media/object-thumbnail-1024/6153157_001.jpg",
+    "status": "ok",
+    "bytes": 151060
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1440/5910483_000.jpg",
+    "local_path": "/media/object-thumbnail-1440/5910483_000.jpg",
+    "status": "ok",
+    "bytes": 157154
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1440/5910483_001.jpg",
+    "local_path": "/media/object-thumbnail-1440/5910483_001.jpg",
+    "status": "ok",
+    "bytes": 217184
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1440/6007149_000.jpg",
+    "local_path": "/media/object-thumbnail-1440/6007149_000.jpg",
+    "status": "ok",
+    "bytes": 114664
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1440/6007149_001.jpg",
+    "local_path": "/media/object-thumbnail-1440/6007149_001.jpg",
+    "status": "ok",
+    "bytes": 165600
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1440/6153157_000.jpg",
+    "local_path": "/media/object-thumbnail-1440/6153157_000.jpg",
+    "status": "ok",
+    "bytes": 155986
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-1440/6153157_001.jpg",
+    "local_path": "/media/object-thumbnail-1440/6153157_001.jpg",
+    "status": "ok",
+    "bytes": 151060
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-2400/5910483_000.jpg",
+    "local_path": "/media/object-thumbnail-2400/5910483_000.jpg",
+    "status": "ok",
+    "bytes": 157154
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-2400/5910483_001.jpg",
+    "local_path": "/media/object-thumbnail-2400/5910483_001.jpg",
+    "status": "ok",
+    "bytes": 217184
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-2400/6007149_000.jpg",
+    "local_path": "/media/object-thumbnail-2400/6007149_000.jpg",
+    "status": "ok",
+    "bytes": 114664
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-2400/6007149_001.jpg",
+    "local_path": "/media/object-thumbnail-2400/6007149_001.jpg",
+    "status": "ok",
+    "bytes": 165600
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-2400/6153157_000.jpg",
+    "local_path": "/media/object-thumbnail-2400/6153157_000.jpg",
+    "status": "ok",
+    "bytes": 155986
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-2400/6153157_001.jpg",
+    "local_path": "/media/object-thumbnail-2400/6153157_001.jpg",
+    "status": "ok",
+    "bytes": 151060
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-780/5910483_000.jpg",
+    "local_path": "/media/object-thumbnail-780/5910483_000.jpg",
+    "status": "ok",
+    "bytes": 120630
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-780/5910483_001.jpg",
+    "local_path": "/media/object-thumbnail-780/5910483_001.jpg",
+    "status": "ok",
+    "bytes": 166714
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-780/6007149_000.jpg",
+    "local_path": "/media/object-thumbnail-780/6007149_000.jpg",
+    "status": "ok",
+    "bytes": 91430
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-780/6007149_001.jpg",
+    "local_path": "/media/object-thumbnail-780/6007149_001.jpg",
+    "status": "ok",
+    "bytes": 130244
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-780/6153157_000.jpg",
+    "local_path": "/media/object-thumbnail-780/6153157_000.jpg",
+    "status": "ok",
+    "bytes": 120190
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/object-thumbnail-780/6153157_001.jpg",
+    "local_path": "/media/object-thumbnail-780/6153157_001.jpg",
+    "status": "ok",
+    "bytes": 114838
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/pillar-card/muenchen.jpg",
+    "local_path": "/media/pillar-card/muenchen.jpg",
+    "status": "ok",
+    "bytes": 8320
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/play.svg",
+    "local_path": "/media/play.svg",
+    "status": "ok",
+    "bytes": 1256
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/prosieben_logo.svg",
+    "local_path": "/media/prosieben_logo.svg",
+    "status": "ok",
+    "bytes": 1029
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/thumbs.svg",
+    "local_path": "/media/thumbs.svg",
+    "status": "ok",
+    "bytes": 4469
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/videocard_avatar/streit_facepile.jpg",
+    "local_path": "/media/videocard_avatar/streit_facepile.jpg",
+    "status": "ok",
+    "bytes": 5715
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/media/wuestenrot_bank_201x_logo.svg",
+    "local_path": "/media/wuestenrot_bank_201x_logo.svg",
+    "status": "ok",
+    "bytes": 9876
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/mediatypes/logonavi/bmwi_eneffi_keyvis_rgb_1.png",
+    "local_path": "/mediatypes/logonavi/bmwi_eneffi_keyvis_rgb_1.png",
+    "status": "ok",
+    "bytes": 15161
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/images/flag-brushstroke.png",
+    "local_path": "/theme/public/assets/frontend/images/flag-brushstroke.png",
+    "status": "ok",
+    "bytes": 24242
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/images/leaf-watermark.svg",
+    "local_path": "/theme/public/assets/frontend/images/leaf-watermark.svg",
+    "status": "ok",
+    "bytes": 646
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/before-after.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/before-after.js",
+    "status": "ok",
+    "bytes": 2484
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/container-collapse.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/container-collapse.js",
+    "status": "ok",
+    "bytes": 6873
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/counterup.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/counterup.js",
+    "status": "ok",
+    "bytes": 553
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/hotspots.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/hotspots.js",
+    "status": "ok",
+    "bytes": 9582
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/quiz.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/quiz.js",
+    "status": "ok",
+    "bytes": 8378
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/script-vanilla.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/script-vanilla.js",
+    "status": "ok",
+    "bytes": 21271
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/js/table-of-contents.js",
+    "local_path": "/theme/public/assets/frontend/novena/js/table-of-contents.js",
+    "status": "ok",
+    "bytes": 10468
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js",
+    "local_path": "/theme/public/assets/frontend/novena/plugins/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js",
+    "status": "ok",
+    "bytes": 80721
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.ttf",
+    "local_path": "/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.ttf",
+    "status": "ok",
+    "bytes": 9072
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/style.css",
+    "local_path": "/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/style.css",
+    "status": "ok",
+    "bytes": 3063
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/about.min.css",
+    "local_path": "/theme/public/assets/frontend/output/about.min.css",
+    "status": "ok",
+    "bytes": 692
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/autolinker.min.css",
+    "local_path": "/theme/public/assets/frontend/output/autolinker.min.css",
+    "status": "ok",
+    "bytes": 188
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/before-after.min.css",
+    "local_path": "/theme/public/assets/frontend/output/before-after.min.css",
+    "status": "ok",
+    "bytes": 2690
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/blog-sidebar.min.css",
+    "local_path": "/theme/public/assets/frontend/output/blog-sidebar.min.css",
+    "status": "ok",
+    "bytes": 1508
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/blog.min.css",
+    "local_path": "/theme/public/assets/frontend/output/blog.min.css",
+    "status": "ok",
+    "bytes": 53
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/button-glow.min.css",
+    "local_path": "/theme/public/assets/frontend/output/button-glow.min.css",
+    "status": "ok",
+    "bytes": 377
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/calculator.min.css",
+    "local_path": "/theme/public/assets/frontend/output/calculator.min.css",
+    "status": "ok",
+    "bytes": 1950
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/comparison-table.min.css",
+    "local_path": "/theme/public/assets/frontend/output/comparison-table.min.css",
+    "status": "ok",
+    "bytes": 4838
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/contact.min.css",
+    "local_path": "/theme/public/assets/frontend/output/contact.min.css",
+    "status": "ok",
+    "bytes": 819
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/container-collapse.min.css",
+    "local_path": "/theme/public/assets/frontend/output/container-collapse.min.css",
+    "status": "ok",
+    "bytes": 1149
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/counter.min.css",
+    "local_path": "/theme/public/assets/frontend/output/counter.min.css",
+    "status": "ok",
+    "bytes": 506
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/cta.min.css",
+    "local_path": "/theme/public/assets/frontend/output/cta.min.css",
+    "status": "ok",
+    "bytes": 529
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/department.min.css",
+    "local_path": "/theme/public/assets/frontend/output/department.min.css",
+    "status": "ok",
+    "bytes": 2037
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/ee-wizard.min.css",
+    "local_path": "/theme/public/assets/frontend/output/ee-wizard.min.css",
+    "status": "ok",
+    "bytes": 4187
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/faq.min.css",
+    "local_path": "/theme/public/assets/frontend/output/faq.min.css",
+    "status": "ok",
+    "bytes": 158
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/feature.min.css",
+    "local_path": "/theme/public/assets/frontend/output/feature.min.css",
+    "status": "ok",
+    "bytes": 531
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-italic-400.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-italic-400.woff2",
+    "status": "ok",
+    "bytes": 24408
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-400.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-400.woff2",
+    "status": "ok",
+    "bytes": 23580
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-700.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/lato-v24-latin/lato-v24-latin-normal-700.woff2",
+    "status": "ok",
+    "bytes": 23040
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-400.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-400.woff2",
+    "status": "ok",
+    "bytes": 22384
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-500.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-500.woff2",
+    "status": "ok",
+    "bytes": 22544
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-600.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-italic-600.woff2",
+    "status": "ok",
+    "bytes": 22620
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-400.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-400.woff2",
+    "status": "ok",
+    "bytes": 20612
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-500.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-500.woff2",
+    "status": "ok",
+    "bytes": 20928
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-600.woff2",
+    "local_path": "/theme/public/assets/frontend/output/fonts/roboto-v48-latin/roboto-v48-latin-normal-600.woff2",
+    "status": "ok",
+    "bytes": 20940
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/footer.min.css",
+    "local_path": "/theme/public/assets/frontend/output/footer.min.css",
+    "status": "ok",
+    "bytes": 1470
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/kooperationspartner.min.css",
+    "local_path": "/theme/public/assets/frontend/output/kooperationspartner.min.css",
+    "status": "ok",
+    "bytes": 83
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/piggy.min.css",
+    "local_path": "/theme/public/assets/frontend/output/piggy.min.css",
+    "status": "ok",
+    "bytes": 1613
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/quiz.min.css",
+    "local_path": "/theme/public/assets/frontend/output/quiz.min.css",
+    "status": "ok",
+    "bytes": 5993
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/rangeslider.min.css",
+    "local_path": "/theme/public/assets/frontend/output/rangeslider.min.css",
+    "status": "ok",
+    "bytes": 1839
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/seo-map.min.css",
+    "local_path": "/theme/public/assets/frontend/output/seo-map.min.css",
+    "status": "ok",
+    "bytes": 77
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/service-selektor.min.css",
+    "local_path": "/theme/public/assets/frontend/output/service-selektor.min.css",
+    "status": "ok",
+    "bytes": 587
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/service.min.css",
+    "local_path": "/theme/public/assets/frontend/output/service.min.css",
+    "status": "ok",
+    "bytes": 473
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_cart.min.css",
+    "local_path": "/theme/public/assets/frontend/output/shop_cart.min.css",
+    "status": "ok",
+    "bytes": 192
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_countdown.min.css",
+    "local_path": "/theme/public/assets/frontend/output/shop_countdown.min.css",
+    "status": "ok",
+    "bytes": 1895
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_productcard.min.css",
+    "local_path": "/theme/public/assets/frontend/output/shop_productcard.min.css",
+    "status": "ok",
+    "bytes": 117
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/shop_shop.min.css",
+    "local_path": "/theme/public/assets/frontend/output/shop_shop.min.css",
+    "status": "ok",
+    "bytes": 371
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/single-post.min.css",
+    "local_path": "/theme/public/assets/frontend/output/single-post.min.css",
+    "status": "ok",
+    "bytes": 3130
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/steps.min.css",
+    "local_path": "/theme/public/assets/frontend/output/steps.min.css",
+    "status": "ok",
+    "bytes": 12241
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/tables.min.css",
+    "local_path": "/theme/public/assets/frontend/output/tables.min.css",
+    "status": "ok",
+    "bytes": 181
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/team.min.css",
+    "local_path": "/theme/public/assets/frontend/output/team.min.css",
+    "status": "ok",
+    "bytes": 31
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/text-mehrspaltig.min.css",
+    "local_path": "/theme/public/assets/frontend/output/text-mehrspaltig.min.css",
+    "status": "ok",
+    "bytes": 1438
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/toc.min.css",
+    "local_path": "/theme/public/assets/frontend/output/toc.min.css",
+    "status": "ok",
+    "bytes": 85
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/typeform-ratings-schema.min.css",
+    "local_path": "/theme/public/assets/frontend/output/typeform-ratings-schema.min.css",
+    "status": "ok",
+    "bytes": 2175
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/videocard.min.css",
+    "local_path": "/theme/public/assets/frontend/output/videocard.min.css",
+    "status": "ok",
+    "bytes": 231
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/output/whatsapp-cta-footer.min.css",
+    "local_path": "/theme/public/assets/frontend/output/whatsapp-cta-footer.min.css",
+    "status": "ok",
+    "bytes": 1111
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.eot",
+    "local_path": "/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.eot",
+    "status": "ok",
+    "bytes": 9256
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.woff",
+    "local_path": "/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.woff",
+    "status": "ok",
+    "bytes": 9148
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.svg",
+    "local_path": "/theme/public/assets/frontend/novena/plugins/custom-icons-v1.3/fonts/custom-icons.svg",
+    "status": "ok",
+    "bytes": 29141
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/images/bg/bg-4.jpg",
+    "local_path": "/theme/public/assets/frontend/images/bg/bg-4.jpg",
+    "status": "http:404"
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/images/bg/cta-bg.png",
+    "local_path": "/theme/public/assets/frontend/images/bg/cta-bg.png",
+    "status": "http:404"
+  },
+  {
+    "original_url": "https://www.immobilien-experten.de/theme/public/assets/frontend/images/bg/banner.jpg",
+    "local_path": "/theme/public/assets/frontend/images/bg/banner.jpg",
+    "status": "http:404"
+  }
+]

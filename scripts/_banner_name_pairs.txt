@@ -1,0 +1,55 @@
+scanned_files=36
+
+Banner file → most common nearby name vs cycle overwrite:
+  t7a0115_kopie.png
+    cycle_image_is: Michael Oberholz
+    html_nearby:    [('Pascal Kopp', 8)]
+    match: False
+  t7a3306.png
+    cycle_image_is: Felix Lesch
+    html_nearby:    []
+    match: ?
+  t7a3373.png
+    cycle_image_is: Michael Penn
+    html_nearby:    [('Michael Oberholz', 18)]
+    match: False
+  t7a3420.png
+    cycle_image_is: Pascal Kopp
+    html_nearby:    [('Michael Oberholz', 36)]
+    match: False
+  t7a7869.png
+    cycle_image_is: Lubka Röger
+    html_nearby:    []
+    match: ?
+  t7a7897.png
+    cycle_image_is: Michael Oberholz
+    html_nearby:    [('Felix Lesch', 163)]
+    match: False
+  t7a7913_1.png
+    cycle_image_is: Felix Lesch
+    html_nearby:    [('Michael Penn', 53)]
+    match: False
+  t7a9283_kopie.png
+    cycle_image_is: Michael Penn
+    html_nearby:    [('Lubka Röger', 8)]
+    match: False
+  t7a9489_copy.png
+    cycle_image_is: Pascal Kopp
+    html_nearby:    []
+    match: ?
+
+MISMATCHES: 6
+  ('t7a0115_kopie.png', 'Michael Oberholz', 'Pascal Kopp')
+  ('t7a3373.png', 'Michael Penn', 'Michael Oberholz')
+  ('t7a3420.png', 'Pascal Kopp', 'Michael Oberholz')
+  ('t7a7897.png', 'Michael Oberholz', 'Felix Lesch')
+  ('t7a7913_1.png', 'Felix Lesch', 'Michael Penn')
+  ('t7a9283_kopie.png', 'Michael Penn', 'Lubka Röger')
+
+Facepile filename semantics (reliable):
+  profilbild_winkler → Michael Penn (ex Axel Winkler)
+  profilbild_mayer   → Felix Lesch (ex Wolfgang Mayer)
+  streit_facepile    → Michael Oberholz (ex Kersten Streit)
+  team_mohr          → Pascal Kopp (ex René Mohr)
+  munz_ie            → Lubka Röger (ex Christian Munz)
+  team_schorpp/Ute   → Lubka Röger

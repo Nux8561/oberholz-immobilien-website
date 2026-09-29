@@ -1,0 +1,1 @@
+(function(){var s=document.querySelectorAll('.regio-rotor-slide'),f=document.querySelectorAll('.regio-rotor-flag');if(s.length<2){return;}var i=0;window.setInterval(function(){var n=(i+1)%s.length;s[i].classList.remove('is-active');s[n].classList.add('is-active');if(f[i]){f[i].classList.remove('is-active');}if(f[n]){f[n].classList.add('is-active');}i=n;},4200);})();

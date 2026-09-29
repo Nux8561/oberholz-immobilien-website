@@ -1,0 +1,1 @@
+ function triggerStaggeredShineEffect() { const buttons = document.querySelectorAll('.button-glow'); buttons.forEach((button, index) => { setTimeout(() => { button.classList.add('shine-effect'); setTimeout(() => { button.classList.remove('shine-effect'); }, 1000); }, index * 1000); }); } setInterval(triggerStaggeredShineEffect, 5000);

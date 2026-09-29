@@ -1,0 +1,266 @@
+{
+  "1920x1080": {
+    "scrollHeight": 8844,
+    "header": {
+      "x": 0,
+      "y": 24,
+      "width": 1920,
+      "height": 86
+    },
+    "hero": {
+      "x": 0,
+      "y": 110,
+      "width": 1920,
+      "height": 693
+    },
+    "service360": {
+      "x": 0,
+      "y": 1014,
+      "width": 1920,
+      "height": 768
+    },
+    "form": {
+      "x": 510,
+      "y": 1831,
+      "width": 900,
+      "height": 830
+    },
+    "footer": {
+      "x": 0,
+      "y": 7854,
+      "width": 1920,
+      "height": 990
+    }
+  },
+  "1440x900": {
+    "scrollHeight": 8844,
+    "header": {
+      "x": 0,
+      "y": 24,
+      "width": 1440,
+      "height": 86
+    },
+    "hero": {
+      "x": 0,
+      "y": 110,
+      "width": 1440,
+      "height": 693
+    },
+    "service360": {
+      "x": 0,
+      "y": 1014,
+      "width": 1440,
+      "height": 768
+    },
+    "form": {
+      "x": 270,
+      "y": 1831,
+      "width": 900,
+      "height": 830
+    },
+    "footer": {
+      "x": 0,
+      "y": 7854,
+      "width": 1440,
+      "height": 990
+    }
+  },
+  "1366x768": {
+    "scrollHeight": 8844,
+    "header": {
+      "x": 0,
+      "y": 24,
+      "width": 1366,
+      "height": 86
+    },
+    "hero": {
+      "x": 0,
+      "y": 110,
+      "width": 1366,
+      "height": 693
+    },
+    "service360": {
+      "x": 0,
+      "y": 1015,
+      "width": 1366,
+      "height": 768
+    },
+    "form": {
+      "x": 233,
+      "y": 1831,
+      "width": 900,
+      "height": 830
+    },
+    "footer": {
+      "x": 0,
+      "y": 7854,
+      "width": 1366,
+      "height": 990
+    }
+  },
+  "1024x1366": {
+    "scrollHeight": 9340,
+    "header": {
+      "x": 0,
+      "y": 24,
+      "width": 1024,
+      "height": 86
+    },
+    "hero": {
+      "x": 0,
+      "y": 110,
+      "width": 1024,
+      "height": 601
+    },
+    "service360": {
+      "x": 0,
+      "y": 888,
+      "width": 1024,
+      "height": 648
+    },
+    "form": {
+      "x": 62,
+      "y": 1584,
+      "width": 900,
+      "height": 824
+    },
+    "footer": {
+      "x": 0,
+      "y": 8230,
+      "width": 1024,
+      "height": 1110
+    }
+  },
+  "768x1024": {
+    "scrollHeight": 11411,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 768,
+      "height": 86
+    },
+    "hero": {
+      "x": 0,
+      "y": 86,
+      "width": 768,
+      "height": 1009
+    },
+    "service360": {
+      "x": 0,
+      "y": 1224,
+      "width": 768,
+      "height": 488
+    },
+    "form": {
+      "x": 0,
+      "y": 1760,
+      "width": 768,
+      "height": 746
+    },
+    "footer": {
+      "x": 0,
+      "y": 10065,
+      "width": 768,
+      "height": 1346
+    }
+  },
+  "430x932": {
+    "scrollHeight": 14002,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 70
+    },
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 430,
+      "height": 879
+    },
+    "service360": {
+      "x": 0,
+      "y": 1086,
+      "width": 430,
+      "height": 295
+    },
+    "form": {
+      "x": 0,
+      "y": 1421,
+      "width": 430,
+      "height": 889
+    },
+    "footer": {
+      "x": 0,
+      "y": 12313,
+      "width": 430,
+      "height": 1689
+    }
+  },
+  "390x844": {
+    "scrollHeight": 14557,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 70
+    },
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 390,
+      "height": 879
+    },
+    "service360": {
+      "x": 0,
+      "y": 1078,
+      "width": 390,
+      "height": 268
+    },
+    "form": {
+      "x": 0,
+      "y": 1386,
+      "width": 390,
+      "height": 839
+    },
+    "footer": {
+      "x": 0,
+      "y": 12838,
+      "width": 390,
+      "height": 1719
+    }
+  },
+  "375x812": {
+    "scrollHeight": 14832,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 70
+    },
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 375,
+      "height": 879
+    },
+    "service360": {
+      "x": 0,
+      "y": 1075,
+      "width": 375,
+      "height": 258
+    },
+    "form": {
+      "x": 0,
+      "y": 1373,
+      "width": 375,
+      "height": 820
+    },
+    "footer": {
+      "x": 0,
+      "y": 13088,
+      "width": 375,
+      "height": 1745
+    }
+  }
+}

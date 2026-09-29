@@ -1,0 +1,16 @@
+files=274
+IMG ALT ONLY:
+  t7a0115_kopie.png: [('Pascal Kopp', 13)]
+  t7a3373.png: [('Michael Oberholz', 2)]
+  t7a3420.png: [('Michael Oberholz', 137)]
+  t7a7897.png: [('Felix Lesch', 37)]
+  t7a7913_1.png: [('Michael Penn', 153)]
+  t7a9283_kopie.png: [('Lubka Röger', 181)]
+
+CORRECT overwrite map (banner file → team png):
+  "t7a0115_kopie.png": "pascal-kopp.png",  # Pascal Kopp
+  "t7a3373.png": "michael-oberholz.png",  # Michael Oberholz
+  "t7a3420.png": "michael-oberholz.png",  # Michael Oberholz
+  "t7a7897.png": "felix-lesch.png",  # Felix Lesch
+  "t7a7913_1.png": "michael-penn.png",  # Michael Penn
+  "t7a9283_kopie.png": "lubka-roeger.png",  # Lubka Röger
