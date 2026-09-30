@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
+IMMOBILIEN_PAGE = ROOT / "public" / "immobilien.html"
 DATA_PATH = ROOT / "assets" / "oberholz" / "is24-listings.json"
 PORTAL = "https://portal.immobilienscout24.de/ergebnisliste/82828525"
 TEMPLATE = ROOT / "public" / "immobilien" / "krefeld" / "charmantes-familienhaus-in-krefeld-linn-5835561.html"
@@ -419,10 +420,13 @@ def card(item: dict) -> str:
     rooms = escape(item["rooms"])
     price = escape(item["price"])
     price_label = escape(item["price_label"])
+    deal = escape(item["deal"])
+    prop = escape(item["prop"])
     primary = picture_tag(item["thumb0"], item["title"], "immo-img-primary")
     secondary = picture_tag(item["thumb1"], item["title"], "immo-img-secondary")
     return (
-        f'<div class="col-12 col-md-6 col-lg-4" data-object-id="{escape(item["id"])}"> '
+        f'<div class="col-12 col-md-6 col-lg-4" data-object-id="{escape(item["id"])}" '
+        f'data-deal="{deal}" data-prop="{prop}" data-location="{loc}"> '
         f'<article class="card immo-card h-100 border-0 shadow-sm overflow-hidden"> '
         f'<div class="position-relative overflow-hidden"> '
         f'<div class="ratio ratio-4x3 immo-img bg-light"> '
@@ -539,7 +543,7 @@ def gallery_main(item: dict) -> str:
       <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb mb-0">
           <li class="breadcrumb-item"><a href="/">Start</a></li>
-          <li class="breadcrumb-item"><a href="/#angebote">Immobilien</a></li>
+          <li class="breadcrumb-item"><a href="/immobilien.html">Immobilien</a></li>
           <li class="breadcrumb-item active" aria-current="page">{title}</li>
         </ol>
       </nav>
@@ -587,7 +591,7 @@ def gallery_main(item: dict) -> str:
             <p class="text-muted">Wir beraten Sie persönlich zu Besichtigung, Unterlagen und nächsten Schritten.</p>
             <a class="btn btn-primary w-100 mb-2" href="tel:+4925128429090">0251 28 42 90 90</a>
             <a class="btn btn-outline-secondary w-100 mb-3" href="mailto:mail@oberholz-immobilien.com?subject={escape(item['title'], quote=True)}">E-Mail senden</a>
-            <a class="btn btn-link px-0" href="/#angebote">Zurück zu den Angeboten</a>
+            <a class="btn btn-link px-0" href="/immobilien.html">Zurück zu den Angeboten</a>
           </div>
         </div>
       </div>
@@ -688,6 +692,170 @@ def patch_index(items: list[dict]) -> None:
     print("index patched, featured", FEATURED)
 
 
+LISTING_PAGE_CSS = """
+<style id="oberholz-immobilien-listing-css">
+.immo-card{transition:transform .25s ease, box-shadow .25s ease;}
+.immo-img picture, .immo-img img{position:absolute;inset:0;}
+.immo-img-secondary{opacity:0;transition:opacity .35s ease;}
+.immo-img-primary{opacity:1;transition:opacity .35s ease;}
+.immo-img img{transition:transform .4s ease;}
+.title-2lines{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ratio-4x3{--bs-aspect-ratio:75%;}
+.immo-filter-hero{position:relative;padding:3.5rem 0 3rem;background:#f7f8fa;background-size:cover;background-position:center;text-align:center;}
+.immo-filter-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.05) 100%);pointer-events:none;}
+.immo-filter-hero-inner{position:relative;}
+.immo-filter-hero-eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#fff;opacity:.9;margin-bottom:.4rem;}
+.immo-filter-hero-headline{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.2;color:#fff;margin:0 auto 1.5rem;max-width:42rem;}
+.immo-filter-bar{background:#fff;border-radius:.5rem;box-shadow:0 .5rem 1.5rem rgba(0,0,0,.08);padding:.75rem;}
+.immo-filter-bar form{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;}
+.immo-filter-bar .immo-filter-field{flex:1 1 130px;min-width:130px;}
+.immo-filter-bar .immo-filter-field--location{flex:2 1 220px;min-width:220px;}
+.immo-filter-bar .immo-filter-field--submit{flex:0 0 auto;}
+.immo-filter-bar .form-control,.immo-filter-bar .form-select{height:50px;border-color:rgba(0,0,0,.1);border-radius:.4rem;font-size:.95rem;background-color:#fff;}
+.immo-filter-bar .btn{height:50px;padding:0 1.4rem;white-space:nowrap;}
+@media (max-width:767.98px){
+  .immo-filter-hero{padding:2.5rem 0 2rem;}
+  .immo-filter-bar .immo-filter-field,.immo-filter-bar .immo-filter-field--location{flex:1 1 100%;min-width:0;}
+  .immo-filter-bar .immo-filter-field--submit{flex:1 1 100%;}
+  .immo-filter-bar .btn{width:100%;}
+}
+</style>
+"""
+
+LISTING_FILTER_JS = """
+<script>
+(function () {
+  var root = document.getElementById('module-oberholz-listings');
+  if (!root) return;
+  var form = root.querySelector('.immo-filter-bar form');
+  var grid = document.getElementById('objekt-grid');
+  var countEl = document.getElementById('objekt-count');
+  if (!form || !grid || !countEl) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-object-id]'));
+
+  function applyFilters() {
+    var deal = (form.offer_type.value || '').trim();
+    var prop = (form.object_type.value || '').trim().toLowerCase();
+    var loc = (form.location.value || '').trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function (card) {
+      var ok = true;
+      if (deal && (card.getAttribute('data-deal') || '') !== deal) ok = false;
+      if (prop && (card.getAttribute('data-prop') || '').toLowerCase() !== prop) ok = false;
+      if (loc && (card.getAttribute('data-location') || '').toLowerCase().indexOf(loc) === -1) ok = false;
+      card.style.display = ok ? '' : 'none';
+      if (ok) visible += 1;
+    });
+    countEl.textContent = visible === 1 ? '1 Objekt' : (visible + ' Objekte');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    applyFilters();
+  });
+  form.querySelectorAll('select').forEach(function (sel) {
+    sel.addEventListener('change', applyFilters);
+  });
+})();
+</script>
+"""
+
+
+def build_immobilien_main(items: list[dict]) -> str:
+    n = len(items)
+    cards = "".join(card(item) for item in items)
+    count_label = "1 Objekt" if n == 1 else f"{n} Objekte"
+    return f"""
+<main>
+<div data-toc-content>
+{LISTING_PAGE_CSS}
+<section id="module-oberholz-listings" class="mb-5">
+  <section class="immo-filter-hero" style="background-image:url('/media/nature-bg_loop.jpg')">
+    <div class="container immo-filter-hero-inner">
+      <span class="immo-filter-hero-eyebrow">Objektbestand</span>
+      <h1 class="immo-filter-hero-headline">Aktuelle Immobilien aus unserer Vermittlung</h1>
+      <div class="immo-filter-bar">
+        <form method="get" action="" novalidate>
+          <div class="immo-filter-field">
+            <select name="offer_type" class="form-select" aria-label="Vermarktung">
+              <option value="">Vermarktung</option>
+              <option value="Kauf">Kauf</option>
+              <option value="Miete">Miete</option>
+            </select>
+          </div>
+          <div class="immo-filter-field">
+            <select name="object_type" class="form-select" aria-label="Objektart">
+              <option value="">Objektart</option>
+              <option value="Wohnung">Wohnung</option>
+              <option value="Haus">Haus</option>
+            </select>
+          </div>
+          <div class="immo-filter-field immo-filter-field--location">
+            <input type="text" name="location" class="form-control" placeholder="PLZ oder Ort" autocomplete="off" aria-label="PLZ oder Ort">
+          </div>
+          <div class="immo-filter-field immo-filter-field--submit">
+            <button type="submit" class="btn btn-primary">Suchen</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+      <h2 id="objekt-count" class="h4 fw-bold title-color mb-0">{count_label}</h2>
+      <p class="text-muted mb-0 small">Über Immobilienscout24 – Münster, Essen, Bochum und Umgebung.</p>
+    </div>
+    <div class="row g-4" id="objekt-grid">
+      {cards}
+      {HOVER_ASSETS}
+    </div>
+    <div class="pt-4">
+      <a class="btn btn-solid-border btn-round-full" href="{PORTAL}" rel="noopener" target="_blank" title="Alle Immobilien auf Immobilienscout24">Alle aktuellen Immobilien auf Immobilienscout24</a>
+    </div>
+  </div>
+</section>
+{LISTING_FILTER_JS}
+</div>
+</main>
+"""
+
+
+def patch_immobilien_page(items: list[dict]) -> None:
+    if not IMMOBILIEN_PAGE.exists():
+        raise SystemExit(f"missing {IMMOBILIEN_PAGE}")
+    text = IMMOBILIEN_PAGE.read_text(encoding="utf-8", errors="replace")
+    m = re.search(r"(.*)<main\b[^>]*>.*</main>(.*)", text, re.S | re.I)
+    if not m:
+        raise SystemExit("immobilien.html main not found")
+    before, after = m.group(1), m.group(2)
+    before = re.sub(
+        r"<title>[^<]*</title>",
+        "<title>Aktuelle Immobilien von Oberholz Immobilien</title>",
+        before,
+        count=1,
+    )
+    before = re.sub(
+        r'<meta name="description" content="[^"]*">',
+        '<meta name="description" content="Aktuelle Immobilien aus unserer Vermittlung über Immobilienscout24 – Münster, Essen, Bochum und Umgebung.">',
+        before,
+        count=1,
+    )
+    before = re.sub(
+        r'<meta property="og:title" content="[^"]*">',
+        '<meta property="og:title" content="Aktuelle Immobilien von Oberholz Immobilien">',
+        before,
+        count=1,
+    )
+    before = re.sub(
+        r'<meta property="og:description" content="[^"]*">',
+        '<meta property="og:description" content="Aktuelle Immobilien aus unserer Vermittlung über Immobilienscout24 – Münster, Essen, Bochum und Umgebung.">',
+        before,
+        count=1,
+    )
+    IMMOBILIEN_PAGE.write_text(before + build_immobilien_main(items) + after, encoding="utf-8")
+    print("immobilien.html patched,", len(items), "objects")
+
+
 def main() -> None:
     shell_before, shell_after = load_shell()
     items: list[dict] = []
@@ -701,6 +869,7 @@ def main() -> None:
     DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
     DATA_PATH.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
     patch_index(items)
+    patch_immobilien_page(items)
     print("done", len(items), "objects")
 
 

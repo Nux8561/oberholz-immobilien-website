@@ -24,6 +24,7 @@ from build_is24_listings import (  # noqa: E402
     city_slug,
     load_shell,
     paragraphs,
+    patch_immobilien_page,
     slugify,
 )
 
@@ -181,7 +182,7 @@ def gallery_main(item: dict) -> str:
   <nav aria-label="Breadcrumb" class="immo-breadcrumb">
     <ol class="immo-breadcrumb-list">
       <li class="immo-breadcrumb-item"><a href="/">Start</a></li>
-      <li class="immo-breadcrumb-item"><a href="/#angebote">Immobilien</a></li>
+      <li class="immo-breadcrumb-item"><a href="/immobilien.html">Immobilien</a></li>
       <li class="immo-breadcrumb-item is-current" aria-current="page"><span>{title}</span></li>
     </ol>
   </nav>
@@ -243,7 +244,7 @@ def gallery_main(item: dict) -> str:
           <p class="text-muted">Wir beraten Sie persönlich zu Besichtigung, Unterlagen und nächsten Schritten.</p>
           <a class="btn btn-primary w-100 mb-2" href="tel:+4925128429090">0251 28 42 90 90</a>
           <a class="btn btn-outline-secondary w-100 mb-3" href="mailto:mail@oberholz-immobilien.com?subject={escape(item['title'], quote=True)}">E-Mail senden</a>
-          <a class="btn btn-link px-0" href="/#angebote">Zurück zu den Angeboten</a>
+          <a class="btn btn-link px-0" href="/immobilien.html">Zurück zu den Angeboten</a>
         </div>
       </div>
     </div>
@@ -337,6 +338,7 @@ def main() -> None:
     end = text.find("</section>", text.find(marker)) + len("</section>")
     INDEX.write_text(text[:start] + build_section(items) + text[end:], encoding="utf-8")
     print("index refreshed, featured", FEATURED, "provision", PROVISION_NOTE)
+    patch_immobilien_page(items)
 
 
 if __name__ == "__main__":
