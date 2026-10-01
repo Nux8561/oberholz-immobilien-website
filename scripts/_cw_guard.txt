@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="de"><head><script>
+
+
+
+
+
+(function () {
+
+
+
+
+
+  var nativeFetch = window.fetch.bind(window);
+
+
+
+
+
+  window.fetch = function (input, init) {
+
+
+
+
+
+    var url = typeof input === 'string' ? input : (input && input.url) || '';
+
+
+
+
+
+    if (/rex-api-call|immobilien-experten\.de|googletagmanager|google-analytics|facebook|doubleclick|hotjar/.test(url)) {
+
+
+
+
+
+      return Promise.resolve(new Response('', { status: 204 }));
+
+
+
+
+
+    }
+
+
+
+
+
+    return nativeFetch(input, init);
+
+
+
+
+
+  };
+
+
+
+
+
+  var NativeXHR = window.XMLHttpRequest;
+
+
+
+
+
+  window.XMLHttpRequest = function () {
+
+
+
+
+
+    var xhr = new NativeXHR();
+
+
+
+
+
+    var open = xhr.open;
+
+
+
+
+
+    xhr.open = function (method, url) {
+
+
+
+
+
+      if (/rex-api-call|immobilien-experten\.de|googletagmanager|google-analytics|facebook|doubleclick/.test(String(url))) {
+
+
+
+
+
+        url = 'about:blank';
+
+
+
+
+
+      }
+
+
+
+
+
+      return open.apply(xhr, [method, url].concat([].slice.call(arguments, 2)));
+
+
+
+
+
+    };
+
+
+
+
+
+    return xhr;
+
+
+
+
+
+  };
+
+
+
+
+
+})();
+
+
+
+
+
+</script> <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/> <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/> <meta content="K1Z4XIOT59FOZPVQGV5R-UBT-72XRZOGZZWUOTR9Z5OB52AFGAE59SGN4P2309KSFH9BNE71595R7ZKZ-IM2SQ3K1VFGEUXBO2-QPEQHDE356FUJV0K31QE6EI0W3MCC" name="norton-safeweb-site-verification"/> <title>Immobilienmakler Bochum | Oberholz Immobilien – auch Münster</title><meta content="Oberholz Immobilien: Verkauf, Vermietung, Rückmietverkauf und Marktwertermittlung durch zertifizierten Immobiliengutachter. Schwerpunkt Bochum – mit Zentrale in Münster." name="description"/><meta content="index, follow" name="robots"/><link href="/" rel="canonical"/><link href="/" hreflang="de" rel="alternate"/><link href="/" hreflang="x-default" rel="alternate"/><meta content="Immobilienmakler Bochum | Oberholz Immobilien – auch Münster" property="og:title"/><meta content="website" property="og:type"/><meta content="Ihr Immobilienmakler für Bochum und Münster. Verkauf, Vermietung, Rückmietver
