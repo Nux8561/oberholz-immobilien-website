@@ -1,0 +1,25 @@
+{
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/dist-regionen/**": true,
+    "**/.wrangler/**": true,
+    "**/public/media/**": true,
+    "**/public/regionen/**": true,
+    "**/public/immopedia/**": true,
+    "**/screenshots/**": true,
+    "**/reference/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/dist-regionen": true,
+    "**/.wrangler": true,
+    "**/public/media": true,
+    "**/public/regionen": true,
+    "**/public/immopedia": true,
+    "**/screenshots": true,
+    "**/reference": true
+  },
+  "git.autofetch": false
+}

@@ -1,0 +1,12 @@
+# Build-Ausgaben und Massendaten: Cursor soll sie weder indexieren noch in KI-Kontext laden.
+# Hintergrund: Beim Öffnen hat Cursor den ganzen Ordner (>50.000 Dateien, mehrere GB) gehasht
+# und dabei den 16-GB-Rechner zum Einfrieren gebracht (05.10.2026).
+node_modules/
+dist/
+dist-regionen/
+.wrangler/
+.vite/
+screenshots/
+reference/
+scripts/__pycache__/
+public/media/
