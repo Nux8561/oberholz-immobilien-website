@@ -1,0 +1,1 @@
+.table-hover tbody tr:hover{background-color:var(--primary-color, #5b595a)}.table thead th{background-color:var(--title-color, #223a66);color:white}.table td,.table th{padding:10px}

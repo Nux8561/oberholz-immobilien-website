@@ -1,0 +1,1 @@
+.button-glow{position:relative;overflow:hidden}.button-glow::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);transform:skewX(-25deg)}@keyframes shine{0%{left:-75%}100%{left:125%}}.shine-effect::after{animation:shine 1s ease-in-out}
