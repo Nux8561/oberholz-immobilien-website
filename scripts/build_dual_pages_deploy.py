@@ -211,38 +211,54 @@ def patch_main_dist() -> None:
     if not DIST_MAIN.exists():
         raise SystemExit("dist/ missing – run npm run build first")
 
-    # Ensure regionen folder absent on main (already pruned earlier, but be sure)
+    # After SEO cleanup only Bochum/Essen/Münster remain (~8 HTML files).
+    # Keep /regionen on the main Pages project (no sibling redirect needed).
     regionen_dir = DIST_MAIN / "regionen"
-    if regionen_dir.exists():
-        print("removing dist/regionen from main deploy...", flush=True)
-        shutil.rmtree(regionen_dir)
+    if not regionen_dir.exists() and (PUBLIC / "regionen").exists():
+        print("copying public/regionen into dist/regionen ...", flush=True)
+        shutil.copytree(PUBLIC / "regionen", regionen_dir)
 
     redirects = DIST_MAIN / "_redirects"
-    redirects.write_text(
-        "\n".join(
-            [
-                "# Regionen hosted on sibling Pages project (Cloudflare Free 20k file limit)",
-                f"/regionen/*  {REGIONEN_ORIGIN}/regionen/:splat  302",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-        newline="\n",
-    )
+    # Prefer public/_redirects from Vite build; ensure Münster canonical rules exist.
+    public_redirects = PUBLIC / "_redirects"
+    if public_redirects.is_file():
+        redirects.write_text(
+            public_redirects.read_text(encoding="utf-8"),
+            encoding="utf-8",
+            newline="\n",
+        )
+    else:
+        redirects.write_text(
+            "\n".join(
+                [
+                    "# Canonical Münster",
+                    "/regionen/munster  /regionen/muenster/immobilienmakler.html  301",
+                    "/regionen/munster/  /regionen/muenster/immobilienmakler.html  301",
+                    "/regionen/munster/*  /regionen/muenster/:splat  301",
+                    "",
+                ]
+            ),
+            encoding="utf-8",
+            newline="\n",
+        )
     print("wrote dist/_redirects", flush=True)
 
-    # Rewrite absolute /regionen links inside main HTML so nav works even without redirect hop
+    # Ensure /regionen links stay same-origin (undo any absolute regionen-host rewrites)
     html_files = list(DIST_MAIN.rglob("*.html"))
     changed = 0
+    abs_regionen = re.compile(
+        re.escape(REGIONEN_ORIGIN) + r"(/regionen(?:/[^\"'\\s]*)?)",
+        re.I,
+    )
     for i, path in enumerate(html_files, 1):
         if i % 2000 == 0:
             print(f"patch main html {i}/{len(html_files)}...", flush=True)
         raw = path.read_text(encoding="utf-8", errors="replace")
-        new = rewrite_html(raw, keep_regionen_local=False)
+        new = abs_regionen.sub(r"\1", raw)
         if new != raw:
             path.write_text(new, encoding="utf-8", newline="")
             changed += 1
-    print(f"main html patched={changed}/{len(html_files)}", flush=True)
+    print(f"main html regionen-host normalized={changed}/{len(html_files)}", flush=True)
 
 
 def main() -> None:

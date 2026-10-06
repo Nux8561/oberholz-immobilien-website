@@ -1,0 +1,6 @@
+# Canonical Münster
+/regionen/munster  /regionen/muenster/immobilienmakler.html  301
+/regionen/munster/  /regionen/muenster/immobilienmakler.html  301
+/regionen/munster/*  /regionen/muenster/:splat  301
+
+# True 404s: rely on top-level 404.html (no SPA /* -> index.html)

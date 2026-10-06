@@ -7,5 +7,12 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
+    cssCodeSplit: true,
+    reportCompressedSize: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
 });

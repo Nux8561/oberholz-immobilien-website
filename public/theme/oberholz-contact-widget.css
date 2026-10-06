@@ -14,39 +14,63 @@
   line-height: 1;
 }
 
-/* Single avatar ring: border on image only (no extra outer ring from button) */
+/*
+  One circle only: dark border on the button, image fills it edge-to-edge.
+  No gray halo, no second border on the <img>.
+*/
 #cw-trigger {
-  background: transparent !important;
-  box-shadow: 0 6px 24px rgba(34, 58, 102, 0.45);
-  overflow: visible;
-  border: 0;
-  padding: 0;
+  background: #fff !important;
+  background-color: #fff !important;
+  border: 3px solid var(--title-color, #223a66) !important;
+  outline: none !important;
+  box-shadow: 0 6px 24px rgba(34, 58, 102, 0.45) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  width: 68px !important;
+  height: 68px !important;
+  border-radius: 50% !important;
+  line-height: 0 !important;
 }
 
-#cw-trigger img {
-  border-radius: 50%;
-  border: 3px solid var(--title-color, #223a66);
-  width: 62px;
-  height: 62px;
-  object-fit: cover;
-  display: block;
+#cw-trigger::before,
+#cw-trigger::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
 }
 
-/* Pulse: one expanding ring only (no second static ring) */
+#cw-trigger img,
+#cw-trigger .img-rounded {
+  border-radius: 50% !important;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* Soft drop-shadow pulse only (no second painted ring) */
 @keyframes cwTriggerPulse {
-  0% {
-    box-shadow: 0 6px 24px rgba(34, 58, 102, 0.45), 0 0 0 0 rgba(34, 58, 102, 0.4);
-  }
-  70% {
-    box-shadow: 0 6px 24px rgba(34, 58, 102, 0.45), 0 0 0 14px rgba(34, 58, 102, 0);
-  }
+  0%,
   100% {
-    box-shadow: 0 6px 24px rgba(34, 58, 102, 0.45), 0 0 0 0 rgba(34, 58, 102, 0);
+    box-shadow: 0 6px 24px rgba(34, 58, 102, 0.45);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(34, 58, 102, 0.65);
   }
 }
 
 #cw-trigger.cw-trigger-pulse {
-  animation: cwTriggerPulse 2s ease-out infinite;
+  animation: cwTriggerPulse 2.2s ease-in-out infinite !important;
+}
+
+#cw-trigger:hover {
+  background: #fff !important;
+  box-shadow: 0 8px 30px rgba(34, 58, 102, 0.55) !important;
 }
 
 /* When widget open, original CSS hides trigger – reinforce */

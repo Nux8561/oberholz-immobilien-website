@@ -1,0 +1,6 @@
+# Canonical Münster (only /regionen/muenster/ is indexable)
+/regionen/munster  /regionen/muenster/immobilienmakler.html  301
+/regionen/munster/  /regionen/muenster/immobilienmakler.html  301
+/regionen/munster/*  /regionen/muenster/:splat  301
+
+# No SPA fallback: missing routes are handled by /404.html (HTTP 404)

@@ -1,0 +1,193 @@
+# Asset Audit
+
+Base: `D:\Projekte\oberholz-immobilien-website\dist`
+Files: 11868
+Total: 1749.5 MB (1834453830 bytes)
+
+## By category
+- images: 1448.5 MB
+- videos: 0.0 MB
+- fonts: 0.2 MB
+- docs: 26.9 MB
+- html: 272.3 MB
+- css_js: 1.2 MB
+- other: 0.4 MB
+
+## Top extensions
+- `.jpg`: 1211.0 MB
+- `.html`: 272.3 MB
+- `.png`: 190.4 MB
+- `.jpeg`: 46.8 MB
+- `.pdf`: 26.9 MB
+- `.js`: 0.7 MB
+- `.css`: 0.4 MB
+- `.json`: 0.4 MB
+- `.svg`: 0.3 MB
+- `.woff2`: 0.2 MB
+- `.webp`: 0.1 MB
+- `.ico`: 0.1 MB
+- `.eot`: 0.0 MB
+- `.woff`: 0.0 MB
+- `.ttf`: 0.0 MB
+- `(none)`: 0.0 MB
+- `.txt`: 0.0 MB
+
+## 50 largest files
+- 4.6 MB — `media/merkblatt_ie.pdf`
+- 4.4 MB — `media/objekt_erfassungsbogen.pdf`
+- 4.0 MB — `media/object-zoom-2400/5140276_000.jpg`
+- 3.6 MB — `media/object-zoom-2400/4772946_003.jpg`
+- 3.6 MB — `media/broschuere_ee-experten_web.pdf`
+- 3.6 MB — `media/broschuere_energieberatung-oberholz.pdf`
+- 3.2 MB — `media/object-zoom-2400/4772946_001.jpg`
+- 3.2 MB — `media/munz_ie.png`
+- 3.2 MB — `media/object-zoom-2400/5280113_019.png`
+- 3.2 MB — `media/object-zoom-2400/5280113_022.png`
+- 3.2 MB — `media/object-zoom-2400/5280113_000.png`
+- 3.2 MB — `media/object-zoom-2400/5280113_020.png`
+- 3.1 MB — `media/object-hero-2400/5140276_000.jpg`
+- 3.0 MB — `media/object-zoom-2400/4587174_000.png`
+- 3.0 MB — `media/object-zoom-2400/6007135_006.png`
+- 3.0 MB — `media/object-zoom-2400/5538147_005.png`
+- 3.0 MB — `media/object-zoom-2400/4587174_026.jpg`
+- 3.0 MB — `media/object-zoom-2400/6007135_027.jpg`
+- 2.9 MB — `media/object-zoom-2400/4677610_007.png`
+- 2.9 MB — `media/object-zoom-2400/5128780_007.png`
+- 2.9 MB — `media/object-zoom-2400/5161194_008.png`
+- 2.9 MB — `media/object-zoom-2400/5128780_006.png`
+- 2.8 MB — `media/object-hero-2400/5280113_000.png`
+- 2.8 MB — `media/object-zoom-2400/4587174_027.jpg`
+- 2.8 MB — `media/object-zoom-2400/6007135_028.jpg`
+- 2.8 MB — `media/merkblatt_wr.pdf`
+- 2.7 MB — `media/object-zoom-2400/4772946_000.jpg`
+- 2.7 MB — `media/object-zoom-2400/5279915_050.jpg`
+- 2.6 MB — `media/object-zoom-2400/5398933_021.jpg`
+- 2.6 MB — `media/object-zoom-2400/5398933_022.jpg`
+- 2.6 MB — `media/object-zoom-2400/5280113_021.png`
+- 2.5 MB — `media/object-hero-2400/4587174_000.png`
+- 2.5 MB — `media/object-zoom-2400/5528045_020.png`
+- 2.5 MB — `media/object-zoom-2400/4677610_013.png`
+- 2.5 MB — `media/object-zoom-2400/5161194_014.png`
+- 2.4 MB — `media/object-zoom-2400/5398933_023.png`
+- 2.4 MB — `media/object-zoom-2400/4677610_027.png`
+- 2.4 MB — `media/object-zoom-2400/5161194_028.png`
+- 2.4 MB — `media/object-zoom-2400/4587174_002.jpg`
+- 2.4 MB — `media/object-zoom-2400/6007135_005.jpg`
+- 2.4 MB — `media/object-zoom-1440/5140276_000.jpg`
+- 2.3 MB — `media/object-hero-2400/4772946_000.jpg`
+- 2.3 MB — `media/object-zoom-2400/4587174_023.jpg`
+- 2.3 MB — `media/object-zoom-2400/6007135_024.jpg`
+- 2.3 MB — `media/object-zoom-2400/4587174_008.jpg`
+- 2.3 MB — `media/object-zoom-2400/6007135_009.jpg`
+- 2.3 MB — `media/object-zoom-1440/4772946_003.jpg`
+- 2.3 MB — `media/object-zoom-2400/5279915_049.jpg`
+- 2.3 MB — `media/object-zoom-2400/4587174_016.jpg`
+- 2.3 MB — `media/object-zoom-2400/6007135_017.jpg`
+
+## Duplicate files (>=50KB): groups=737 wasted≈534.2 MB
+- 3.6 MB ×2 md5=71e3f2a065
+  - `media/broschuere_ee-experten_web.pdf`
+  - `media/broschuere_energieberatung-oberholz.pdf`
+- 3.0 MB ×2 md5=1808dfd915
+  - `media/object-zoom-2400/4587174_000.png`
+  - `media/object-zoom-2400/6007135_006.png`
+- 3.0 MB ×2 md5=06df310c5f
+  - `media/object-zoom-2400/4587174_026.jpg`
+  - `media/object-zoom-2400/6007135_027.jpg`
+- 2.9 MB ×3 md5=9cf5b882a1
+  - `media/object-zoom-2400/4677610_007.png`
+  - `media/object-zoom-2400/5128780_007.png`
+  - `media/object-zoom-2400/5161194_008.png`
+- 2.8 MB ×2 md5=191c92e995
+  - `media/object-zoom-2400/4587174_027.jpg`
+  - `media/object-zoom-2400/6007135_028.jpg`
+- 2.5 MB ×2 md5=749f581d1a
+  - `media/object-zoom-2400/4677610_013.png`
+  - `media/object-zoom-2400/5161194_014.png`
+- 2.4 MB ×2 md5=953647b279
+  - `media/object-zoom-2400/4677610_027.png`
+  - `media/object-zoom-2400/5161194_028.png`
+- 2.4 MB ×2 md5=8491148f9f
+  - `media/object-zoom-2400/4587174_002.jpg`
+  - `media/object-zoom-2400/6007135_005.jpg`
+- 2.3 MB ×2 md5=d337890053
+  - `media/object-zoom-2400/4587174_023.jpg`
+  - `media/object-zoom-2400/6007135_024.jpg`
+- 2.3 MB ×2 md5=13b0f4285b
+  - `media/object-zoom-2400/4587174_008.jpg`
+  - `media/object-zoom-2400/6007135_009.jpg`
+- 2.3 MB ×2 md5=f43bd462e9
+  - `media/object-zoom-2400/4587174_016.jpg`
+  - `media/object-zoom-2400/6007135_017.jpg`
+- 2.2 MB ×2 md5=2f7be403d8
+  - `media/object-zoom-2400/4587174_007.jpg`
+  - `media/object-zoom-2400/6007135_008.jpg`
+- 2.1 MB ×2 md5=cad3c3dd2b
+  - `media/object-zoom-2400/4677610_040.png`
+  - `media/object-zoom-2400/5161194_041.png`
+- 2.1 MB ×2 md5=3f2d3fd747
+  - `media/object-zoom-2400/4587174_018.jpg`
+  - `media/object-zoom-2400/6007135_019.jpg`
+- 2.1 MB ×2 md5=a5305c1ec8
+  - `media/object-zoom-2400/4587174_009.jpg`
+  - `media/object-zoom-2400/6007135_010.jpg`
+- 2.1 MB ×2 md5=56bf72648e
+  - `media/object-zoom-2400/4587174_020.jpg`
+  - `media/object-zoom-2400/6007135_021.jpg`
+- 2.0 MB ×2 md5=7e2417363f
+  - `media/object-zoom-2400/4587174_019.jpg`
+  - `media/object-zoom-2400/6007135_020.jpg`
+- 1.8 MB ×2 md5=155cfb6e9a
+  - `media/object-zoom-1440/4587174_000.png`
+  - `media/object-zoom-1440/6007135_006.png`
+- 1.8 MB ×2 md5=1e6ee2f21d
+  - `media/object-zoom-1440/4587174_026.jpg`
+  - `media/object-zoom-1440/6007135_027.jpg`
+- 1.7 MB ×3 md5=98e84c0628
+  - `media/object-zoom-1440/4677610_007.png`
+  - `media/object-zoom-1440/5128780_007.png`
+  - `media/object-zoom-1440/5161194_008.png`
+
+## Unreferenced /media candidates (path not seen in HTML/CSS/JS href/src): 2831
+NOTE: May still be used dynamically or from JSON. Do not delete blindly.
+
+- 3.6 MB — `/media/broschuere_ee-experten_web.pdf`
+- 3.2 MB — `/media/munz_ie.png`
+- 2.2 MB — `/media/broschuere_ee-immobilien_web.pdf`
+- 1.0 MB — `/media/bannerright-2400/t7a7869.png`
+- 0.8 MB — `/media/t7a3420.png`
+- 0.6 MB — `/media/bannerright-1440/t7a7869.png`
+- 0.5 MB — `/media/team_mohr.jpg`
+- 0.4 MB — `/media/bannerright-1024/t7a7869.png`
+- 0.3 MB — `/media/oberholz-listings/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumb-1024/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumb-1440/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumb-2400/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumb-780/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumbnail-1024/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumbnail-1440/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumbnail-2400/170577981_010.jpg`
+- 0.3 MB — `/media/object-thumbnail-780/170577981_010.jpg`
+- 0.3 MB — `/media/object-zoom-1024/170577981_010.jpg`
+- 0.3 MB — `/media/object-zoom-1440/170577981_010.jpg`
+- 0.3 MB — `/media/object-zoom-2400/170577981_010.jpg`
+- 0.3 MB — `/media/facepile/munz_ie.png`
+- 0.3 MB — `/media/oberholz-listings/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumb-1024/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumb-1440/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumb-2400/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumb-780/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumbnail-1024/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumbnail-1440/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumbnail-2400/170022736_014.jpg`
+- 0.3 MB — `/media/object-thumbnail-780/170022736_014.jpg`
+- 0.3 MB — `/media/object-zoom-1024/170022736_014.jpg`
+- 0.3 MB — `/media/object-zoom-1440/170022736_014.jpg`
+- 0.3 MB — `/media/object-zoom-2400/170022736_014.jpg`
+- 0.3 MB — `/media/oberholz-listings/171202458_014.jpg`
+- 0.3 MB — `/media/object-thumb-1024/171202458_014.jpg`
+- 0.3 MB — `/media/object-thumb-1440/171202458_014.jpg`
+- 0.3 MB — `/media/object-thumb-2400/171202458_014.jpg`
+- 0.3 MB — `/media/object-thumb-780/171202458_014.jpg`
+- 0.3 MB — `/media/object-thumbnail-1024/171202458_014.jpg`
+- 0.3 MB — `/media/object-thumbnail-1440/171202458_014.jpg`

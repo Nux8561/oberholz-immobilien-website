@@ -79,6 +79,10 @@
 .fa-circle-exclamation:before {
   content: "\f06a";
 }
+/* Alias: template pages use fa-info-circle; glyph shared with circle-exclamation in this subset font */
+.fa-info-circle:before {
+  content: "\f06a";
+}
 .fa-chevron-down:before {
   content: "\f078";
 }

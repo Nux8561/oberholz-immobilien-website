@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Preview / staging – no crawl push until customer go-live domain is connected.
+# Sitemap can be added after final domain approval.
