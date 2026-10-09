@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 1800" role="img" aria-label="Oberholz">
+  <g fill="#d7e6f0">
+    <path d="M1050 220 L1780 820 L1620 820 L1620 1480 L480 1480 L480 820 L320 820 Z"/>
+    <rect x="1380" y="380" width="140" height="280" rx="12"/>
+  </g>
+  <path fill="#ffffff" d="M930 980 L1170 980 L1170 1480 L930 1480 Z"/>
+  <circle fill="#ffffff" cx="1125" cy="1230" r="22"/>
+  <path fill="#e9f1f7" opacity="0.9" d="M420 700 L780 380 L1140 700 L1060 700 L1060 1100 L500 1100 L500 700 Z"/>
+  <path fill="#ffffff" d="M720 860 L860 860 L860 1100 L720 1100 Z"/>
+</svg>

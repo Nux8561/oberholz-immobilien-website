@@ -643,3 +643,32 @@ a.skip-to-content {
 a.skip-to-content:focus {
   transform: translateY(0);
 }
+
+/*
+  Regenbogen-/Energie-Leiste unter dem Header entfernen.
+  Inline-Styles in den HTML-Seiten nutzen denselben Verlauf;
+  !important schlägt die eingebetteten Regeln.
+*/
+.main-header-scale::after {
+  background: none !important;
+  height: 0 !important;
+  content: none !important;
+}
+
+/* Regenbogen-Unterstreichung an Hero-Wörtern (text-underline-energy-scale) */
+.text-underline-energy-scale::after {
+  background: none !important;
+  height: 0 !important;
+  content: none !important;
+}
+
+img.effizienz-logo,
+img[src*="bmwi_eneffi_keyvis"],
+img[alt*="Deutschland machts effizient"] {
+  display: none !important;
+}
+
+/*
+  Mega-Menü-Wasserzeichen: public/.../leaf-watermark.svg ist das Oberholz-Haus-Motiv
+  (ersetzt das alte Energie-Blatt/Blitz). Inline-CSS behält denselben Dateipfad.
+*/

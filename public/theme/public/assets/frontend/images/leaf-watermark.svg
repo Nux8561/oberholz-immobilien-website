@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 1800"><path fill="#e9f1f7" d="M946.9,464.7c-86.9-80.5-18.2-674.8,1059.1-293.8,0,0-144.2,154.1-306.6,380.6-149.6,208.6-394.3,302.9-604.1,81.6,0,0,280.4-289.1,669.7-448.1,0,0-421.9,19.2-818.2,279.7h0Z"/><path fill="#e9f1f7" d="M856,644.2C796.1,501,32.6,256.9,15.7,1753.6c0,0,232.3-78.6,584.2-176.3,324-90,727.6-397.8,419-747.9,0,0-474.5,249-854.9,665.1,0,0,193-480.4,691.9-850.3h0Z"/><path fill="#e9f1f7" d="M1610.4,231.2s-416.7,108.5-739.7,365.4c38.8,31.5,55.5,80.1,55.5,80.1,0,0-388.7,286.2-606.3,603.1,0,0,467.5-454.9,784.9-574.1-69.3-47-91-95-91-95,0,0,224-231.3,596.6-379.6h0Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 1800" role="img" aria-label="Oberholz">
+  <!-- Soft Oberholz house mark (replaces old energy leaf/lightning watermark) -->
+  <g fill="#d7e6f0">
+    <!-- Roof -->
+    <path d="M1050 220 L1780 820 L1620 820 L1620 1480 L480 1480 L480 820 L320 820 Z"/>
+    <!-- Chimney -->
+    <rect x="1380" y="380" width="140" height="280" rx="12"/>
+    <!-- Door cutout (lighter via overlapping white) -->
+  </g>
+  <path fill="#ffffff" d="M930 980 L1170 980 L1170 1480 L930 1480 Z"/>
+  <circle fill="#ffffff" cx="1125" cy="1230" r="22"/>
+  <!-- Soft secondary house silhouette for depth -->
+  <path fill="#e9f1f7" opacity="0.85" d="M420 700 L780 380 L1140 700 L1060 700 L1060 1100 L500 1100 L500 700 Z"/>
+  <path fill="#ffffff" d="M720 860 L860 860 L860 1100 L720 1100 Z"/>
+</svg>

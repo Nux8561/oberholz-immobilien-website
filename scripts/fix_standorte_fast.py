@@ -168,6 +168,11 @@ def patch_html_text(text: str) -> tuple[str, dict]:
 
     def tb_repl(m: re.Match) -> str:
         body = m.group(0)
+        # Never rewrite tax / GrESt tables (headers sit in surrounding <table>).
+        start = m.start()
+        window = text[max(0, start - 400) : start + 80]
+        if "Steuersatz" in window or "Grunderwerbsteuer" in window:
+            return body
         if any(x in body for x in BAD_TBODY_MARKERS):
             stats["tbody"] += 1
             return NEW_TBODY

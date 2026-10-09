@@ -204,6 +204,10 @@ def patch_html_text(text: str) -> tuple[str, dict]:
     if "Baden-Württemberg" in text or "Villingen-Schwenningen" in text or "Immobilienmakler Stuttgart" in text:
         def tb_repl(m: re.Match) -> str:
             body = m.group(0)
+            start = m.start()
+            window = text[max(0, start - 400) : start + 80]
+            if "Steuersatz" in window or "Grunderwerbsteuer" in window:
+                return body
             if any(
                 x in body
                 for x in ("Stuttgart", "Hamburg", "München", "Villingen", "Frankfurt", "Hannover", "Düsseldorf", "Berlin", "Augsburg", "Nürnberg")
