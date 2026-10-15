@@ -1,0 +1,46 @@
+.funnel { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 40px var(--gutter) 72px; scroll-margin-top: 140px; }
+.funnel__box { max-width: 896px; margin: 0 auto; padding: 56px 64px; border: 1px solid #d9d9d9; border-top: 2px solid var(--c-accent); text-align: center; }
+.funnel__eyebrow { color: var(--c-accent); }
+.funnel__title { margin: 8px 0 24px; font-size: 36px; line-height: 44px; color: var(--c-strong); }
+.funnel__progress { height: 4px; background: #eee; }
+.funnel__progress span { display: block; height: 100%; background: var(--c-accent); transition: width .3s var(--ease); }
+.funnel__count { margin: 8px 0 24px; font-size: 12px; line-height: 16px; letter-spacing: .48px; text-transform: uppercase; color: var(--c-muted); }
+.funnel__step { border: 0; padding: 0; margin: 0; min-width: 0; }
+.funnel__q { display: block; width: 100%; margin-bottom: 24px; font-size: 20px; line-height: 28px; color: var(--c-strong); }
+.funnel__tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.funnel__tiles--2 { grid-template-columns: repeat(2, minmax(0, 220px)); justify-content: center; }
+.funnel__tile {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 24px 8px;
+  border: 1px solid #d9d9d9; background: var(--c-white); color: var(--c-strong); font-size: 16px; line-height: 24px;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.funnel__tile svg { color: var(--c-accent); }
+.funnel__tile:hover { border-color: var(--c-ink); }
+.funnel__tile.is-active { border-color: var(--c-accent); background: #fff6f6; }
+.funnel__tick { position: absolute; top: 8px; right: 8px; display: inline-flex; width: 22px; height: 22px; align-items: center; justify-content: center; border-radius: 50%; background: var(--c-accent); color: var(--c-white); }
+.funnel__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.funnel .chip { padding: 8px 16px; border: 1px solid #d9d9d9; border-radius: 20px; font-size: 15px; line-height: 22px; color: var(--c-strong); background: var(--c-white); }
+.funnel .chip:hover { border-color: var(--c-ink); }
+.funnel .chip.is-active { border-color: var(--c-accent); background: var(--c-accent); color: var(--c-white); }
+.funnel__units { margin-top: 32px; }
+.funnel__label { margin: 24px 0 12px; font-size: 14px; line-height: 20px; color: var(--c-text); }
+.funnel__stepper { display: inline-flex; align-items: center; gap: 0; margin-bottom: 16px; border: 1px solid #d9d9d9; }
+.funnel__stepper button { width: 48px; height: 48px; font-size: 22px; color: var(--c-ink); }
+.funnel__stepper output { min-width: 56px; font-size: 22px; color: var(--c-strong); }
+.funnel__value { font-size: 32px; line-height: 40px; color: var(--c-strong); }
+.funnel__range { width: 100%; max-width: 480px; margin: 16px auto 20px; display: block; accent-color: var(--c-accent); }
+.funnel__next { margin-top: 28px; min-width: 200px; }
+.funnel__next:disabled { opacity: .4; cursor: not-allowed; }
+.funnel__hint { margin-top: 12px; font-size: 14px; color: var(--c-muted); }
+.funnel__summary { margin: -12px 0 20px; font-size: 14px; color: var(--c-muted); }
+.funnel__ort { max-width: 420px; margin: 0 auto; text-align: left; }
+.funnel .cform { margin-top: 24px; text-align: left; }
+.funnel__back { display: inline-flex; align-items: center; gap: 4px; margin-top: 24px; font-size: 14px; color: var(--c-ink); }
+@media (max-width: 959px) { .funnel__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 599px) {
+  .funnel { padding: 24px 16px 56px; }
+  .funnel__box { padding: 32px 16px; }
+  .funnel__title { font-size: 28px; line-height: 36px; }
+  .funnel__tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .funnel__tiles--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

@@ -1,0 +1,37 @@
+{
+ "staedte/muenster.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1706657010195-1c134623ba16"
+ },
+ "staedte/muenster-arkaden.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1706657010213-a30c65694714"
+ },
+ "staedte/essen.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1508455013129-43b4b436613f"
+ },
+ "staedte/bochum.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1601162025382-2669f337bb69"
+ },
+ "staedte/duesseldorf.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1655208291826-0e145d1811e7"
+ },
+ "staedte/duisburg.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1603973334814-3532d6476cac"
+ },
+ "staedte/muensterland.jpg": {
+  "quelle": "Unsplash",
+  "lizenz": "Unsplash License (kommerziell frei nutzbar)",
+  "url": "https://images.unsplash.com/photo-1660317676013-190992f93a51"
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "oberholz-immobilien",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "tsc -b --noEmit",
+    "test": "python3 scripts/test_functional.py",
+    "audit:capture": "python3 scripts/capture_reference.py",
+    "audit:local": "python3 scripts/capture_local.py",
+    "audit:diff": "python3 scripts/visual_diff.py",
+    "check:links": "python3 scripts/check_links.py",
+    "build:seo": "tsc -b && vite build && python3 scripts/prerender.py"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter-tight": "^5.3.0",
+    "@fontsource/spectral": "^5.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

@@ -1,0 +1,54 @@
+/* Hero – Referenz 1440: Section 1440×897 ab y=135, Padding 40/40/0, Inhalt max. 1360px.
+   Titel 56/67, Suche rechts bündig unten (≥1240px), Slider 40px darunter, Teaser-Reihe direkt anschließend. */
+.hero {
+  max-width: calc(var(--wrap-wide) + 80px); margin: 0 auto; padding: 40px 40px 0;
+  transform: translateY(var(--hero-lift, 0px));
+}
+.hero__head { display: grid; row-gap: 40px; align-items: end; }
+.hero__title { font-size: 56px; line-height: 67px; color: var(--c-strong); padding-right: 40px; }
+.hero__carousel { margin-top: 40px; }
+
+.hero__teasers {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px;
+  max-width: 685px; margin: 0 auto;
+  opacity: 0; transform: translateY(0);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.hero.is-scrolled .hero__teasers { opacity: 1; transform: translateY(-48px); }
+
+.hteaser {
+  position: relative; display: grid; grid-template-columns: 60px 1fr 24px; align-items: center; column-gap: 20px;
+  padding: 20px 16px; background: var(--c-white); box-shadow: var(--shadow-card);
+  transition: box-shadow var(--dur) var(--ease);
+}
+.hteaser:hover { box-shadow: var(--shadow-card-hover); }
+.hteaser__img { width: 60px; height: 60px; object-fit: cover; }
+.hteaser__title { font-size: 16px; line-height: 24px; color: var(--c-ink); }
+.hteaser__link { display: flex; color: var(--c-ink); }
+.hteaser__link::after { content: ''; position: absolute; inset: 0; }
+.hteaser__link svg { transition: transform var(--dur) var(--ease); }
+.hteaser:hover .hteaser__link svg { transform: translateX(4px); }
+
+@media (min-width: 1240px) {
+  .hero__head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; }
+  .hero__teasers {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: calc(var(--wrap) + 128px); padding: 0 64px;
+  }
+  .hero.is-scrolled .hero__teasers { transform: translateY(-50px); }
+}
+@media (max-width: 959px) {
+  .hero { transform: none; }
+  .hero__teasers { max-width: none; padding: 0 48px; }
+  .hteaser { padding: 16px; }
+}
+@media (max-width: 599px) {
+  .hero { padding: 40px 16px 0; margin-bottom: 56px; }
+  .hero__title { font-size: 40px; line-height: 48px; padding-right: 0; }
+  .hero__teasers { padding: 24px 0 0; opacity: 1; transform: none; transition: none; }
+  .hero.is-scrolled .hero__teasers { transform: none; }
+  .hteaser { padding: 12px; column-gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero { transform: none; }
+  .hero__teasers { transition: none; }
+}

@@ -1,0 +1,9 @@
+.toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 200; max-width: min(560px, calc(100vw - 32px));
+  padding: 12px 20px; background: var(--c-ink); color: var(--c-white); border-radius: 2px;
+  font-size: 14px; line-height: 22px; box-shadow: var(--shadow-card-hover);
+  opacity: 0; transform: translate(-50%, 12px); pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.toast:empty { display: none; }

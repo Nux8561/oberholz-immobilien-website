@@ -1,0 +1,4 @@
+.fitimg { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; }
+.fitimg__fg { position: relative; display: block; width: 100%; height: 100%; object-fit: cover; }
+.fitimg.is-portrait .fitimg__fg { object-fit: contain; }
+.fitimg__bg { position: absolute; inset: -24px; width: calc(100% + 48px); height: calc(100% + 48px); object-fit: cover; filter: blur(22px) brightness(.92); }

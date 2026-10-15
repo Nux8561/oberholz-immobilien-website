@@ -1,0 +1,73 @@
+/* Header – Referenz: 1440px → 135px hoch (72px Meta-Zeile + 1px Linie + 62px Navigation). */
+.hdr {
+  position: relative; z-index: 50; background: var(--c-white);
+  max-width: 1920px; margin: 0 auto;
+}
+.hdr__top {
+  position: relative; display: flex; align-items: center; justify-content: space-between;
+  height: 73px; padding: 0 40px; border-bottom: 1px solid var(--c-line);
+}
+.hdr__burger { display: none; color: var(--c-ink); }
+.hdr__logo { display: flex; align-items: center; }
+
+.hdr__meta { display: flex; align-items: center; gap: 16px; }
+.hdr__meta-item {
+  display: flex; align-items: center; gap: 8px; height: 40px; padding: 8px 0;
+  color: var(--c-ink); font-size: 16px; line-height: 24px;
+}
+.hdr__meta-label { transition: color var(--dur) var(--ease); }
+.hdr__meta-item { position: relative; }
+.hdr__badge {
+  position: absolute; left: 14px; top: -6px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px;
+  background: var(--c-accent); color: var(--c-white); font-size: 10px; line-height: 16px; text-align: center;
+}
+.hdr__meta-item:hover .hdr__meta-label { color: var(--c-muted); }
+
+.hdr__bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 62px; padding: 0 40px;
+}
+.hdr__list { display: flex; gap: 24px; }
+.hdr__item { position: relative; display: flex; }
+.hdr__link {
+  display: block; padding: 20px 8px; font-size: 16px; line-height: 20px; color: var(--c-text);
+  border-bottom: 2px solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.hdr__link:hover, .hdr__link.is-active { color: var(--c-ink); }
+.hdr__link.is-active { border-bottom-color: var(--c-accent); }
+.hdr__flyout-trigger {
+  position: absolute; right: -12px; top: 50%; width: 1px; height: 1px; overflow: hidden;
+}
+.hdr__flyout-trigger:focus-visible {
+  width: 16px; height: 16px; margin-top: -8px; right: -16px; overflow: visible;
+  background: var(--c-ink); border-radius: 50%;
+}
+
+/* Desktop: Sticky – Meta-Zeile scrollt weg (top −72px), Navigation bleibt mit Schatten stehen */
+@media (min-width: 960px) {
+  .hdr { position: sticky; top: -72px; transition: box-shadow .2s var(--ease); }
+  .hdr.is-scrolled { box-shadow: var(--shadow-card); }
+}
+
+/* Tablet: nur Meta-Zeile mit Burger (Referenz 600–959px: 77px hoch) */
+@media (max-width: 959px) {
+  .hdr__bottom { display: none; }
+  .hdr__top { height: 77px; justify-content: center; }
+  .hdr__burger { display: flex; position: absolute; left: 40px; top: 50%; transform: translateY(-50%); }
+  .hdr__meta { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); }
+  .hdr__meta-desk, .hdr__meta-label { display: none; }
+  .hdr__logo .logo { width: auto; height: 48px; justify-content: center; }
+}
+/* Mobile (Referenz 390px: 57px hoch, 16px Rand) */
+@media (max-width: 599px) {
+  .hdr__top { height: 57px; padding: 0 16px; }
+  .hdr__burger { left: 16px; }
+  .hdr__meta { right: 16px; }
+  .hdr__logo .logo { height: 40px; }
+}
+
+.hdr__rating { gap: 6px; }
+.hdr__rating-star { color: #e2b34a; font-size: 18px; line-height: 1; }
+.hdr__rating strong { font-weight: 600; }
+@media (max-width: 1239px) { .hdr__rating .hdr__meta-label { display: none; } }

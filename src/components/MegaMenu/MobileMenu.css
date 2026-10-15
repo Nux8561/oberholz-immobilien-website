@@ -1,0 +1,41 @@
+.mnav {
+  position: fixed; inset: 0; z-index: 100; background: var(--c-white); overflow: hidden;
+  opacity: 0; visibility: hidden; transform: translateX(-24px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s linear .25s;
+}
+.mnav.is-open { opacity: 1; visibility: visible; transform: none; transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s; }
+.mnav__track { display: flex; width: 200%; height: 100%; transition: transform .35s var(--ease); }
+.mnav__track.is-sub { transform: translateX(-50%); }
+.mnav__panel { position: relative; width: 50%; height: 100%; overflow-y: auto; display: flex; flex-direction: column; }
+
+.mnav__bar {
+  display: flex; align-items: center; justify-content: space-between; flex: none;
+  height: 57px; padding: 0 16px; border-bottom: 1px solid var(--c-line);
+}
+.mnav__icon { display: flex; width: 24px; height: 24px; color: var(--c-ink); }
+.mnav__bar-title { font-size: 16px; line-height: 24px; color: var(--c-text); }
+
+.mnav__list { padding: 24px 0 16px; }
+.mnav__row {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  height: 60px; padding: 0 16px 0 24px; font-size: 18px; line-height: 28px; color: var(--c-text); text-align: left;
+}
+.mnav__row svg { color: var(--c-ink); }
+.mnav__meta { padding: 8px 16px 0; }
+.mnav__meta-item { display: flex; align-items: center; gap: 8px; height: 48px; font-size: 16px; color: var(--c-ink); }
+.mnav__cta { margin: 20px 16px 24px; }
+
+.mnav__sub { display: flex; flex-direction: column; flex: 1; padding: 23px 24px 16px; }
+.mnav__sub-title { display: block; font-size: 28px; line-height: 36px; color: var(--c-strong); margin-bottom: 20px; }
+.mnav__sub-col + .mnav__sub-col { margin-top: 24px; }
+.mnav__sub-col .eyebrow { margin-bottom: 4px; }
+.mnav__sub-link { display: block; padding: 12px 0; font-size: 16px; line-height: 24px; color: var(--c-ink); }
+.mnav__sub-cta { margin-top: auto; width: 100%; }
+@media (min-width: 600px) {
+  .mnav__bar { height: 77px; padding: 0 40px; }
+  .mnav__row { padding: 0 40px; }
+  .mnav__meta { padding: 8px 40px 0; }
+  .mnav__cta { margin: 20px 40px 24px; align-self: flex-start; }
+  .mnav__sub { padding: 32px 40px 24px; }
+}
+@media (min-width: 960px) { .mnav { display: none; } }

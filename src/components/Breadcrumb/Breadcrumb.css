@@ -1,0 +1,7 @@
+.crumbs { max-width: 1440px; margin: 0 auto; padding: 24px 40px; }
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; list-style: none; padding: 0; margin: 0; }
+.crumbs li { display: inline-flex; align-items: center; gap: 2px; margin-right: 4px; font-size: 12px; line-height: 20px; color: var(--c-text); }
+.crumbs a { color: var(--c-text); transition: color var(--dur) var(--ease); }
+.crumbs a:hover { color: var(--c-ink); text-decoration: underline; }
+.crumbs li:last-child span { color: var(--c-ink); }
+@media (max-width: 599px) { .crumbs { padding: 24px 16px; } }

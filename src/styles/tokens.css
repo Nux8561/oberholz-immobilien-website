@@ -1,0 +1,39 @@
+/* Design-Tokens – Werte aus getComputedStyle() der Referenz (analysis/engelvoelkers/dom_1440.json).
+   Proprietäre Fonts ersetzt durch per Breitenvergleich gewählte freie Fonts (scripts/inspect_fonts.py).
+   Akzentfarbe: Rot wie Referenz – Linien/Tabs rgb(230,0,0), Such-Button rgb(200,0,0). */
+:root {
+  --font-head: 'Spectral', Georgia, 'Times New Roman', serif;
+  --font-text: 'Inter Tight Variable', 'Inter Tight', Arial, Helvetica, sans-serif;
+  --fw-head: 600;            /* Spectral 600 + −0.01em trifft Breite & Strichstärke von EV Head (Zoom-Vergleich) */
+  --ls-head: -0.01em;
+  --fw-text: 400;
+  --ls-text: 0.56px;          /* Referenz 0.48px; +0.08px gleicht schmalere Ersatzschrift aus */
+  --ls-eyebrow: 2px;
+
+  --c-ink: #0d0d0d;           /* rgb(13,13,13) */
+  --c-strong: #262626;        /* rgb(38,38,38) */
+  --c-text: #404040;          /* rgb(64,64,64) */
+  --c-muted: #666666;         /* rgb(102,102,102) */
+  --c-border: #767676;        /* rgb(118,118,118) */
+  --c-line: #e8e8e8;
+  --c-cream: #fcfaf5;         /* rgb(252,250,245) */
+  --c-white: #ffffff;
+  --c-accent: #e60000;        /* rgb(230,0,0) – Akzentlinien, aktive Tabs */
+  --c-accent-strong: #c80000; /* rgb(200,0,0) – Such-Button */
+  --c-accent-hover: #a30000;
+  --c-error: #b3261e;
+
+  --shadow-card: rgba(0, 0, 0, 0.32) 0 1px 2px 0;
+  --shadow-card-hover: rgba(0, 0, 0, 0.24) 0 4px 12px 0;
+  --shadow-flyout: rgba(0, 0, 0, 0.32) 0 2px 4px 0;
+  --ease: cubic-bezier(0.42, 0, 0.48, 1);  /* Referenz-Transition */
+  --dur: 0.3s;
+
+  --wrap-wide: 1360px;        /* Hero / Header / Footer */
+  --wrap: 1128px;             /* Content */
+  --wrap-text: 896px;         /* Section-Intros */
+  --gutter: 40px;
+}
+@media (max-width: 767px) {
+  :root { --gutter: 16px; }
+}

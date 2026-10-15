@@ -1,0 +1,110 @@
+/* Footer – Referenz 1440: 4 Spalten à 322px (Gap 24) in 1360px, Kontaktzeile mit Trennlinie, Linkspalten, Rechtliches */
+.ftr { max-width: 1920px; margin: 0 auto; }
+.ftr__wrap { padding: 28px 40px 0; }
+.ftr__contacts {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; align-items: start;
+  grid-template-areas: "title addr phone social"; padding-bottom: 24px; border-bottom: 1px solid var(--c-border);
+}
+.ftr__title { grid-area: title; }
+.ftr__address { grid-area: addr; }
+.ftr__phone { grid-area: phone; }
+.ftr__social-list { grid-area: social; }
+.ftr__top { grid-area: social; justify-self: end; }
+.ftr__title { font-size: 28px; line-height: 36px; color: var(--c-strong); }
+.ftr__address { padding: 8px 0; font-size: 16px; line-height: 28px; color: var(--c-strong); }
+.ftr__phone { padding-top: 11px; font-size: 16px; line-height: 21px; color: var(--c-text); }
+.ftr__social-list { display: flex; gap: 16px; padding-top: 3px; }
+.ftr__social-link { display: block; transition: opacity var(--dur) var(--ease); }
+.ftr__social-link:hover { opacity: .7; }
+.ftr__top {
+  flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--c-ink); color: var(--c-white);
+  display: flex; align-items: center; justify-content: center; transition: background-color var(--dur) var(--ease);
+}
+.ftr__top:hover { background: #404040; }
+
+.ftr__wrap--links { margin-top: 24px; padding-bottom: 24px; }
+.ftr__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; padding-bottom: 24px; }
+.ftr__col-title { font-size: 12px; line-height: 16px; letter-spacing: .48px; text-transform: uppercase; color: var(--c-muted); }
+.ftr__acc { display: none; }
+.ftr__list { padding-top: 16px; }
+.ftr__link {
+  display: inline-block; padding: 8px 0; font-size: 16px; line-height: 24px; color: var(--c-ink);
+  transition: color var(--dur) var(--ease);
+}
+.ftr__list .ftr__link { margin-bottom: 8px; }
+.ftr__link:hover { color: var(--c-muted); }
+
+.ftr__wrap--bottom { padding-bottom: 24px; }
+.ftr__bottom { display: grid; grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr); column-gap: 20px; align-items: end; padding-top: 24px; }
+.ftr__legal { display: flex; flex-wrap: wrap; column-gap: 20px; row-gap: 12px; }
+.ftr__legal--right { justify-content: flex-end; }
+.ftr__illu { color: #8c8c8c; }
+
+/* Unterseiten: Spalten auch auf Desktop als Akkordeon (Referenz: Summary 24px hoch, + rechts) */
+@media (min-width: 600px) {
+  .ftr--accordion .ftr__col-title { display: none; }
+  .ftr--accordion .ftr__acc {
+    display: flex; align-items: center; justify-content: space-between; width: 100%; height: 24px;
+    font-size: 12px; line-height: 16px; letter-spacing: .48px; text-transform: uppercase; color: var(--c-muted);
+  }
+  .ftr--accordion .ftr__acc svg { color: var(--c-text); }
+  .ftr--accordion .ftr__list { display: none; }
+  .ftr--accordion .ftr__col.is-open .ftr__list { display: block; }
+}
+
+/* 960–1239px: Titel + Button oben, Adresse/Telefon darunter, Social-Icons in eigener Zeile */
+@media (min-width: 960px) and (max-width: 1239px) {
+  .ftr__contacts {
+    grid-template-columns: minmax(0, 63.1%) minmax(0, 1fr); column-gap: 4px; row-gap: 24px;
+    grid-template-areas: "title top" "addr phone" "social social";
+  }
+  .ftr__title { padding: 6px 0; }
+  .ftr__top { grid-area: top; }
+}
+@media (max-width: 959px) {
+  .ftr__contacts { grid-template-columns: 1fr; row-gap: 16px; position: relative; grid-template-areas: "title" "addr" "phone" "social"; }
+  .ftr__title { padding: 6px 64px 6px 0; }
+  .ftr__top { position: absolute; right: 0; top: 0; }
+  .ftr__cols { grid-template-columns: 1fr; row-gap: 24px; padding-bottom: 0; }
+  .ftr__bottom { grid-template-columns: 1fr; justify-items: center; row-gap: 24px; padding-top: 0; }
+  .ftr__bottom { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 17px; }
+  .ftr__illu { order: 3; flex-basis: 100%; height: 70px; }
+}
+@media (max-width: 599px) {
+  .ftr__wrap { padding: 24px 16px 0; }
+  .ftr__address { margin-top: 8px; }
+  .ftr__phone { padding-top: 8px; }
+  .ftr__social-list { padding: 8px 0 4px; }
+  .ftr__title { font-size: 24px; line-height: 32px; padding: 4px 64px 4px 0; }
+  .ftr__top { width: 40px; height: 40px; }
+  .ftr__wrap--links { margin-top: 0; padding: 24px 16px; }
+  .ftr__cols { row-gap: 0; margin: 0 -16px; }
+  .ftr__col { padding: 0 16px; }
+  .ftr__col-title { display: none; }
+  .ftr__acc {
+    display: flex; align-items: center; justify-content: space-between; width: calc(100% + 32px); height: 57px; margin: 0 -16px; padding: 0 16px;
+    border-bottom: 1px solid var(--c-border); font-size: 12px; line-height: 16px; letter-spacing: .48px;
+    text-transform: uppercase; color: var(--c-muted);
+  }
+  .ftr__acc svg { color: var(--c-text); }
+  .ftr__list { display: none; padding: 8px 0 16px; }
+  .ftr__col.is-open .ftr__list { display: block; }
+  .ftr__wrap--bottom { padding: 24px 16px; }
+  .ftr__bottom { display: grid; grid-template-columns: 1fr; row-gap: 0; }
+  .ftr__legal, .ftr__legal--right { justify-content: center; column-gap: 15px; flex-wrap: nowrap; white-space: nowrap; }
+  .ftr__legal--right { flex-wrap: wrap; }
+  .ftr__legal--right li:last-child { flex-basis: 100%; text-align: center; }
+  .ftr__illu { width: 168px; margin-top: 24px; }
+}
+/* unter 390px passen beide Links nicht mehr in eine Zeile */
+@media (max-width: 389px) { .ftr__legal { flex-wrap: wrap; } }
+
+.ftr__copy { display: inline-block; padding: 8px 0; font-size: 16px; line-height: 24px; color: var(--c-muted); }
+
+/* Kooperationen */
+.ftr__partners { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 40px; padding: 24px 0; border-top: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); }
+.ftr .ftr__partners .ftr__col-title { display: block; }
+.ftr__partners ul { display: flex; align-items: center; flex-wrap: wrap; gap: 24px 40px; }
+.ftr__partners img { display: block; height: 32px; width: auto; max-width: 150px; object-fit: contain; filter: grayscale(1); opacity: .75; transition: filter var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+.ftr__partners a:hover img { filter: none; opacity: 1; }
+@media (max-width: 599px) { .ftr__partners { flex-direction: column; align-items: flex-start; } .ftr__partners img { height: 26px; } }

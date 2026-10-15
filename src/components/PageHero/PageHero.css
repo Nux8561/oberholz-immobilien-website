@@ -1,0 +1,10 @@
+.phero__eyebrow { margin-bottom: 12px; color: var(--c-accent); }
+.phero .b-shero__title { hyphens: manual; }
+.phero__checks { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.phero__checks li { display: flex; gap: 12px; font-size: 17px; line-height: 27px; color: var(--c-text); }
+.phero .b-shero__body { padding-top: 48px; padding-bottom: 48px; }
+.phero .rich__faces { margin: 20px 0 0; }
+.phero__media--cutout { display: flex; align-items: flex-end; justify-content: center; background: linear-gradient(180deg, #f3eee3 0%, #ebe4d6 100%); }
+.phero__media--cutout img { width: auto; height: 100%; max-width: 100%; object-fit: contain; object-position: bottom; }
+@media (max-width: 959px) { .phero__media--cutout { aspect-ratio: 4 / 3; } }
+@media (max-width: 599px) { .phero .b-shero__body { padding: 24px 16px 32px; } }

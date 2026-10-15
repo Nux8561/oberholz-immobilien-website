@@ -1,0 +1,177 @@
+/* Unterseiten-Bausteine – Maße aus analysis/engelvoelkers/pages/*_1440.txt */
+.b-center { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
+.b-empty { padding: 24px 0; text-align: center; color: var(--c-muted); }
+.b-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 16px; color: var(--c-ink); }
+.b-more__icon { color: var(--c-accent); font-size: 20px; line-height: 1; }
+.line-icon { color: var(--c-text); }
+
+/* Seitentitel + Unternavigation (Commercial, Stadt) – 172px */
+.b-ptitle { display: flex; flex-direction: column; align-items: center; padding: 24px 40px; }
+.b-ptitle__title { padding: 22px 8px; font-size: 24px; line-height: 20px; letter-spacing: 2px; text-transform: uppercase; color: var(--c-ink); }
+.b-ptitle__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 24px; margin-top: 24px; }
+.b-ptitle__nav button { display: inline-flex; align-items: center; gap: 2px; padding: 4px 2px; font-size: 12px; line-height: 20px; letter-spacing: 2px; text-transform: uppercase; color: var(--c-ink); }
+.b-ptitle__nav button:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Split-Hero – Section Padding 40, Raster 680/680 auf Creme, Text 72px eingerückt, Bild 4:3 */
+.b-shero { max-width: 1440px; margin: 0 auto; padding: 40px; }
+.b-shero__grid { display: grid; grid-template-columns: 1fr 1fr; background: var(--c-cream); }
+.b-shero__body { display: flex; flex-direction: column; justify-content: center; padding: 23px 72px; }
+.b-shero__title { font-size: 40px; line-height: 48px; color: var(--c-strong); margin-bottom: 24px; }
+.b-shero__text { font-size: 20px; line-height: 32px; color: var(--c-text); margin-bottom: 24px; }
+.b-shero__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 536px; }
+.b-shero__btns .btn { padding: 9px 12px; }
+.b-shero__btns:has(> :only-child) { grid-template-columns: auto; justify-content: start; }
+.b-shero__search .psearch__box { height: 50px; }
+.b-shero__search .psearch__type-btn { padding: 10px 12px; }
+.b-shero__search .psearch__input { height: 48px; padding: 8px 64px 8px 12px; font-size: 16px; }
+.b-shero__search .psearch__submit { top: 4px; right: 4px; width: 40px; height: 40px; }
+.b-shero__media { aspect-ratio: 4 / 3; overflow: hidden; }
+.b-shero__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.b-wide { max-width: 1440px; margin: 0 auto; padding: 40px 40px 0; }
+.b-wide img { width: 100%; aspect-ratio: 10 / 3; object-fit: cover; }
+
+/* Hero mit Karte (Bewertung) – Section 707px, Karte 896px auf Creme, Kacheln 210×158 */
+.b-chero { padding: 64px 40px; background-size: cover; background-position: center; background-color: var(--c-cream); }
+.b-chero__card { max-width: 896px; margin: 0 auto; padding: 48px 64px 40px; background: var(--c-cream); text-align: center; }
+.b-chero__title { margin: 12px 0 40px; font-size: 32px; line-height: 40px; color: var(--c-strong); }
+.b-chero__opts { display: grid; grid-template-columns: repeat(3, 210px); justify-content: center; gap: 16px; margin-bottom: 32px; }
+.b-chero__opt {
+  display: flex; flex-direction: column; align-items: center; height: 158px; padding: 9px 8px; background: var(--c-white);
+  border: 1px solid #d9d9d9; border-radius: 2px; font-size: 16px; line-height: 28px; color: var(--c-strong);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.b-chero__opt .line-icon { width: 96px; height: 96px; margin-bottom: 8px; }
+.b-chero__opt:hover, .b-chero__opt.is-active { border-color: var(--c-ink); box-shadow: inset 0 0 0 1px var(--c-ink); }
+.b-checks { display: grid; gap: 4px; max-width: 664px; margin: 0 auto; text-align: left; }
+.b-checks li { display: flex; align-items: center; gap: 8px; font-size: 16px; line-height: 28px; color: var(--c-strong); }
+.b-chero__note { margin-top: 24px; font-size: 12px; line-height: 20px; color: var(--c-muted); }
+
+/* Vorteile – 3 (oder 5 = 3+2) Spalten, Icon 48, H 28/36, Text 16/28 */
+.b-benefits { display: flex; flex-wrap: wrap; justify-content: center; row-gap: 48px; }
+.b-benefits li { width: 33.333%; padding: 0 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.b-benefits .line-icon { margin-bottom: 17px; }
+.b-benefits h2 { margin-bottom: 8px; font-size: 28px; line-height: 36px; color: var(--c-strong); }
+.b-benefits p { font-size: 16px; line-height: 28px; color: var(--c-text); }
+
+/* Kennzahlen mit roten Trennlinien */
+.b-stats { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; row-gap: 32px; }
+.b-stats li { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 240px; padding: 0 40px; text-align: center; position: relative; }
+.b-stats li + li::before { content: ''; position: absolute; left: 0; top: 50%; width: 2px; height: 56px; margin-top: -28px; background: var(--c-accent); }
+.b-stats .head { font-size: 28px; line-height: 36px; color: var(--c-strong); }
+.b-stats--wrap li { flex: 0 0 33.333%; }
+.b-stats--wrap li:nth-child(4)::before { display: none; }
+.b-stats--wrap li:nth-child(n+4) { flex-basis: 25%; }
+
+/* Schritte / Services (Tabs mit Icons + Slide) */
+.b-steps__tabs { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; margin-bottom: 40px; border-bottom: 1px solid #d9d9d9; }
+.b-steps__tabs button { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 4px 12px; font-size: 12px; line-height: 16px; color: var(--c-text); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.b-steps__tabs button.is-active { border-bottom-color: var(--c-accent); color: var(--c-ink); }
+.b-steps__tabs button:hover .line-icon { color: var(--c-ink); }
+.b-steps__slide { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.b-steps__img { aspect-ratio: 564 / 375; overflow: hidden; }
+.b-steps__img img { width: 100%; height: 100%; object-fit: cover; }
+.b-steps__body { padding: 0 48px; }
+.b-steps__body h3 { margin-bottom: 16px; font-size: 28px; line-height: 36px; color: var(--c-text); }
+.b-steps__body p { font-size: 16px; line-height: 28px; color: var(--c-text); }
+.b-steps--services .b-steps__slide { background: var(--c-cream); }
+.b-steps__nav { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 32px; font-size: 14px; color: var(--c-text); }
+.b-steps__nav button { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--c-ink); background: var(--c-white); }
+.b-steps__nav button:disabled { opacity: .3; }
+
+/* FAQ – Zeilen 72px, Frage 20/32 */
+.b-faq .acc__btn { padding: 20px 24px; font-size: 20px; line-height: 32px; color: var(--c-strong); }
+.b-faq .acc__panel { padding: 0 24px 24px; }
+.b-faq-sec .sintro-inline { margin-bottom: 48px; }
+.b-regions .acc__btn { padding: 12px 8px; }
+
+/* „Gut zu wissen“ */
+.b-info { display: grid; grid-template-columns: 32px 1fr; gap: 24px; padding: 40px 48px; background: #f4f3f0; }
+.b-info .head { font-size: 20px; line-height: 28px; color: var(--c-strong); }
+.b-info p:not(.head) { font-size: 16px; line-height: 28px; color: var(--c-text); }
+
+/* Profil: Akkordeon links (668), Bild rechts (344×459) */
+.b-profile { display: grid; grid-template-columns: minmax(0, 668fr) minmax(0, 344fr); column-gap: 116px; align-items: start; }
+.b-profile__title { margin-bottom: 16px; font-size: 28px; line-height: 36px; color: var(--c-strong); }
+.b-profile__text { margin-bottom: 24px; font-size: 16px; line-height: 28px; color: var(--c-text); }
+.b-profile__cta { margin-top: 32px; }
+.b-profile__img { aspect-ratio: 344 / 459; overflow: hidden; background: #f4f3f0; }
+.b-profile__img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Text + Bild (grau hinterlegt) */
+.b-ti--grey { background: #f4f3f0; }
+.b-ti__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 500px); gap: 64px; max-width: calc(var(--wrap) + 80px); margin: 0 auto; padding: 56px 40px; align-items: center; }
+.b-ti__body h2 { margin-bottom: 16px; font-size: 28px; line-height: 36px; color: var(--c-strong); }
+.b-ti__body p { font-size: 16px; line-height: 28px; color: var(--c-text); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 10; overflow: hidden; }
+.b-ti__body p.is-open { display: block; }
+.b-ti__cta { margin-top: 24px; }
+.b-ti__img { aspect-ratio: 4 / 3; overflow: hidden; background: #e9e8e4; }
+.b-ti__img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Zitat */
+.b-quote { display: grid; grid-template-columns: 1fr 1fr; margin: 0; background: var(--c-cream); min-height: 272px; }
+.b-quote__img { background: #ece9e2; }
+.b-quote__img img { width: 100%; height: 100%; object-fit: cover; }
+.b-quote__body { display: flex; flex-direction: column; justify-content: center; padding: 40px 48px; }
+.b-quote blockquote { margin: 0 0 16px; font-size: 20px; line-height: 28px; color: var(--c-ink); }
+.b-quote figcaption { display: flex; flex-direction: column; font-size: 16px; color: var(--c-text); }
+.b-quote figcaption small { font-size: 10px; color: var(--c-muted); }
+.b-quote__dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+.b-quote__dots button { width: 16px; height: 3px; background: #d9d9d9; }
+.b-quote__dots button.is-active { background: var(--c-accent); }
+
+/* Kacheln (wie Städte-Cards) */
+.b-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.b-tiles--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.b-tiles--2 .city__media { aspect-ratio: 520 / 348; }
+.b-image { max-width: calc(var(--wrap-text) + 80px); margin: 0 auto; padding: 0 40px 72px; }
+.b-image img { width: 100%; object-fit: cover; }
+@media (max-width: 599px) { .b-image { padding: 0 16px 56px; } }
+.b-tile .city__sub { white-space: normal; }
+
+/* Zeitleiste (Über uns) */
+.b-timeline { max-width: calc(var(--wrap-text) + 80px); margin: 0 auto; padding: 0 40px 72px; }
+.b-timeline ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 48px; }
+.b-timeline li { display: grid; grid-template-columns: 224px 1fr; gap: 56px; align-items: start; }
+.b-timeline img { width: 224px; height: 152px; object-fit: cover; }
+.b-timeline h3 { margin: 12px 0 8px; font-size: 28px; line-height: 36px; color: var(--c-strong); }
+.b-timeline p { font-size: 16px; line-height: 28px; color: var(--c-text); }
+
+/* Objektreihe / Berichte */
+.b-props--grey { background: #f4f3f0; }
+.b-props__tabs { display: flex; justify-content: center; gap: 32px; margin: -24px 0 32px; }
+.b-reports { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.b-report { display: flex; flex-direction: column; }
+.b-report__img { display: block; aspect-ratio: 355 / 236; overflow: hidden; background: #f4f3f0; }
+.b-report__img img { width: 100%; height: 100%; object-fit: cover; }
+.b-report h3 { margin: 24px 0 8px; font-size: 24px; line-height: 32px; color: var(--c-strong); }
+.b-report p { font-size: 14px; line-height: 24px; color: var(--c-text); }
+.b-report__read { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; color: var(--c-text); }
+.b-report__read svg { color: var(--c-accent); }
+.b-shop { padding-bottom: 8px; }
+.b-shop__btns { margin-top: 32px; }
+.b-intro-cta { padding-bottom: 72px; }
+.b-intro-cta .sintro-wrap { padding-bottom: 0; }
+.b-intro-cta__btn { margin-top: 32px; }
+.b-split--grey .split { background: #f4f3f0; }
+
+@media (max-width: 959px) {
+  .b-shero__grid { grid-template-columns: minmax(0, 1fr); }
+  .b-shero__media { order: -1; }
+  .b-shero__body { padding: 40px; }
+  .b-benefits li { width: 50%; }
+  .b-steps__tabs { overflow-x: auto; grid-auto-columns: minmax(96px, 1fr); }
+  .b-steps__slide, .b-quote, .b-profile, .b-ti__inner { grid-template-columns: 1fr; }
+  .b-steps__body { padding: 24px 0 0; }
+  .b-profile { row-gap: 32px; }
+  .b-tiles, .b-reports { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .b-chero__opts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 599px) {
+  .b-shero { padding: 16px; }
+  .b-shero__body { padding: 24px 16px 32px; }
+  .b-shero__title { font-size: 32px; line-height: 40px; }
+  .b-shero__text { font-size: 18px; line-height: 30px; }
+  .b-shero__btns { grid-template-columns: 1fr; }
+  .b-wide { padding: 16px 16px 0; }
+}

@@ -1,0 +1,96 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-weight: var(--fw-text);
+  font-size: 16px;
+  letter-spacing: var(--ls-text);
+  color: var(--c-text);
+  background: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+body.no-scroll { overflow: hidden; }
+img, svg { display: block; }
+img { max-width: 100%; }
+h1, h2, h3, h4, p, ul, figure { margin: 0; }
+ul { list-style: none; padding: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--c-ink); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Typo-Bausteine */
+.head { font-family: var(--font-head); font-weight: var(--fw-head); letter-spacing: var(--ls-head); overflow-wrap: break-word; }
+/* lange deutsche Komposita (z. B. „Gewerbeimmobilienangebote“) auf schmalen Screens trennen */
+@media (max-width: 599px) { .head { hyphens: auto; -webkit-hyphens: auto; } }
+.eyebrow {
+  font-size: 12px; line-height: 20px; letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase; color: var(--c-muted); font-weight: 400;
+}
+
+/* Container */
+.wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 28px var(--gutter) 72px; }
+@media (max-width: 767px) { .wrap { padding: 24px 16px 56px; } }
+
+/* Buttons (Referenz: CztQIW_baseClass) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 48px; padding: 9px 24px; border: 1px solid var(--c-ink); border-radius: 2px;
+  background: var(--c-ink); color: var(--c-white);
+  font-size: 16px; line-height: 28px; white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn:hover { background: #404040; border-color: #404040; }
+.btn:active { background: #000; border-color: #000; }
+.btn--small { height: 40px; padding: 5px 24px; }
+.btn--icon { padding-left: 16px; }
+.btn--light { background: var(--c-white); color: var(--c-ink); border-color: var(--c-white); }
+.btn--light:hover { background: #f2f2f2; border-color: #f2f2f2; }
+.btn--outline { background: transparent; color: var(--c-ink); border-color: var(--c-ink); }
+.btn--outline:hover { background: var(--c-ink); color: var(--c-white); }
+.btn--accent { background: var(--c-accent-strong); border-color: var(--c-accent-strong); color: var(--c-white); }
+.btn--accent:hover { background: var(--c-accent-hover); border-color: var(--c-accent-hover); }
+.btn--accent-dark { background: #910f05; border-color: #910f05; color: var(--c-white); }
+.btn--accent-dark:hover { background: #6e0b04; border-color: #6e0b04; }
+
+.link-underline { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.link-underline:hover { color: var(--c-ink); }
+
+/* Scroll-Reveal (sanftes Einblenden wie Referenz) */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Schalter (Suche, Cookie-Einstellungen) */
+.switch { position: relative; display: inline-block; width: 28px; height: 16px; }
+.switch::before { content: ''; position: absolute; left: 4px; right: 0; top: 4px; height: 8px; border-radius: 8px; background: #d9d9d9; transition: background var(--dur) var(--ease); }
+.switch span { position: absolute; left: 0; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 1px solid #767676; transition: transform var(--dur) var(--ease); }
+input:checked + .switch::before { background: var(--c-ink); }
+input:checked + .switch span { transform: translateX(12px); border-color: var(--c-ink); }
+input:focus-visible + .switch { outline: 2px solid var(--c-ink); outline-offset: 2px; }
+.page-loading { min-height: 70vh; }
+
+/* Seitenübergreifende Hilfsklassen (Objekt-Raster, zentrierte Buttons, Auswahl-Chips) */
+.expo__similar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.srch__center { display: flex; justify-content: center; margin-top: 48px; }
+.chip { height: 40px; padding: 0 16px; border: 1px solid #d9d9d9; border-radius: 2px; font-size: 16px; color: var(--c-text); }
+.chip.is-active { border-color: var(--c-ink); background: var(--c-ink); color: var(--c-white); }
+@media (max-width: 959px) { .expo__similar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .expo__similar-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Freigestellte Personenfotos (Hochformat-PNG): in formatfüllenden Rahmen immer Kopf/Oberkörper zeigen,
+   transparenter Hintergrund wird cremefarben hinterlegt. */
+img[src*="/bannerright-1440/t7a"], img[src*="/oberholz-team/"] {
+  object-position: 50% 0;
+  background: linear-gradient(180deg, #f4efe5 0%, #e9e1d1 100%);
+}

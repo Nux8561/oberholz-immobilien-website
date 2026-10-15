@@ -1,0 +1,21 @@
+.ipedia__search { display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; border: 1px solid #b3b3b3; border-radius: 2px; }
+.ipedia__search:focus-within { outline: 2px solid var(--c-ink); }
+.ipedia__search input { flex: 1; min-width: 0; height: 100%; border: 0; font-size: 18px; background: none; color: var(--c-ink); }
+.ipedia__search input:focus { outline: none; }
+.ipedia__az { display: flex; flex-wrap: wrap; gap: 4px; margin: 24px 0; }
+.ipedia__az button { width: 40px; height: 40px; border: 1px solid #d9d9d9; font-size: 15px; color: var(--c-ink); background: var(--c-white); }
+.ipedia__az button:hover:not(:disabled) { border-color: var(--c-ink); }
+.ipedia__az button.is-active { background: var(--c-accent); border-color: var(--c-accent); color: var(--c-white); }
+.ipedia__az button:disabled { color: #c4c4c4; cursor: default; }
+.ipedia__count { margin-bottom: 12px; font-size: 12px; letter-spacing: .48px; text-transform: uppercase; color: var(--c-muted); }
+.ipedia__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; border-top: 1px solid #d9d9d9; }
+.ipedia__list li { border-bottom: 1px solid #d9d9d9; }
+.ipedia__list a { display: grid; grid-template-columns: minmax(0, 1fr) 24px; gap: 4px 12px; padding: 16px 0; }
+.ipedia__list svg { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--c-accent); transition: transform var(--dur) var(--ease); }
+.ipedia__list a:hover svg { transform: translateX(4px); }
+.ipedia__term { font-size: 20px; line-height: 28px; color: var(--c-strong); }
+.ipedia__short { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: 14px; line-height: 22px; color: var(--c-text); }
+.ipedia__msg { padding: 24px 0; color: var(--c-muted); }
+.ipedia__body { padding-top: 24px; }
+.ipedia__nav { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+@media (max-width: 767px) { .ipedia__list { grid-template-columns: minmax(0, 1fr); } .ipedia__az button { width: 34px; height: 34px; } }

@@ -1,0 +1,44 @@
+/* Flyout – Referenz: top 135px, volle Breite, Schatten rgba(0,0,0,.32) 0 2px 4px, Höhe je Inhalt (334–480px). */
+.flyout {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 40;
+  background: var(--c-white); box-shadow: var(--shadow-flyout);
+  border-top: 1px solid var(--c-line);
+  opacity: 0; visibility: hidden; pointer-events: none; overflow: hidden;
+  transition: opacity .2s var(--ease), visibility 0s linear .2s;
+}
+.flyout.is-open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .2s var(--ease), visibility 0s; }
+
+.flyout__inner {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px;
+  max-width: 1440px; margin: 0 auto; padding: 40px 40px 52px;
+}
+.flyout__intro { padding-right: 24px; }
+.flyout__title { font-size: 28px; line-height: 36px; color: var(--c-strong); margin-bottom: 16px; }
+.flyout__text { font-size: 16px; line-height: 28px; color: var(--c-text); }
+.flyout__col { padding-top: 6px; }
+.flyout__eyebrow { margin-bottom: 14px; }
+.flyout__link {
+  display: inline-block; padding: 12px 0; font-size: 16px; line-height: 24px; color: var(--c-ink);
+  transition: color var(--dur) var(--ease);
+}
+.flyout__col li:first-child .flyout__link { padding-top: 8px; }
+.flyout__link:hover { color: var(--c-muted); }
+
+.promo {
+  grid-column: span 2; align-self: start; display: grid; grid-template-columns: minmax(0, 48%) minmax(0, 1fr);
+  min-height: 236px; background: var(--c-cream); margin-left: 12px;
+}
+.promo__media { overflow: hidden; }
+.promo__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.promo:hover .promo__media img { transform: scale(1.04); }
+.promo__body { display: flex; flex-direction: column; justify-content: center; padding: 24px; }
+.promo__eyebrow { margin-bottom: 4px; }
+.promo__title { font-size: 20px; line-height: 28px; color: var(--c-ink); }
+.promo__arrow { margin-top: 4px; color: var(--c-ink); transition: transform var(--dur) var(--ease); }
+.promo:hover .promo__arrow { transform: translateX(4px); }
+
+.flyout__inner--wide .promo { grid-column: span 1; margin-left: 0; }
+.promo--stacked { grid-template-columns: 1fr; grid-template-rows: 242px auto; }
+.promo--stacked .promo__body { padding: 20px 16px 24px; }
+
+@media (max-width: 959px) { .flyout { display: none; } }

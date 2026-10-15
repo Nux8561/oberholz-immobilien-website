@@ -1,0 +1,30 @@
+/* Werbebanner – Referenz: volle Breite 1440×434 (Bildlink). Foto mit freier Fläche links für den Text. */
+.fbanner { max-width: 1440px; margin: 0 auto; padding-bottom: 40px; }
+.fbanner__link { position: relative; display: block; aspect-ratio: 1440 / 434; overflow: hidden; color: #1a1a1a; background: #efe9df; }
+.fbanner__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; transition: transform .8s var(--ease); }
+.fbanner__link:hover .fbanner__img { transform: scale(1.02); }
+.fbanner__link::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(248, 244, 237, .92) 0%, rgba(248, 244, 237, .75) 32%, rgba(248, 244, 237, 0) 55%); }
+.fbanner__copy {
+  position: absolute; z-index: 1; left: 0; top: 0; bottom: 0; width: 44%;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-left: 7%;
+}
+.fbanner__word { font-size: clamp(22px, 2.6vw, 38px); font-weight: 500; letter-spacing: .1em; line-height: 1; }
+.fbanner__sub { margin-top: .5em; font-size: clamp(11px, 1.3vw, 19px); letter-spacing: .22em; color: #4d4d4d; }
+.fbanner__claim { margin-top: 1.6em; padding-top: 1em; border-top: 2px solid var(--c-accent); font-size: clamp(13px, 1.5vw, 22px); font-weight: 500; letter-spacing: .01em; max-width: 22em; }
+.fbanner__cta { display: inline-flex; align-items: center; margin-top: .9em; font-size: clamp(12px, 1.25vw, 18px); font-weight: 500; }
+.fbanner__link:hover .fbanner__cta { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 1239px) { .fbanner__link { aspect-ratio: 1024 / 328; } }
+@media (max-width: 959px) {
+  .fbanner__link { aspect-ratio: 768 / 461; }
+  .fbanner__copy { width: 60%; }
+  .fbanner__link::after { background: linear-gradient(90deg, rgba(248, 244, 237, .95) 0%, rgba(248, 244, 237, .8) 45%, rgba(248, 244, 237, 0) 75%); }
+}
+@media (max-width: 599px) {
+  .fbanner__link { aspect-ratio: 390 / 320; }
+  .fbanner__img { object-position: 78% 50%; }
+  .fbanner__copy { width: 70%; padding-left: 16px; }
+  .fbanner__word { font-size: 18px; }
+  .fbanner__sub { font-size: 11px; }
+  .fbanner__claim { font-size: 13px; max-width: 170px; }
+  .fbanner__cta { font-size: 12px; }
+}

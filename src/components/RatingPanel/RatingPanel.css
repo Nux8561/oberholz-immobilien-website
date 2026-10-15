@@ -1,0 +1,29 @@
+.rpanel { position: fixed; inset: 0; z-index: 350; pointer-events: none; }
+.rpanel.is-open { pointer-events: auto; }
+.rpanel__backdrop { position: absolute; inset: 0; background: rgba(13, 13, 13, .45); opacity: 0; transition: opacity .25s var(--ease); }
+.rpanel.is-open .rpanel__backdrop { opacity: 1; }
+.rpanel__sheet {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(420px, 100%); overflow-y: auto;
+  display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--c-white);
+  transform: translateX(100%); transition: transform .3s var(--ease);
+}
+.rpanel.is-open .rpanel__sheet { transform: none; }
+.rpanel__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.rpanel__head .head { font-size: 22px; line-height: 30px; color: var(--c-strong); }
+.rpanel__score { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 24px; border: 1px solid #e3e3e3; text-align: center; }
+.rpanel__value { font-size: 40px; line-height: 48px; color: var(--c-strong); }
+.rpanel__value small { font-size: 18px; color: var(--c-muted); }
+.rpanel__grade { font-size: 13px; letter-spacing: 1.5px; font-weight: 600; color: #1d6b32; }
+.rpanel__count { font-size: 14px; color: var(--c-text); }
+.rpanel__scale { width: 100%; border-collapse: collapse; font-size: 13px; color: var(--c-text); }
+.rpanel__scale caption { margin-bottom: 6px; text-align: left; font-size: 12px; color: var(--c-muted); }
+.rpanel__scale td { padding: 6px 8px; border-bottom: 1px solid #eee; }
+.rpanel__scale td:last-child { text-align: right; }
+.rpanel__scale tr.is-active td { background: #f0f7f1; font-weight: 600; color: #1d6b32; }
+.rpanel__origin-btn { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; font-size: 14px; color: var(--c-ink); text-decoration: underline; text-underline-offset: 3px; }
+.rpanel__origin { padding: 12px 16px; background: #fff8e1; font-size: 14px; line-height: 22px; color: var(--c-text); }
+.rpanel__origin p + p { margin-top: 8px; }
+.rpanel__cta { justify-content: center; }
+.rpanel__write { align-self: center; font-size: 14px; color: var(--c-ink); }
+.rating-trigger { cursor: pointer; background: none; border: 0; padding: 0; text-align: left; font: inherit; color: inherit; }
+.rating-trigger:hover strong { text-decoration: underline; text-underline-offset: 3px; }

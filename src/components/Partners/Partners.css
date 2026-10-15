@@ -1,0 +1,6 @@
+.partners { scroll-margin-top: 140px; }
+.partners__group + .partners__group { margin-top: 56px; }
+.partners__logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+.partners__logos li > * { display: flex; align-items: center; justify-content: center; height: 104px; padding: 20px; border: 1px solid #e3e3e3; background: var(--c-white); transition: border-color var(--dur) var(--ease); }
+.partners__logos a:hover { border-color: var(--c-ink); }
+.partners__logos img { max-width: 100%; max-height: 48px; width: auto; height: auto; object-fit: contain; }

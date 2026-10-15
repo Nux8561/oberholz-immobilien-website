@@ -1,0 +1,29 @@
+/* Kontakt – Referenz: #fcfaf5, Padding-Top 56 + 56, Avatare 56px (Überlappung 12px), Akzentlinie 2×56, Dekor 250px hoch */
+.contact { background: var(--c-cream); padding-top: 56px; margin-bottom: 48px; overflow: hidden; }
+.contact__inner { padding-top: 56px; margin-bottom: 48px; }
+.contact__wrap { display: flex; flex-direction: column; align-items: center; padding-top: 0; text-align: center; }
+.contact .sintro-inline { margin-bottom: 50px; }
+.contact__avatars { display: flex; }
+.contact__avatars img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid var(--c-cream); }
+.contact__avatars img + img { margin-left: -12px; }
+.contact__line { display: block; width: 2px; height: 56px; margin: 31px 0 28px; background: var(--c-accent); }
+.contact__address { font-style: normal; font-size: 14px; line-height: 24px; color: var(--c-strong); }
+.contact__office { font-size: 20px; line-height: 28px; color: var(--c-strong); margin-bottom: 8px; }
+.contact__cta { margin-top: 48px; }
+.contact--page { margin-bottom: 0; }
+.contact--page .contact__inner { padding-top: 0; margin-bottom: 0; }
+.contact--page .sintro-inline { margin-bottom: 56px; }
+.contact--page .contact__avatars { padding: 2px 0; margin-bottom: 28px; }
+.contact--page .contact__line { margin: 0 0 28px; }
+.contact--page .contact__avatars img { width: 72px; height: 72px; border: 0; }
+.contact--page .contact__avatars img + img { margin-left: -12px; }
+@media (max-width: 599px) {
+  .contact { padding-top: 48px; margin-bottom: 40px; }
+  .contact__inner { padding-top: 48px; margin-bottom: 40px; }
+  .contact .sintro-inline { margin-bottom: 42px; }
+  .contact__avatars img { width: 48px; height: 48px; }
+  .contact__line { height: 48px; margin: 24px 0 26px; }
+  .contact__cta { margin-top: 40px; }
+  .contact--page { padding-top: 48px; margin-bottom: 0; }
+  .contact--page .sintro-inline { margin-bottom: 40px; }
+}
