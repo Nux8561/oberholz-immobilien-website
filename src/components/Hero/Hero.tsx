@@ -6,7 +6,7 @@ import { IconArrowRight } from '../Icons';
 import SmartLink from '../SmartLink/SmartLink';
 import './Hero.css';
 
-/** Gemessenes Scrollverhalten (≥960px): Section gleitet über ~220px Scroll um 16px nach oben,
+/** Scrollverhalten (≥960px): Section gleitet über ~220px Scroll um 16px nach oben,
  *  Teaser-Reihe blendet beim ersten Scrollen ein und rückt um 50px nach oben (überlappt den Slider). */
 const LIFT = 16;
 const LIFT_RANGE = 220;
@@ -33,7 +33,7 @@ export default function Hero() {
   return (
     <section className={`hero${scrolled ? ' is-scrolled' : ''}`} style={{ '--hero-lift': `${-lift}px` } as React.CSSProperties} aria-label="Immobiliensuche">
       <div className="hero__head">
-        <p className="hero__title head">{hero.title}</p>
+        <h1 className="hero__title head">{hero.title}</h1>
         <PropertySearch />
       </div>
       <div className="hero__carousel"><HeroCarousel /></div>

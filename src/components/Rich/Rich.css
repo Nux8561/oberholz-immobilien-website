@@ -120,3 +120,7 @@
   .rich__advisor { flex-direction: column; align-items: flex-start; }
   .rich__brochure { flex-direction: column; align-items: flex-start; }
 }
+
+.rich { overflow-wrap: anywhere; }
+.rich__checks li > span { min-width: 0; }
+.rich__checks li > span:last-child { overflow-wrap: anywhere; }

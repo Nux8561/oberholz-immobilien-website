@@ -31,3 +31,5 @@
 .cform__consent.has-error input { outline: 1px solid var(--c-error); }
 .cform__done-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
 .cform__edit { font-size: 14px; color: var(--c-ink); }
+
+.cform__submit-error { margin: 12px 0 0; }

@@ -8,17 +8,15 @@ export const ROUTES = {
   kaufen: '/immobilien/kaufen',
   mieten: '/immobilien/mieten',
   expose: (id: string) => `/expose/${id}`,
-  leistungen: '/leistungen',
   verkaufen: '/verkaufen',
   bewertung: '/bewertung',
   vermieten: '/vermieten',
   rueckmietverkauf: '/rueckmietverkauf',
   finanzierung: '/finanzierung',
-  vermarktung: '/vermarktung',
   kapitalanlage: '/kapitalanlage',
-  wohnungKaufen: '/wohnung-kaufen',
   immotipp: '/immotipp',
-  service: '/service',
+  /** Rechner-Übersicht (im Ratgeber) */
+  service: '/ratgeber#rechner',
   budgetrechner: '/service/budgetrechner',
   finanzierungsrechner: '/service/finanzierungsrechner',
   wertHebel: '/service/wert-hebel-rechner',
@@ -26,18 +24,19 @@ export const ROUTES = {
   artikel: (slug: string) => `/ratgeber/${slug}`,
   ratgeberThema: (slug: string) => `/ratgeber/thema/${slug}`,
   whitepaper: (slug: string) => `/whitepaper/${slug}`,
-  downloads: '/downloads',
+  /** Leitfäden & Downloads (im Ratgeber) */
+  downloads: '/ratgeber#downloads',
   immopedia: '/immopedia',
   begriff: (slug: string) => `/immopedia/${slug}`,
   ueberUns: '/ueber-uns',
   team: '/ueber-uns#team',
-  qualifikation: '/ueber-uns/qualifikation',
-  iso: '/ueber-uns/iso-9001',
+  qualifikation: '/ueber-uns#qualifikation',
   kontakt: '/kontakt',
-  kontaktStadt: (slug: string) => `/kontakt/${slug}`,
   regionen: '/regionen',
   region: (slug: string) => `/regionen/${slug}`,
   regionVerkaufen: (slug: string) => `/regionen/${slug}/verkaufen`,
+  regionBewertung: (slug: string) => `/regionen/${slug}/immobilienbewertung`,
+  regionWohnungVerkaufen: (slug: string) => `/regionen/${slug}/wohnung-verkaufen`,
   meinBereich: '/mein-bereich',
   impressum: '/impressum',
   datenschutz: '/datenschutz',
@@ -53,3 +52,6 @@ export function routeFor(label: string): string | null {
   if (kauf) return `${ROUTES.kaufen}?ort=${encodeURIComponent(kauf[2])}&typ=${kauf[1]}`;
   return null;
 }
+
+/** Cloudflare Pages liefert die vorgerenderten Verzeichnisse mit abschließendem Slash. */
+export const canonicalPageUrl = (path: string) => `${SITE_URL}${path.split(/[?#]/)[0].replace(/\/+$/, '')}/`;

@@ -1,45 +1,45 @@
 # Oberholz Immobilien
 
-> Immobilienmakler mit Sitz in Münster (Wichernstraße 29, 48147 Münster) und Schwerpunkt auf Münster, Essen und Bochum (Münsterland und Ruhrgebiet). Leistungen: kostenlose Immobilienbewertung, Immobilienverkauf, Vermietung, Rückmietverkauf, Kapitalanlagen/Mehrfamilienhäuser und Vermittlung von Finanzierungen. Inhaber: Michael Oberholz (Sachverständiger). Telefon 0251 28 42 90 90, E-Mail mail@oberholz-immobilien.com.
+> Immobilienmakler im Ruhrgebiet und im Münsterland mit gleichwertigen Hauptstandorten in Essen und Münster sowie Aktivität in Bochum. Leistungen: kostenlose Immobilienbewertung, Immobilienverkauf, Vermietung, Rückmietverkauf, Kapitalanlagen/Mehrfamilienhäuser und Vermittlung von Finanzierungen. Inhaber: Michael Oberholz (Sachverständiger). Zentrale Rufnummer 0201 61447786, WhatsApp 0179 4468850, E-Mail mail@oberholz-immobilien.com. Website-Hosting: Cloudflare Pages.
 
 Wichtige Fakten:
-- Firmensitz: Wichernstraße 29, 48147 Münster, Nordrhein-Westfalen, Deutschland
-- Einsatzgebiet: Münster und Münsterland, Essen und Ruhrgebiet, Bochum und Umgebung
+- Tätigkeitsgebiet: Ruhrgebiet (u. a. Essen, Bochum) und Münsterland
+- Büros: Benderstraße 2, 45257 Essen (Tel. 0201 61447786); Wichernstraße 29, 48147 Münster (Tel. 0251 28 42 90 90, zugleich Anschrift laut Impressum); Auf’m Bleck 10, 44799 Bochum (Tel. 0201 61447786, Tätigkeitsgebiet)
 - Team: Michael Oberholz (Inhaber & Sachverständiger), Felix Lesch, Michael Penn, Lubka Röger (Immobilienberatung), Pascal Kopp (Transaktionsberatung)
 - Zulassung: Immobilienmakler nach § 34c GewO (Aufsicht: Stadt Münster, Ordnungsamt)
-- Erreichbarkeit: Telefon und WhatsApp 0251 28 42 90 90, Mo–Fr 8–19 Uhr, Sa 8–16 Uhr
+- Erreichbarkeit: Telefon 0201 61447786 (zentral), WhatsApp 0179 4468850, Mo–Fr 8–19 Uhr, Sa 8–16 Uhr
 - Bewertungen: Google-Unternehmensprofil „Oberholz Immobilien“
 - Kooperationen: DVAG – Deutsche Vermögensberatung, Swiss Life, Interhyp; Finanzierungspartner u. a. Postbank, Santander, ING, PSD Bank, DKB
 
 ## Leistungen
-- [Kostenlose Immobilienbewertung](https://www.oberholz-immobilien.com/bewertung): persönliche Marktwertermittlung vor Ort
-- [Immobilie verkaufen](https://www.oberholz-immobilien.com/verkaufen): Bewertung, Unterlagen, Exposé, Vermarktung, Besichtigungen, Notartermin
-- [Vermietung](https://www.oberholz-immobilien.com/vermieten): Mieterauswahl, Mietvertrag, Übergabe
-- [Rückmietverkauf](https://www.oberholz-immobilien.com/rueckmietverkauf): Immobilie verkaufen und weiter darin wohnen
-- [Finanzierung](https://www.oberholz-immobilien.com/finanzierung): Vermittlung über ein Netzwerk aus Banken und Partnern
-- [Kapitalanlage](https://www.oberholz-immobilien.com/kapitalanlage): Mehrfamilienhäuser und Anlageobjekte, Schwerpunkt Bochum
-- [Leistungen im Überblick](https://www.oberholz-immobilien.com/leistungen)
+- [Kostenlose Immobilienbewertung](https://www.oberholz-immobilien.com/bewertung)
+- [Immobilie verkaufen](https://www.oberholz-immobilien.com/verkaufen)
+- [Vermietung](https://www.oberholz-immobilien.com/vermieten)
+- [Rückmietverkauf](https://www.oberholz-immobilien.com/rueckmietverkauf)
+- [Finanzierung](https://www.oberholz-immobilien.com/finanzierung)
+- [Kapitalanlage](https://www.oberholz-immobilien.com/kapitalanlage)
 
-## Regionen
-- [Immobilienmakler Münster](https://www.oberholz-immobilien.com/regionen/muenster)
-- [Immobilie verkaufen in Münster](https://www.oberholz-immobilien.com/regionen/muenster/verkaufen)
+## Standorte
 - [Immobilienmakler Essen](https://www.oberholz-immobilien.com/regionen/essen)
 - [Immobilie verkaufen in Essen](https://www.oberholz-immobilien.com/regionen/essen/verkaufen)
+- [Immobilienbewertung Essen](https://www.oberholz-immobilien.com/regionen/essen/immobilienbewertung)
+- [Wohnung verkaufen in Essen](https://www.oberholz-immobilien.com/regionen/essen/wohnung-verkaufen)
 - [Immobilienmakler Bochum](https://www.oberholz-immobilien.com/regionen/bochum)
 - [Immobilie verkaufen in Bochum](https://www.oberholz-immobilien.com/regionen/bochum/verkaufen)
+- [Immobilienbewertung Bochum](https://www.oberholz-immobilien.com/regionen/bochum/immobilienbewertung)
+- [Wohnung verkaufen in Bochum](https://www.oberholz-immobilien.com/regionen/bochum/wohnung-verkaufen)
+- [Münsterland – Angebote](https://www.oberholz-immobilien.com/immobilien/kaufen?ort=M%C3%BCnsterland)
 
 ## Immobilienangebote
 - [Immobilien kaufen](https://www.oberholz-immobilien.com/immobilien/kaufen)
 - [Immobilien mieten](https://www.oberholz-immobilien.com/immobilien/mieten)
 
 ## Wissen
-- [Ratgeber](https://www.oberholz-immobilien.com/ratgeber): Verkauf, Kauf, Erbe, Scheidung, Vermietung, Finanzierung
-- [Immopedia](https://www.oberholz-immobilien.com/immopedia): Immobilienlexikon mit rund 2.000 Begriffen
-- [Rechner](https://www.oberholz-immobilien.com/service): Budget-, Finanzierungs- und Wert-Hebel-Rechner
+- [Ratgeber](https://www.oberholz-immobilien.com/ratgeber)
+- [Immopedia](https://www.oberholz-immobilien.com/immopedia)
+- [Rechner und Downloads](https://www.oberholz-immobilien.com/ratgeber)
 
 ## Unternehmen
 - [Über uns und Team](https://www.oberholz-immobilien.com/ueber-uns)
-- [Partner & Kooperationen](https://www.oberholz-immobilien.com/ueber-uns#partner)
-- [Qualifikationen](https://www.oberholz-immobilien.com/ueber-uns/qualifikation)
 - [Kontakt](https://www.oberholz-immobilien.com/kontakt)
 - [Impressum](https://www.oberholz-immobilien.com/impressum)

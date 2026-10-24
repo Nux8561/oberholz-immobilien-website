@@ -82,7 +82,7 @@ export const kaeufer: EditorialArticle[] = [
     subtitle: 'Grunderwerbsteuer, Notar, Grundbuch und Makler – mit Beispielrechnung und Spartipps.',
     intro: 'Zum Kaufpreis kommen beim Immobilienkauf erhebliche Nebenkosten hinzu. In Nordrhein-Westfalen summieren sie sich je nach Objekt auf rund 8 bis 12 Prozent des Kaufpreises. Wer sie früh einplant, vermeidet böse Überraschungen bei der Finanzierung – denn Banken erwarten in der Regel, dass Sie die Nebenkosten aus eigenen Mitteln zahlen.',
     date: '2026-10-08',
-    image: obj('5835561'),
+    image: '/assets/ratgeber/kaufnebenkosten-nrw.jpg',
     imageAlt: 'Familienhaus aus Backstein',
     facts: [
       'Die Grunderwerbsteuer beträgt in NRW 6,5 % des Kaufpreises.',
@@ -222,7 +222,7 @@ export const kaeufer: EditorialArticle[] = [
     subtitle: 'Lage, Bausubstanz, Technik und Unterlagen – worauf es bei der Besichtigung wirklich ankommt.',
     intro: 'Bei der Besichtigung entscheidet sich, ob aus Interesse eine Kaufabsicht wird. Damit der erste Eindruck nicht über versteckte Mängel hinwegtäuscht, hilft eine strukturierte Checkliste. So sehen Sie mehr, stellen die richtigen Fragen und können Angebote später sachlich vergleichen.',
     date: '2026-09-24',
-    image: obj('170212293', 5),
+    image: '/assets/ratgeber/besichtigung-checkliste.jpg',
     imageAlt: 'Wohnbereich eines Hauses',
     facts: [
       'Besichtigen Sie mindestens zweimal – möglichst zu unterschiedlichen Tageszeiten.',
@@ -351,7 +351,7 @@ export const kaeufer: EditorialArticle[] = [
     subtitle: 'Eigentümer, Rechte Dritter und Grundschulden – so lesen Sie das wichtigste Dokument beim Immobilienkauf.',
     intro: 'Das Grundbuch ist das öffentliche Register für Grundstücke und Wohnungseigentum. Vor jedem Kauf sollten Sie einen aktuellen Auszug sorgfältig lesen, denn er zeigt, wem die Immobilie gehört und welche Rechte und Lasten darauf liegen. Wir erklären Aufbau, typische Einträge und die Stolperfallen, die Käufer kennen sollten.',
     date: '2026-09-09',
-    image: obj('5789773'),
+    image: '/assets/ratgeber/grundbuch-verstehen.jpg',
     imageAlt: 'Frei stehendes Einfamilienhaus',
     facts: [
       'Das Grundbuch wird beim Grundbuchamt des zuständigen Amtsgerichts geführt.',

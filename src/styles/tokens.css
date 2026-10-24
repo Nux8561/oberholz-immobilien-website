@@ -1,13 +1,14 @@
-/* Design-Tokens – Werte aus getComputedStyle() der Referenz (analysis/engelvoelkers/dom_1440.json).
-   Proprietäre Fonts ersetzt durch per Breitenvergleich gewählte freie Fonts (scripts/inspect_fonts.py).
-   Akzentfarbe: Rot wie Referenz – Linien/Tabs rgb(230,0,0), Such-Button rgb(200,0,0). */
+/* Design-Tokens (Typografie, Farbe, Abstände).
+   Hausschriften: Oberholz Antiqua (Überschriften) und Oberholz Grotesk (Text) – eigene Schnitte mit Rautenpunkten,
+   gebaut von scripts/build_brand_fonts.py, Dateien in brand/fonts (SIL Open Font License 1.1).
+   Akzentfarbe Dunkelblau (Oberholz): Linien/Tabs #1f3a5f, Buttons #1a3253. */
 :root {
-  --font-head: 'Spectral', Georgia, 'Times New Roman', serif;
-  --font-text: 'Inter Tight Variable', 'Inter Tight', Arial, Helvetica, sans-serif;
-  --fw-head: 600;            /* Spectral 600 + −0.01em trifft Breite & Strichstärke von EV Head (Zoom-Vergleich) */
+  --font-head: 'Oberholz Antiqua', Georgia, 'Times New Roman', serif;
+  --font-text: 'Oberholz Grotesk', Arial, Helvetica, sans-serif;
+  --fw-head: 600;            /* Oberholz Antiqua gibt es nur im Schnitt 600 */
   --ls-head: -0.01em;
   --fw-text: 400;
-  --ls-text: 0.56px;          /* Referenz 0.48px; +0.08px gleicht schmalere Ersatzschrift aus */
+  --ls-text: 0.56px;          /* leicht gesperrt für ruhiges Schriftbild */
   --ls-eyebrow: 2px;
 
   --c-ink: #0d0d0d;           /* rgb(13,13,13) */
@@ -18,15 +19,15 @@
   --c-line: #e8e8e8;
   --c-cream: #fcfaf5;         /* rgb(252,250,245) */
   --c-white: #ffffff;
-  --c-accent: #e60000;        /* rgb(230,0,0) – Akzentlinien, aktive Tabs */
-  --c-accent-strong: #c80000; /* rgb(200,0,0) – Such-Button */
-  --c-accent-hover: #a30000;
+  --c-accent: #1f3a5f;        /* Dunkelblau – Akzentlinien, aktive Tabs */
+  --c-accent-strong: #1a3253; /* Dunkelblau – Such-Button, Hauptbuttons */
+  --c-accent-hover: #10223b;
   --c-error: #b3261e;
 
   --shadow-card: rgba(0, 0, 0, 0.32) 0 1px 2px 0;
   --shadow-card-hover: rgba(0, 0, 0, 0.24) 0 4px 12px 0;
   --shadow-flyout: rgba(0, 0, 0, 0.32) 0 2px 4px 0;
-  --ease: cubic-bezier(0.42, 0, 0.48, 1);  /* Referenz-Transition */
+  --ease: cubic-bezier(0.42, 0, 0.48, 1);  /* Standard-Übergang */
   --dur: 0.3s;
 
   --wrap-wide: 1360px;        /* Hero / Header / Footer */

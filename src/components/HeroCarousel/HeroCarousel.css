@@ -1,4 +1,4 @@
-/* Slider – Referenz: ≥960px 21:9 (1360×583 bei 1440), darunter 4:3; Caption 32px/24px eingerückt. */
+/* Slider – ≥960px 21:9 (1360×583 bei 1440), darunter 4:3; Caption 32px/24px eingerückt. */
 .hcar {
   position: relative; overflow: hidden; aspect-ratio: 21 / 9; background: #2a2a2a;
   touch-action: pan-y; user-select: none; outline: none;
@@ -50,3 +50,8 @@
   .hcar__bar { width: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { .hcar__track { transition: none; } }
+@media (max-width: 599px) {
+  .hcar__caption { left: 20px; right: 20px; }
+  .hcar__title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; hyphens: manual; margin-right: 36px; }
+  .hcar__price { flex-wrap: wrap; letter-spacing: 1px; }
+}

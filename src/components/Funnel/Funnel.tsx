@@ -11,12 +11,12 @@ const ARTEN: { label: string; icon: LineIconName }[] = [
 ];
 const WOHNARTEN = ['Einfamilienhaus', 'Reihenhaus', 'Doppelhaus / Hälfte', 'Mehrfamilienhaus', 'Wohn- & Geschäftshaus'];
 const GEWERBEARTEN = ['Produktion', 'Lager / Logistik', 'Büro / Praxis', 'Handel', 'Sonstiges'];
-const ABSICHTEN = ['Verkaufen', 'Vermieten'];
+const ABSICHTEN = ['Verkaufen', 'Vermieten', 'Bewerten'];
 const ERREICHBAR = ['Vormittags', 'Mittags', 'Nachmittags', 'Abends'];
 
 type State = { art?: string; wohnart?: string; wohnungen: number; wohnflaeche: number; grundstueck: number; gewerbeart?: string; absicht: string[]; ort: string; erreichbar: string[] };
 
-export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Verkaufen oder vermieten?', intent }: { eyebrow?: string; title?: string; intent?: 'Verkaufen' | 'Vermieten' }) {
+export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Verkaufen oder vermieten?', intent }: { eyebrow?: string; title?: string; intent?: 'Verkaufen' | 'Vermieten' | 'Bewerten' }) {
   const [step, setStep] = useState(0);
   const [s, setS] = useState<State>({ wohnungen: 3, wohnflaeche: 90, grundstueck: 500, absicht: intent ? [intent] : [], ort: '', erreichbar: [] });
   const set = (patch: Partial<State>) => setS((x) => ({ ...x, ...patch }));
@@ -42,7 +42,7 @@ export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Ve
 
         {step === 0 && (
           <fieldset className="funnel__step">
-            <legend className="funnel__q">Welche Art von Immobilie möchten Sie verkaufen oder vermieten?</legend>
+            <legend className="funnel__q">{intent === 'Bewerten' ? 'Welche Art von Immobilie möchten Sie bewerten lassen?' : 'Um welche Art von Immobilie geht es?'}</legend>
             <div className="funnel__tiles">
               {ARTEN.map((a) => (
                 <button key={a.label} type="button" className={`funnel__tile${s.art === a.label ? ' is-active' : ''}`} onClick={() => pickArt(a.label)}>
@@ -109,7 +109,7 @@ export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Ve
             <div className="funnel__tiles funnel__tiles--2">
               {ABSICHTEN.map((a) => (
                 <button key={a} type="button" role="checkbox" aria-checked={s.absicht.includes(a)} className={`funnel__tile${s.absicht.includes(a) ? ' is-active' : ''}`} onClick={() => toggle('absicht', a)}>
-                  <LineIcon name={a === 'Verkaufen' ? 'handshake' : 'key'} size={40} /><span>{a}</span>
+                  <LineIcon name={a === 'Verkaufen' ? 'sale' : 'key'} size={40} /><span>{a}</span>
                   {s.absicht.includes(a) && <span className="funnel__tick"><IconCheck size={14} /></span>}
                 </button>
               ))}
@@ -125,7 +125,7 @@ export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Ve
             <p className="funnel__summary">{[s.art, detail, s.absicht.join(' & ')].filter(Boolean).join(' · ')}</p>
             <label className="cform__field funnel__ort">
               <span className="cform__label">PLZ, Ort der Immobilie</span>
-              <input value={s.ort} onChange={(e) => set({ ort: e.target.value })} placeholder="z. B. 48147 Münster" autoComplete="postal-code" />
+              <input value={s.ort} onChange={(e) => set({ ort: e.target.value })} placeholder="z. B. 45257 Essen" autoComplete="postal-code" />
             </label>
             <p className="funnel__label">Am besten erreichbar</p>
             <div className="funnel__chips">{ERREICHBAR.map((e) => <button key={e} type="button" aria-pressed={s.erreichbar.includes(e)} className={`chip${s.erreichbar.includes(e) ? ' is-active' : ''}`} onClick={() => toggle('erreichbar', e)}>{e}</button>)}</div>

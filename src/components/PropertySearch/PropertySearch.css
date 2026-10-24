@@ -1,4 +1,4 @@
-/* Suche – Referenz 1440px: Tabs 24px hoch, 16px Abstand, Box 668×66 (1px Rahmen), Input 20/32, Button 48×48 */
+/* Suche – bei 1440px: Tabs 24px hoch, 16px Abstand, Box 668×66 (1px Rahmen), Input 20/32, Button 48×48 */
 .psearch { position: relative; width: 100%; }
 .psearch__modes { display: flex; gap: 32px; margin: 0 0 16px; padding: 0 2px; border: 0; min-inline-size: 0; }
 .psearch__mode {
@@ -75,7 +75,7 @@
 .psearch__submit:hover { background: var(--c-accent-hover); }
 .psearch__submit:active { transform: scale(.97); }
 
-/* Mobile (Referenz 390px: Box 58px, Input 18px, Button 40×40) */
+/* Mobile (390px: Box 58px, Input 18px, Button 40×40) */
 @media (max-width: 599px) {
   .psearch__box { height: 58px; }
   .psearch__type-btn { padding: 12px; }

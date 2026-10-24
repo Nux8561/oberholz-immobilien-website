@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { CITY_COORDS, matchesPlace, properties, REGION_GROUPS, type Mode, type Property, type PropertyType } from '../../data/properties';
-import { brand, offices } from '../../data/content';
+import { CITY_COORDS, matchesPlace, properties, REGION_IN, REGION_TITLES, regionOf, type Mode, type Property, type PropertyType } from '../../data/properties';
+import { brand, officeLink, offices } from '../../data/content';
 import { articles } from '../../data/oberholz';
 import { ROUTES } from '../../data/routes';
 import { usePageMeta } from '../../layout/PageMeta';
@@ -14,7 +14,8 @@ import Accordion from '../../components/Accordion/Accordion';
 import SectionIntro from '../../components/SectionIntro/SectionIntro';
 import Contact from '../../components/Contact/Contact';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
-import { IconArrowRight, IconChevronDown, IconChevronLeft, IconChevronRight, IconClose, IconSearch } from '../../components/Icons';
+import { IconArrowRight, IconBell, IconChevronDown, IconChevronLeft, IconChevronRight, IconClose, IconSearch, IconSliders, IconSort } from '../../components/Icons';
+import { Icon } from '../../icons/Icon';
 import { notify } from '../../components/Toast/Toast';
 import './Search.css';
 
@@ -22,22 +23,6 @@ const PER_PAGE = 35;
 const TYPES: PropertyType[] = ['Haus', 'Wohnung', 'Grundstück'];
 const SORTS = { neu: 'Neueste zuerst', preis_auf: 'Preis aufsteigend', preis_ab: 'Preis absteigend', flaeche: 'Größte Fläche' } as const;
 type SortKey = keyof typeof SORTS;
-
-const IconBell = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" aria-hidden="true">
-    <path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15ZM10 20.5a2 2 0 0 0 4 0" /><path d="M18.5 4.5v3M17 6h3" />
-  </svg>
-);
-const IconSliders = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" aria-hidden="true">
-    <path d="M6 3v18M12 3v18M18 3v18" /><rect x="4" y="13" width="4" height="3" fill="#fff" /><rect x="10" y="6" width="4" height="3" fill="#fff" /><rect x="16" y="15" width="4" height="3" fill="#fff" />
-  </svg>
-);
-const IconSort = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" aria-hidden="true">
-    <path d="M7 4v16M4 17l3 3 3-3M13 6h8M13 11h6M13 16h4" />
-  </svg>
-);
 
 /** Dropdown-Hülle der Filterleiste (schließt bei Klick außerhalb) */
 function Pop({ label, active, children }: { label: string; active?: boolean; children: React.ReactNode }) {
@@ -63,10 +48,6 @@ const fullText = (p: Property) => {
   if (!textCache.has(p.id)) textCache.set(p.id, [p.title, ...Object.values(p.sections).flat()].join(' '));
   return textCache.get(p.id)!;
 };
-
-const regionOf = (city: string) =>
-  Object.entries(REGION_GROUPS).find(([, cities]) => cities.includes(city))?.[0] ?? 'weitere';
-const REGION_TITLES: Record<string, string> = { münsterland: 'Münsterland', ruhrgebiet: 'Ruhrgebiet', weitere: 'Weitere Orte' };
 
 export default function Search() {
   const { mode: modeParam } = useParams();
@@ -103,7 +84,7 @@ export default function Search() {
   const where = ort || 'NRW und Umgebung';
   const what = anlage ? 'Kapitalanlage' : typen.length === 1 ? typen[0] : 'Immobilie';
   const heading = `${what} ${mode === 'mieten' ? 'mieten' : 'kaufen'} in ${where}`;
-  usePageMeta({ title: heading, footer: 'open', description: `${heading}: aktuelle Häuser, Wohnungen und Kapitalanlagen aus der Vermittlung von Oberholz Immobilien – mit persönlichem Ansprechpartner vor Ort.`, noindex: qs.toString().length > 0 && !(qs.size === 1 && qs.has('ort')) });
+  usePageMeta({ title: heading, footer: 'open', description: `${heading}: aktuelle Häuser, Wohnungen und Kapitalanlagen aus der Vermittlung von Oberholz Immobilien – mit persönlichem Ansprechpartner vor Ort.`, noindex: qs.toString().length > 0 });
 
   const inMode = useMemo(() => properties.filter((p) => p.mode === mode), [mode]);
   const results = useMemo(() => {
@@ -133,19 +114,21 @@ export default function Search() {
 
   const regions = useMemo(() => {
     const g = new Map<string, Map<string, number>>();
-    properties.forEach((p) => {
+    // nur Objekte der aktuellen Vermarktungsart, damit jeder Ortslink Treffer hat
+    inMode.forEach((p) => {
       const r = regionOf(p.city);
       if (!g.has(r)) g.set(r, new Map());
       g.get(r)!.set(p.city, (g.get(r)!.get(p.city) ?? 0) + 1);
     });
-    return ['münsterland', 'ruhrgebiet', 'weitere'].filter((r) => g.has(r)).map((r) => ({ key: r, cities: [...g.get(r)!.entries()] }));
-  }, []);
+    return Object.keys(REGION_TITLES).filter((r) => g.has(r)).map((r) => ({ key: r, cities: [...g.get(r)!.entries()] }));
+  }, [inMode]);
+  const modeRoute = mode === 'mieten' ? ROUTES.mieten : ROUTES.kaufen;
 
   const pages = Math.max(1, Math.ceil(results.length / PER_PAGE));
   const shown = results.slice((page - 1) * PER_PAGE, page * PER_PAGE);
   const saveSearch = () => {
     const url = `${window.location.pathname}${window.location.search}`;
-    notify(saved.add(heading, url) ? 'Suche gespeichert – Sie finden sie unter „Mein Bereich“.' : 'Diese Suche ist bereits gespeichert.');
+    notify(saved.add(heading, url) ? 'Suche gespeichert – Sie finden sie unter „Merkliste“.' : 'Diese Suche ist bereits gespeichert.');
   };
 
   const submitWhere = (e: React.FormEvent) => {
@@ -305,17 +288,17 @@ export default function Search() {
       </section>
 
       <section className="wrap srch-sec">
-        <SectionIntro variant="inline" line={false} eyebrow="Persönlich vor Ort" title="Ihre Ansprechpartner in der Region" text="Ob Kauf, Verkauf oder Vermietung – unser Team ist in Münster, Essen und Bochum für Sie da." />
+        <SectionIntro variant="inline" line={false} eyebrow="Persönlich vor Ort" title="Ihre Ansprechpartner in der Region" text="Ob Kauf, Verkauf oder Vermietung – unser Team ist in Essen, Münster und Bochum für Sie da." />
         <div className="offices">
           {offices.map((o) => (
-            <Link key={o.slug} to={ROUTES.region(o.slug)} className="city b-tile">
-              <div className="city__media"><img src={o.image} alt={`Immobilie aus unserer Vermittlung in ${o.city}`} loading="lazy" /></div>
-              <div className="city__body"><h3 className="city__name head">Immobilienmakler {o.city}</h3><p className="city__sub">{o.area}</p></div>
+            <Link key={o.slug} to={officeLink(o)} className="city b-tile">
+              <div className="city__media"><img src={o.image} alt={`Stadtansicht ${o.city}`} loading="lazy" /></div>
+              <div className="city__body"><h3 className="city__name head">{o.page ? `Immobilienmakler ${o.city}` : `Büro ${o.city}`}</h3><p className="city__sub">{o.area}</p></div>
               <span className="city__link"><IconArrowRight /></span>
             </Link>
           ))}
         </div>
-        <div className="srch__center"><Link to={ROUTES.regionen} className="btn btn--outline">Alle Regionen</Link></div>
+        <div className="srch__center"><Link to={ROUTES.regionen} className="btn btn--outline">Alle Standorte</Link></div>
       </section>
 
       <section className="wrap srch-sec">
@@ -324,8 +307,8 @@ export default function Search() {
           title: `${REGION_TITLES[r.key]} (${r.cities.reduce((s, [, n]) => s + n, 0)})`,
           content: (
             <ul className="region-links">
-              {r.key !== 'weitere' && <li><Link to={`${ROUTES.kaufen}?ort=${encodeURIComponent(REGION_TITLES[r.key])}`}>Alle Immobilien im {REGION_TITLES[r.key]}</Link></li>}
-              {r.cities.map(([c, n]) => <li key={c}><Link to={`${ROUTES.kaufen}?ort=${encodeURIComponent(c)}`}>Immobilien in {c} ({n})</Link></li>)}
+              {r.key !== 'weitere' && <li><Link to={`${modeRoute}?ort=${encodeURIComponent(REGION_TITLES[r.key])}`}>Alle Immobilien {REGION_IN[r.key]}</Link></li>}
+              {r.cities.map(([c, n]) => <li key={c}><Link to={`${modeRoute}?ort=${encodeURIComponent(c)}`}>Immobilien in {c} ({n})</Link></li>)}
             </ul>
           ),
         }))} />
@@ -338,7 +321,7 @@ export default function Search() {
           <div className="rating__grid">
             <div><p className="head">{brand.rating.toFixed(1).replace('.', ',')}</p><Stars value={brand.rating} /></div>
             <div><p className="head">{brand.reviews}</p><p className="eyebrow">Google-Bewertungen</p></div>
-            <div><p className="head">{offices.length}</p><p className="eyebrow">Regionen</p></div>
+            <div><p className="head">{offices.length}</p><p className="eyebrow">Standorte</p></div>
           </div>
           <p className="rating__note">Durchschnitt der Google-Bewertungen. <button type="button" className="link-underline" onClick={openRatings}>Bewertungen ansehen</button> · <a href={brand.googleUrl} target="_blank" rel="noopener noreferrer" className="link-underline">Google-Unternehmensprofil</a></p>
         </div>
@@ -383,7 +366,7 @@ function MapView({ items }: { items: Property[] }) {
   );
 }
 
-/** Fügt nach der 5. Karte die „Suche speichern“-Promo ein (wie Referenz). */
+/** Fügt nach der 5. Karte die „Suche speichern“-Promo ein. */
 function FragmentWithPromo({ index, children, onSave }: { index: number; children: React.ReactNode; onSave: () => void }) {
   return (
     <>
@@ -392,7 +375,7 @@ function FragmentWithPromo({ index, children, onSave }: { index: number; childre
         <aside className="savepromo">
           <SaveIllustration />
           <p className="savepromo__title head">Seien Sie schneller informiert als andere</p>
-          <p className="savepromo__text">Speichern Sie Ihre Suche, um sie unter „Mein Bereich“ jederzeit wieder aufzurufen.</p>
+          <p className="savepromo__text">Speichern Sie Ihre Suche, um sie unter „Merkliste“ jederzeit wieder aufzurufen.</p>
           <button type="button" className="btn btn--accent btn--icon" onClick={onSave}><IconBell />Suche speichern</button>
         </aside>
       )}
@@ -400,12 +383,4 @@ function FragmentWithPromo({ index, children, onSave }: { index: number; childre
   );
 }
 
-const SaveIllustration = () => (
-  <svg width="120" height="100" viewBox="0 0 120 100" fill="none" stroke="#8c8c8c" strokeWidth="1" aria-hidden="true">
-    <path d="M58 92V38l22-14 22 14v54M64 92V70h10v22M66 46h8v8h-8zM86 46h8v8h-8zM86 64h8v8h-8z" />
-    <path d="M20 92h90" /><path d="M34 92V44" stroke="#666" />
-    <rect x="18" y="44" width="40" height="26" fill="#fff" stroke="#666" />
-    <rect x="22" y="56" width="32" height="8" fill="var(--c-accent)" stroke="none" />
-    <path d="M24 50h22" />
-  </svg>
-);
+const SaveIllustration = () => <Icon name="ill-save-search" size={120} color="#8c8c8c" className="oi-accent" />;

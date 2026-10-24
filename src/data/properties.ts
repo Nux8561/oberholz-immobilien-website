@@ -1,4 +1,4 @@
-// Objekte aus der Vermittlung von Oberholz Immobilien (Quelle: listings.json, extrahiert von der bisherigen Website).
+// Objekte von Oberholz Immobilien (Quelle: listings.json, abgeglichen mit ImmoScout24 über scripts/import_immoscout.py).
 import raw from './listings.json';
 
 export type PropertyType = 'Haus' | 'Wohnung' | 'Grundstück' | 'Gewerbe';
@@ -26,29 +26,32 @@ export type Property = {
   imageTotal: number;
   sections: Record<string, string[]>;
   daysOnline: number;
+  /** Ansprechpartner laut ImmoScout-Exposé („Angeboten von“) */
+  agent: string;
+  /** Telefon laut ImmoScout-Exposé, falls angegeben */
+  agentPhone: string;
 };
 
 type Raw = (typeof raw)[number];
 
-const STATES = ['Nordrhein-Westfalen', 'Niedersachsen'];
-const NIEDERSACHSEN = ['Hitzacker', 'Auetal'];
+/** Regionen mit ihren Städten (Schlüssel = Ortsfilter in Kleinbuchstaben). Angezeigt werden nur Städte mit aktuellem Objekt.
+ *  Zuordnung bewusst genau: Essen gehört zum Ruhrgebiet, Velbert und Wuppertal zum Bergischen Land, Düsseldorf zum Rheinland. */
 export const REGION_GROUPS: Record<string, string[]> = {
-  münsterland: ['Münster', 'Steinfurt', 'Coesfeld', 'Rheine', 'Stadtlohn'],
-  ruhrgebiet: ['Essen', 'Bochum', 'Duisburg', 'Bergkamen', 'Bottrop', 'Velbert'],
+  ruhrgebiet: ['Essen', 'Bochum', 'Duisburg', 'Gelsenkirchen', 'Mülheim an der Ruhr', 'Oberhausen', 'Bottrop', 'Gladbeck', 'Herne',
+    'Dortmund', 'Hattingen', 'Witten', 'Bergkamen', 'Recklinghausen', 'Marl', 'Dorsten'],
+  münsterland: ['Münster', 'Coesfeld', 'Stadtlohn', 'Steinfurt', 'Rheine', 'Greven', 'Borken', 'Dülmen', 'Warendorf', 'Telgte'],
+  'bergisches land': ['Velbert', 'Wuppertal', 'Solingen', 'Remscheid', 'Heiligenhaus', 'Wülfrath'],
+  rheinland: ['Düsseldorf', 'Ratingen', 'Neuss', 'Krefeld', 'Mönchengladbach', 'Köln'],
 };
-
-function parseLocation(r: Raw) {
-  let city = r.city.trim();
-  let district = r.district.trim();
-  let region = 'Nordrhein-Westfalen';
-  for (const s of STATES) if (city.endsWith(s)) { region = s; city = city.slice(0, -s.length).trim(); }
-  if (NIEDERSACHSEN.some((n) => city.startsWith(n))) region = 'Niedersachsen';
-  if (city.includes(',')) { [city, district] = city.split(',').map((x) => x.trim()); }
-  city = city.replace(/\s*-\s*/g, '-');
-  const m = city.match(/^(Bottrop) (.+)$/);
-  if (m) { city = m[1]; district = m[2]; }
-  return { city, district, region };
-}
+export const REGION_TITLES: Record<string, string> = {
+  ruhrgebiet: 'Ruhrgebiet', münsterland: 'Münsterland', 'bergisches land': 'Bergisches Land', rheinland: 'Rheinland', weitere: 'Weitere Orte',
+};
+/** „Alle Immobilien im …“ */
+export const REGION_IN: Record<string, string> = {
+  ruhrgebiet: 'im Ruhrgebiet', münsterland: 'im Münsterland', 'bergisches land': 'im Bergischen Land', rheinland: 'im Rheinland',
+};
+export const regionOf = (city: string) =>
+  Object.entries(REGION_GROUPS).find(([, cities]) => cities.includes(city))?.[0] ?? 'weitere';
 
 /** Abschnitte fürs Exposé: „Beschreibung“ → „Objektbeschreibung“, fremde Ansprechpartner-Angaben entfallen */
 function cleanSections(sec: Record<string, string[]>) {
@@ -61,23 +64,22 @@ function cleanSections(sec: Record<string, string[]>) {
 }
 
 function toProperty(r: Raw, i: number): Property {
-  const { city, district, region } = parseLocation(r);
   const t = r.title;
-  const type: PropertyType = /Grundstück/i.test(t) && !/Haus|Wohnung/i.test(r.type) ? 'Grundstück'
-    : r.type === 'Wohnung' ? 'Wohnung' : 'Haus';
+  const type: PropertyType = r.type === 'Wohnung' || r.type === 'Grundstück' ? r.type : 'Haus';
   const investment = /Kapitalanlage|Rendite|Mehrfamilienhaus|vermietet|Appartements|Dreiparteienhaus/i.test(t);
-  const energy = r.type.startsWith('Energie') ? r.type.replace('Energie', '').trim() : undefined;
   const area = r.area ?? undefined;
   return {
-    id: r.id, title: t.replace(/\s+!/g, '!'), city, district, zip: r.zip, region, type,
+    id: r.id, title: t.replace(/\s+!/g, '!'), city: r.city.trim(), district: r.district.trim(), zip: r.zip, region: 'Nordrhein-Westfalen', type,
     mode: r.mode === 'Miete' ? 'mieten' : 'kaufen',
     price: r.price ?? null, priceLabel: r.priceLabel ? r.priceLabel.charAt(0) + r.priceLabel.slice(1).toLowerCase() : 'Kaufpreis',
     provision: r.provision, rooms: r.rooms ?? undefined,
-    living: type === 'Grundstück' ? undefined : area, plot: type === 'Grundstück' ? area : undefined,
-    investment, energyClass: energy,
+    living: type === 'Grundstück' ? undefined : area, plot: type === 'Grundstück' ? area : r.plot ?? undefined,
+    investment, energyClass: r.energyClass || undefined,
     badges: [...(Number(r.id) >= 171000000 ? ['Neu'] : []), ...(investment ? ['Kapitalanlage'] : [])],
     images: r.images, imageTotal: r.imageTotal, sections: cleanSections(r.sections as unknown as Record<string, string[]>),
     daysOnline: i,
+    agent: r.agent ?? '',
+    agentPhone: r.agentPhone ?? '',
   };
 }
 
@@ -88,8 +90,7 @@ export const properties: Property[] = (raw as Raw[]).filter((r) => r.images.leng
 export const CITY_COORDS: Record<string, [number, number]> = {
   Münster: [51.96, 7.63], Essen: [51.456, 7.012], Bochum: [51.481, 7.216], Duisburg: [51.434, 6.762], Düsseldorf: [51.227, 6.773],
   Coesfeld: [51.946, 7.168], Stadtlohn: [51.993, 6.917], Rheine: [52.28, 7.44], Steinfurt: [52.15, 7.34], Bergkamen: [51.616, 7.644],
-  Velbert: [51.34, 7.043], Krefeld: [51.339, 6.586], Bottrop: [51.524, 6.929], 'Kamp-Lintfort': [51.503, 6.546],
-  'Hitzacker (Elbe)': [53.152, 11.043], Auetal: [52.233, 9.233],
+  Velbert: [51.34, 7.043], Krefeld: [51.339, 6.586], Bottrop: [51.524, 6.929], Gelsenkirchen: [51.517, 7.085], Wuppertal: [51.256, 7.15],
 };
 
 export const findProperty = (id: string) => properties.find((p) => p.id === id);
@@ -99,11 +100,11 @@ export const formatPrice = (p: Property) =>
   p.price === null ? 'Preis auf Anfrage' : `${eur.format(p.price)} €${p.mode === 'mieten' ? ' Kaltmiete' : ''}`;
 export const formatArea = (n: number) => `~${n.toLocaleString('de-DE', { maximumFractionDigits: 1 })} m²`;
 
-/** Attributzeile wie in der Referenz: „5 Zimmer · ~153,8 m² Wohnfläche“ */
+/** Attributzeile, z. B. „5 Zimmer · ~153,8 m² Wohnfläche“ */
 export const attributes = (p: Property) => [
   p.rooms ? `${p.rooms.toLocaleString('de-DE')} Zimmer` : null,
   p.living ? `${formatArea(p.living)} Wohnfläche` : null,
-  p.plot ? `${formatArea(p.plot)} Grundstücksfläche` : null,
+  p.plot && !p.living ? `${formatArea(p.plot)} Grundstücksfläche` : null,
   p.energyClass ? `Energieklasse ${p.energyClass}` : null,
 ].filter(Boolean) as string[];
 

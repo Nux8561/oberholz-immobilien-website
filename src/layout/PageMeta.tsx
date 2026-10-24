@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import { brand } from '../data/content';
-import { SITE_URL } from '../data/routes';
+import { canonicalPageUrl, SITE_URL } from '../data/routes';
 
 export type Crumb = { label: string; to?: string };
 export type PageMeta = {
@@ -16,7 +16,7 @@ export type PageMeta = {
   noindex?: boolean;
 };
 
-const DEFAULT_DESCRIPTION = `${brand.name}: Ihr Immobilienmakler in Münster, Essen und Bochum – Verkauf, Vermietung, kostenlose Bewertung und Rückmietverkauf, persönlich vor Ort.`;
+const DEFAULT_DESCRIPTION = `${brand.name}: Ihr Immobilienmakler im Ruhrgebiet und Münsterland – Verkauf, Vermietung, kostenlose Bewertung und Rückmietverkauf, persönlich vor Ort.`;
 const DEFAULT_IMAGE = '/assets/szenen/beratung.jpg';
 
 const Ctx = createContext<{ meta: PageMeta; set: (m: PageMeta) => void }>({ meta: {}, set: () => {} });
@@ -46,9 +46,9 @@ export function usePageMeta(meta: PageMeta) {
   const key = JSON.stringify(meta);
   useEffect(() => {
     set(meta);
-    const title = meta.title ? `${meta.title} | ${brand.name}` : `${brand.name} | Immobilienmakler in Münster, Essen & Bochum`;
+    const title = meta.title ? `${meta.title} | ${brand.name}` : `${brand.name} | Immobilienmakler Ruhrgebiet & Münsterland`;
     const description = (meta.description ?? DEFAULT_DESCRIPTION).replace(/\s+/g, ' ').slice(0, 300);
-    const url = `${SITE_URL}${window.location.pathname}`;
+    const url = canonicalPageUrl(window.location.pathname);
     document.title = title;
     setMeta('name', 'description', description);
     setMeta('name', 'robots', meta.noindex ? 'noindex, follow' : 'index, follow');
@@ -68,7 +68,7 @@ export function usePageMeta(meta: PageMeta) {
       graph.push({
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         itemListElement: [{ label: 'Startseite', to: '/' }, ...meta.crumbs].map((c, i) => ({
-          '@type': 'ListItem', position: i + 1, name: c.label, ...(c.to ? { item: abs(c.to) } : {}),
+          '@type': 'ListItem', position: i + 1, name: c.label, ...(c.to ? { item: canonicalPageUrl(c.to) } : {}),
         })),
       });
     }
@@ -86,18 +86,22 @@ export const faqLd = (items: { q: string; a: string }[]) => ({
 });
 
 /** Stadtzentren der drei Kernregionen (für areaServed) */
-const CITY_GEO: Record<string, [number, number]> = { Münster: [51.9607, 7.6261], Essen: [51.4556, 7.0116], Bochum: [51.4818, 7.2162] };
+const CITY_GEO: Record<string, [number, number]> = { Essen: [51.4556, 7.0116], Bochum: [51.4818, 7.2162] };
 const LEISTUNGEN = ['Immobilienbewertung', 'Immobilienverkauf', 'Vermietung', 'Rückmietverkauf', 'Kapitalanlage', 'Finanzierungsvermittlung'];
 
 /** Lokale Leistung „Immobilienmakler in <Stadt>“ – verknüpft mit der Organisation aus index.html (lokale Suche & KI-Antworten) */
-export const localServiceLd = (city: string, area: string, path: string, kind: 'makler' | 'verkaufen' = 'makler') => {
+export const localServiceLd = (city: string, area: string, path: string, kind: 'makler' | 'verkaufen' | 'bewertung' | 'wohnung' = 'makler') => {
   const geo = CITY_GEO[city];
+  const serviceType = { makler: 'Immobilienmakler', verkaufen: 'Immobilienverkauf', bewertung: 'Immobilienbewertung', wohnung: 'Wohnungsverkauf' }[kind];
   return {
     '@context': 'https://schema.org', '@type': 'Service',
-    name: kind === 'makler' ? `Immobilienmakler ${city}` : `Immobilie verkaufen in ${city}`,
-    serviceType: kind === 'makler' ? 'Immobilienmakler' : 'Immobilienverkauf',
-    url: `${SITE_URL}${path}`,
-    description: `${brand.name} begleitet Eigentümer, Käufer und Mieter in ${area}: kostenlose Bewertung, Verkauf, Vermietung und Rückmietverkauf mit persönlichem Ansprechpartner.`,
+    name: `${serviceType} ${city}`,
+    serviceType,
+    url: canonicalPageUrl(path),
+    description: kind === 'bewertung'
+      ? `Persönliche Immobilienbewertung in ${city}: Lage, Zustand, Unterlagen und Nutzung als Grundlage einer nachvollziehbaren Marktwerteinschätzung.`
+      : kind === 'wohnung' ? `Eigentumswohnung in ${city} verkaufen: Bewertung, Unterlagen der Eigentümergemeinschaft und persönliche Begleitung durch ${brand.name}.`
+      : `${brand.name} begleitet Eigentümer, Käufer und Mieter in ${area}: kostenlose Bewertung, Verkauf, Vermietung und Rückmietverkauf mit persönlichem Ansprechpartner.`,
     provider: { '@id': `${SITE_URL}/#organisation` },
     areaServed: {
       '@type': 'City', name: city,

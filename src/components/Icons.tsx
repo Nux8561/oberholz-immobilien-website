@@ -1,134 +1,48 @@
-// Eigene Linien-Icons (24×24, currentColor) – Strichstärke/Größen nach Referenz gemessen.
+// Oberholz Icons – Komfort-Exporte der Hausikonen (Quelle: src/icons/pack.ts, Formensprache „Fuge & Raute“).
 import type { SVGProps } from 'react';
+import { Icon, type IconName } from '../icons/Icon';
 
-type P = SVGProps<SVGSVGElement> & { size?: number };
+type P = Omit<SVGProps<SVGSVGElement>, 'name'> & { size?: number };
+const make = (name: IconName) => (props: P) => <Icon name={name} {...props} />;
 
-const base = (size = 24, rest: SVGProps<SVGSVGElement>) => ({
-  width: size,
-  height: size,
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.25,
-  strokeLinecap: 'round' as const,
-  strokeLinejoin: 'round' as const,
-  'aria-hidden': true,
-  focusable: false,
-  ...rest,
-});
+export const IconSearch = make('search');
+export const IconChevronDown = make('chevron-down');
+export const IconChevronUp = make('chevron-up');
+export const IconChevronRight = make('chevron-right');
+export const IconChevronLeft = make('chevron-left');
+export const IconArrowRight = make('arrow-right');
+export const IconUser = make('user');
+export const IconGlobe = make('globe');
+export const IconPin = make('pin');
+export const IconBuildings = make('buildings');
+export const IconSparkle = make('sparkle');
+export const IconPause = make('pause');
+export const IconPlay = make('play');
+export const IconClose = make('close');
+export const IconMenu = make('menu');
+export const IconMail = make('mail');
+export const IconExpand = make('expand');
+export const IconPlus = make('plus');
+export const IconMinus = make('minus');
+export const IconCheck = make('check');
+export const IconCaret = make('caret');
+export const IconPhone = make('phone');
+export const IconHeart = make('heart');
+export const IconBell = make('bell');
+export const IconSliders = make('sliders');
+export const IconSort = make('sort');
+export const IconShare = make('share');
+export const IconImage = make('image');
 
-export const IconSearch = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.3 15.3 20 20" /></svg>
-);
-export const IconChevronDown = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="m5 9 7 7 7-7" /></svg>);
-export const IconChevronUp = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="m5 15 7-7 7 7" /></svg>);
-export const IconChevronRight = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="m9 5 7 7-7 7" /></svg>);
-export const IconChevronLeft = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="m15 5-7 7 7 7" /></svg>);
-export const IconArrowRight = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><path d="M3.5 12h17M14.5 6l6 6-6 6" /></svg>
-);
-export const IconUser = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="10" r="3.2" /><path d="M6.3 18.6c1.3-2.3 3.3-3.4 5.7-3.4s4.4 1.1 5.7 3.4" /></svg>
-);
-export const IconGlobe = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z" /></svg>
-);
-export const IconPin = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21Z" /><circle cx="12" cy="9.8" r="2.4" /></svg>
-);
-export const IconBuildings = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}>
-    <path d="M3.5 20.5V5.5l7-2v17M10.5 20.5V9.5l7 2.2v8.8M17.5 20.5h3V13l-3-1.3M2.5 20.5h19" />
-    <path d="M5.8 7.8h2M5.8 10.8h2M5.8 13.8h2M5.8 16.8h2M12.8 13h2.4M12.8 16h2.4" />
-  </svg>
-);
-export const IconSparkle = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><path d="M12 3.5c.6 4.4 2.1 5.9 6.5 6.5-4.4.6-5.9 2.1-6.5 6.5-.6-4.4-2.1-5.9-6.5-6.5 4.4-.6 5.9-2.1 6.5-6.5Z" /></svg>
-);
-export const IconPause = ({ size, ...r }: P) => (
-  <svg {...base(size, r)} stroke="none" fill="currentColor"><rect x="7" y="5" width="3.2" height="14" rx=".4" /><rect x="13.8" y="5" width="3.2" height="14" rx=".4" /></svg>
-);
-export const IconPlay = ({ size, ...r }: P) => (
-  <svg {...base(size, r)} stroke="none" fill="currentColor"><path d="M8 5.2v13.6a.5.5 0 0 0 .76.43l11.2-6.8a.5.5 0 0 0 0-.86L8.76 4.77A.5.5 0 0 0 8 5.2Z" /></svg>
-);
-export const IconClose = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="m5 5 14 14M19 5 5 19" /></svg>);
-export const IconMenu = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="M3 6.5h14M3 12h18M3 17.5h10" /></svg>);
-export const IconMail = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><rect x="3" y="5.5" width="18" height="13" rx=".5" /><path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg>
-);
-export const IconExpand = ({ size, ...r }: P) => (
-  <svg {...base(size, r)}><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" /></svg>
-);
-export const IconPlus = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="M12 4v16M4 12h16" /></svg>);
-export const IconMinus = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="M4 12h16" /></svg>);
-export const IconCheck = ({ size, ...r }: P) => (<svg {...base(size, r)}><path d="m4.5 12.5 4.5 4.5L19.5 6.5" /></svg>);
-export const IconCaret = ({ size, ...r }: P) => (
-  <svg {...base(size, r)} stroke="none" fill="currentColor"><path d="M9 7.5v9l6-4.5-6-4.5Z" /></svg>
+/* ---------- Größere Motive (Rauten in Akzentfarbe über .oi-accent) ---------- */
+
+export const BenefitIcon = ({ name, className = '', ...r }: { name: string } & P) => (
+  <Icon name={name === 'pin' || name === 'globe' ? name : 'advisor'} size={48} className={`oi-accent ${className}`} {...r} />
 );
 
-/* ---------- Illustrative Icons (eigene Zeichnungen) ---------- */
-
-const illu = (w: number, h: number, rest: SVGProps<SVGSVGElement>) => ({
-  width: w, height: h, viewBox: `0 0 ${w} ${h}`, fill: 'none', stroke: 'currentColor', strokeWidth: 1.2,
-  strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true, ...rest,
-});
-
-export const BenefitIcon = ({ name, ...r }: { name: string } & SVGProps<SVGSVGElement>) => {
-  if (name === 'pin')
-    return (<svg {...illu(48, 48, r)}><path d="M24 45S10 31.6 10 19.5a14 14 0 0 1 28 0C38 31.6 24 45 24 45Z" /><circle cx="24" cy="19.5" r="6.5" /></svg>);
-  if (name === 'globe')
-    return (
-      <svg {...illu(48, 48, r)}>
-        <circle cx="24" cy="24" r="13" /><path d="M11 24h26M24 11c3.6 3.6 5.4 8 5.4 13S27.6 33.4 24 37c-3.6-3.6-5.4-8-5.4-13S20.4 14.6 24 11ZM13.5 17h21M13.5 31h21" />
-        <path d="M6.5 20A18 18 0 0 1 38 9.5M38 5v4.5h-4.5M41.5 28A18 18 0 0 1 10 38.5M10 43v-4.5h4.5" />
-      </svg>
-    );
-  return (
-    <svg {...illu(48, 48, r)}>
-      <circle cx="24" cy="9" r="5.5" /><path d="M14 46V27c0-5 3.5-9 10-9s10 4 10 9v19" />
-      <path d="M21 18.5 24 31l3-12.5M22.5 21.5h3" /><path d="M24 31v15M18.5 30v16M29.5 30v16" />
-    </svg>
-  );
-};
-
-export const TopicIllustration = ({ name, ...r }: { name: string } & SVGProps<SVGSVGElement>) => {
-  if (name === 'house')
-    return (
-      <svg {...illu(92, 92, r)} strokeWidth={1}>
-        <path d="M24 72V44L50 26l26 18v28" /><path d="M20 47 50 25l30 22" /><circle cx="50" cy="42" r="4" />
-        <path d="M45 72V58h10v14M6 72h82M6 72V52h18M10 57h10v6H10z" /><path d="M14 52v-6h4v6" />
-      </svg>
-    );
-  if (name === 'townhouse')
-    return (
-      <svg {...illu(92, 92, r)} strokeWidth={1}>
-        <path d="M12 76V36h22v40M34 76V28h24v48M58 76V36h22v40M8 76h76" /><path d="M42 28l4-6 4 6" />
-        {[16, 25, 62, 71].map((x) => [44, 54].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width="5" height="6" />))}
-        {[40, 48].map((x) => [36, 44, 52].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width="5" height="5" />))}
-        <path d="M18 76v-9h4v9M41 76v-11h10v11M66 76v-9h4v9" />
-      </svg>
-    );
-  return (
-    <svg {...illu(92, 92, r)} strokeWidth={1}>
-      <path d="M26 76V22h40v54M22 76h48M32 22v-6h28v6" /><circle cx="46" cy="19" r="2" />
-      {[32, 49].map((x) => [28, 38, 48].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width="11" height="6" />))}
-      <path d="M33 76V60h8v16M49 60h11v8H49z" />
-    </svg>
-  );
-};
-
-/** Eigene Fassadenzeichnung für den Footer (240×100). */
-export const FooterIllustration = (r: SVGProps<SVGSVGElement>) => (
-  <svg {...illu(240, 100, r)} strokeWidth={0.9} viewBox="0 0 240 100">
-    <path d="M8 98h224M14 98V52h212v46M4 52h232L198 18H42Z" />
-    {Array.from({ length: 34 }, (_, i) => <path key={i} d={`M${48 + i * 4.3} 20.5 ${30 + i * 5.4} 51`} strokeWidth={0.5} />)}
-    <path d="M100 18c0-8 9-12 20-12s20 4 20 12" /><path d="M108 18v-4h24v4" />
-    {[34, 76, 146, 188].map((x) => (
-      <g key={x}><rect x={x} y={62} width={18} height={26} /><path d={`M${x + 9} 62v26M${x} 75h18`} /><path d={`M${x - 3} 60h24M${x - 3} 90h24`} /></g>
-    ))}
-    <path d="M110 98V70a10 10 0 0 1 20 0v28M110 80h20M120 70v28" />
-    {[60, 102, 138, 180].map((x) => <path key={x} d={`M${x} 56v42M${x + 3} 56v42`} />)}
-  </svg>
+const TOPICS = { house: 'ill-house', townhouse: 'ill-townhouse', apartment: 'ill-apartment' } as const;
+export const TopicIllustration = ({ name, className = '', ...r }: { name: string } & P) => (
+  <Icon name={TOPICS[name as keyof typeof TOPICS] ?? 'ill-apartment'} size={92} className={`oi-accent ${className}`} {...r} />
 );
 
 /* ---------- Social ---------- */

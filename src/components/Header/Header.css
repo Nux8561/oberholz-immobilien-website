@@ -1,4 +1,4 @@
-/* Header – Referenz: 1440px → 135px hoch (72px Meta-Zeile + 1px Linie + 62px Navigation). */
+/* Header – 1440px → 135px hoch (72px Meta-Zeile + 1px Linie + 62px Navigation). */
 .hdr {
   position: relative; z-index: 50; background: var(--c-white);
   max-width: 1920px; margin: 0 auto;
@@ -50,7 +50,7 @@
   .hdr.is-scrolled { box-shadow: var(--shadow-card); }
 }
 
-/* Tablet: nur Meta-Zeile mit Burger (Referenz 600–959px: 77px hoch) */
+/* Tablet: nur Meta-Zeile mit Burger (600–959px: 77px hoch) */
 @media (max-width: 959px) {
   .hdr__bottom { display: none; }
   .hdr__top { height: 77px; justify-content: center; }
@@ -59,7 +59,7 @@
   .hdr__meta-desk, .hdr__meta-label { display: none; }
   .hdr__logo .logo { width: auto; height: 48px; justify-content: center; }
 }
-/* Mobile (Referenz 390px: 57px hoch, 16px Rand) */
+/* Mobile (390px: 57px hoch, 16px Rand) */
 @media (max-width: 599px) {
   .hdr__top { height: 57px; padding: 0 16px; }
   .hdr__burger { left: 16px; }

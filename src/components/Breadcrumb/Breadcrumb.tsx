@@ -4,7 +4,7 @@ import type { Crumb } from '../../layout/PageMeta';
 import { IconChevronRight } from '../Icons';
 import './Breadcrumb.css';
 
-/** Breadcrumb über dem Footer (Referenz: 12px, zwischen Kontakt-Section und Footer). */
+/** Breadcrumb über dem Footer (12px, zwischen Kontakt-Section und Footer). */
 export default function Breadcrumb({ items }: { items: Crumb[] }) {
   const all: Crumb[] = [{ label: brand.name, to: '/' }, ...items];
   return (

@@ -6,7 +6,7 @@ import SmartLink from '../SmartLink/SmartLink';
 import { ROUTES } from '../../data/routes';
 import './MobileMenu.css';
 
-/** Mobile-/Tablet-Navigation: Vollbild-Panel, Untermenüs schieben von rechts herein (Referenz 390px). */
+/** Mobile-/Tablet-Navigation: Vollbild-Panel, Untermenüs schieben von rechts herein. */
 export default function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [sub, setSub] = useState<number | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
           <div className="mnav__bar">
             <button type="button" className="mnav__icon" aria-label="Navigation schließen" onClick={onClose}><IconClose /></button>
             <Logo compact />
-            <SmartLink label="Mein Bereich" to={ROUTES.meinBereich} className="mnav__icon" aria-label="Mein Bereich" onNavigate={onClose}><IconUser /></SmartLink>
+            <SmartLink label="Merkliste" to={ROUTES.meinBereich} className="mnav__icon" aria-label="Merkliste" onNavigate={onClose}><IconUser /></SmartLink>
           </div>
           <ul className="mnav__list">
             {megaMenus.map((item, i) => (
@@ -41,8 +41,8 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
             ))}
           </ul>
           <ul className="mnav__meta">
-            <li><SmartLink label="Regionen" to={ROUTES.regionen} className="mnav__meta-item" onNavigate={onClose}><IconPin />Regionen</SmartLink></li>
-            <li><SmartLink label="Mein Bereich" to={ROUTES.meinBereich} className="mnav__meta-item" onNavigate={onClose}><IconUser />Mein Bereich</SmartLink></li>
+            <li><SmartLink label="Standorte" to={ROUTES.regionen} className="mnav__meta-item" onNavigate={onClose}><IconPin />Standorte</SmartLink></li>
+            <li><SmartLink label="Merkliste" to={ROUTES.meinBereich} className="mnav__meta-item" onNavigate={onClose}><IconUser />Merkliste</SmartLink></li>
           </ul>
           <SmartLink label="Jetzt kontaktieren" to={ROUTES.kontakt} className="btn btn--small mnav__cta" onNavigate={onClose} />
         </section>

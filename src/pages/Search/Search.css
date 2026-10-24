@@ -1,14 +1,14 @@
-/* Suchergebnisliste – Referenz /immobilien/res/kaufen/immobilien (1440): Filterleiste 72px (Padding 16/40),
-   Container 1360px, H1 Head 20/28, Regionen-Links 14/24, Raster 3×437px (Gap 24), Karten 494px hoch. */
+/* Suchergebnisliste (1440px): Filterleiste 72px (Padding 16/40),
+   Container 1360px, H1 20/28, Regionen-Links 14/24, Raster 3×437px (Gap 24), Karten 494px hoch. */
 .srch { max-width: 1440px; margin: 0 auto; padding-bottom: 28px; }
 
 .fbar { position: sticky; top: 63px; z-index: 30; background: var(--c-white); }
 .fbar__inner { display: flex; align-items: center; gap: 8px; min-height: 72px; padding: 16px 40px; flex-wrap: wrap; }
 .fbar__ai {
   display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; cursor: pointer; border: 1px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, #e60000, #3a5bd9) border-box; border-radius: 2px;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, var(--c-accent), #4a74b8) border-box; border-radius: 2px;
 }
-.fbar__ai-label { font-size: 16px; line-height: 28px; background: linear-gradient(90deg, #c80000, #7528c5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.fbar__ai-label { font-size: 16px; line-height: 28px; background: linear-gradient(90deg, var(--c-accent), #4a74b8); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 .fsel { position: relative; display: inline-flex; align-items: center; height: 40px; border: 1px solid #d9d9d9; border-radius: 2px; }
 .fsel select { appearance: none; height: 100%; padding: 0 34px 0 12px; border: 0; background: transparent; font-size: 16px; line-height: 28px; color: var(--c-text); cursor: pointer; }
@@ -149,7 +149,7 @@
   .srch__stats-line { width: 56px; height: 2px; }
   .srch-sec { padding-top: 56px; }
 }
-/* Intros dieser Seite: 56px Abstand nach unten (Referenz „ev-agp“-Intros) */
+/* Intros dieser Seite: 56px Abstand nach unten */
 .srch-sec .sintro-inline { margin-bottom: 56px; }
 @media (max-width: 599px) { .srch-sec .sintro-inline { margin-bottom: 40px; } }
 
@@ -176,3 +176,11 @@
 .kibox__chips--plain button { margin-left: 4px; color: var(--c-muted); }
 .kibox .link-underline { font-size: 13px; color: var(--c-ink); }
 .fdrawer__panel .eyebrow + .fdrawer__chips { margin-bottom: 20px; }
+
+.rating__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rating__grid > div { min-width: 0; text-align: center; padding-inline: 6px; }
+.rating__grid .eyebrow { max-width: 100%; overflow-wrap: anywhere; }
+@media (max-width: 399px) {
+  .rating__grid .eyebrow { font-size: 10px; letter-spacing: .06em; }
+  .rating__grid .stars { gap: 0; }
+}

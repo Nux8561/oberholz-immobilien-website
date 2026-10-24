@@ -1,11 +1,12 @@
-/* Hero – Referenz 1440: Section 1440×897 ab y=135, Padding 40/40/0, Inhalt max. 1360px.
-   Titel 56/67, Suche rechts bündig unten (≥1240px), Slider 40px darunter, Teaser-Reihe direkt anschließend. */
+/* Hero – bei 1440px: Section 1440×897 ab y=135, Padding 40/40/0, Inhalt max. 1360px.
+   Titel 56/67 über die volle Breite, Suchleiste darunter (auf allen Breiten untereinander, Kundenwunsch 19.10.2026),
+   Slider 40px darunter, Teaser-Reihe direkt anschließend. */
 .hero {
   max-width: calc(var(--wrap-wide) + 80px); margin: 0 auto; padding: 40px 40px 0;
   transform: translateY(var(--hero-lift, 0px));
 }
-.hero__head { display: grid; row-gap: 40px; align-items: end; }
-.hero__title { font-size: 56px; line-height: 67px; color: var(--c-strong); padding-right: 40px; }
+.hero__head { display: grid; row-gap: 40px; }
+.hero__title { font-size: 56px; line-height: 67px; color: var(--c-strong); }
 .hero__carousel { margin-top: 40px; }
 
 .hero__teasers {
@@ -30,7 +31,6 @@
 .hteaser:hover .hteaser__link svg { transform: translateX(4px); }
 
 @media (min-width: 1240px) {
-  .hero__head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; }
   .hero__teasers {
     grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: calc(var(--wrap) + 128px); padding: 0 64px;
   }
@@ -43,7 +43,7 @@
 }
 @media (max-width: 599px) {
   .hero { padding: 40px 16px 0; margin-bottom: 56px; }
-  .hero__title { font-size: 40px; line-height: 48px; padding-right: 0; }
+  .hero__title { font-size: 40px; line-height: 48px; }
   .hero__teasers { padding: 24px 0 0; opacity: 1; transform: none; transition: none; }
   .hero.is-scrolled .hero__teasers { transform: none; }
   .hteaser { padding: 12px; column-gap: 12px; }
@@ -51,4 +51,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero { transform: none; }
   .hero__teasers { transition: none; }
+}
+@media (max-width: 599px) {
+  .hero__title { font-size: clamp(32px, 8.6vw, 40px); line-height: 1.2; }
 }

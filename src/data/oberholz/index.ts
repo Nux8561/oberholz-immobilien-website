@@ -1,6 +1,7 @@
 // Zugriff auf die von der bisherigen Website übernommenen Inhalte (content.json, erzeugt von
 // scripts/build_oberholz_content.py) plus abgeleitete Listen für Ratgeber, Whitepaper und Downloads.
 import data from './content.json';
+import guideFiles from '../guideFiles.json';
 import type { EditorialArticle } from '../ratgeber/helpers';
 import { kaeufer } from '../ratgeber/kaeufer';
 import { verkaeufer } from '../ratgeber/verkaeufer';
@@ -27,7 +28,7 @@ export function page(slug: string): RichPage {
 }
 /** echte FAQ-Einträge (ohne das als FAQ erfasste Inhaltsverzeichnis) */
 export const faqs = (slug: string): QA[] => (faqMap[slug] ?? []).filter((f) => f.q !== 'Inhaltsverzeichnis');
-export const homeFaq = data.homeFaq as QA[];
+export { homeFaq } from '../siteFaq';
 
 export const textOf = (b: RichBlock | undefined) => (b && 'text' in b ? b.text : '');
 export const firstOf = (blocks: RichBlock[], t: RichBlock['t']) => blocks.find((b) => b.t === t);
@@ -45,7 +46,7 @@ export type Article = {
   category: Category; readingTime: number; facts: string[]; faq: QA[]; tools: Tool[];
 };
 
-/** Kategorien wie im E&V-Ratgeber (Käufer, Verkäufer, …) – zugeschnitten auf Oberholz */
+/** Ratgeber-Kategorien (Käufer, Verkäufer, Eigentümer & Erben) */
 export const CATEGORIES: { slug: Category; label: string; title: string; text: string }[] = [
   { slug: 'kaeufer', label: 'Käufer', title: 'Tipps für Käufer', text: 'Budget, Nebenkosten, Besichtigung und Kaufvertrag – so finden und finanzieren Sie die passende Immobilie.' },
   { slug: 'verkaeufer', label: 'Verkäufer', title: 'Tipps für Verkäufer', text: 'Bewertung, Unterlagen, Vermarktung und Steuern – so verkaufen Sie zum marktgerechten Preis.' },
@@ -71,7 +72,7 @@ function toArticle(slug: string): Article {
   const author = b[2] as Extract<RichBlock, { t: 'img' }>;
   const header = b.find((x) => x.t === 'img' && x.src.includes('blog-article-header')) as Extract<RichBlock, { t: 'img' }>;
   const tocAt = b.findIndex((x) => x.t === 'h2' && x.text === 'Inhaltsverzeichnis');
-  const end = b.findIndex((x) => x.t === 'ul' && x.items[0] === 'Teilen:');
+  const end = b.findIndex((x, i) => i > tocAt && ((x.t === 'ul' && x.items[0] === 'Teilen:') || (x.t === 'h2' && /komplette.*Download|als Download|Weitere Artikel/i.test(x.text))));
   const toc = itemsOf(b[tocAt + 1]);
   const body = b.slice(tocAt + 2, end < 0 ? undefined : end)
     .filter((x) => !(x.t === 'p' && /^ZUM .*DOWNLOAD$|^WHITEPAPER .*$/.test(x.text)));
@@ -105,7 +106,7 @@ export const formatDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleD
 
 /* ---------- Whitepaper / Leitfäden ---------- */
 
-export type Whitepaper = { slug: string; title: string; intro: string; items: string[]; formTitle: string; image: string; facts: string; article?: Article };
+export type Whitepaper = { slug: string; title: string; intro: string; items: string[]; formTitle: string; image: string; facts: string; file: { href: string; pages: number; sizeKB: number }; article?: Article };
 
 const WP_KEYS: Record<string, string> = {
   generationenwechsel: 'whitepaper-generationenwechsel',
@@ -116,22 +117,13 @@ const WP_KEYS: Record<string, string> = {
   'wohnwechsel-im-alter': 'whitepaper-wohnwechsel-im-alter',
 };
 
-/** Umfangsangaben aus „Leitfäden mit Anmeldung“ (Dokumente & Downloads) */
-const WP_FACTS: Record<string, string> = {
-  generationenwechsel: '13 Seiten, über 25 Quellen',
-  'erben-kompass': '12 Seiten mit Checkliste zum Ausdrucken',
-  'sanieren-vor-dem-verkauf': '9 Seiten mit Entscheidungsfahrplan',
-  'unterlagen-und-finanzierung': '9 Seiten',
-  'leerstand-vermietung-oder-verkauf': '10 Seiten',
-  'wohnwechsel-im-alter': '9 Seiten',
-};
-
 export const whitepapers: Whitepaper[] = Object.entries(WP_KEYS).map(([slug, key]) => {
   const b = page(key).blocks;
+  const file = guideFiles[slug as keyof typeof guideFiles];
   const article = articles.find((a) => a.whitepaper === slug && a.key.startsWith('ratgeber-')) ?? articles.find((a) => a.whitepaper === slug);
   return {
-    slug, title: textOf(firstOf(b, 'h1')), intro: textOf(firstOf(b, 'p')), items: itemsOf(firstOf(b, 'ul')),
-    formTitle: textOf(firstOf(b, 'h2')), image: article?.image ?? '', facts: WP_FACTS[slug], article,
+    slug, title: textOf(firstOf(b, 'h1')), intro: textOf(firstOf(b, 'p')), items: article?.body.filter(x => x.t === 'h2').map(textOf).slice(0, 6) ?? [],
+    formTitle: textOf(firstOf(b, 'h2')), image: article?.image ?? '', facts: `PDF-Lesefassung · ${file.pages} Seiten`, file, article,
   };
 });
 export const findWhitepaper = (slug: string) => whitepapers.find((w) => w.slug === slug);
@@ -152,7 +144,7 @@ const PDF_META: Record<string, [string, string]> = {
   merkblatt_ea: ['Merkblatt Energieausweis', '0,5 MB'],
   merkblatt_wr: ['Merkblatt Sanierung & Förderung', '2,8 MB'],
   whitepaper_was_leisten_wir_fuer_sie: ['Whitepaper: Was leisten wir für Sie?', '0,4 MB'],
-  'broschuere_energieberatung-oberholz': ['Broschüre: Vermittlung mit Energiekompetenz', '3,6 MB'],
+  'broschuere_energieberatung-oberholz': ['Broschüre: Immobilienvermittlung mit Gutachterkompetenz', '3,6 MB'],
 };
 
 /** Gruppen aus der Seite „Dokumente & Downloads“: Beschreibung (p) + PDF-Link paarweise */

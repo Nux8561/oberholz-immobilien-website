@@ -13,26 +13,7 @@ import WertHebel from '../../components/Calculators/WertHebel';
 import { BTN_CALL, TeaserBand, TOOL_TEASERS } from './shared';
 import Partners from '../../components/Partners/Partners';
 
-const crumbs = (label?: string) => (label ? [{ label: 'Service', to: ROUTES.service }, { label }] : [{ label: 'Service' }]);
-
-export function Service() {
-  usePageMeta({ title: 'Service: Rechner & Werkzeuge', crumbs: crumbs(), footer: 'accordion', description: 'Kostenlose Immobilien-Rechner von Oberholz Immobilien: Budgetrechner, Finanzierungsrechner mit Grunderwerbsteuer und Wert-Hebel-Rechner für Modernisierungen.' });
-  const b = page('service').blocks;
-  return (
-    <>
-      <PageHero eyebrow="Service" title={textOf(b[0])} text={textOf(b[1])} image={photos.advisorE} cutout
-        buttons={[{ label: 'Budget prüfen', to: ROUTES.budgetrechner, variant: 'accent' }, { label: 'Rate berechnen', to: ROUTES.finanzierungsrechner, variant: 'outline' }]} />
-      <TeaserBand items={[TOOL_TEASERS.budget, TOOL_TEASERS.finanzierung, TOOL_TEASERS.wertHebel]} />
-      <TeaserBand items={[
-        { eyebrow: 'Immopedia', title: 'Fachbegriffe von A bis Z', text: 'Rund 2.000 Begriffe rund um Immobilien, Finanzierung und Energie – verständlich erklärt.', to: ROUTES.immopedia, cta: 'Begriff nachschlagen' },
-        { eyebrow: 'Dokumente & Downloads', title: 'Formulare, Verträge, Merkblätter', text: 'Erfassungsbogen, Maklerauftrag, Merkblätter zum Energieausweis und mehr als PDF.', to: ROUTES.downloads, cta: 'Zu den Downloads' },
-        { eyebrow: 'Ratgeber', title: 'Wissen für Eigentümer', text: 'Fundierte Beiträge zu Verkauf, Erbe, Sanierung und Finanzierung – mit Leitfäden.', to: ROUTES.ratgeber, cta: 'Zum Ratgeber' },
-      ]} />
-      <Rich blocks={b.slice(2, 4)} />
-      <Contact variant="page" />
-    </>
-  );
-}
+const crumbs = (label: string) => [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: 'Rechner', to: ROUTES.service }, { label }];
 
 export function Budgetrechner() {
   const b = page('service-kann-ich-kaufen').blocks;

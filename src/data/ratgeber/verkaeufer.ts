@@ -142,7 +142,7 @@ export const verkaeufer: EditorialArticle[] = [
     subtitle: 'Teilungserklärung, Hausgeld, Erhaltungsrücklage und vermietete Wohnungen – was beim Wohnungsverkauf zählt.',
     intro: 'Beim Verkauf einer Eigentumswohnung kommt es neben der Wohnung selbst auf die Gemeinschaft an: Käufer wollen wissen, wie gut das Haus verwaltet wird, welche Rücklagen bestehen und ob Sonderumlagen drohen. Mit den richtigen Unterlagen und einer klaren Darstellung schaffen Sie Vertrauen – und verkaufen schneller.',
     date: '2026-09-29',
-    image: obj('170934647'),
+    image: '/assets/ratgeber/wohnung-verkaufen.jpg',
     imageAlt: 'Mehrfamilienhaus mit Eigentumswohnungen',
     facts: [
       'Käufer erwarten Teilungserklärung, Protokolle, Wirtschaftsplan und Hausgeldabrechnung.',
@@ -190,7 +190,7 @@ export const verkaeufer: EditorialArticle[] = [
     subtitle: 'Wann Sie welchen Ausweis brauchen, was in die Immobilienanzeige gehört und was bei Verstößen droht.',
     intro: 'Der Energieausweis ist beim Verkauf einer Immobilie Pflicht. Er informiert Käufer über den energetischen Zustand und beeinflusst zunehmend den Preis, denn Energiekosten und mögliche Sanierungspflichten spielen bei der Kaufentscheidung eine große Rolle. Wir erklären, welcher Ausweis für Ihr Haus gilt und wann Sie ihn vorlegen müssen.',
     date: '2026-09-21',
-    image: obj('5573387'),
+    image: '/assets/ratgeber/energieausweis-beim-verkauf.jpg',
     imageAlt: 'Mehrfamilienhaus mit Klinkerfassade',
     facts: [
       'Der Energieausweis muss spätestens bei der Besichtigung vorgelegt werden.',
@@ -354,8 +354,8 @@ export const verkaeufer: EditorialArticle[] = [
     subtitle: 'Bodenrichtwert, Bebauungsplan und Baulasten – was den Preis eines Grundstücks bestimmt.',
     intro: 'Bei einem Grundstück zählt vor allem, was darauf entstehen darf. Lage, Größe und Zuschnitt sind wichtig – entscheidend ist aber das Baurecht. Wer die Bebaubarkeit kennt und belegen kann, erreicht die passenden Käufer und einen besseren Preis. Wir zeigen, wie Sie Wert und Potenzial Ihres Grundstücks ermitteln.',
     date: '2026-08-31',
-    image: obj('4881134'),
-    imageAlt: 'Luftbild eines Grundstücks in Bottrop',
+    image: '/assets/ratgeber/grundstueck-verkaufen.jpg',
+    imageAlt: 'Luftbild eines Baugrundstücks',
     facts: [
       'Der Bodenrichtwert (BORIS.NRW) ist Ausgangspunkt der Wertermittlung.',
       'Bebauungsplan oder Einfügungsgebot nach § 34 BauGB bestimmen, was gebaut werden darf.',

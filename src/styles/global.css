@@ -14,6 +14,9 @@ body {
 }
 body.no-scroll { overflow: hidden; }
 img, svg { display: block; }
+/* Oberholz Icons: Rauten-Akzente – rot in .oi-accent-Bereichen, sonst Textfarbe */
+.oi-a { fill: var(--oi-accent, currentColor); }
+.oi-accent { --oi-accent: var(--c-accent); }
 img { max-width: 100%; }
 h1, h2, h3, h4, p, ul, figure { margin: 0; }
 ul { list-style: none; padding: 0; }
@@ -21,6 +24,15 @@ a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
 button { background: none; border: 0; padding: 0; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--c-ink); outline-offset: 2px; }
+.skip-link { position: fixed; top: 8px; left: 16px; z-index: 1000; padding: 12px 20px; background: var(--c-ink); color: white; transform: translateY(-160%); }
+.skip-link:focus { transform: none; }
+#main-content { scroll-margin-top: 140px; }
+@media (max-width: 599px) {
+  .btn { max-width: 100%; min-height: 48px; height: auto; white-space: normal; text-align: center; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
 
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -40,7 +52,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 28px var(--gutter) 72px; }
 @media (max-width: 767px) { .wrap { padding: 24px 16px 56px; } }
 
-/* Buttons (Referenz: CztQIW_baseClass) */
+/* Buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   height: 48px; padding: 9px 24px; border: 1px solid var(--c-ink); border-radius: 2px;
@@ -64,7 +76,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .link-underline { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
 .link-underline:hover { color: var(--c-ink); }
 
-/* Scroll-Reveal (sanftes Einblenden wie Referenz) */
+/* Scroll-Reveal (sanftes Einblenden beim Scrollen) */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {

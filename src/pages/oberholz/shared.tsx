@@ -40,18 +40,17 @@ const homeLists = page('home').blocks.filter((b) => b.t === 'ul').map((b) => (b 
 export const valuationMethods = homeLists[4];
 
 export const services: Service[] = [
-  { key: 'verkauf', title: 'Immobilie verkaufen', text: 'Vom realistischen Marktwert bis zum Notartermin – mit Konzept und Gutachterkompetenz.', to: ROUTES.verkaufen, icon: 'handshake', items: homeLists[1] },
+  { key: 'verkauf', title: 'Immobilie verkaufen', text: 'Vom realistischen Marktwert bis zum Notartermin – mit Konzept und Gutachterkompetenz.', to: ROUTES.verkaufen, icon: 'sale', items: homeLists[1] },
   { key: 'bewertung', title: 'Immobilienbewertung', text: 'Kostenfreie, persönliche Einschätzung vor Ort – als Grundlage jeder Entscheidung.', to: ROUTES.bewertung, icon: 'chart', items: homeLists[2] },
   { key: 'vermietung', title: 'Vermietung', text: 'Marktgerechte Miete, geprüfte Mieter und ein rechtssicherer Mietvertrag.', to: ROUTES.vermieten, icon: 'key', items: homeLists[3] },
   { key: 'rueckmiet', title: 'Rückmietverkauf', text: 'Verkaufen und weiter im eigenen Zuhause wohnen.', to: ROUTES.rueckmietverkauf, icon: 'house', items: homeLists[5] },
   { key: 'finanzierung', title: 'Finanzierung', text: 'Bankengerechte Unterlagen und ein breites Banken-Netzwerk.', to: ROUTES.finanzierung, icon: 'money', items: ['Bankengerechte Unterlagen', 'Breites Banken-Netzwerk', 'Fördermittel- und KfW-Beratung'] },
-  { key: 'vermarktung', title: 'Vermarktung', text: 'Exposés, Fotos, Visualisierungen – aus der eigenen Werbeagentur.', to: ROUTES.vermarktung, icon: 'camera', items: ['Hochwertige Exposés', 'Fotos, Videos & 3D-Visualisierungen', 'Reichweite auf führenden Portalen'] },
   { key: 'kapitalanlage', title: 'Kapitalanlage', text: 'Mehrfamilienhäuser und vermietete Wohnungen mit Ertragswertblick.', to: ROUTES.kapitalanlage, icon: 'multi', items: ['Mehrfamilienhäuser & Renditeobjekte', 'Ertragswert- und Mietanalyse', 'Finanzierung über unser Banken-Netzwerk'] },
   { key: 'abwicklung', title: 'Betreuung & Abwicklung', text: 'Verhandlung, Notar, Ämter – wir koordinieren alles bis zur Übergabe.', to: ROUTES.kontakt, icon: 'signature', items: homeLists[6] },
 ];
 
 export function ServiceGrid({ exclude, title = 'Unsere Leistungen', eyebrow = 'Alles aus einer Hand' }: { exclude?: string; title?: string; eyebrow?: string }) {
-  const list = services.filter((s) => s.key !== exclude);
+  const list = services.filter((s) => s.key !== exclude).slice(0, exclude ? 3 : services.length);
   return (
     <section className="wrap">
       <SectionIntro variant="inline" line={false} eyebrow={eyebrow} title={title} />
@@ -85,10 +84,10 @@ export function PropertyStrip({ title, eyebrow = 'Aktuelle Angebote', filter, ct
 }
 
 /** Teaser-Band zu Rechnern / Leitfäden */
-export function TeaserBand({ items }: { items: { eyebrow: string; title: string; text: string; to: string; cta: string; image?: string }[] }) {
+export function TeaserBand({ items, id }: { items: { eyebrow: string; title: string; text: string; to: string; cta: string; image?: string }[]; id?: string }) {
   const images = items.every((t) => t.image); // Bilder nur, wenn alle Kacheln eines haben (gleich hohe Reihe)
   return (
-    <section className="wrap">
+    <section className="wrap" id={id} style={id ? { scrollMarginTop: 140 } : undefined}>
       <div className={`teasers teasers--${items.length}`}>
         {items.map((t) => (
           <Link key={t.title} to={t.to} className="teaser">

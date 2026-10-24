@@ -4,7 +4,7 @@
 import { Fragment, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import type { QA, RichBlock } from '../../data/oberholz';
-import { brand, faceOf, reviewFaces } from '../../data/content';
+import { brand, faceOf, reviewFaces, team } from '../../data/content';
 import { ROUTES } from '../../data/routes';
 import Accordion from '../Accordion/Accordion';
 import Stars from '../Stars/Stars';
@@ -36,7 +36,13 @@ export const clean = (s: string) => s
   .replace(/lückenhaftte/g, 'lückenhafte');
 export const personOf = (alt: string) => {
   const [name, role] = clean(alt).split(' - ');
-  return { name, role: role ?? '' };
+  const member = team.find((m) => name.startsWith(m.name));
+  return {
+    name,
+    role: role || member?.role || '',
+    phoneDisplay: member?.phoneDisplay,
+    phoneHref: member?.phoneHref,
+  };
 };
 
 function parse(blocks: RichBlock[], faqFallback: QA[]): Node[] {
@@ -183,7 +189,7 @@ export function AdvisorCard({ img, title = 'Ihr Ansprechpartner' }: { img: { src
         <p className="eyebrow">{title}</p>
         <p className="rich__advisor-name head">{p.name}</p>
         {p.role && <p className="rich__advisor-role">{p.role}</p>}
-        <p className="rich__advisor-links"><a href={brand.phoneHref} className="link-underline">{brand.phoneDisplay}</a> · <Link to={ROUTES.kontakt} className="link-underline">Nachricht schreiben</Link></p>
+        <p className="rich__advisor-links"><a href={p.phoneHref ?? brand.phoneHref} className="link-underline">{p.phoneDisplay ?? brand.phoneDisplay}</a> · <Link to={ROUTES.kontakt} className="link-underline">Nachricht schreiben</Link></p>
       </div>
     </aside>
   );
@@ -246,7 +252,7 @@ export default function Rich({ blocks, faq = [], after }: { blocks: RichBlock[];
             <div key={i} className="rich__text">
               <a className="rich__brochure" href={n.href} download>
                 <span className="rich__brochure-imgs">{n.images.map((s) => <img key={s} src={s} alt="" loading="lazy" />)}</span>
-                <span><span className="eyebrow">Broschüre (PDF)</span><span className="rich__brochure-title head">Vermittlung mit Energiekompetenz</span><span className="rich__brochure-cta">Jetzt herunterladen <IconArrowRight size={18} /></span></span>
+                <span><span className="eyebrow">Broschüre (PDF)</span><span className="rich__brochure-title head">Immobilienvermittlung mit Gutachterkompetenz</span><span className="rich__brochure-cta">Jetzt herunterladen <IconArrowRight size={18} /></span></span>
               </a>
             </div>
           );

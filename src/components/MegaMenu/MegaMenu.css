@@ -1,4 +1,4 @@
-/* Flyout – Referenz: top 135px, volle Breite, Schatten rgba(0,0,0,.32) 0 2px 4px, Höhe je Inhalt (334–480px). */
+/* Flyout – top 135px, volle Breite, Schatten rgba(0,0,0,.32) 0 2px 4px, Höhe je Inhalt (334–480px). */
 .flyout {
   position: absolute; top: 100%; left: 0; right: 0; z-index: 40;
   background: var(--c-white); box-shadow: var(--shadow-flyout);

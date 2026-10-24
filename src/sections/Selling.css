@@ -1,4 +1,4 @@
-/* Vorteile – Referenz: 3×376px, Icon 48px, H 28/36, Text 16/28, zentriert */
+/* Vorteile – 3×376px, Icon 48px, H 28/36, Text 16/28, zentriert */
 .benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .benefits__item { display: flex; flex-direction: column; align-items: center; padding: 0 20px; text-align: center; }
 .benefits__icon { color: var(--c-text); margin-bottom: 17px; }

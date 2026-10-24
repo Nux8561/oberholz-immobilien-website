@@ -1,4 +1,4 @@
-/* Bild/Text-Karte – Referenz ≥960px: zwei Hälften, Bild min. 3:2 (füllt die Höhe), Textfeld Padding 72/48.
+/* Bild/Text-Karte – ≥960px: zwei Hälften, Bild min. 3:2 (füllt die Höhe), Textfeld Padding 72/48.
    <960px: gestapelt in cremefarbener Karte mit 16px Innenabstand, Button volle Breite. */
 .split { display: grid; grid-template-columns: 1fr 1fr; background: var(--c-cream); }
 .split__media { position: relative; overflow: hidden; }

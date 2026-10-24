@@ -1,6 +1,6 @@
 // „KI-Suche“: wandelt eine frei formulierte Wunschbeschreibung lokal in Suchfilter um (ohne externen Dienst).
 // Erkannt werden Ort/Stadtteil/Region, Kauf/Miete, Objektart, Preis (inkl. Spannen), Zimmer, Fläche und Ausstattung.
-import { properties, REGION_GROUPS } from '../data/properties';
+import { properties, REGION_GROUPS, REGION_TITLES } from '../data/properties';
 import { ROUTES } from '../data/routes';
 
 export const PLACES = Array.from(new Set([
@@ -46,7 +46,7 @@ export function interpretWish(text: string): Wish {
   // Ort: Stadtteile und Städte aus dem Bestand, dazu Regionen
   const districts = properties.filter((p) => p.district).map((p) => ({ name: p.district, city: p.city }));
   const district = districts.find((d) => d.name.length > 3 && (t.includes(d.name.toLowerCase()) || a.includes(ascii(d.name))));
-  const city = [...new Set(properties.map((p) => p.city)), ...Object.keys(REGION_GROUPS).map((r) => r[0].toUpperCase() + r.slice(1))]
+  const city = [...new Set(properties.map((p) => p.city)), ...Object.keys(REGION_GROUPS).map((r) => REGION_TITLES[r])]
     .sort((x, y) => y.length - x.length)
     .find((c) => t.includes(c.toLowerCase()) || a.includes(ascii(c)));
   if (district) { params.set('ort', district.name); recognized.push(`${district.city}-${district.name}`); }
@@ -100,7 +100,7 @@ export function parseWish(text: string) {
 
 /** Beispiele für die KI-Suche (Startseite) */
 export const WISH_EXAMPLES = [
-  '3-Zimmer-Wohnung in Münster mit Balkon',
+  '3-Zimmer-Wohnung in Essen mit Balkon',
   'Haus mit Garten im Ruhrgebiet bis 450.000 €',
   'Kapitalanlage in Bochum',
   'Barrierefreie Wohnung in Essen',

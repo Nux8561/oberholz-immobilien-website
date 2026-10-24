@@ -2,14 +2,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { hero } from '../../data/content';
 import { IconArrowRight, IconPause, IconPlay } from '../Icons';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../data/routes';
-import { findProperty, formatPrice, type Property } from '../../data/properties';
-
-const SLIDES = hero.slideIds.map(findProperty).filter((p): p is Property => !!p);
 import './HeroCarousel.css';
 
-// Referenz: 5 Slides (Videos à ~15 s), automatischer Wechsel nach Ablauf, Fortschrittsbalken unten mittig.
-export const SLIDE_DURATION = 15000;
+const SLIDES = hero.slides;
+
+// 5 Stadtpanoramen, automatischer Wechsel alle 8 s, Fortschrittsbalken unten mittig.
+export const SLIDE_DURATION = 8000;
 const SWIPE_THRESHOLD = 50;
 
 export default function HeroCarousel() {
@@ -68,16 +66,16 @@ export default function HeroCarousel() {
   };
 
   return (
-    <div className="hcar" role="region" aria-roledescription="carousel" aria-label="Ausgewählte Immobilien" tabIndex={0} onKeyDown={onKey}
+    <div className="hcar" role="region" aria-roledescription="carousel" aria-label="Unsere Region" tabIndex={0} onKeyDown={onKey}
       onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp} onPointerLeave={onPointerUp}>
       <ul className={`hcar__track${dragX ? ' is-dragging' : ''}`} style={{ transform: `translateX(calc(${-index * 100}% + ${dragX}px))` }} aria-live={paused ? 'polite' : 'off'}>
         {slides.map((s, i) => (
-          <li key={s.id} className="hcar__slide" aria-roledescription="slide" aria-label={`${i + 1} von ${slides.length}`} aria-hidden={i !== index}>
-            <img src={s.images[0]} alt={s.title} draggable={false} loading={i === 0 ? 'eager' : 'lazy'} />
-            <Link to={ROUTES.expose(s.id)} className="hcar__caption" tabIndex={i === index ? 0 : -1} draggable={false}
+          <li key={s.title} className="hcar__slide" aria-roledescription="slide" aria-label={`${i + 1} von ${slides.length}`} aria-hidden={i !== index}>
+            <img src={s.image} alt={`Stadtansicht ${s.title}`} style={{ objectPosition: s.pos }} draggable={false} loading={i === 0 ? 'eager' : 'lazy'} />
+            <Link to={s.to} className="hcar__caption" tabIndex={i === index ? 0 : -1} draggable={false}
               onClick={(e) => { if (dragged.current) { e.preventDefault(); dragged.current = false; } }}>
               <span className="hcar__title head">{s.title}</span>
-              <span className="hcar__price">{s.district ? `${s.city}-${s.district}` : s.city} · {formatPrice(s)}<IconArrowRight /></span>
+              <span className="hcar__price">{s.sub}<IconArrowRight /></span>
             </Link>
           </li>
         ))}
@@ -87,7 +85,7 @@ export default function HeroCarousel() {
       </button>
       <div className="hcar__bars" role="tablist" aria-label="Slide auswählen">
         {slides.map((s, i) => (
-          <button key={s.id} type="button" role="tab" aria-selected={i === index} aria-label={`Slide ${i + 1}: ${s.title}`}
+          <button key={s.title} type="button" role="tab" aria-selected={i === index} aria-label={`Slide ${i + 1}: ${s.title}`}
             className="hcar__bar" onClick={() => go(i)}>
             <span className="hcar__fill" style={{ transform: `scaleX(${i < index ? 1 : i === index ? progress : 0})` }} />
           </button>

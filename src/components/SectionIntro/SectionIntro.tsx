@@ -9,12 +9,12 @@ type Props = {
   /** 'section' = eigener Wrapper (896px), 'inline' = innerhalb eines Content-Wrappers */
   variant?: 'section' | 'inline';
   line?: boolean;
-  /** auch <960px zentriert (z. B. Kontakt – wie Referenz) */
+  /** auch <960px zentriert (z. B. Kontakt) */
   center?: boolean;
   id?: string;
 };
 
-/** Section-Intro – Referenz: ≥1240px zentriert (max. 896px) mit 2×72px Akzentlinie darüber (96px Abstand),
+/** Section-Intro – ≥1240px zentriert (max. 896px) mit 2×72px Akzentlinie darüber (96px Abstand),
  *  960–1239px zentriert auf 685px, darunter linksbündig mit Akzentlinie links. */
 export default function SectionIntro({ eyebrow, title, text, level = 'h2', variant = 'section', line = true, center = false, id }: Props) {
   const H = level;

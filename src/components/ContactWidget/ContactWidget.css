@@ -50,6 +50,7 @@
 .cw__submit { justify-content: center; width: 100%; gap: 8px; }
 .cw__wa { background: #25d366; border-color: #25d366; color: #0d0d0d; }
 .cw__wa:hover { background: #1ebe5b; border-color: #1ebe5b; }
+.cw__err { font-size: 13px; line-height: 18px; color: var(--c-error, #b00020); margin: 8px 0; }
 .cw__legal, .cw__hours { font-size: 12px; line-height: 18px; color: var(--c-muted); }
 .cw__legal a { color: var(--c-ink); text-decoration: underline; }
 .cw__contact dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }

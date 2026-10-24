@@ -1,7 +1,7 @@
 // Ratgeber, Artikel, Leitfäden (Whitepaper) und Downloads – Inhalte der bisherigen Website.
 import { Link, useParams } from 'react-router-dom';
 import { articles, CATEGORIES, categoryOf, downloadGroups, downloadsIntro, findArticle, findWhitepaper, formatDate, whitepapers, type Article } from '../../data/oberholz';
-import { ROUTES } from '../../data/routes';
+import { canonicalPageUrl, ROUTES } from '../../data/routes';
 import { brand, faceOf, team } from '../../data/content';
 import { AUTHOR_BIO } from '../../data/ratgeber/authors';
 import { faqLd, usePageMeta } from '../../layout/PageMeta';
@@ -9,7 +9,6 @@ import { SITE_URL } from '../../data/routes';
 import Rich, { clean, FaqBlock } from '../../components/Rich/Rich';
 import Contact from '../../components/Contact/Contact';
 import SectionIntro from '../../components/SectionIntro/SectionIntro';
-import ContactForm from '../../components/ContactForm/ContactForm';
 import { IconArrowRight, IconCheck } from '../../components/Icons';
 import { LineIcon } from '../../blocks/LineIcons';
 import { notify } from '../../components/Toast/Toast';
@@ -24,7 +23,7 @@ const articleLd = (a: Article) => ({
   datePublished: a.date, dateModified: a.date, inLanguage: 'de-DE',
   author: { '@type': 'Person', name: a.author, worksFor: { '@id': `${SITE_URL}/#organisation` } },
   publisher: { '@id': `${SITE_URL}/#organisation` },
-  mainEntityOfPage: `${SITE_URL}${ROUTES.artikel(a.slug)}`,
+  mainEntityOfPage: canonicalPageUrl(ROUTES.artikel(a.slug)),
 });
 
 function PostCard({ a }: { a: Article }) {
@@ -72,30 +71,47 @@ function CategoryNav({ active }: { active?: string }) {
   );
 }
 
-function Whitepapers() {
+/** Leitfäden und Dokumente zum Download (früher eigene Seite „Dokumente & Downloads“) */
+function Downloads() {
   return (
-    <section className="wrap">
-      <SectionIntro variant="inline" line={false} eyebrow="Leitfäden zum Download" title="Unsere Whitepaper für Eigentümer und Erben" />
-      <div className="dl-list">
-        {whitepapers.map((w) => (
-          <Link key={w.slug} to={ROUTES.whitepaper(w.slug)} className="dl">
-            <LineIcon name="document" size={32} />
-            <span><span className="dl__title">{clean(w.title)}</span><span className="dl__text">{w.facts}</span><span className="dl__meta">Kostenlos anfordern <IconArrowRight size={14} /></span></span>
-          </Link>
-        ))}
+    <section className="wrap" id="downloads" style={{ scrollMarginTop: 140 }}>
+      <SectionIntro variant="inline" line={false} eyebrow="Leitfäden & Downloads" title="Leitfäden, Formulare und Merkblätter" text={downloadsIntro} />
+      <div className="dl-group">
+        <h3 className="rich__h3 head" style={{ marginTop: 0 }}>Kostenlose PDF-Leitfäden</h3>
+        <div className="dl-list">
+          {whitepapers.map((w) => (
+            <Link key={w.slug} to={ROUTES.whitepaper(w.slug)} className="dl">
+              <LineIcon name="academy" size={32} />
+              <span><span className="dl__title">{clean(w.title)}</span><span className="dl__text">{w.facts}</span><span className="dl__meta">Zum kostenlosen PDF <IconArrowRight size={14} /></span></span>
+            </Link>
+          ))}
+        </div>
       </div>
+      {downloadGroups.map((g) => (
+        <div key={g.title} className="dl-group">
+          <h3 className="rich__h3 head" style={{ marginTop: 0 }}>{g.title}</h3>
+          <div className="dl-list">
+            {g.items.map((d) => (
+              <a key={d.href} href={d.href} className="dl" download>
+                <LineIcon name="document" size={32} />
+                <span><span className="dl__title">{d.title}</span><span className="dl__text">{d.text}</span><span className="dl__meta">PDF · {d.size} · Herunterladen</span></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 }
 
-/** Ratgeber-Startseite im Aufbau des E&V-Ratgebers: Top-Beitrag, Kategorien mit je drei Beiträgen, Leitfäden. */
+/** Ratgeber-Startseite: Top-Beitrag, Kategorien mit je drei Beiträgen, Leitfäden. */
 export function Ratgeber() {
   usePageMeta({ title: 'Immobilien-Ratgeber: Wissen für Käufer, Verkäufer und Eigentümer', crumbs: [{ label: 'Ratgeber' }], footer: 'accordion', description: 'Der Immobilien-Ratgeber von Oberholz Immobilien: Kaufnebenkosten, Ablauf beim Hauskauf, Immobilienbewertung, Verkauf, Vermietung, Erbe und Steuern – verständlich erklärt.' });
   const [top] = articles;
   return (
     <>
       <SectionIntro level="h1" eyebrow="Ratgeber" title="Ihr Immobilien-Ratgeber – Wissen, Tipps und Entscheidungshilfen"
-        text="Fundierte Beiträge für Käufer, Verkäufer, Eigentümer und Erben: verständlich erklärt, mit Beispielrechnungen und Checklisten – von unserem Team aus Maklern, Gutachtern und Energieberatern." />
+        text="Fundierte Beiträge für Käufer, Verkäufer, Eigentümer und Erben: verständlich erklärt, mit Beispielrechnungen und Checklisten – von unserem Team aus Maklern und Gutachtern." />
       <div className="wrap" style={{ paddingTop: 0, paddingBottom: 24 }}><CategoryNav /></div>
       <section className="wrap" style={{ paddingTop: 0 }}>
         <Link to={ROUTES.artikel(top.slug)} className="feature">
@@ -119,8 +135,8 @@ export function Ratgeber() {
           </section>
         );
       })}
-      <Whitepapers />
-      <TeaserBand items={[TOOL_TEASERS.budget, TOOL_TEASERS.wertHebel, TOOL_TEASERS.immotipp]} />
+      <TeaserBand id="rechner" items={[TOOL_TEASERS.budget, TOOL_TEASERS.finanzierung, TOOL_TEASERS.wertHebel]} />
+      <Downloads />
       <Contact variant="page" />
     </>
   );
@@ -129,15 +145,15 @@ export function Ratgeber() {
 export function RatgeberThema() {
   const { cat = '' } = useParams();
   const c = categoryOf(cat);
-  usePageMeta(c ? { title: `Ratgeber: ${c.title}`, crumbs: [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: c.label }], footer: 'accordion', description: c.text } : { title: 'Thema nicht gefunden' });
+  usePageMeta(c ? { title: `Ratgeber: ${c.title}`, crumbs: [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: c.label }], footer: 'accordion', description: c.text } : { title: 'Thema nicht gefunden', noindex: true });
   if (!c) return <NotFound />;
   const list = articles.filter((a) => a.category === c.slug);
   return (
     <>
       <SectionIntro level="h1" eyebrow="Ratgeber" title={c.title} text={c.text} />
       <div className="wrap" style={{ paddingTop: 0, paddingBottom: 24 }}><CategoryNav active={c.slug} /></div>
-      <section className="wrap" style={{ paddingTop: 0 }}><div className="posts">{list.map((a) => <PostCard key={a.slug} a={a} />)}</div></section>
-      <Whitepapers />
+      <section className="wrap" style={{ paddingTop: 0 }}><div className="posts">{list.map((a) => <PostCard key={a.slug} a={a} />)}</div>
+        <div className="srch__center"><Link to={ROUTES.downloads} className="btn btn--outline">Leitfäden & Downloads</Link></div></section>
       <Contact variant="page" />
     </>
   );
@@ -146,7 +162,7 @@ export function RatgeberThema() {
 export function Artikel() {
   const { slug = '' } = useParams();
   const a = findArticle(slug);
-  usePageMeta(a ? { title: a.title, crumbs: [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: categoryOf(a.category)?.label ?? '', to: ROUTES.ratgeberThema(a.category) }, { label: a.title }], footer: 'accordion', description: a.subtitle, image: a.image, jsonLd: [articleLd(a), ...(a.faq.length ? [faqLd(a.faq)] : [])] } : { title: 'Beitrag nicht gefunden' });
+  usePageMeta(a ? { title: a.title, crumbs: [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: categoryOf(a.category)?.label ?? '', to: ROUTES.ratgeberThema(a.category) }, { label: a.title }], footer: 'accordion', description: a.subtitle, image: a.image, jsonLd: [articleLd(a), ...(a.faq.length ? [faqLd(a.faq)] : [])] } : { title: 'Beitrag nicht gefunden', noindex: true });
   if (!a) return <NotFound />;
   const wp = a.whitepaper ? findWhitepaper(a.whitepaper) : undefined;
   const share = async () => {
@@ -182,6 +198,8 @@ export function Artikel() {
         </div>
       </div>
       <ArticleBody blocks={a.body} />
+      {['erst-sanieren-dann-verkaufen-was-sich-wirklich-rechnet', 'der-grosse-generationenwechsel-was-der-silver-tsunami-fuer-immobilienverkaeufer-bedeutet'].includes(a.slug) && <aside className="owner-sources" aria-label="Quelle zum energetischen Zustand"><p className="eyebrow">Markteinordnung</p><p><a className="link-underline" href="https://www.immowelt.de/ueberuns/presse/pressemitteilungenkontakt/immoweltde/2026/gute-energiebilanz-zahlt-sich-aus-bis-zu-20-prozent-preisaufschlag-fuer-effiziente-immobilien/" target="_blank" rel="noopener noreferrer">immowelt-Auswertung vom 19. März 2026: Energieeffizienz und Angebotspreise</a></p></aside>}
+
       <div className="rich"><div className="rich__text"><AuthorBox a={a} /></div></div>
       {a.faq.length > 0 && <div className="rich"><div className="rich__text"><FaqBlock title={`Häufige Fragen: ${clean(a.title).split(':')[0]}`} items={a.faq} /></div></div>}
       {a.tools.length > 0 && <TeaserBand items={a.tools.map((t) => TOOL_TEASERS[t])} />}
@@ -193,7 +211,7 @@ export function Artikel() {
               <p className="eyebrow">Leitfaden zum Download</p>
               <h2 className="rich__h2 head" style={{ marginTop: 8 }}>{clean(wp.title)}</h2>
               <p className="rich__p">{wp.intro}</p>
-              <Link to={ROUTES.whitepaper(wp.slug)} className="btn btn--accent">Kostenlos anfordern</Link>
+              <Link to={ROUTES.whitepaper(wp.slug)} className="btn btn--accent">Zum kostenlosen PDF</Link>
             </div>
           </div>
         </section>
@@ -230,7 +248,7 @@ function ArticleBody({ blocks }: { blocks: Article['body'] }) {
 export function Whitepaper() {
   const { slug = '' } = useParams();
   const w = findWhitepaper(slug);
-  usePageMeta(w ? { title: w.title, crumbs: [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: 'Leitfäden', to: ROUTES.downloads }, { label: w.title }], footer: 'accordion', description: w.intro, image: w.image } : { title: 'Leitfaden nicht gefunden' });
+  usePageMeta(w ? { title: w.title, crumbs: [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: 'Leitfäden', to: ROUTES.downloads }, { label: w.title }], footer: 'accordion', description: w.intro, image: w.image } : { title: 'Leitfaden nicht gefunden', noindex: true });
   if (!w) return <NotFound />;
   return (
     <>
@@ -243,13 +261,15 @@ export function Whitepaper() {
             <ul className="rich__checks">{w.items.map((x) => <li key={x}><span className="rich__tick"><IconCheck size={14} /></span><span>{clean(x)}</span></li>)}</ul>
             {w.article && <img className="lead__img" src={w.article.image} alt={w.article.imageAlt} />}
           </div>
-          <div className="lead__box" id="anfordern">
-            <p className="head">{w.formTitle}</p>
-            <p className="rich__p">Den Leitfaden senden wir Ihnen nach Ihrer Anfrage per E-Mail zu.</p>
-            <ContactForm subject={`Leitfaden anfordern: ${w.title}`} submitLabel="Leitfaden anfordern" phoneRequired
-              message={`Bitte senden Sie mir den Leitfaden „${w.title}“ zu.`}
-              benefits={['Kostenlos und unverbindlich.', 'Fundiert und mit Quellen belegt.', 'Ihre Daten nutzen wir nur für diese Anfrage.']} />
-          </div>
+          <aside className="lead__box" id="anfordern">
+            <p className="eyebrow">Direkt herunterladen</p>
+            <h2 className="head guide-download-title">Ihr Ratgeber zum Mitnehmen</h2>
+            <p className="rich__p">Die PDF-Lesefassung des zugehörigen Ratgeberbeitrags können Sie kostenlos speichern und ausdrucken.</p>
+            <a href={w.file.href} className="btn btn--accent btn--icon" download><LineIcon name="document" size={20} />PDF herunterladen</a>
+            <p className="guide-download-meta">{w.file.pages} Seiten · PDF · {w.file.sizeKB} KB</p>
+            <p className="rich__p">Sie haben Fragen zu Ihrer eigenen Immobilie?</p>
+            <Link to={ROUTES.kontakt} className="link-underline">Persönliches Gespräch anfragen</Link>
+          </aside>
         </div>
       </section>
       {w.article && (
@@ -263,40 +283,4 @@ export function Whitepaper() {
   );
 }
 
-export function Downloads() {
-  usePageMeta({ title: 'Dokumente & Downloads', crumbs: [{ label: 'Dokumente & Downloads' }], footer: 'accordion', description: downloadsIntro });
-  return (
-    <>
-      <SectionIntro level="h1" eyebrow="Service" title="Dokumente & Downloads" text={downloadsIntro} />
-      <section className="wrap">
-        {downloadGroups.map((g) => (
-          <div key={g.title} className="dl-group">
-            <h2 className="rich__h2 head" style={{ marginTop: 0 }}>{g.title}</h2>
-            <div className="dl-list">
-              {g.items.map((d) => (
-                <a key={d.href} href={d.href} className="dl" download>
-                  <LineIcon name="document" size={32} />
-                  <span><span className="dl__title">{d.title}</span><span className="dl__text">{d.text}</span><span className="dl__meta">PDF · {d.size} · Herunterladen</span></span>
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-        <div className="dl-group">
-          <h2 className="rich__h2 head" style={{ marginTop: 0 }}>Leitfäden mit Anmeldung</h2>
-          <p className="rich__p">Diese Leitfäden erhalten Sie nach einer kurzen Anfrage mit Name, E-Mail-Adresse und Telefonnummer.</p>
-          <div className="dl-list">
-            {whitepapers.map((w) => (
-              <Link key={w.slug} to={ROUTES.whitepaper(w.slug)} className="dl">
-                <LineIcon name="academy" size={32} />
-                <span><span className="dl__title">{clean(w.title)}</span><span className="dl__text">{w.facts}</span><span className="dl__meta">Kostenlos anfordern <IconArrowRight size={14} /></span></span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-      <Contact variant="page" />
-    </>
-  );
-}
 

@@ -3,7 +3,7 @@ import { IconArrowRight } from '../Icons';
 import SmartLink from '../SmartLink/SmartLink';
 import './MegaMenu.css';
 
-/** Desktop-Flyouts: volle Breite unter der Navigation, 4-Spalten-Raster (Referenz 1360px, Gap 24px). */
+/** Desktop-Flyouts: volle Breite unter der Navigation, 4-Spalten-Raster (1360px, Gap 24px). */
 export default function MegaMenu({ openIndex, onClose }: { openIndex: number | null; onClose: () => void }) {
   return (
     <>

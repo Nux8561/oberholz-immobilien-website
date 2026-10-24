@@ -40,7 +40,7 @@
 .lightbox__nav--prev { left: 12px; }
 .lightbox__nav--next { right: 12px; }
 
-/* <960px (Referenz): großes Bild volle Breite, kleine Bilder 2-spaltig, zweites großes Bild am Ende */
+/* <960px: großes Bild volle Breite, kleine Bilder 2-spaltig, zweites großes Bild am Ende */
 @media (max-width: 959px) {
   .gallery-wrap { padding-top: 16px; }
   .gallery__row, .gallery__row--rev { grid-template-columns: 1fr; }

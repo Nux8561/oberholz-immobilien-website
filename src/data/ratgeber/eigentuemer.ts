@@ -9,7 +9,7 @@ export const eigentuemer: EditorialArticle[] = [
     subtitle: 'Mietspiegel, Mietpreisbremse, Kaution und Übergabe – der Leitfaden für private Vermieter.',
     intro: 'Eine gut vermietete Immobilie bringt verlässliche Einnahmen – eine schlecht vermietete vor allem Ärger. Der Schlüssel liegt in einer marktgerechten Miete, einer sorgfältigen Mieterauswahl und einem rechtssicheren Vertrag. Unser Leitfaden führt Sie durch alle Schritte, von der Mietpreisermittlung bis zur Wohnungsübergabe.',
     date: '2026-10-10',
-    image: obj('171202458', 2),
+    image: '/assets/ratgeber/immobilie-vermieten.jpg',
     imageAlt: 'Wohnung mit Balkon und Blick ins Grüne',
     facts: [
       'Orientierung für die Miethöhe bietet der örtliche Mietspiegel.',
@@ -70,7 +70,7 @@ export const eigentuemer: EditorialArticle[] = [
     subtitle: 'Energie, Bad, Grundriss und Außenanlagen – wie Sie den Wert Ihrer Immobilie gezielt steigern.',
     intro: 'Nicht jede Investition in eine Immobilie steigert ihren Wert im gleichen Maß. Manche Maßnahmen zahlen sich beim Verkauf mehrfach aus, andere kaum. Wir zeigen, wo die größten Hebel liegen, wie Sie Kosten, Förderung und Werteffekt gegeneinander abwägen und was kurz vor einem Verkauf sinnvoll ist.',
     date: '2026-09-26',
-    image: obj('5789773', 3),
+    image: '/assets/ratgeber/wertsteigerung-durch-modernisierung.jpg',
     imageAlt: 'Terrasse eines Einfamilienhauses bei Abendlicht',
     facts: [
       'Die Energieeffizienz ist einer der stärksten Preisfaktoren am heutigen Markt.',
@@ -93,7 +93,7 @@ export const eigentuemer: EditorialArticle[] = [
       p('Käufer und Banken achten zunehmend auf die Energieklasse. Ein moderner Wärmeerzeuger, eine gedämmte oberste Geschossdecke oder neue Fenster senken die laufenden Kosten und verringern das Risiko künftiger Sanierungspflichten. Ein individueller Sanierungsfahrplan zeigt, welche Maßnahmen in welcher Reihenfolge sinnvoll sind – und kann zusätzliche Förderung ermöglichen.'),
       h3('Die richtige Reihenfolge'),
       ol(
-        'Bestandsaufnahme und Energieberatung',
+        'Bestandsaufnahme und energetische Fachberatung',
         'Gebäudehülle: Dach bzw. oberste Geschossdecke, Fenster, Fassade',
         'Heizung passend zur verbesserten Hülle dimensionieren',
         'Ergänzungen wie Photovoltaik oder Lüftung',
@@ -183,7 +183,7 @@ export const eigentuemer: EditorialArticle[] = [
     subtitle: 'Die drei Wege im Vergleich – mit Hinweisen zu Bewertung, Finanzierung und Teilungsversteigerung.',
     intro: 'Bei einer Trennung ist die gemeinsame Immobilie oft das größte gemeinsame Vermögen – und emotional besonders aufgeladen. Ob verkauft, übernommen oder vermietet wird, sollte trotzdem sachlich entschieden werden. Wir zeigen die drei Wege, die Voraussetzungen und warum eine neutrale Bewertung die Einigung erleichtert.',
     date: '2026-08-20',
-    image: obj('170647853'),
+    image: '/assets/ratgeber/immobilie-bei-scheidung.jpg',
     imageAlt: 'Terrasse einer Erdgeschosswohnung',
     facts: [
       'Eine neutrale Bewertung ist die Grundlage für jede faire Lösung.',

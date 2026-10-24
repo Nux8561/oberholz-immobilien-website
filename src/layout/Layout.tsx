@@ -15,8 +15,9 @@ export default function Layout() {
   return (
     <>
       <ScrollManager />
+      <a className="skip-link" href="#main-content">Zum Inhalt springen</a>
       <Header />
-      <main><Suspense fallback={<div className="page-loading" aria-busy="true" />}><Outlet /></Suspense></main>
+      <main id="main-content" tabIndex={-1}><Suspense fallback={<div className="page-loading" aria-busy="true" />}><Outlet /></Suspense></main>
       {meta.crumbs && <Breadcrumb items={meta.crumbs} />}
       <Footer variant={meta.footer ?? 'open'} />
       <Toast />

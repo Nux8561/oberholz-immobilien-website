@@ -75,14 +75,14 @@ export default function Header() {
             </button>
           </li>
           <li>
-            <SmartLink label="Mein Bereich" to={ROUTES.meinBereich} className="hdr__meta-item" aria-label={`Mein Bereich${fav.ids.length ? ` (${fav.ids.length} gemerkt)` : ''}`}>
-              <IconUser /><span className="hdr__meta-label">Mein Bereich</span>
+            <SmartLink label="Merkliste" to={ROUTES.meinBereich} className="hdr__meta-item" aria-label={`Merkliste${fav.ids.length ? ` (${fav.ids.length} gemerkt)` : ''}`}>
+              <IconUser /><span className="hdr__meta-label">Merkliste</span>
               {fav.ids.length > 0 && <span className="hdr__badge" aria-hidden="true">{fav.ids.length}</span>}
             </SmartLink>
           </li>
           <li className="hdr__meta-desk">
-            <SmartLink label="Regionen" to={ROUTES.regionen} className="hdr__meta-item">
-              <IconPin /><span className="hdr__meta-label">Regionen</span>
+            <SmartLink label="Standorte" to={ROUTES.regionen} className="hdr__meta-item">
+              <IconPin /><span className="hdr__meta-label">Standorte</span>
             </SmartLink>
           </li>
         </ul>

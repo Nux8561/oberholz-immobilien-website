@@ -1,6 +1,7 @@
 // Inhalte der Startseite + globale Daten (Marke, Menüs, Footer).
 // Quelle der Firmendaten und Texte: oberholz-immobilien.pages.dev (Impressum, Über uns, Leistungen).
 import { ROUTES } from './routes';
+import listings from './listings.json';
 
 const OB = '/assets/oberholz';
 const M = `${OB}/media`;
@@ -11,26 +12,36 @@ export const brand = {
   short: 'Oberholz',
   company: 'Oberholz Immobilien',
   owner: 'Michael Oberholz',
+  /** Rechtliche Anschrift (Impressum) */
   street: 'Wichernstraße 29',
   city: '48147 Münster, Deutschland',
-  phoneDisplay: '0251 28 42 90 90',
-  phoneHref: 'tel:+4925128429090',
-  /** WhatsApp (Nummer laut bisheriger Website: wa.me/4925128429090) */
-  whatsapp: '4925128429090',
-  fax: '0251 28 42 90 91',
+  /** Kontaktadresse Essen (gleichwertiger Hauptstandort neben Münster) */
+  contactStreet: 'Benderstraße 2',
+  contactCity: '45257 Essen',
+  /** Zentrale Rufnummer (Festnetz Essen) – überall als Hauptnummer */
+  phoneDisplay: '0201 61447786',
+  phoneHref: 'tel:+4920161447786',
+  /** Festnetz Münster – Büro Münster, Michael Oberholz, Impressum */
+  phoneMuensterDisplay: '0251 28 42 90 90',
+  phoneMuensterHref: 'tel:+4925128429090',
+  /** WhatsApp überall: Mobilnummer Felix Lesch */
+  whatsapp: '491794468850',
+  whatsappDisplay: '0179 4468850',
   email: 'mail@oberholz-immobilien.com',
+  /** Noch nicht vom Auftraggeber final bestätigt (siehe ÜBERGABE.md) */
   hours: 'Mo–Fr 8:00–19:00 Uhr, Sa 8:00–16:00 Uhr',
   rating: 5.0,
   reviews: 28,
-  regions: ['Münster', 'Essen', 'Bochum'],
+  regions: ['Essen', 'Münster', 'Bochum'],
+  /** Essen gehört zum Ruhrgebiet – daher nie „Essen, Münsterland und Ruhrgebiet“ nebeneinander */
+  claim: 'Essen · Münster · Bochum',
   logo: `${M}/oberholz-logo.png`,
   googleUrl: 'https://www.google.com/maps/place/Oberholz+Immobilien/@51.9735915,7.6248835,17z/data=!4m6!3m5!1s0x47b9bb4567805459:0xa08f5b6274a4201c!8m2!3d51.9735915!4d7.6248835!16s%2Fg%2F11shxgxbpq',
-  geo: { lat: 51.9735915, lng: 7.6248835 },
+  geo: { lat: 51.4556, lng: 7.0116 },
   linkedinUrl: 'https://www.linkedin.com/company/oberholz-immobilien',
 };
 
-/** Regionale Zuständigkeiten (Seite „Kontakt“ der bisherigen Website). Postanschrift: Münster. */
-/** WhatsApp-Link mit vorausgefülltem Text */
+/** WhatsApp-Link mit vorausgefülltem Text (Mobilnummer Felix Lesch) */
 export const whatsappUrl = (text = 'Hallo Oberholz Immobilien, ich habe eine Frage:') =>
   `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(text)}`;
 
@@ -54,22 +65,46 @@ export const partners = {
   ],
 };
 
+/** Standorte in fester Reihenfolge Essen · Münster · Bochum (Münster in der Mitte).
+ *  Rufnummer je Büro: Münster hat die Münsteraner Festnetznummer, sonst gilt die zentrale Essener Nummer.
+ *  „page“: eigene Regionsseite (Essen, Bochum); Münster verweist auf die Münsterland-Objekte. */
 export const offices = [
-  { slug: 'muenster', city: 'Münster', area: 'Münster und Münsterland', image: '/assets/stock/staedte/muenster.jpg' },
-  { slug: 'essen', city: 'Essen', area: 'Essen und Ruhrgebiet', image: '/assets/stock/staedte/essen.jpg' },
-  { slug: 'bochum', city: 'Bochum', area: 'Bochum und Umgebung', image: '/assets/stock/staedte/bochum.jpg' },
-];
-export const officeBySlug = (slug: string) => offices.find((o) => o.slug === slug);
+  { slug: 'essen', city: 'Essen', area: 'Essen und Ruhrgebiet', street: 'Benderstraße 2', zipCity: '45257 Essen', image: '/assets/stock/staedte/essen.jpg', page: true, hub: true,
+    phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786', contactName: 'Felix Lesch' },
+  { slug: 'muenster', city: 'Münster', area: 'Münster und Münsterland', street: 'Wichernstraße 29', zipCity: '48147 Münster', image: '/assets/stock/staedte/muenster.jpg', page: false, hub: true,
+    phoneDisplay: '0251 28 42 90 90', phoneHref: 'tel:+4925128429090', link: `${ROUTES.kaufen}?ort=M%C3%BCnsterland`, contactName: 'Michael Oberholz' },
+  { slug: 'bochum', city: 'Bochum', area: 'Bochum und Umgebung', street: 'Auf’m Bleck 10', zipCity: '44799 Bochum', image: '/assets/stock/staedte/bochum.jpg', page: true,
+    phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786' },
+] as { slug: string; city: string; area: string; street: string; zipCity: string; image: string; page: boolean; hub?: boolean; phoneDisplay: string; phoneHref: string; link?: string; contactName?: string }[];
+
+/** Essen und Münster als gleichwertige Hauptstandorte (ohne Bochum als eigenes Büro-Kontaktpaar) */
+export const hubOffices = () => offices.filter((o) => o.hub);
+/** Link „Region ansehen“ eines Büros */
+export const officeLink = (o: (typeof offices)[number]) => o.link ?? ROUTES.region(o.slug);
+/** Nur Büros mit eigener Regionsseite (Essen, Bochum) – für Stadtseiten, Routen und lokale Strukturdaten */
+export const officeBySlug = (slug: string) => offices.find((o) => o.slug === slug && o.page);
 
 const face = (slug: string) => `${M}/team/face-${slug}.jpg`;
 
 export const team = [
-  { name: 'Michael Oberholz', role: 'Inhaber & Sachverständiger', image: `${M}/oberholz-team/michael-oberholz.png`, face: face('michael-oberholz') },
-  { name: 'Felix Lesch', role: 'Immobilienberater', image: `${M}/oberholz-team/felix-lesch.png`, face: face('felix-lesch') },
-  { name: 'Michael Penn', role: 'Immobilienberater', image: `${M}/oberholz-team/michael-penn.png`, face: face('michael-penn') },
+  { name: 'Michael Oberholz', role: 'Inhaber & Sachverständiger', image: `${M}/oberholz-team/michael-oberholz.png`, face: face('michael-oberholz'),
+    phoneDisplay: '0251 28 42 90 90', phoneHref: 'tel:+4925128429090', office: 'Münster' },
+  { name: 'Felix Lesch', role: 'Immobilienberater', image: `${M}/oberholz-team/felix-lesch.png`, face: face('felix-lesch'),
+    phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786', office: 'Essen' },
+  /** eigene Mobilnummer wie im ImmoScout-Exposé – bei seinen Objekten statt der zentralen Nummer */
+  { name: 'Michael Penn', role: 'Immobilienberater', image: `${M}/oberholz-team/michael-penn.png`, face: face('michael-penn'),
+    phoneDisplay: '0173 2056491', phoneHref: 'tel:+491732056491' },
   { name: 'Pascal Kopp', role: 'Transaktionsberater', image: `${M}/oberholz-team/pascal-kopp.png`, face: face('pascal-kopp') },
   { name: 'Lubka Röger', role: 'Immobilienberaterin', image: `${M}/oberholz-team/lubka-roeger.png`, face: face('lubka-roeger') },
 ];
+
+/** Ansprechpartner je Objekt: kommt aus dem ImmoScout-Exposé („Angeboten von“, Feld `agent` in listings.json).
+ *  Abweichend nur bei Bedarf hier überschreiben, z. B. '170827695': 'Michael Penn'. Ohne Angabe: Felix Lesch. */
+export const DEFAULT_AGENT = 'Felix Lesch';
+export const listingAgents: Record<string, string> = {};
+const importedAgent = (id: string) => listings.find((l) => l.id === id)?.agent;
+export const agentFor = (id: string) =>
+  team.find((m) => m.name === (listingAgents[id] ?? importedAgent(id) ?? DEFAULT_AGENT)) ?? team[1];
 
 /** Gesichtsausschnitt (Avatar) zu einem Namen aus Alt-Texten/Autorenangaben */
 export const faceOf = (name: string) => team.find((m) => name.startsWith(m.name))?.face;
@@ -112,29 +147,27 @@ export type MegaMenuData = {
   mobileCta: MenuLink;
 };
 
+/** Hauptnavigation: bewusst schlank – vier Bereiche mit je wenigen, klaren Zielen. */
 export const megaMenus: MegaMenuData[] = [
   {
-    label: 'Kaufen & Mieten', to: ROUTES.kaufen, title: 'Immobilien finden',
-    text: 'Aktuelle Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung in Münster, Essen, Bochum und Umgebung.',
+    label: 'Immobilien', to: ROUTES.kaufen, title: 'Immobilien finden',
+    text: 'Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung im Ruhrgebiet und im Münsterland.',
     columns: [{
-      eyebrow: 'Wohnimmobilien', links: [
-        { label: 'Immobilien zum Kauf', to: ROUTES.kaufen }, { label: 'Immobilien zur Miete', to: ROUTES.mieten },
-        { label: 'Wohnungen kaufen', to: ROUTES.wohnungKaufen }, { label: 'Kapitalanlagen & Mehrfamilienhäuser', to: ROUTES.kapitalanlage },
-        { label: 'Immobilienfinanzierung', to: ROUTES.finanzierung }, { label: 'Budgetrechner: Kann ich kaufen?', to: ROUTES.budgetrechner },
-        { label: 'Finanzierungsrechner', to: ROUTES.finanzierungsrechner },
+      eyebrow: 'Kaufen & Mieten', links: [
+        { label: 'Immobilien kaufen', to: ROUTES.kaufen }, { label: 'Immobilien mieten', to: ROUTES.mieten },
+        { label: 'Kapitalanlagen & Mehrfamilienhäuser', to: ROUTES.kapitalanlage }, { label: 'Finanzierung', to: ROUTES.finanzierung },
       ],
     }],
-    promo: { image: photos.team, eyebrow: 'Persönliche Beratung', title: 'Ihre Ansprechpartner in Münster, Essen und Bochum', to: ROUTES.regionen },
+    promo: { image: photos.team, eyebrow: 'Persönliche Beratung', title: 'Ihre Ansprechpartner in Essen, Münster und Bochum', to: ROUTES.kontakt },
     mobileCta: { label: 'Alle Immobilien ansehen', to: ROUTES.kaufen },
   },
   {
-    label: 'Immobilie verkaufen', to: ROUTES.verkaufen, title: 'Immobilie verkaufen',
-    text: 'Marktwertermittlung, Exposé, Vermarktung und Notartermin – persönlich begleitet von unserem DIN-zertifizierten Team.',
+    label: 'Verkaufen', to: ROUTES.verkaufen, title: 'Immobilie verkaufen oder vermieten',
+    text: 'Von der kostenlosen Bewertung bis zur Schlüsselübergabe – persönlich begleitet von Maklern und Gutachtern aus der Region.',
     columns: [{
-      eyebrow: 'Verkaufen & vermieten', links: [
-        { label: 'Immobilie verkaufen', to: ROUTES.verkaufen }, { label: 'Kostenlose Immobilienbewertung', to: ROUTES.bewertung },
+      eyebrow: 'Für Eigentümer', links: [
+        { label: 'Immobilie verkaufen', to: ROUTES.verkaufen }, { label: 'Kostenlose Bewertung', to: ROUTES.bewertung },
         { label: 'Immobilie vermieten', to: ROUTES.vermieten }, { label: 'Rückmietverkauf', to: ROUTES.rueckmietverkauf },
-        { label: 'Immobilienvermarktung', to: ROUTES.vermarktung }, { label: 'Wert-Hebel-Rechner', to: ROUTES.wertHebel },
         { label: 'Immotipp: ab 500 € Prämie', to: ROUTES.immotipp },
       ],
     }],
@@ -142,74 +175,64 @@ export const megaMenus: MegaMenuData[] = [
     mobileCta: { label: 'Bewertung anfragen', to: ROUTES.bewertung },
   },
   {
-    label: 'Immobilienmakler', to: ROUTES.regionen, title: 'Immobilienmakler vor Ort',
-    text: 'Persönliche Ansprechpartner in Münster, Essen und Bochum – mit Gutachter- und Energiekompetenz unter einem Dach.',
+    label: 'Über uns', to: ROUTES.ueberUns, title: 'Oberholz Immobilien',
+    text: 'Makler und Gutachter unter einem Dach – mit Büros in Essen, Münster und Bochum.',
     columns: [{
-      eyebrow: 'Unsere Regionen', links: [
-        { label: 'Immobilienmakler Münster', to: ROUTES.region('muenster') }, { label: 'Immobilienmakler Essen', to: ROUTES.region('essen') },
-        { label: 'Immobilienmakler Bochum', to: ROUTES.region('bochum') }, { label: 'Alle Regionen', to: ROUTES.regionen },
-        { label: 'Unser Team', to: ROUTES.team }, { label: 'Qualifikationen', to: ROUTES.qualifikation },
+      eyebrow: 'Unternehmen', links: [
+        { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Unser Team', to: ROUTES.team },
+        { label: 'Qualifikationen', to: ROUTES.qualifikation }, { label: 'Standorte', to: ROUTES.regionen },
+        { label: 'Kontakt', to: ROUTES.kontakt },
       ],
     }],
-    promo: { image: photos.schluessel, eyebrow: 'Tippgeber-Programm', title: 'Immobilientipp geben – ab 500 € Prämie erhalten', to: ROUTES.immotipp },
+    promo: { image: photos.team, eyebrow: 'Über uns', title: 'Immobilienvermittlung mit Gutachterkompetenz', to: ROUTES.ueberUns },
     mobileCta: { label: 'Kontakt aufnehmen', to: ROUTES.kontakt },
   },
   {
-    label: 'Kapitalanlage', to: ROUTES.kapitalanlage, title: 'Kapitalanlage',
-    text: 'Mehrfamilienhäuser, vermietete Wohnungen und Renditeobjekte – mit Ertragswertanalyse und Finanzierung aus einer Hand.',
+    label: 'Ratgeber', to: ROUTES.ratgeber, title: 'Ratgeber',
+    text: 'Verständliche Beiträge, Leitfäden und Rechner für Käufer, Verkäufer und Erben.',
     columns: [{
-      eyebrow: 'Anlageimmobilien', links: [
-        { label: 'Mehrfamilienhäuser kaufen', to: ROUTES.kapitalanlage }, { label: 'Renditeobjekte im Angebot', to: `${ROUTES.kaufen}?anlage=1` },
-        { label: 'Wohnungen als Kapitalanlage', to: ROUTES.wohnungKaufen }, { label: 'Mehrfamilienhaus verkaufen', to: ROUTES.verkaufen },
-        { label: 'Immobilienbewertung', to: ROUTES.bewertung }, { label: 'Finanzierung', to: ROUTES.finanzierung },
+      eyebrow: 'Wissen & Werkzeuge', links: [
+        { label: 'Alle Beiträge', to: ROUTES.ratgeber }, { label: 'Leitfäden & Downloads', to: ROUTES.downloads },
+        { label: 'Rechner', to: ROUTES.service }, { label: 'Immobilien-Lexikon', to: ROUTES.immopedia },
       ],
     }],
-    promo: { image: obj('170744873'), eyebrow: 'Aktuell im Angebot', title: 'Vermietetes Dreiparteienhaus in Bochum-Langendreer (Faktor 13,9)', to: ROUTES.expose('170744873') },
-    mobileCta: { label: 'Renditeobjekte ansehen', to: `${ROUTES.kaufen}?anlage=1` },
-  },
-  {
-    label: 'Unternehmen', to: ROUTES.ueberUns, title: 'Unternehmen',
-    text: 'Seit über 20 Jahren begleiten wir Eigentümer, Käufer und Investoren – mit Immobilien-, Gutachter- und Energiekompetenz.',
-    columns: [
-      { eyebrow: 'Oberholz Immobilien', links: [
-        { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Unser Team', to: ROUTES.team }, { label: 'Qualifikationen', to: ROUTES.qualifikation },
-        { label: 'ISO 9001 Zertifizierung', to: ROUTES.iso }, { label: 'Kontakt', to: ROUTES.kontakt }, { label: 'Leistungen im Überblick', to: ROUTES.leistungen },
-      ] },
-      { eyebrow: 'Wissen & Service', links: [
-        { label: 'Ratgeber', to: ROUTES.ratgeber }, { label: 'Immopedia', to: ROUTES.immopedia }, { label: 'Dokumente & Downloads', to: ROUTES.downloads },
-        { label: 'Rechner & Werkzeuge', to: ROUTES.service }, { label: 'Immotipp', to: ROUTES.immotipp }, { label: 'Mein Bereich', to: ROUTES.meinBereich },
-      ] },
-    ],
-    promo: { image: photos.team, eyebrow: 'Über uns', title: 'Immobilienvermittlung mit Gutachter- und Energiekompetenz', to: ROUTES.ueberUns, stacked: true },
-    mobileCta: { label: 'Kontakt aufnehmen', to: ROUTES.kontakt },
+    promo: { image: '/assets/ratgeber/immobilie-geerbt-der-erben-kompass-fuer-die-ersten-wochen.jpg', eyebrow: 'Leitfaden', title: 'Der Erben-Kompass: Orientierung für geerbte Immobilien', to: ROUTES.whitepaper('erben-kompass') },
+    mobileCta: { label: 'Zum Ratgeber', to: ROUTES.ratgeber },
   },
 ];
 
 export const hero = {
-  title: 'Finden Sie Ihr neues Zuhause!',
+  title: 'Ihr Immobilienmakler in Essen und Münster',
   modes: ['Kaufen', 'Mieten', 'KI-Suche'] as const,
   placeholder: 'Stadt, Stadtteil, Postleitzahl oder Objekt-Nr.',
   propertyTypes: [
     { group: 'Wohnen', options: ['Haus', 'Wohnung', 'Grundstück'] },
     { group: 'Kapitalanlage', options: [] },
   ],
-  /** Slider mit echten Objekten (IDs aus src/data/listings.json) */
-  slideIds: ['170212293', '170022736', '170680511', '170649223', '170934647'],
+  /** Slider: Stadtpanoramen aus der Region (keine Objektfotos). Bilder: Unsplash, siehe public/assets/stock/BILDNACHWEISE.json */
+  slides: [
+    { image: '/assets/stock/staedte/essen.jpg', pos: '70% 40%', title: 'Essen', sub: 'Zeche Zollverein · Büro Essen', to: ROUTES.region('essen') },
+    { image: '/assets/stock/staedte/muenster.jpg', pos: '50% 45%', title: 'Münster', sub: 'Prinzipalmarkt · Büro Münster', to: `${ROUTES.kaufen}?ort=M%C3%BCnsterland` },
+    { image: '/assets/stock/staedte/duisburg.jpg', pos: '50% 50%', title: 'Ruhrgebiet', sub: 'Tiger & Turtle, Duisburg', to: `${ROUTES.kaufen}?ort=Ruhrgebiet` },
+    { image: '/assets/stock/staedte/bochum.jpg', pos: '50% 55%', title: 'Bochum', sub: 'Tätigkeitsgebiet Bochum', to: ROUTES.region('bochum') },
+    { image: '/assets/stock/staedte/muensterland.jpg', pos: '50% 50%', title: 'Münsterland', sub: 'Zwischen Kanal und Feldern', to: `${ROUTES.kaufen}?ort=M%C3%BCnsterland` },
+  ],
+  /** Eigentümergewinnung zuerst; Kaufangebote sind nachrangig (eigene Suchseite). */
   teasers: [
-    { image: obj('170212293', 1), title: 'Immobilie kaufen', label: 'Aktuelle Immobilien ansehen', to: ROUTES.kaufen },
     { image: photos.bewertung, title: 'Kostenlose Bewertung', label: 'Marktwert Ihrer Immobilie ermitteln', to: ROUTES.bewertung },
+    { image: photos.verkauf, title: 'Immobilie verkaufen', label: 'Persönlich begleitet bis zur Übergabe', to: ROUTES.verkaufen },
     { image: face('michael-penn'), title: 'Immotipp: ab 500 € Prämie', label: 'Tipp geben und Prämie erhalten', to: ROUTES.immotipp },
   ],
 };
 
 export const selling = {
   eyebrow: 'Immobilie verkaufen',
-  title: 'Ihr Immobilienmakler in Münster, Essen und Bochum – mehr als ein klassischer Makler',
-  text: 'Ein konventioneller Makler inseriert und vermittelt. Wir beurteilen Ihre Immobilie zusätzlich als erfahrenes Team aus Maklern, Gutachtern und Energieberatern: von der Marktwertermittlung über Exposé und Strategie bis zur Schlüsselübergabe.',
+  title: 'Verkauf mit Gutachterkompetenz – im Ruhrgebiet und im Münsterland',
+  text: 'Wir beurteilen Ihre Immobilie als Team aus Maklern und Gutachtern: von der Marktwertermittlung über Exposé und Strategie bis zur Schlüsselübergabe – transparent und persönlich.',
   benefits: [
-    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner in Münster, Essen, Bochum und Umgebung.' },
+    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner im Ruhrgebiet und im Münsterland.' },
     { icon: 'globe', title: 'Gutachterkompetenz', text: 'DIN-zertifizierte Marktwertermittlung als Basis für eine realistische Preisstrategie.' },
-    { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse, Energieausweis und Finanzierung – von Architekten, Gutachtern und Beratern im eigenen Haus.' },
+    { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und die Abstimmung der erforderlichen Verkaufsunterlagen – inklusive vorhandenem Energieausweis und Finanzierungsbegleitung.' },
   ],
   card: {
     image: photos.verkauf,
@@ -221,56 +244,38 @@ export const selling = {
   },
 };
 
-export const financeBanner = {
-  image: photos.finanzierung,
-  alt: 'Finanzierungsberatung mit einem jungen Paar am Laptop',
-  wordmark: 'Oberholz',
-  sub: 'Finanzierung',
-  claim: 'Immobilienfinanzierung mit Energiekompetenz.',
-  link: 'Finanzierung anfragen',
-  to: ROUTES.finanzierung,
-};
-
 export const cities = {
-  eyebrow: 'Immobilie kaufen',
-  title: 'Finden Sie Immobilien in Ihrer Region',
-  text: 'Aktuelle Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung – mit persönlichem Ansprechpartner vor Ort in Münster, Essen, Bochum und Umgebung.',
-  items: [
-    { name: 'Münster', image: '/assets/stock/staedte/muenster.jpg', to: ROUTES.region('muenster') },
-    { name: 'Essen', image: '/assets/stock/staedte/essen.jpg', to: ROUTES.region('essen') },
-    { name: 'Bochum', image: '/assets/stock/staedte/bochum.jpg', to: ROUTES.region('bochum') },
-    { name: 'Düsseldorf', image: '/assets/stock/staedte/duesseldorf.jpg', to: `${ROUTES.kaufen}?ort=D%C3%BCsseldorf` },
-    { name: 'Duisburg', image: '/assets/stock/staedte/duisburg.jpg', to: `${ROUTES.kaufen}?ort=Duisburg` },
-    { name: 'Münsterland', image: '/assets/stock/staedte/muensterland.jpg', to: `${ROUTES.kaufen}?ort=M%C3%BCnsterland` },
-  ],
-  subtitle: 'Immobilien in der Umgebung',
+  eyebrow: 'Unsere Standorte',
+  title: 'Essen und Münster – und Bochum als Tätigkeitsgebiet',
+  text: 'Essen und Münster sind unsere gleichwertigen Hauptstandorte. In Bochum und der Region sind wir ebenfalls persönlich für Sie da.',
+  items: offices.map((o) => ({ name: o.city, sub: `${o.street} · ${o.zipCity}`, image: o.image, to: officeLink(o) })),
 };
 
 export const careers = {
   eyebrow: 'Unser Team',
   title: 'Persönliche Beratung von Menschen, die Ihre Region kennen',
-  text: 'Makler, Gutachter, Energieberater und Architekten unter einem Dach – seit über 20 Jahren begleiten wir Eigentümer, Käufer und Investoren.',
+  text: 'Makler und Gutachter unter einem Dach – seit über 20 Jahren begleiten wir Eigentümer, Käufer und Investoren in Essen, Münster und der Region.',
   card: {
     image: photos.team,
     alt: 'Das Team von Oberholz Immobilien',
-    title: 'Ihr Team in Münster, Essen und Bochum',
-    text: 'Michael Oberholz und sein Team beraten Sie persönlich – unsere Erstberatungsgespräche sind unverbindlich und kostenlos.',
+    title: 'Ihr Team in Essen, Münster und Bochum',
+    text: 'Michael Oberholz, Felix Lesch und das Team beraten Sie persönlich – unsere Erstberatungsgespräche sind unverbindlich und kostenlos.',
     cta: 'Team kennenlernen',
     to: ROUTES.team,
   },
 };
 
 export const lifestyle = {
-  title: 'Aus unserer Vermittlung',
-  text: 'Einblicke in Häuser und Wohnungen aus unserer Vermittlung in Münster, im Münsterland und im Ruhrgebiet – persönlich begleitet von der ersten Einschätzung bis zum erfolgreichen Vertragsabschluss.',
+  title: 'Objekte aus unserer Vermittlung',
+  text: 'Häuser und Wohnungen, die wir im Ruhrgebiet, im Bergischen Land und im Münsterland begleiten – von der ersten Einschätzung bis zum Vertragsabschluss.',
   galleryButton: 'Zur Galerie',
   more: 'Mehr erfahren',
   items: [
+    { image: obj('171838502'), title: 'Reihenendhaus in Essen-Kupferdreh', alt: 'Garten eines Reihenendhauses in Essen-Kupferdreh' },
     { image: obj('170022736', 1), title: 'Einfamilienhaus mit Garten in Stadtlohn', alt: 'Einfamilienhaus in Stadtlohn' },
-    { image: obj('170212293', 3), title: 'Reihenendhaus in Essen-Kupferdreh', alt: 'Garten eines Reihenendhauses in Essen-Kupferdreh' },
     { image: obj('170199527', 2), title: 'Maisonettewohnung in Velbert-Neviges', alt: 'Dachterrasse mit Ausblick in Velbert' },
     { image: obj('170649223'), title: 'Reihenhaus in Bergkamen-Oberaden', alt: 'Reihenhaus mit Garten in Bergkamen' },
-    { image: obj('170680511', 1), title: 'Reihenhaus in Duisburg-Walsum', alt: 'Garten eines Reihenhauses in Duisburg' },
+    { image: obj('170680511'), title: 'Reihenhaus in Duisburg-Walsum', alt: 'Garten eines Reihenhauses in Duisburg' },
     { image: obj('170827695', 5), title: 'Maisonettewohnung in Münster-Mecklenbeck', alt: 'Balkon mit Blick über Münster-Mecklenbeck' },
   ],
 };
@@ -283,7 +288,7 @@ export const magazine = {
     image: '/assets/ratgeber/immobilie-geerbt-der-erben-kompass-fuer-die-ersten-wochen.jpg',
     alt: 'Hände sortieren Familienfotos, Briefe und Hausschlüssel',
     title: 'Der Erben-Kompass',
-    text: 'Der Praxisleitfaden für Immobilienerben: erste Schritte, Erbengemeinschaft, Steuern und Fristen, Notar-Ablauf. 12 Seiten mit Checkliste.',
+    text: 'Orientierung für geerbte Immobilien: erste Schritte, Erbengemeinschaft, Bewertung und offene Fragen. Als kompakte PDF-Lesefassung kostenlos herunterladen.',
     cta: 'Leitfaden anfordern',
     to: ROUTES.whitepaper('erben-kompass'),
   },
@@ -296,46 +301,37 @@ const groupLinks = (places: string[]) => ({
 
 export const relatedTopics = {
   eyebrow: 'Weitere Themen',
-  title: 'Das könnte Sie auch interessieren',
+  title: 'Passende Themen für Ihre Region',
   groups: [
-    { icon: 'apartment', title: 'Immobilien im Münsterland', text: 'Häuser und Wohnungen in Münster und den umliegenden Kreisen.', ...groupLinks(['Münster', 'Steinfurt', 'Coesfeld', 'Rheine', 'Stadtlohn']) },
-    { icon: 'house', title: 'Immobilien im Ruhrgebiet', text: 'Häuser, Wohnungen und Kapitalanlagen zwischen Essen, Bochum und Duisburg.', ...groupLinks(['Essen', 'Bochum', 'Duisburg', 'Bergkamen', 'Bottrop']) },
-    { icon: 'townhouse', title: 'Immobilien in NRW', text: 'Weitere Angebote aus unserer Vermittlung in Nordrhein-Westfalen.', ...groupLinks(['Düsseldorf', 'Velbert', 'Krefeld', 'Kamp-Lintfort']) },
+    { icon: 'house', title: 'Immobilien im Ruhrgebiet', text: 'Häuser, Wohnungen und Kapitalanlagen zwischen Essen, Bochum und Duisburg.', ...groupLinks(['Essen', 'Bochum', 'Duisburg', 'Gelsenkirchen', 'Bergkamen']) },
+    { icon: 'apartment', title: 'Immobilien im Münsterland', text: 'Häuser und Wohnungen in Münster, Coesfeld, Stadtlohn und Umgebung.', ...groupLinks(['Münster', 'Coesfeld', 'Stadtlohn']) },
+    { icon: 'townhouse', title: 'Immobilien im Bergischen Land', text: 'Angebote in Velbert und Umgebung.', ...groupLinks(['Velbert']) },
   ],
 };
 
 export const contact = {
   eyebrow: 'Kontakt',
-  title: 'Kontaktieren Sie uns jetzt – persönlich',
-  avatars: [team[0].face, team[1].face],
+  title: 'Sprechen Sie mit uns – persönlich und unverbindlich',
+  avatars: [team[1].face, team[0].face],
   office: 'Oberholz Immobilien',
   cta: 'Jetzt kontaktieren',
 };
 
 export const footer = {
-  title: 'Kontaktieren Sie uns',
+  claim: 'Ihr Immobilienpartner im Ruhrgebiet und Münsterland',
   socials: ['linkedin', 'google', 'whatsapp'] as const,
   columns: [
-    { title: 'Immobilienangebote', links: [
-      { label: 'Haus kaufen', to: `${ROUTES.kaufen}?typ=Haus` }, { label: 'Wohnung kaufen', to: `${ROUTES.kaufen}?typ=Wohnung` },
-      { label: 'Grundstück kaufen', to: `${ROUTES.kaufen}?typ=Grundst%C3%BCck` }, { label: 'Wohnung mieten', to: ROUTES.mieten },
-      { label: 'Kapitalanlagen', to: ROUTES.kapitalanlage },
-    ] },
-    { title: 'Immobilien verkaufen', links: [
-      { label: 'Immobilie bewerten', to: ROUTES.bewertung }, { label: 'Immobilie verkaufen', to: ROUTES.verkaufen },
-      { label: 'Immobilie vermieten', to: ROUTES.vermieten }, { label: 'Rückmietverkauf', to: ROUTES.rueckmietverkauf }, { label: 'Immotipp', to: ROUTES.immotipp },
-    ] },
-    { title: 'Immobilienmakler finden', links: [
-      { label: 'Immobilienmakler Münster', to: ROUTES.region('muenster') }, { label: 'Immobilienmakler Essen', to: ROUTES.region('essen') },
-      { label: 'Immobilienmakler Bochum', to: ROUTES.region('bochum') }, { label: 'Unsere Regionen', to: ROUTES.regionen },
-      { label: 'Google-Bewertungen', to: '#bewertungen' },
+    { title: 'Leistungen', links: [
+      { label: 'Immobilien kaufen', to: ROUTES.kaufen }, { label: 'Immobilie verkaufen', to: ROUTES.verkaufen },
+      { label: 'Kostenlose Bewertung', to: ROUTES.bewertung }, { label: 'Vermietung', to: ROUTES.vermieten },
+      { label: 'Rückmietverkauf', to: ROUTES.rueckmietverkauf }, { label: 'Finanzierung', to: ROUTES.finanzierung },
     ] },
     { title: 'Unternehmen', links: [
-      { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Unser Team', to: ROUTES.team }, { label: 'Qualifikationen', to: ROUTES.qualifikation },
-      { label: 'Partner & Kooperationen', to: `${ROUTES.ueberUns}#partner` }, { label: 'Ratgeber', to: ROUTES.ratgeber }, { label: 'Immopedia', to: ROUTES.immopedia },
-      { label: 'Dokumente & Downloads', to: ROUTES.downloads }, { label: 'Rechner & Werkzeuge', to: ROUTES.service }, { label: 'Kontakt', to: ROUTES.kontakt },
+      { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Team', to: ROUTES.team },
+      { label: 'Standorte', to: ROUTES.regionen }, { label: 'Ratgeber', to: ROUTES.ratgeber },
+      { label: 'Kontakt', to: ROUTES.kontakt }, { label: 'Immotipp', to: ROUTES.immotipp },
     ] },
   ],
-  legalLeft: [{ label: 'Cookie-Einstellungen verwalten', to: '#cookies' }, { label: 'Cookie-Hinweise', to: ROUTES.cookieHinweise }],
-  legalRight: [{ label: 'Datenschutzhinweise', to: ROUTES.datenschutz }, { label: 'Impressum', to: ROUTES.impressum }],
+  legalLeft: [{ label: 'Cookie-Einstellungen', to: '#cookies' }, { label: 'Cookie-Hinweise', to: ROUTES.cookieHinweise }],
+  legalRight: [{ label: 'Datenschutz', to: ROUTES.datenschutz }, { label: 'Impressum', to: ROUTES.impressum }],
 };

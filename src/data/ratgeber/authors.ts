@@ -21,7 +21,7 @@ export const AUTHOR_OF: Record<string, string> = {
 
 /** Kurzprofile für die Autorenbox – nur Rolle und Tätigkeitsfeld, keine erfundenen Qualifikationen. */
 export const AUTHOR_BIO: Record<string, string> = {
-  'Michael Oberholz': 'Inhaber von Oberholz Immobilien und Sachverständiger. Er verantwortet Bewertung, Verkaufsstrategie und die Begleitung von Eigentümern in Münster, Essen und Bochum.',
+  'Michael Oberholz': 'Inhaber von Oberholz Immobilien und Sachverständiger. Er verantwortet Bewertung, Verkaufsstrategie und die Begleitung von Eigentümern im Ruhrgebiet und im Münsterland.',
   'Michael Penn': 'Immobilienberater bei Oberholz Immobilien mit Schwerpunkt auf Unterlagen, Finanzierung und energetischen Fragen rund um Kauf und Verkauf.',
   'Pascal Kopp': 'Transaktionsberater bei Oberholz Immobilien. Er begleitet Käufer und Verkäufer durch Vertrag, Notartermin und Übergabe – auch bei Erbfällen und Übertragungen.',
   'Felix Lesch': 'Immobilienberater bei Oberholz Immobilien mit Schwerpunkt auf Vermietung, Kapitalanlage und der Abwägung zwischen Vermieten und Verkaufen.',

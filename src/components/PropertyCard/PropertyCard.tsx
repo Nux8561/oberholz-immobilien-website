@@ -2,19 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { attributes, formatPrice, type Property } from '../../data/properties';
 import { ROUTES } from '../../data/routes';
-import { IconChevronLeft, IconChevronRight } from '../Icons';
+import { IconChevronLeft, IconChevronRight, IconHeart } from '../Icons';
 import { useFavorites } from '../../lib/store';
 import FitImage from '../FitImage/FitImage';
 import { notify } from '../Toast/Toast';
 import './PropertyCard.css';
 
-const IconHeart = ({ filled }: { filled: boolean }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12 20.3 4.6 13a4.6 4.6 0 0 1 6.5-6.6l.9.9.9-.9A4.6 4.6 0 0 1 19.4 13Z" fill={filled ? 'var(--c-accent)' : 'rgba(13,13,13,.6)'} stroke="#fff" strokeWidth="1.4" />
-  </svg>
-);
-
-/** Objektkarte – Referenz (Suchliste 1440): 437px breit, Bild 437×292 mit Mini-Slider, Body 16px Padding. */
+/** Objektkarte – Suchliste bei 1440px: 437px breit, Bild 437×292 mit Mini-Slider, Body 16px Padding. */
 export default function PropertyCard({ p, compact = false }: { p: Property; compact?: boolean }) {
   const [img, setImg] = useState(0);
   const favs = useFavorites();
@@ -32,8 +26,8 @@ export default function PropertyCard({ p, compact = false }: { p: Property; comp
           <div className="pcard__badges">{p.badges.map((b) => <span key={b} className={`pcard__badge${b === 'Exklusiv' ? ' pcard__badge--dark' : ''}`}>{b}</span>)}</div>
         )}
         <button type="button" className={`pcard__fav${fav ? ' is-active' : ''}`} aria-pressed={fav} aria-label={fav ? 'Von Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
-          onClick={(e) => { e.preventDefault(); notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt – zu finden unter „Mein Bereich“.' : 'Von der Merkliste entfernt.'); }}>
-          <IconHeart filled={fav} />
+          onClick={(e) => { e.preventDefault(); notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt – zu finden unter „Merkliste“.' : 'Von der Merkliste entfernt.'); }}>
+          <IconHeart fill={fav ? 'var(--c-accent)' : 'rgba(13,13,13,.6)'} stroke="#fff" />
         </button>
         {p.images.length > 1 && (
           <>

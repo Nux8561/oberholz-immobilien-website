@@ -43,7 +43,7 @@
 .wizard__verdict { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; letter-spacing: .48px; text-transform: uppercase; }
 .wizard__verdict--good { background: #e7f4ea; color: #1d6b32; }
 .wizard__verdict--ok { background: #fff4dc; color: #7a5300; }
-.wizard__verdict--warn { background: #fde8e8; color: #9b0000; }
+.wizard__verdict--warn { background: #fdf3e1; color: #7a4b00; }
 .wizard__kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; margin-top: 16px; }
 .wizard__kpis > div { padding: 24px; background: var(--c-cream); }
 .wizard__result .calc__dl { width: 100%; }

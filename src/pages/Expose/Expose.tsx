@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { attributes, findProperty, formatArea, formatPrice, properties, type Property } from '../../data/properties';
-import { brand, photos, team, whatsappUrl } from '../../data/content';
+import { agentFor, brand, photos, whatsappUrl } from '../../data/content';
 import { ROUTES, SITE_URL } from '../../data/routes';
 import { usePageMeta } from '../../layout/PageMeta';
 import { useFavorites } from '../../lib/store';
@@ -12,25 +12,14 @@ import Lightbox from '../../components/Lightbox/Lightbox';
 import Deco from '../../components/Deco/Deco';
 import FitImage from '../../components/FitImage/FitImage';
 import { IconCheck, IconChevronRight, IconMail } from '../../components/Icons';
+import { Icon, type IconName } from '../../icons/Icon';
 import { notify } from '../../components/Toast/Toast';
 import NotFound from '../NotFound';
 import './Expose.css';
 
-const I = ({ d }: { d: string }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true"><path d={d} /></svg>
-);
-const ICONS = {
-  rooms: 'M4 20V5h10v15M14 9h6v11M3 20h18M10 12v2',
-  area: 'M4 4h16v16H4zM4 9h5M15 4v5M9 20v-5M20 15h-5',
-  plot: 'M3 20h18M5 20V9l7-5 7 5v11M3 16h18M9 20v-4h6v4',
-  energy: 'M13 3 5 14h6l-1 7 8-11h-6Z',
-  share: 'M12 15V3M8 7l4-4 4 4M5 11v9h14v-9',
-  image: 'M3 5h18v14H3zM3 15l5-5 4 4 3-3 6 6M15 9h0',
-};
+const I = ({ name }: { name: IconName }) => <Icon name={name} />;
 const IconHeart = ({ on }: { on: boolean }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill={on ? 'var(--c-accent)' : 'none'} stroke={on ? 'var(--c-accent)' : 'currentColor'} strokeWidth="1.2" aria-hidden="true">
-    <path d="M12 20.3 4.6 13a4.6 4.6 0 0 1 6.5-6.6l.9.9.9-.9A4.6 4.6 0 0 1 19.4 13Z" />
-  </svg>
+  <Icon name="heart" fill={on ? 'var(--c-accent)' : 'none'} stroke={on ? 'var(--c-accent)' : 'currentColor'} />
 );
 
 /** Exposé-Text: Zeilen mit „-“/„•“ werden zu Listen zusammengefasst. */
@@ -55,7 +44,12 @@ export default function Expose() {
   const favs = useFavorites();
   const [lb, setLb] = useState<number | null>(null);
   const [descOpen, setDescOpen] = useState(false);
-  const agent = team[0];
+  const agent = agentFor(id);
+  // Telefon 1:1 aus dem ImmoScout-Exposé, sonst Team-Nummer, sonst Standort-/Zentralnummer
+  const agentPhoneDisplay = (p?.agentPhone || agent.phoneDisplay || (p?.city === 'Münster' ? brand.phoneMuensterDisplay : brand.phoneDisplay)) ?? brand.phoneDisplay;
+  const agentPhoneHref = p?.agentPhone
+    ? `tel:+49${p.agentPhone.replace(/\D/g, '').replace(/^0/, '')}`
+    : (agent.phoneHref || (p?.city === 'Münster' ? brand.phoneMuensterHref : brand.phoneHref));
 
   const similar = useMemo(() => (p ? properties.filter((x) => x.id !== p.id && x.mode === p.mode && (x.city === p.city || x.type === p.type)).slice(0, 3) : []), [p]);
 
@@ -94,10 +88,10 @@ export default function Expose() {
   ];
   const half = Math.ceil(facts.length / 2);
   const iconFacts = [
-    p.rooms && [ICONS.rooms, `${p.rooms.toLocaleString('de-DE')} Zimmer`],
-    p.living && [ICONS.area, `${formatArea(p.living)} Wohnfläche`], p.plot && [ICONS.plot, `${formatArea(p.plot)} Grundstücksfläche`],
-    p.energyClass && [ICONS.energy, `Energieklasse ${p.energyClass}`],
-  ].filter(Boolean) as [string, string][];
+    p.rooms && ['rooms', `${p.rooms.toLocaleString('de-DE')} Zimmer`],
+    p.living && ['area', `${formatArea(p.living)} Wohnfläche`], p.plot && ['plot', `${formatArea(p.plot)} Grundstücksfläche`],
+    p.energyClass && ['energy', `Energieklasse ${p.energyClass}`],
+  ].filter(Boolean) as [IconName, string][];
   const description = p.sections.Objektbeschreibung ?? [];
   const extra = ORDER.filter((k) => p.sections[k]?.length);
   const searchUrl = `${p.mode === 'mieten' ? ROUTES.mieten : ROUTES.kaufen}?ort=${encodeURIComponent(p.city)}`;
@@ -105,8 +99,8 @@ export default function Expose() {
   return (
     <div className="expo">
       <div className="expo__actions">
-        <button type="button" className="expo__action" onClick={share}><I d={ICONS.share} />Teilen</button>
-        <button type="button" className="expo__action" aria-pressed={fav} onClick={() => notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt – zu finden unter „Mein Bereich“.' : 'Von der Merkliste entfernt.')}>
+        <button type="button" className="expo__action" onClick={share}><I name="share" />Teilen</button>
+        <button type="button" className="expo__action" aria-pressed={fav} onClick={() => notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt – zu finden unter „Merkliste“.' : 'Von der Merkliste entfernt.')}>
           <IconHeart on={fav} />{fav ? 'Auf der Merkliste' : 'Merken'}
         </button>
       </div>
@@ -118,7 +112,7 @@ export default function Expose() {
               <FitImage src={g.src} alt={g.alt} eager />
             </button>
           ))}
-          <button type="button" className="expo__count" onClick={() => setLb(0)} aria-label={`Alle ${gallery.length} Bilder anzeigen`}><I d={ICONS.image} />{gallery.length}</button>
+          <button type="button" className="expo__count" onClick={() => setLb(0)} aria-label={`Alle ${gallery.length} Bilder anzeigen`}><I name="image" />{gallery.length}</button>
         </div>
       </div>
 
@@ -134,7 +128,7 @@ export default function Expose() {
             <p className="expo__price head">{formatPrice(p)}</p>
             {p.provision && <p className="expo__prov">{p.provision}</p>}
           </div>
-          {iconFacts.length > 0 && <ul className="expo__facts">{iconFacts.map(([d, t]) => <li key={t}><I d={d} />{t}</li>)}</ul>}
+          {iconFacts.length > 0 && <ul className="expo__facts">{iconFacts.map(([d, t]) => <li key={t}><I name={d} />{t}</li>)}</ul>}
           {description.length > 0 && (
             <>
               <h2 className="expo__h2 head">Objektbeschreibung</h2>
@@ -145,9 +139,9 @@ export default function Expose() {
         </div>
         <aside className="expo__agent">
           <img src={agent.face} alt={agent.name} className="expo__agent-img" />
-          <h2 className="expo__agent-name head">{agent.name}</h2>
+          <h2 className="expo__agent-name head">{p.agent || agent.name}</h2>
           <p className="expo__agent-meta">{agent.role}</p>
-          <a href={brand.phoneHref} className="link-underline expo__agent-phone">{brand.phoneDisplay}</a>
+          <a href={agentPhoneHref} className="link-underline expo__agent-phone">{agentPhoneDisplay}</a>
           <a href="#anfrage" className="btn btn--accent btn--icon expo__agent-btn"><IconMail />Details anfragen</a>
           <a href={whatsappUrl(`Hallo Oberholz Immobilien, ich interessiere mich für das Objekt ${p.id} („${p.title}“). Bitte kontaktieren Sie mich.`)} target="_blank" rel="noopener noreferrer" className="link-underline expo__agent-wa">Per WhatsApp anfragen</a>
           <p className="expo__agent-meta">{brand.name}</p>
@@ -190,7 +184,7 @@ export default function Expose() {
             <p className="expo__brand"><strong>OBERHOLZ</strong> FINANZIERUNG</p>
             <h3 className="split__title head">Wunschimmobilie gefunden? Wir begleiten Ihre Finanzierung</h3>
             <ul className="expo__checks">
-              {['Unverbindliche, kostenfreie Erstberatung', 'Banken-Netzwerk für finanzierungsstarke Lösungen', 'Fördermittel- und Energieberatung aus einem Haus'].map((t) => <li key={t}><span className="cform__tick"><IconCheck size={14} /></span>{t}</li>)}
+              {['Unverbindliche, kostenfreie Erstberatung', 'Banken-Netzwerk für finanzierungsstarke Lösungen', 'Persönliche Begleitung Ihrer Finanzierung'].map((t) => <li key={t}><span className="cform__tick"><IconCheck size={14} /></span>{t}</li>)}
             </ul>
             <div className="expo__fin-btns">
               <Link to={ROUTES.finanzierungsrechner} className="btn btn--outline split__cta">Rate berechnen</Link>
@@ -217,7 +211,7 @@ export default function Expose() {
               <p>{brand.company}</p>
               <p>Inhaber: {brand.owner}</p>
               <p><Link to={ROUTES.impressum} className="link-underline">Impressum</Link> • <Link to={ROUTES.datenschutz} className="link-underline">Datenschutz</Link></p>
-              <p className="expo__shop-gap">{brand.street}, {brand.city.replace(', Deutschland', '')}</p>
+              <p className="expo__shop-gap">{brand.contactStreet}, {brand.contactCity}</p>
               <p><a href={brand.phoneHref} className="link-underline">{brand.phoneDisplay}</a></p>
               <p><a href={`mailto:${brand.email}`} className="link-underline">{brand.email}</a></p>
             </div>

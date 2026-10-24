@@ -18,7 +18,7 @@ type Props = {
   children?: ReactNode;
 };
 
-/** Seitenkopf der Inhaltsseiten – Aufbau wie das Split-Hero der Referenz-Unterseiten (Text links, Bild rechts, Creme). */
+/** Seitenkopf der Inhaltsseiten – geteiltes Hero: Text links, Bild rechts, Creme. */
 export default function PageHero({ eyebrow, title, text, checks, buttons, image, alt = '', cutout, rating, children }: Props) {
   return (
     <section className="b-shero phero">

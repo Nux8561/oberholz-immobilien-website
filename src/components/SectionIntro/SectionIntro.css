@@ -1,11 +1,11 @@
-/* Section-Intro – Referenz: ≥600px zentriert mit 2×72px Akzentlinie darüber (96px Abstand);
+/* Section-Intro – ≥600px zentriert mit 2×72px Akzentlinie darüber (96px Abstand);
    960–1239px max. 685px breit, ≥1240px max. 896px; <600px linksbündig mit Akzentlinie links. */
 .sintro-wrap { max-width: calc(var(--wrap-text) + 80px); margin: 0 auto; padding: 24px 40px 72px; }
 .sintro-inline { max-width: var(--wrap-text); margin: 0 auto 48px; }
 
 .sintro { text-align: center; }
 .sintro--line::before {
-  content: ''; display: block; width: 2px; height: 72px; margin: 0 auto 96px; background: var(--c-accent);
+  content: ''; display: block; width: 2px; height: 48px; margin: 0 auto 40px; background: var(--c-accent);
 }
 .sintro__eyebrow { margin-bottom: 12px; }
 .sintro__title { font-size: 32px; line-height: 40px; color: var(--c-text); }

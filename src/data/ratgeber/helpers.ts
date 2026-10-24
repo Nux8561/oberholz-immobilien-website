@@ -1,4 +1,4 @@
-// Bausteine für die redaktionellen Ratgeber-Artikel (eigene Texte; Aufbau angelehnt an E&V-Ratgeber:
+// Bausteine für die redaktionellen Ratgeber-Artikel (eigene Texte):
 // Lesezeit, Inhaltsverzeichnis, „Das Wichtigste in Kürze“, Beispielrechnung, FAQ).
 import type { QA, RichBlock } from '../oberholz';
 

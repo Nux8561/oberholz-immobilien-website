@@ -1,5 +1,5 @@
-// Baustein-Bibliothek für die Unterseiten-Templates. Jeder Block entspricht einem in der Referenz
-// wiederkehrenden Abschnitt (Maße: analysis/engelvoelkers/pages/*_1440.txt).
+// Baustein-Bibliothek für die Unterseiten-Templates: wiederkehrende Abschnitte, aus denen sich
+// die Unterseiten zusammensetzen.
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { properties, type Property } from '../data/properties';

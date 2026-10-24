@@ -2,6 +2,21 @@
 
 > Für die Übergabe an Oberholz siehe **ÜBERGABE.md** (Livegang, Kunden-Checkliste, Pflege).
 
+## Erledigt (19.10.2026, Gespräch mit Felix Lesch)
+- Objekte auf den echten ImmoScout-Bestand gebracht (13 statt 21): verkaufte und fremde Objekte (u. a. Krefeld, Bottrop, Hitzacker, Auetal) samt Fotos entfernt, 5 neue übernommen. Neues Skript `scripts/import_immoscout.py` für den Abgleich, bis der API-Zugang da ist.
+- Ansprechpartner laut ImmoScout: Michael Penn (Coesfeld, Stadtlohn, mit seiner Mobilnummer), Michael Oberholz (Mietwohnung Gelsenkirchen), sonst Felix Lesch.
+- Regionen korrekt: Velbert = Bergisches Land (nicht Ruhrgebiet); Standorte-Seite und Suche zeigen nur Orte mit aktuellem Objekt.
+- Startseite: Überschrift über die volle Breite, Suchleiste darunter (auch auf großen Bildschirmen).
+
+## Erledigt (17.10.2026, Kundenfeedback Runde 2)
+- Akzentfarbe Rot → Dunkelblau (`src/styles/tokens.css`).
+- Rufnummern: zentral 0201 61447786 (Essen), WhatsApp überall 0179 4468850 (Mobil Felix Lesch), 0251 28 42 90 90 nur für Münster.
+- Footer/Standorte: Essen · Münster (Wichernstraße 29, Mitte) · Bochum.
+- Exposés: Ansprechpartner Felix Lesch statt pauschal Michael Oberholz; je Objekt umstellbar über `listingAgents`.
+- Startseiten-Slider: Stadtpanoramen (Essen, Münster, Ruhrgebiet, Bochum, Münsterland) statt Objektfotos.
+- Formulierung „Essen, Münsterland und Ruhrgebiet“ ersetzt (Essen liegt im Ruhrgebiet).
+- Struktur verschlankt: Hauptmenü 4 Bereiche, 9 Unterseiten zusammengelegt (mit 301-Weiterleitung), Startseite gekürzt – siehe SEITENSTRUKTUR.md.
+
 ## Erledigt (Stand 15.10.2026, Übergabe)
 - Kontakt-Pop-up wie auf der alten Seite (Anfrage, Anrufen, Rückruf, WhatsApp, Kontakt) + Handy-Kontaktleiste.
 - WhatsApp überall eingebunden (Pop-up, Footer, Kontakt, Exposé mit Objektnummer); Datenschutz um WhatsApp/externe Links ergänzt.
@@ -39,9 +54,9 @@
 
 ## Mit Oberholz zu klären
 1. **Öffnungszeiten**: Startseite „Mo–Sa 8–19 Uhr“, Kontakt-Stadtseiten + strukturierte Daten „Mo–Fr 8–19, Sa 8–16 Uhr“ (verwendet).
-2. **Telefon in strukturierten Daten** der alten Seite: +49-711-… (Stuttgart) – verwendet wird 0251 28 42 90 90 (Impressum).
+2. **Telefon in strukturierten Daten** der alten Seite: +49-711-… (Stuttgart) – verwendet wird jetzt die zentrale Nummer 0201 61447786 (Büro Münster: 0251 28 42 90 90).
 3. **Firmierung**: Regionsseiten nennen „Oberholz Immobilien der EE Experten GmbH“, Impressum nur „Oberholz Immobilien“ ohne Inhaber/Rechtsform (Pflichtangabe!).
-3a. **WhatsApp**: verlinkt ist die Festnetznummer 0251 28429090 (wie alte Seite) – funktioniert nur mit WhatsApp Business auf dieser Nummer.
+3a. **Objekt-Zuständigkeit**: kommt seit 19.10. aus ImmoScout („Angeboten von“). Offen: PLZ 45884 beim Zweifamilienhaus 171739024 ist bei ImmoScout als Essen eingetragen, gehört aber zu Gelsenkirchen – bei Felix prüfen.
 4. **Datenschutzerklärung der alten Seite enthielt fremde Daten** (Abschnitt „Widget“: Von-Liebig-Straße 2, 78050, Serhan Sidan, Tel. 07721…; Aufsichtsbehörde Baden-Württemberg; Vimeo). Diese Abschnitte sind entfernt, NRW-Aufsichtsbehörde ergänzt. Hoster-Angabe (Timme Hosting) an den neuen Hoster anpassen. Komplett anwaltlich prüfen lassen.
 5. **Impressum**: Agentur-Credits „Platzhirsch Online“ entfernt (betrifft die alte Seite); „§ 5 TMG“ → „§ 5 DDG“ aktualisiert.
 6. **Whitepaper-PDFs** (Generationenwechsel, Erben-Kompass usw.) liegen nicht vor → Dateien liefern; aktuell wird die Anfrage per E-Mail vorbereitet.
@@ -50,5 +65,6 @@
 9. **Vergleichstabelle „Klassischer Makler vs. Oberholz“**: Häkchen-Verteilung aus der alten Seite nicht auslesbar (Icons) – angenommen: klassischer Makler nur Zeile 1.
 
 ## Technisch offen
-- Formular-Backend anbinden (`src/lib/mail.ts`), z. B. Mail-API oder CRM.
-- Optional: Objekte automatisch aus ImmoScout24 o. ä. aktualisieren (bisher statisch aus `listings.json`).
+- Formular-Backend: Code liegt unter `functions/api/contact.js` (Resend). Aktivierung: Cloudflare Pages Secret `RESEND_API_KEY` (+ optional `CONTACT_TO` / `CONTACT_FROM`). Ohne Secret: Formulare zeigen 503-Hinweis, kein Schein-Erfolg.
+- Objekte automatisch aus ImmoScout24 aktualisieren: API-Zugang bei Michael Oberholz anfragen (WhatsApp-Gruppe). Bis dahin `python3 scripts/import_immoscout.py` von Hand. Bestand und Ortsfilter stammen bereits aus dem Import (`listings.json`).
+- Firmierung / Rechtsform und Öffnungszeiten: weiterhin Kundenbestätigung (Impressum bleibt „Oberholz Immobilien“ ohne erfundene GmbH; Zeiten Mo–Fr 8–19 / Sa 8–16 unverändert, aber unbestätigt).

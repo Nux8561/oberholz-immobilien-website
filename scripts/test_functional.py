@@ -1,8 +1,10 @@
 """Funktionale QA der lokalen Startseite (Playwright, Chromium). Aufruf: npm test  (Dev-Server muss laufen)
 Prüft alle Homepage-Interaktionen sowie Konsole, 404s, Bild-Ladefehler und horizontales Overflow."""
-import asyncio, sys
+import asyncio, json, sys
 from playwright.async_api import async_playwright, expect
-from _common import LOCAL_URL, new_page
+from _common import LOCAL_URL, ROOT, new_page
+
+HOME_SECTIONS = 13  # Hero, Verkauf, Vermittlungen, Standorte, Team, Ratgeber, FAQ, Kontakt (inkl. Zwischenelemente)
 
 results = []
 
@@ -17,16 +19,17 @@ async def desktop(b):
     page.on("pageerror", lambda e: errors.append(str(e)))
     page.on("response", lambda r: r.status >= 400 and bad.append(f"{r.status} {r.url}"))
     await page.goto(LOCAL_URL); await page.wait_for_load_state("networkidle")
-    ok("Homepage Load", await page.locator("main > *").count() == 14, "14 Abschnitte (ohne Newsletter)")
+    ok("Homepage Load", await page.locator("main > *").count() == HOME_SECTIONS, f"{HOME_SECTIONS} Abschnitte (verschlankte Startseite)")
     ok("Desktop Layout: Navigation sichtbar", await page.locator(".hdr__nav").is_visible())
 
     # Mega-Menü öffnen / schließen (Hover + Escape)
-    await page.hover(".hdr__link:has-text('Immobilie verkaufen')"); await page.wait_for_timeout(400)
+    await page.hover(".hdr__link:has-text('Verkaufen')"); await page.wait_for_timeout(400)
     ok("Mega Menu Open", await page.locator("#flyout-1.is-open").count() == 1)
-    ok("Header Navigation: aktiver Link", await page.locator(".hdr__link.is-active").inner_text() == "Immobilie verkaufen")
+    ok("Header Navigation: aktiver Link", await page.locator(".hdr__link.is-active").inner_text() == "Verkaufen")
+    ok("Header Navigation: 4 schlanke Bereiche", await page.locator(".hdr__link").count() == 4)
     await page.keyboard.press("Escape"); await page.wait_for_timeout(300)
     ok("Mega Menu Close (Escape)", await page.locator(".flyout.is-open").count() == 0)
-    await page.hover(".hdr__link:has-text('Unternehmen')"); await page.wait_for_timeout(400)
+    await page.hover(".hdr__link:has-text('Über uns')"); await page.wait_for_timeout(400)
     await page.mouse.move(700, 880); await page.wait_for_timeout(500)
     ok("Mega Menu Close (Mouseleave)", await page.locator(".flyout.is-open").count() == 0)
 
@@ -137,15 +140,16 @@ async def mobile(b):
     sel1 = await page.locator(".hcar__bar[aria-selected='true']").get_attribute("aria-label")
     ok("Touch Swipe", sel0 != sel1, f"{sel0} -> {sel1}")
 
-    # Weitere Themen Mehr/Weniger
-    first = page.locator(".topic >> nth=0")
-    await first.scroll_into_view_if_needed()
-    vis = lambda: first.locator(".topic__col--mobile li:not([hidden])").count()
-    ok("Related Topics eingeklappt (3)", await vis() == 3)
-    await first.locator(".topic__toggle").click()
-    ok("Related Topics Expand", await vis() == 10)
-    await first.locator(".topic__toggle").click()
-    ok("Related Topics Collapse", await vis() == 3)
+    # Standorte und sichtbare FAQ auf der Startseite
+    local = page.locator('.owner-home')
+    await local.scroll_into_view_if_needed()
+    names = await page.locator('.cities .city__name').all_inner_texts()
+    ok('Startseite: Standorte Essen · Münster · Bochum', names == ['Essen', 'Münster', 'Bochum'], ' / '.join(names))
+    ok('Startseite: Slider ohne Objektfotos', await page.locator(".hcar__slide img[src*='/objekte/']").count() == 0)
+    await local.locator('.rich__faq .acc__btn').first.click()
+    ok('Startseite: FAQ öffnet Antwort', len(await local.locator('.acc__item.is-open .acc__panel').inner_text()) > 40)
+    await local.locator('.rich__faq .acc__btn').first.click()
+    ok('Startseite: FAQ schließt', await local.locator('.acc__item.is-open').count() == 0)
 
     # Footer-Akkordeon
     await page.click(".ftr__acc >> nth=0")
@@ -165,11 +169,11 @@ async def subpages(b):
 
     # Navigation über Header und Mega-Menü
     await go("/"); await page.wait_for_load_state("networkidle")
-    await page.click(".hdr__link:has-text('Immobilie verkaufen')"); await page.wait_for_timeout(400)
+    await page.click(".hdr__link:has-text('Verkaufen')"); await page.wait_for_timeout(400)
     ok("Navigation → Verkaufen", page.url.endswith("/verkaufen"), page.url)
     await page.mouse.move(700, 600); await page.wait_for_timeout(300)
-    await page.hover(".hdr__link:has-text('Immobilie verkaufen')"); await page.wait_for_timeout(400)
-    await page.click("#flyout-1 .flyout__link:has-text('Kostenlose Immobilienbewertung')"); await page.wait_for_timeout(400)
+    await page.hover(".hdr__link:has-text('Verkaufen')"); await page.wait_for_timeout(400)
+    await page.click("#flyout-1 .flyout__link:has-text('Kostenlose Bewertung')"); await page.wait_for_timeout(400)
     ok("Mega-Menü-Link → Bewertung", page.url.endswith("/bewertung"), page.url)
     ok("Unterseite: Breadcrumb", await page.locator(".crumbs").count() == 1)
     ok("Unterseite: Footer-Akkordeon (Desktop)", await page.locator(".ftr--accordion .ftr__acc").first.is_visible())
@@ -178,15 +182,16 @@ async def subpages(b):
     await page.click(".funnel__tile:has-text('Wohnung')")
     ok("Funnel: Schritt 2 (Wohnfläche)", await page.locator(".funnel__value").is_visible())
     await page.click(".funnel .chip:has-text('120 m²')"); await page.click(".funnel__next")
-    await page.click(".funnel__tile:has-text('Verkaufen')"); await page.click(".funnel__next")
-    ok("Funnel: Zusammenfassung", "Wohnung · ca. 120 m² Wohnfläche · Verkaufen" in await page.locator(".funnel__summary").inner_text())
+    await page.click(".funnel__next")
+    ok("Funnel: Zusammenfassung", "Wohnung · ca. 120 m² Wohnfläche · Bewerten" in await page.locator(".funnel__summary").inner_text())
     await page.click(".funnel .cform__submit button")
     ok("Funnel: Pflichtfelder", await page.locator(".funnel .cform__error").count() == 5)
 
     # Suche
     await go("/immobilien/kaufen"); await page.wait_for_load_state("networkidle")
     total = await page.locator(".pcard").count()
-    ok("Suche: Ergebnisse", total >= 15, f"{total} Karten")
+    kauf = sum(1 for x in json.loads((ROOT / "src" / "data" / "listings.json").read_text()) if x["mode"] == "Kauf")
+    ok("Suche: alle Kaufobjekte aus dem Bestand", total == min(kauf, 35), f"{total} Karten, {kauf} im Bestand")
     await page.click(".fbtn:has-text('Objektart')"); await page.click(".fcheck:has-text('Wohnung') input"); await page.wait_for_timeout(300)
     flats = await page.locator(".pcard").count()
     ok("Suche: Filter Objektart", 0 < flats < total and "typ=Wohnung" in page.url, f"{flats} Wohnungen")
@@ -220,8 +225,11 @@ async def subpages(b):
     await inputs.nth(0).fill("Max"); await inputs.nth(1).fill("Muster"); await inputs.nth(2).fill("max@example.com")
     await page.check("#anfrage .cform__consent input")
     await page.click("#anfrage .cform__submit button")
-    href = await page.locator(".cform__done a[href^='mailto:']").get_attribute("href")
-    ok("Exposé: Anfrage als E-Mail vorbereitet", bool(href) and "subject=Expos" in href and "max%40example.com" in href, (href or "")[:80])
+    await page.wait_for_timeout(800)
+    done = await page.locator(".cform__done").count()
+    err = await page.locator("#anfrage .cform__submit-error").inner_text() if await page.locator("#anfrage .cform__submit-error").count() else ""
+    # Lokal ohne RESEND_API_KEY: verständliche Fehlermeldung; Erfolg nur nach Server-Bestätigung
+    ok("Exposé: Formularversand (Erfolg oder klarer Fehler)", done == 1 or ("Formular" in err or "E-Mail" in err or "Verbindung" in err or "gesendet" in err.lower()), err[:100] or "done")
     await go("/mein-bereich"); await page.wait_for_load_state("networkidle")
     ok("Mein Bereich: Merkliste + gespeicherte Suche", await page.locator(".pcard").count() == 1 and await page.locator(".saved li").count() == 1)
 
@@ -249,10 +257,12 @@ async def subpages(b):
     ok("Immopedia: Suche", await page.locator(".ipedia__list li").count() > 0)
     await page.locator(".ipedia__list a").first.click(); await page.wait_for_load_state("networkidle")
     ok("Immopedia: Begriff", "/immopedia/" in page.url and len(await page.locator(".rich").first.inner_text()) > 200, page.url)
-    await go("/regionen/muenster"); await page.wait_for_load_state("networkidle")
+    await go("/regionen/essen"); await page.wait_for_load_state("networkidle")
     await page.locator(".rich__faq .acc__btn").first.click()
     ok("Region: FAQ mit Antwort", len(await page.locator(".rich__faq .acc__item.is-open .acc__panel").inner_text()) > 40)
-    for old, new in (("/standorte", "/regionen"), ("/stadt/essen", "/regionen/essen"), ("/magazin", "/ratgeber"), ("/commercial", "/kapitalanlage"), ("/makler-werden", "/ueber-uns")):
+    for old, new in (("/standorte", "/regionen"), ("/stadt/essen", "/regionen/essen"), ("/magazin", "/ratgeber"), ("/commercial", "/kapitalanlage"), ("/makler-werden", "/ueber-uns"),
+                     ("/leistungen", "/verkaufen"), ("/vermarktung", "/verkaufen"), ("/service", "/ratgeber#rechner"), ("/downloads", "/ratgeber#downloads"),
+                     ("/ueber-uns/qualifikation", "/ueber-uns#qualifikation"), ("/kontakt/essen", "/regionen/essen")):
         await go(old); await page.wait_for_timeout(300)
         ok(f"Weiterleitung {old}", page.url.rstrip("/").endswith(new), page.url)
     await go("/datenschutz"); await page.wait_for_load_state("networkidle")
@@ -268,7 +278,7 @@ async def subpages(b):
 
     # Overflow ausgewählter Seiten (Mobile + Tablet); vollständige Prüfung: scripts/check_links.py
     worst = []
-    for path in ("immobilien/kaufen", "expose/170744873", "verkaufen", "bewertung", "leistungen", "service/finanzierungsrechner", "ratgeber", "immopedia", "regionen/bochum", "kontakt"):
+    for path in ("immobilien/kaufen", "expose/170744873", "verkaufen", "bewertung", "ueber-uns", "service/finanzierungsrechner", "ratgeber", "immopedia", "regionen/bochum", "kontakt"):
         for w in (360, 768):
             pg = await new_page(b, w, 900, mobile=w < 768)
             await pg.goto(LOCAL_URL + path); await pg.wait_for_load_state("networkidle")
@@ -296,22 +306,35 @@ async def contact_widget(b):
     await page.fill(".cw__body input[autocomplete=name]", "Erika Muster")
     await page.fill(".cw__body input[type=email]", "erika@example.org")
     await page.select_option(".cw__body select", "Immobilie verkaufen")
-    await page.click(".cw__submit"); await page.wait_for_timeout(150)
-    href = await page.get_attribute(".cw__done a.btn--accent", "href") or ""
-    ok("Widget: Anfrage → vorbereitete E-Mail", href.startswith("mailto:") and "Immobilie%20verkaufen" in href)
+    await page.click(".cw__submit"); await page.wait_for_timeout(800)
+    done = await page.locator(".cw__done").count()
+    err = await page.locator(".cw__err").inner_text() if await page.locator(".cw__err").count() else ""
+    ok("Widget: Anfrage → Versand (Erfolg oder klarer Fehler)", done == 1 or len(err) > 20, err[:100] or "done")
     await page.click(".cw__tabs button:has-text('Rückruf')"); await page.wait_for_timeout(150)
     await page.click(".cw__submit"); await page.wait_for_timeout(150)
     ok("Widget: Rückruf verlangt Telefonnummer", await page.locator(".cw__field.has-error input[type=tel]").count() == 1)
     await page.click(".cw__tabs button:has-text('Anrufen')"); await page.wait_for_timeout(150)
-    ok("Widget: Anrufen-Link", await page.locator(".cw__call a[href='tel:+4925128429090']").count() == 1)
+    ok("Widget: Anrufen-Link", await page.locator(".cw__call a[href='tel:+4920161447786']").count() == 1)
     await page.click(".cw__tabs button:has-text('WhatsApp')"); await page.wait_for_timeout(150)
     ok("Widget: WhatsApp-Formular", await page.locator(".cw__wa").is_visible())
     await page.keyboard.press("Escape"); await page.wait_for_timeout(350)
     ok("Widget: Escape schließt", await page.locator(".cw.is-open").count() == 0)
     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)"); await page.wait_for_timeout(500)
     ok("Widget: am Seitenende ausgeblendet (Footer-Links frei)", await page.locator(".cw-trigger.is-visible").count() == 0)
-    ok("Footer: WhatsApp-Icon", await page.locator(".ftr a[href*='wa.me/4925128429090']").count() >= 1)
+    ok("Footer: WhatsApp-Icon", await page.locator(".ftr a[href*='wa.me/491794468850']").count() >= 1)
     ok("Footer: 3 Kooperationspartner verlinkt", await page.locator(".ftr__partners a[target=_blank]").count() == 3)
+    cities = await page.locator(".ftr__office-city").all_inner_texts()
+    ok("Footer: Büros Essen · Münster · Bochum (Münster in der Mitte)", len(cities) == 3 and "MÜNSTER" in cities[1].upper(), " / ".join(cities))
+    ok("Footer: Münster mit 0251, sonst zentrale 0201", await page.locator(".ftr__office >> nth=1").locator("a[href='tel:+4925128429090']").count() == 1
+       and await page.locator(".ftr__office >> nth=0").locator("a[href='tel:+4920161447786']").count() == 1)
+    ok("Keine alte WhatsApp-Festnetznummer", await page.locator("a[href*='wa.me/4920161447786'], a[href*='wa.me/4925128429090']").count() == 0)
+    await page.goto(LOCAL_URL + "expose/171838502"); await page.wait_for_load_state("networkidle")
+    ok("Exposé: Ansprechpartner Felix Lesch", (await page.locator(".expo__agent-name").inner_text()).strip() == "Felix Lesch")
+    await page.goto(LOCAL_URL + "expose/170497940"); await page.wait_for_load_state("networkidle")
+    ok("Exposé: Ansprechpartner laut ImmoScout (Michael Penn, eigene Nummer)", (await page.locator(".expo__agent-name").inner_text()).strip() == "Michael Penn"
+       and await page.locator(".expo__agent a[href='tel:+491732056491']").count() == 1)
+    await page.goto(LOCAL_URL + "expose/5835561"); await page.wait_for_load_state("networkidle")
+    ok("Exposé: nicht mehr angebotenes Objekt nicht gefunden", await page.locator(".expo__agent").count() == 0)
     ok("Desktop: keine Kontaktleiste", not await page.locator(".cw-bar").is_visible())
     ok("Widget: keine JS-Fehler", not errors, " | ".join(errors[:3]))
     await page.context.close()
@@ -320,7 +343,7 @@ async def contact_widget(b):
     await page.goto(LOCAL_URL); await page.wait_for_load_state("networkidle")
     bar = page.locator(".cw-bar")
     ok("Mobile: Kontaktleiste sichtbar", await bar.is_visible())
-    ok("Mobile: Anrufen + WhatsApp", await bar.locator("a[href='tel:+4925128429090']").count() == 1 and await bar.locator("a[href*='wa.me/4925128429090']").count() == 1)
+    ok("Mobile: Anrufen + WhatsApp", await bar.locator("a[href='tel:+4920161447786']").count() == 1 and await bar.locator("a[href*='wa.me/491794468850']").count() == 1)
     pad = await page.evaluate("parseFloat(getComputedStyle(document.body).paddingBottom)")
     ok("Mobile: Footer wird nicht verdeckt", pad >= 56, f"{pad}px")
     await bar.locator("button").click(); await page.wait_for_timeout(400)
@@ -343,7 +366,7 @@ async def contact_widget(b):
     await go("impressum")
     txt = await page.locator("main").inner_text()
     ok("Impressum: kein veralteter ODR-Hinweis, Schlichtungsstelle vorhanden", "consumers/odr" not in txt and "Schlichtungsstelle" in txt)
-    for city in ("muenster", "essen", "bochum"):
+    for city in ("essen", "bochum"):
         await go(f"regionen/{city}")
         ld = await page.evaluate("document.getElementById('ld-page')?.textContent || ''")
         ok(f"GEO: Service-Strukturdaten {city}", '"@type":"Service"' in ld and '"areaServed"' in ld)

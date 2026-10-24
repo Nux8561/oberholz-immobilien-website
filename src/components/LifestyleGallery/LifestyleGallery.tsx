@@ -3,7 +3,7 @@ import { lifestyle } from '../../data/content';
 import { IconArrowRight, IconChevronLeft, IconChevronRight, IconClose, IconExpand } from '../Icons';
 import './LifestyleGallery.css';
 
-/** Galerie – Referenz 1440: zwei Reihen à 445px, Gap 16: [groß 789×444 | 2× klein 322×214] und gespiegelt.
+/** Galerie – bei 1440px: zwei Reihen à 445px, Gap 16: [groß 789×444 | 2× klein 322×214] und gespiegelt.
  *  Kacheln sind Buttons; „Zur Galerie“ öffnet eine Vollbild-Ansicht. */
 type Item = { image: string; title: string; alt: string };
 

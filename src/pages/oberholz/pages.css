@@ -1,5 +1,17 @@
 /* Leistungs-Kacheln */
 .svc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.owner-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.owner-links--local { grid-template-columns: minmax(0, 1fr); }
+.owner-links__group { padding: 24px 28px; background: var(--c-cream); border-top: 2px solid var(--c-accent); }
+.owner-links__group h3 { font-size: 26px; line-height: 34px; margin-bottom: 12px; }
+.owner-links__group li + li { border-top: 1px solid var(--c-line); }
+.owner-links__group a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; padding: 10px 0; line-height: 26px; }
+.owner-links__group svg { flex: none; color: var(--c-accent); }
+.owner-links__group a:hover { color: var(--c-accent-strong); }
+.owner-sources { max-width: calc(var(--wrap-text) + 2 * var(--gutter)); padding: 0 var(--gutter) 40px; margin: 0 auto; }
+.owner-sources ul { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; }
+.owner-sources li { font-size: 14px; line-height: 24px; }
+@media (max-width: 599px) { .owner-links { grid-template-columns: minmax(0, 1fr); gap: 20px; } .owner-links__group { padding: 20px; } }
 .svc {
   display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 28px 24px; background: var(--c-cream);
   border: 1px solid transparent; transition: border-color var(--dur) var(--ease);
@@ -90,6 +102,11 @@
 .info-card .head { font-size: 22px; line-height: 30px; color: var(--c-strong); margin-bottom: 12px; }
 .info-card p, .info-card li { font-size: 16px; line-height: 26px; color: var(--c-text); }
 .info-card a { color: var(--c-ink); }
+.info-card__hubs { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 8px; }
+.info-card__hub img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; }
+@media (min-width: 600px) {
+  .info-card__hubs { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: start; }
 
 /* Rechtstexte */
@@ -124,7 +141,7 @@
 .svc-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 959px) { .svc-grid--3 { grid-template-columns: minmax(0, 1fr); } }
 
-/* Ratgeber im E&V-Aufbau */
+/* Ratgeber-Artikel */
 .cat-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .cat-nav .chip { display: inline-flex; align-items: center; border-radius: 20px; }
 .post__meta { display: block; margin-top: 16px; font-size: 12px; line-height: 16px; letter-spacing: .48px; text-transform: uppercase; color: var(--c-muted); }
@@ -159,3 +176,9 @@ details.toc[open] summary::after { content: '−'; }
 .author-box__bio { margin-top: 10px; font-size: 16px; line-height: 26px; color: var(--c-text); }
 .author-box__links { margin-top: 10px; font-size: 14px; line-height: 22px; color: var(--c-ink); }
 @media (max-width: 599px) { .author-box { flex-direction: column; padding: 24px 16px; } }
+
+.owner-method-source { margin-top: 24px; font-size: 14px; line-height: 1.6; color: var(--c-muted); }
+
+.legal .rich { padding-inline: 0; }
+.guide-download-title { font-size: 28px; line-height: 36px; margin: 12px 0 20px; }
+.guide-download-meta { font-size: 13px; color: var(--c-muted); margin: 14px 0 28px; }

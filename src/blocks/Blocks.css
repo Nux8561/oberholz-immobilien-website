@@ -1,4 +1,4 @@
-/* Unterseiten-Bausteine – Maße aus analysis/engelvoelkers/pages/*_1440.txt */
+/* Unterseiten-Bausteine */
 .b-center { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
 .b-empty { padding: 24px 0; text-align: center; color: var(--c-muted); }
 .b-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 16px; color: var(--c-ink); }

@@ -8,7 +8,7 @@ import './RelatedTopics.css';
 const COLLAPSED = 3;
 
 /** Weitere Themen – Desktop: Icon + Text links, zwei Linkspalten rechts (2×258px).
- *  <960px: eine Linkspalte, nur 3 Links sichtbar + „Mehr anzeigen“ (Referenz 390px). */
+ *  <960px: eine Linkspalte, nur 3 Links sichtbar + „Mehr anzeigen“. */
 export default function RelatedTopics() {
   const [open, setOpen] = useState<Record<number, boolean>>({});
 

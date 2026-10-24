@@ -1,4 +1,4 @@
-/* Exposé – Referenz /exposes/<id> (1440): Aktionsleiste 64px, Galerie 2×556×371 (Gap 16), Hauptbereich 666 | 322 (Gap 140),
+/* Exposé (1440px): Aktionsleiste 64px, Galerie 2×556×371 (Gap 16), Hauptbereich 666 | 322 (Gap 140),
    Objektdetails auf Creme (2×540px), Formular-Box 1128px mit 584px Formular, Shop-Info auf Creme, Courtage, Dekor. */
 .expo__actions { display: flex; justify-content: flex-end; gap: 24px; max-width: 1440px; margin: 0 auto; padding: 12px 40px; }
 .expo__action { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 8px 0; font-size: 16px; line-height: 24px; color: var(--c-ink); }

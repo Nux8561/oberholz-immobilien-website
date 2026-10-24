@@ -25,7 +25,7 @@ export function Impressum() {
         { t: 'h3', text: 'Angaben gemäß § 5 DDG' },
         { t: 'p', text: brand.company },
         { t: 'p', text: `${brand.street.replace('straße', 'str.')}, D-48147 Münster` },
-        { t: 'p', text: 'Tel. +49 (0)251 – 28 42 90 90 · Fax +49 (0)251 – 28 42 90 91' },
+        { t: 'p', text: `Tel. Essen ${brand.phoneDisplay} · Tel. Münster ${brand.phoneMuensterDisplay} · WhatsApp ${brand.whatsappDisplay}` },
         { t: 'p', text: `E-Mail: ${brand.email} (Impressum-Kontakt: info@sv-oberholz.de) · Bürotermine nach Vereinbarung` },
         { t: 'h3', text: 'Steuer & Aufsicht' },
         { t: 'p', text: 'Finanzamt Münster-Innenstadt · USt.-IdNr. DE297711149' },
@@ -60,8 +60,8 @@ export function Datenschutz() {
         { t: 'p', text: `${brand.company}, ${brand.street}, ${brand.city.replace(', Deutschland', '')} · Telefon ${brand.phoneDisplay} · E-Mail ${brand.email}` },
         ...out,
         { t: 'h2', text: 'Merkliste, gespeicherte Suchen und Anfragen' },
-        { t: 'p', text: 'Merkliste und gespeicherte Suchen werden ausschließlich im lokalen Speicher Ihres Browsers abgelegt und nicht an uns übertragen. Sie können diese Daten jederzeit unter „Mein Bereich“ oder in den Cookie-Einstellungen löschen.' },
-        { t: 'p', text: 'Anfrageformulare dieser Website übermitteln keine Daten an einen Server. Ihre Angaben werden zu einer E-Mail zusammengestellt, die Sie selbst über Ihr E-Mail-Programm an uns senden. Die Verarbeitung erfolgt anschließend wie unter „Kontaktaufnahme“ beschrieben.' },
+        { t: 'p', text: 'Merkliste und gespeicherte Suchen werden ausschließlich im lokalen Speicher Ihres Browsers abgelegt und nicht an uns übertragen. Sie können diese Daten jederzeit unter „Merkliste“ oder in den Cookie-Einstellungen löschen.' },
+        { t: 'p', text: 'Anfrageformulare dieser Website senden Ihre Angaben an unseren Empfang (mail@oberholz-immobilien.com), sobald der serverseitige Formularversand in der Hosting-Umgebung freigeschaltet ist. Bis dahin erscheint eine verständliche Fehlermeldung; ein erfolgreicher Abschluss wird erst nach bestätigter Annahme angezeigt. Die weitere Verarbeitung erfolgt wie unter „Kontaktaufnahme“ beschrieben.' },
         { t: 'p', text: 'Die Rechner (Budget-, Finanzierungs- und Wert-Hebel-Rechner) rechnen vollständig in Ihrem Browser; Ihre Eingaben werden nicht gespeichert oder übertragen.' },
         { t: 'h2', text: 'Kontakt per WhatsApp' },
         { t: 'p', text: 'Sie können uns über den Messenger-Dienst WhatsApp der WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland (Teil der Meta-Gruppe) erreichen. WhatsApp ist auf dieser Website nicht eingebunden: Erst wenn Sie einen WhatsApp-Link anklicken, öffnet sich WhatsApp bzw. die Website von WhatsApp, und es gelten die Datenschutzbestimmungen von WhatsApp. Dabei können Daten (z. B. Telefonnummer, Nachrichteninhalte, Metadaten) auch in Drittländer wie die USA übertragen werden.' },
@@ -100,13 +100,13 @@ export function CookieHinweise() {
 }
 
 export function MeinBereich() {
-  usePageMeta({ title: 'Mein Bereich', crumbs: [{ label: 'Mein Bereich' }], footer: 'accordion', noindex: true });
+  usePageMeta({ title: 'Merkliste', crumbs: [{ label: 'Merkliste' }], footer: 'accordion', noindex: true });
   const fav = useFavorites();
   const saved = useSavedSearches();
   const items = fav.ids.map(findProperty).filter((p): p is Property => !!p);
   return (
     <>
-      <SectionIntro level="h1" eyebrow="Mein Bereich" title="Ihre Merkliste und gespeicherten Suchen"
+      <SectionIntro level="h1" eyebrow="Merkliste" title="Ihre Merkliste und gespeicherten Suchen"
         text="Alles wird nur in diesem Browser gespeichert – ohne Konto und ohne Anmeldung." />
       <section className="wrap">
         <SectionIntro variant="inline" line={false} eyebrow="Merkliste" title={`${items.length} ${items.length === 1 ? 'gemerkte Immobilie' : 'gemerkte Immobilien'}`} />
