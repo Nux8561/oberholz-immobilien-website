@@ -8,8 +8,8 @@ import './Footer.css';
 /** variant 'open': Linkspalten offen (Startseite); 'accordion': zugeklappt mit + (Unterseiten) */
 export default function Footer({ variant = 'open' }: { variant?: 'open' | 'accordion' }) {
   const [open, setOpen] = useState<number | null>(null);
-  const socialUrl = { linkedin: brand.linkedinUrl, google: brand.googleUrl, whatsapp: whatsappUrl() } as const;
-  const socialLabel = { linkedin: 'LinkedIn', google: 'Google-Bewertungen', whatsapp: 'WhatsApp' } as const;
+  const socialUrl = { google: brand.googleUrl, whatsapp: whatsappUrl() } as const;
+  const socialLabel = { google: 'Google-Bewertungen', whatsapp: 'WhatsApp' } as const;
 
   return (
     <footer className={`ftr ftr--${variant}`}>

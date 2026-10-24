@@ -11,7 +11,8 @@ import SectionIntro from '../../components/SectionIntro/SectionIntro';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import { LineIcon } from '../../blocks/LineIcons';
 import Partners from '../../components/Partners/Partners';
-import { OwnerGuides, OwnerLinks } from './LocalOwner';
+import { OwnerGuides, OwnerLinks, SellSteps } from './LocalOwner';
+import { documentsAnswer } from '../../data/ownerContent';
 import {
   BTN_CALL, BTN_KONTAKT, PropertyStrip, ServiceGrid, TeaserBand, TOOL_TEASERS, short, splitIntro,
 } from './shared';
@@ -24,6 +25,8 @@ const teamOf = (blocks: RichBlock[]) => blocks.filter((b): b is Extract<RichBloc
 type ServiceOpts = {
   crumb: string; metaTitle: string; exclude: string; heroImage?: string; eyebrow: string;
   intent?: 'Verkaufen' | 'Vermieten'; funnel?: boolean; extra?: React.ReactNode; tools?: (keyof typeof TOOL_TEASERS)[];
+  /** Teamleiste unter dem Kopf anzeigen (Finanzierung: nein, Kunde Runde 3) */
+  teamStrip?: boolean;
 };
 
 function ServicePage(o: ServiceOpts & { k: string }) {
@@ -35,7 +38,7 @@ function ServicePage(o: ServiceOpts & { k: string }) {
     <>
       <PageHero eyebrow={o.eyebrow} title={title} text={text} checks={checks?.map(short).slice(0, 4)} image={o.heroImage ?? team[0]?.src ?? photos.advisorA}
         alt="" cutout rating buttons={[o.funnel === false ? BTN_KONTAKT : { label: 'Jetzt anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
-      {team.length > 1 && <div className="rich"><div className="rich__wide"><TeamStrip imgs={team} /></div></div>}
+      {o.teamStrip !== false && team.length > 1 && <div className="rich"><div className="rich__wide"><TeamStrip imgs={team} /></div></div>}
       <Rich blocks={body} />
       {o.extra}
       {o.funnel !== false && <Funnel intent={o.intent} />}
@@ -48,23 +51,18 @@ function ServicePage(o: ServiceOpts & { k: string }) {
 
 const sellFaq = [
   { q: 'Wie läuft ein Immobilienverkauf ab?', a: 'Zuerst besprechen wir Ihr Ziel, prüfen die Unterlagen und bewerten die Immobilie. Danach stimmen wir Angebotspreis und Vermarktung ab, koordinieren Besichtigungen und begleiten die Abstimmung mit Käufer und Notariat bis zur Übergabe.' },
-  { q: 'Welche Unterlagen brauche ich zum Verkauf?', a: 'Zum Start helfen Grundbuchauszug, Grundrisse, Wohnflächenberechnung und Energieausweis. Bei Eigentumswohnungen kommen Unterlagen der Eigentümergemeinschaft hinzu, bei vermieteten Objekten Mietverträge und Ertragsangaben. Wir klären mit Ihnen, was bereits vorliegt und was noch benötigt wird.' },
-  { q: 'Was ist meine Immobilie in Essen oder Bochum wert?', a: 'Entscheidend sind die konkrete Lage, Zustand, Fläche, Nutzung und die aktuelle Nachfrage. Ein städtischer Durchschnittspreis ersetzt keine Objektbewertung. Für Essen und Bochum finden Sie auf unseren lokalen Bewertungsseiten die jeweiligen Besonderheiten und offiziellen Marktquellen.' },
+  { q: 'Welche Unterlagen brauche ich zum Verkauf?', a: documentsAnswer },
+  { q: 'Was ist meine Immobilie wert?', a: 'Entscheidend sind die konkrete Lage, Zustand, Fläche, Nutzung und die aktuelle Nachfrage. Ein städtischer Durchschnittspreis ersetzt keine Objektbewertung. Für Essen und Münster finden Sie auf unseren lokalen Bewertungsseiten die jeweiligen Besonderheiten und offiziellen Marktquellen.' },
   { q: 'Kann ich auch eine vermietete oder geerbte Immobilie verkaufen?', a: 'Ja. Bestehende Mietverhältnisse und die Eigentumssituation müssen dabei früh berücksichtigt werden. Wir ordnen die nächsten Schritte gemeinsam mit Ihnen ein; bei rechtlichen oder steuerlichen Fragen beziehen Sie bitte Ihr Notariat beziehungsweise Ihre Steuerberatung ein.' },
   { q: 'Wie lange dauert der Verkauf und welche Kosten entstehen?', a: 'Die Dauer hängt unter anderem von Lage, Preis, Zustand, Unterlagen und Finanzierung des Käufers ab. Vermarktungsauftrag, Leistungen und vereinbarte Provision besprechen wir vor Beginn transparent mit Ihnen. Eine feste Verkaufsdauer oder einen bestimmten Erlös können wir nicht seriös zusagen.' },
 ];
 
 export function Verkaufen() {
-  usePageMeta({ title: 'Immobilie verkaufen in Essen, Bochum & Münsterland', description: 'Haus oder Wohnung verkaufen: persönliche Bewertung, vollständige Unterlagen und begleitete Vermarktung mit Oberholz Immobilien in Essen, Bochum und im Münsterland.', crumbs: crumbs('Immobilie verkaufen'), footer: 'accordion', image: photos.advisorA, jsonLd: [faqLd(sellFaq)] });
+  usePageMeta({ title: 'Immobilie verkaufen in Essen, Münster & Umgebung', description: 'Haus oder Wohnung verkaufen: persönliche Bewertung, vollständige Unterlagen und begleitete Vermarktung mit Oberholz Immobilien in Essen, Münster und Umgebung.', crumbs: crumbs('Immobilie verkaufen'), footer: 'accordion', image: photos.advisorA, jsonLd: [faqLd(sellFaq)] });
   return <>
-    <PageHero eyebrow="Immobilie verkaufen" title="Ihr Immobilienverkauf. Persönlich begleitet." text="Ob Haus, Eigentumswohnung oder Mehrfamilienhaus: Wir begleiten Ihren Verkauf in Essen, Bochum und im Münsterland – von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Ein fester Ansprechpartner', 'Bewertung und Vermarktung aus einer Hand', 'Ein klarer Plan für Ihre Immobilie']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
-    <section className="wrap">
-      <SectionIntro variant="inline" line={false} eyebrow="Vom ersten Gespräch bis zur Übergabe" title="Drei Schritte. Ein gemeinsames Ziel." />
-      <div className="svc-grid svc-grid--3">
-        {[['01', 'Wert und Ausgangslage klären', 'Wir sehen uns Ihre Immobilie und die Unterlagen an. Gemeinsam besprechen wir Zeitplan, Zielgruppe und einen nachvollziehbaren Angebotspreis.'], ['02', 'Gezielt an den Markt gehen', 'Wir bereiten Exposé und Präsentation vor, koordinieren Anfragen und Besichtigungen und besprechen die Rückmeldungen mit Ihnen.'], ['03', 'Den Verkauf sicher abschließen', 'Wir begleiten die Verhandlung und die Abstimmung mit dem Notariat. Auch die Vorbereitung der Übergabe gehört zu unserem gemeinsamen Fahrplan.']].map(([n, title, text]) => <article className="svc" key={n}><p className="eyebrow">Schritt {n}</p><h3 className="svc__title head">{title}</h3><p className="svc__text">{text}</p></article>)}
-      </div>
-    </section>
-    <Rich blocks={[{ t: 'h2', text: 'Ihr Objekt bestimmt die Strategie' }, { t: 'p', text: 'Beim Hausverkauf zählen Grundstück, Bausubstanz und energetischer Zustand. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet.' }, { t: 'p', text: 'Wir erklären Ihnen, welche Faktoren den Preis Ihres Objekts beeinflussen und welche Unterlagen für Kaufinteressenten wichtig sind. So schaffen wir eine belastbare Grundlage für Ihre Entscheidung.' }]} />
+    <PageHero eyebrow="Immobilie verkaufen" title="Ihr Immobilienverkauf. Persönlich begleitet." text="Ob Haus, Eigentumswohnung oder Mehrfamilienhaus: Wir begleiten Ihren Verkauf in Essen, Münster und Umgebung – von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Ein fester Ansprechpartner', 'Bewertung und Vermarktung aus einer Hand', 'Ein klarer Plan für Ihre Immobilie']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+    <SellSteps />
+    <Rich blocks={[{ t: 'h2', text: 'Ihr Objekt bestimmt die Strategie' }, { t: 'p', text: 'Beim Hausverkauf spielen das Grundstück, die Bausubstanz und der energetische Zustand eine wichtige Rolle. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet.' }, { t: 'p', text: 'Wir erklären Ihnen, welche Faktoren den Preis Ihres Objekts beeinflussen, welche Unterlagen für Kaufinteressenten benötigt werden und welche weiteren Faktoren für Ihre Zielgruppe relevant sind. So schaffen wir eine belastbare Grundlage für Ihre Entscheidung.' }]} />
     <OwnerLinks exclude="makler" />
     <Funnel intent="Verkaufen" title="Lassen Sie uns über Ihren Verkauf sprechen" />
     <div className="rich"><div className="rich__text"><FaqBlock title="Häufige Fragen zum Immobilienverkauf" items={sellFaq} /></div></div>
@@ -73,20 +71,20 @@ export function Verkaufen() {
   </>;
 }
 export function Vermieten() {
-  usePageMeta({ title: 'Immobilie vermieten und verpachten', crumbs: crumbs('Vermietung'), footer: 'accordion', description: 'Vermietung und Verpachtung mit Oberholz Immobilien: marktgerechte Miete, geprüfte Interessenten und persönliche Begleitung in Essen, Münster und der Region.' });
+  usePageMeta({ title: 'Immobilie vermieten und verpachten', crumbs: crumbs('Vermietung'), footer: 'accordion', description: 'Vermietung und Verpachtung mit Oberholz Immobilien: marktgerechte Miete, geprüfte Interessenten und persönliche Begleitung in Essen, Münster und der Umgebung.' });
   return (
     <>
       <PageHero eyebrow="Vermietung & Verpachtung" title="Ihre Immobilie vermieten – persönlich begleitet"
-        text="Wir unterstützen Sie bei der Vermietung in Essen, Münster und der Region: von der Mietpreis-Einschätzung über die Suche nach geeigneten Interessenten bis zum Mietvertrag."
+        text="Wir unterstützen Sie bei der Vermietung in Essen, Münster und der Umgebung: von der Mietpreis-Einschätzung über die Suche nach geeigneten Interessenten bis zum Mietvertrag."
         checks={['Marktgerechte Mieteinschätzung', 'Geprüfte Interessenten', 'Persönlicher Ansprechpartner']}
         image={photos.advisorD} alt="Lubka Röger" cutout rating
         buttons={[{ label: 'Vermietung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
       <Rich blocks={[
         { t: 'h2', text: 'Vermietung mit klarem Ablauf' },
-        { t: 'p', text: 'Zuerst besprechen wir Objekt, Zielmiete und Ihre Anforderungen an künftige Mieter. Anschließend bereiten wir die Vermarktung vor, koordinieren Besichtigungen und unterstützen Sie bei der Auswahl.' },
-        { t: 'p', text: 'Für die Vermietung sind vollständige Unterlagen hilfreich – etwa Grundrisse, Wohnflächenangaben und ein vorhandener Energieausweis. Die Ausstellung von Energieausweisen gehört nicht zu unseren Leistungen; wir helfen Ihnen, die erforderlichen Dokumente zusammenzustellen.' },
+        { t: 'p', text: 'Zuerst besprechen wir Objekt, Zielmiete und Ihre Anforderungen an künftige Mieter. Anschließend bereiten wir die Vermarktung vor, koordinieren Besichtigungen und unterstützen Sie bei der Auswahl des geeigneten Mieters.' },
+        { t: 'p', text: 'Für die Vermietung sind vollständige Unterlagen notwendig – etwa Grundrisse, Wohnflächenangaben und ein Energieausweis. Wir unterstützen Sie bei der Zusammenstellung relevanter Unterlagen.' },
         { t: 'h2', text: 'Was wir für Vermieter übernehmen' },
-        { t: 'ul', items: ['Einschätzung einer marktgerechten Miete', 'Exposé und gezielte Vermarktung', 'Koordination von Anfragen und Besichtigungen', 'Abstimmung der nächsten Schritte bis zum Vertragsabschluss'] },
+        { t: 'ul', items: ['Einschätzung einer marktgerechten Miete', 'Exposé und gezielte Vermarktung', 'Koordination von Anfragen und Besichtigungen', 'Abschluss des Mietvertrags'] },
       ]} />
       <Funnel intent="Vermieten" title="Lassen Sie uns über Ihre Vermietung sprechen" />
       <ServiceGrid exclude="vermietung" title="Weitere Leistungen" eyebrow="Das könnte Sie auch interessieren" />
@@ -96,7 +94,7 @@ export function Vermieten() {
 }
 export const Finanzierung = () => (
   <ServicePage k="leistungen-immobilienfinanzierung" crumb="Finanzierung" metaTitle="Immobilienfinanzierung"
-    exclude="finanzierung" eyebrow="Immobilienfinanzierung" funnel={false} tools={['budget', 'finanzierung']}
+    exclude="finanzierung" eyebrow="Immobilienfinanzierung" funnel={false} tools={['budget', 'finanzierung']} teamStrip={false}
     extra={<><FinanceRequest /><Partners kinds={['kooperation', 'finanzierung']} /></>} />
 );
 function FinanceRequest() {
@@ -120,14 +118,11 @@ function BuyLanding({ k, crumb, metaTitle, eyebrow, filter, search }: { k: strin
   const h1 = b.find((x) => x.t === 'h1');
   const intro = b.find((x, i) => x.t === 'p' && i > b.indexOf(h1!) );
   usePageMeta({ title: metaTitle, crumbs: crumbs(crumb), footer: 'accordion', description: textOf(intro), jsonLd: [faqLd(homeFaq.slice(0, 4))] });
-  const fin = page('leistungen-immobilienfinanzierung').blocks;
-  const finCols = fin.slice(fin.findIndex((x) => x.t === 'h2'), fin.findIndex((x) => x.t === 'h2' && /Ihre Vorteile/.test(textOf(x))));
   return (
     <>
       <PageHero eyebrow={eyebrow} title={textOf(h1)} text={textOf(intro)} image={photos.advisorE} cutout rating
         buttons={[{ label: 'Aktuelle Objekte ansehen', to: search, variant: 'accent' }, { label: 'Budget prüfen', to: ROUTES.budgetrechner, variant: 'outline' }]} />
       <PropertyStrip title="Passende Angebote aus unserer Vermittlung" filter={filter} cta={{ label: 'Alle passenden Objekte', to: search }} />
-      <Rich blocks={[{ t: 'h2', text: 'Kaufen mit Finanzierungssicherheit' }, { t: 'p', text: 'Wir begleiten Sie nicht nur bei der Objektauswahl, sondern auch bei der Finanzierung – mit bankengerechten Unterlagen und unserem Banken-Netzwerk.' }, ...finCols]} />
       <TeaserBand items={[TOOL_TEASERS.budget, TOOL_TEASERS.finanzierung]} />
       <ServiceGrid exclude="kapitalanlage" title="Weitere Leistungen" eyebrow="Alles aus einer Hand" />
       <div className="rich"><div className="rich__text"><FaqBlock title="Häufige Fragen" items={homeFaq.slice(0, 4)} /></div></div>
@@ -144,21 +139,20 @@ export const Kapitalanlage = () => (
 /* ---------- Rückmietverkauf ---------- */
 
 export function Rueckmietverkauf() {
-  usePageMeta({ title: 'Rückmietverkauf: verkaufen und wohnen bleiben', crumbs: crumbs('Rückmietverkauf'), footer: 'accordion', description: 'Rückmietverkauf mit Oberholz Immobilien: Immobilie zum Marktwert verkaufen, Kaufpreis erhalten und weiter im eigenen Zuhause wohnen – persönlich beraten in Essen, Münster und Bochum.', image: photos.senioren });
+  usePageMeta({ title: 'Rückmietverkauf: verkaufen und wohnen bleiben', crumbs: crumbs('Rückmietverkauf'), footer: 'accordion', description: 'Rückmietverkauf mit Oberholz Immobilien: Immobilie zum Marktwert verkaufen, Kaufpreis erhalten und weiter im eigenen Zuhause wohnen – persönlich beraten in Essen, Münster und Umgebung.', image: photos.senioren });
   const checks = page('home').blocks.filter((x) => x.t === 'ul')[5] as { items: string[] };
   return (
     <>
       <PageHero eyebrow="Rückmietverkauf" title="Verkaufen und im eigenen Zuhause wohnen bleiben" image={photos.senioren} alt="Älteres Paar auf der Terrasse seines Hauses" rating
-        text="Beim Rückmietverkauf verkaufen Sie Ihre Immobilie zum Marktwert und mieten sie direkt zurück. So erhalten Sie den Kaufpreis und bleiben in Ihrem vertrauten Umfeld."
+        text="Beim Rückmietverkauf verkaufen Sie Ihre Immobilie zum Marktwert und mieten sie direkt zurück. So erhalten Sie den Kaufpreis und bleiben in Ihrem vertrauten Umfeld wohnen."
         checks={checks.items} buttons={[{ label: 'Beratung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
       <Rich blocks={[
         { t: 'h2', text: 'So funktioniert der Rückmietverkauf' },
         { t: 'h3', text: 'Marktwert ermitteln' }, { t: 'p', text: 'Wir bewerten Ihre Immobilie persönlich vor Ort – als Grundlage für einen fairen Kaufpreis.' },
         { t: 'h3', text: 'Käufer & Mietvertrag' }, { t: 'p', text: 'Wir suchen einen passenden Käufer und vereinbaren mit ihm einen langfristigen Mietvertrag für Sie.' },
-        { t: 'h3', text: 'Notar & Auszahlung' }, { t: 'p', text: 'Nach dem Notartermin erhalten Sie den Kaufpreis – Sie wohnen als Mieter:in weiter in Ihrem Zuhause.' },
+        { t: 'h3', text: 'Notar & Auszahlung' }, { t: 'p', text: 'Nach dem Notartermin erhalten Sie den Kaufpreis und wohnen als Mieter weiter in Ihrem Zuhause.' },
         { t: 'h2', text: 'Für wen eignet sich der Rückmietverkauf?' },
-        { t: 'p', text: 'Für Eigentümer:innen, die Kapital aus ihrer Immobilie freisetzen möchten – etwa für den Ruhestand, die Familie oder eine Pflegesituation –, ohne umzuziehen. Ob die Lösung zu Ihnen passt, klären wir in einem unverbindlichen Gespräch, gern gemeinsam mit Ihren Angehörigen.' },
-        { t: 'blockquote', text: 'Wir nehmen uns Zeit für Ihre Fragen und zeigen Ihnen auch die Alternativen – vom klassischen Verkauf bis zur Vermietung.' },
+        { t: 'p', text: 'Für Eigentümer, die Kapital aus ihrer Immobilie freisetzen möchten – etwa für den Ruhestand, die Familie oder eine Pflegesituation –, ohne umzuziehen. Ob die Lösung zu Ihnen passt, klären wir in einem unverbindlichen Gespräch, gern gemeinsam mit Ihren Angehörigen.' },
       ]} />
       <section className="wrap" id="anfrage">
         <div className="lead">
@@ -175,24 +169,24 @@ export function Rueckmietverkauf() {
 /* ---------- Immobilienbewertung ---------- */
 
 const METHODS = [
-  { title: 'Vergleichswertverfahren', icon: 'house' as const, text: 'Vergleichbare Verkäufe und geeignete Vergleichsfaktoren bilden die Grundlage – zum Beispiel bei Eigentumswohnungen und vergleichbaren Wohnhäusern.' },
-  { title: 'Ertragswertverfahren', icon: 'money' as const, text: 'Bei vermieteten Immobilien stehen die marktüblichen Erträge, die Bewirtschaftungskosten und das Grundstück im Mittelpunkt.' },
-  { title: 'Sachwertverfahren', icon: 'document' as const, text: 'Bodenwert und Gebäudesachwert werden zusammen betrachtet und an die Marktsituation angepasst. Das kann etwa bei individuell geprägten Häusern sinnvoll sein.' },
+  { title: 'Vergleichswertverfahren', icon: 'house' as const, text: 'Vergleichbare Verkäufe und geeignete Vergleichsfaktoren bilden die Grundlage – zum Beispiel bei selbstgenutzten Eigentumswohnungen und Einfamilienhäusern.' },
+  { title: 'Ertragswertverfahren', icon: 'money' as const, text: 'Bei vermieteten Immobilien stehen die marktüblichen Erträge und die Bewirtschaftungskosten im Mittelpunkt.' },
+  { title: 'Sachwertverfahren', icon: 'document' as const, text: 'Bei eigengenutzten Immobilien ergeben der Bodenwert und der Zeitwert des Gebäudes addiert den Sachwert der Immobilie. Dieser wird an die Marktsituation angepasst.' },
 ];
 const valuationFaq = [
   { q: 'Was kostet die erste Immobilienbewertung?', a: 'Die erste Marktwerteinschätzung durch Oberholz Immobilien ist kostenlos und unverbindlich. Falls Sie ein förmliches Gutachten für einen bestimmten Zweck benötigen, klären wir Umfang und mögliche Kosten separat vor einer Beauftragung.' },
-  { q: 'Ist eine Online-Schätzung so genau wie eine Bewertung vor Ort?', a: 'Eine Online-Schätzung kann eine erste Orientierung geben. Eine Besichtigung berücksichtigt zusätzlich den tatsächlichen Zustand, Modernisierungen, Besonderheiten der Lage und die Unterlagen. Dadurch lässt sich die Einschätzung nachvollziehbar auf Ihr Objekt beziehen.' },
-  { q: 'Welche Unterlagen helfen bei der Wertermittlung?', a: 'Hilfreich sind Grundrisse, Wohn- und Grundstücksfläche, Baujahr, Modernisierungsangaben, Energieausweis und Grundbuchauszug. Für Wohnungen sind WEG-Unterlagen, für vermietete Objekte die Mietverträge und Ertragsangaben wichtig. Fehlende Unterlagen besprechen wir gemeinsam.' },
-  { q: 'Ist die Marktwerteinschätzung ein Verkehrswertgutachten?', a: 'Unsere erste Einschätzung unterstützt die Preisfindung und Verkaufsentscheidung. Sie ist kein förmliches Verkehrswertgutachten. Ob Sie für Gericht, Finanzamt, Erbauseinandersetzung oder Finanzierung ein Gutachten benötigen, hängt vom konkreten Zweck und den Anforderungen des Empfängers ab.' },
-  { q: 'In welchen Orten bewerten Sie Immobilien?', a: 'Wir begleiten Eigentümer in Essen, Bochum und im Münsterland. Für Essen und Bochum erläutern unsere lokalen Bewertungsseiten, welche Lage- und Objektmerkmale relevant sind, und verlinken die amtlichen Grundstücksmarktberichte.' },
+  { q: 'Ist eine Online-Schätzung so genau wie eine Bewertung vor Ort?', a: 'Eine Online-Schätzung kann eine erste Orientierung geben. Eine Begehung berücksichtigt zusätzlich den tatsächlichen Zustand, erfolgte Modernisierungen und Besonderheiten der Lage.' },
+  { q: 'Welche Unterlagen helfen bei der Wertermittlung?', a: documentsAnswer },
+  { q: 'Ist die Marktwerteinschätzung ein Verkehrswertgutachten?', a: 'Unsere Marktwerteinschätzung unterstützt die Preisfindung und die damit verbundene Verkaufsentscheidung. Sie ist kein förmliches Verkehrswertgutachten. Sollten Sie für Gericht, das Finanzamt, Erbauseinandersetzungen oder eine Finanzierung ein Verkehrswertgutachten benötigen, sprechen Sie uns ebenfalls gern an.' },
+  { q: 'In welchen Orten bewerten Sie Immobilien?', a: 'Wir unterstützen Eigentümer mit ihren Immobilien in Essen, dem umliegenden Ruhrgebiet, dem Rheinland, dem Bergischen Land sowie Münster und dem Münsterland.' },
 ];
 
 export function Bewertung() {
-  usePageMeta({ title: 'Kostenlose Immobilienbewertung in Essen & Bochum', crumbs: crumbs('Immobilienbewertung'), footer: 'accordion', description: 'Was ist Ihr Haus oder Ihre Wohnung wert? Persönliche, kostenlose Marktwerteinschätzung in Essen, Bochum und im Münsterland. Jetzt Bewertung anfragen.', image: photos.bewertung, jsonLd: [faqLd(valuationFaq)] });
+  usePageMeta({ title: 'Kostenlose Immobilienbewertung in Essen & Münster', crumbs: crumbs('Immobilienbewertung'), footer: 'accordion', description: 'Was ist Ihr Haus oder Ihre Wohnung wert? Persönliche, kostenlose Marktwerteinschätzung in Essen, Münster und Umgebung. Jetzt Bewertung anfragen.', image: photos.bewertung, jsonLd: [faqLd(valuationFaq)] });
   return <>
-    <PageHero eyebrow="Immobilienbewertung" title="Der Wert Ihrer Immobilie. Verständlich erklärt." image={photos.bewertung} alt="Besprechung von Immobilienunterlagen" rating text="Sie möchten wissen, was Ihr Haus oder Ihre Wohnung wert ist? Wir betrachten Lage, Zustand und Unterlagen persönlich – als Grundlage für Ihre nächsten Schritte." checks={['Kostenlose erste Marktwerteinschätzung', 'Persönlicher Blick auf Ihr Objekt', 'Für Essen, Bochum und das Münsterland']} buttons={[{ label: 'Bewertung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+    <PageHero eyebrow="Immobilienbewertung" title="Der Wert Ihrer Immobilie. Verständlich erklärt." image={photos.bewertung} alt="Besprechung von Immobilienunterlagen" rating text="Sie möchten wissen, was Ihr Haus oder Ihre Wohnung wert ist? Wir betrachten Lage, Zustand und Unterlagen persönlich – als Grundlage für Ihre nächsten Schritte." checks={['Kostenlose erste Marktwerteinschätzung', 'Persönlicher Blick auf Ihr Objekt', 'Für Essen, Münster und Umgebung']} buttons={[{ label: 'Bewertung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
     <section className="wrap">
-      <SectionIntro variant="inline" line={false} eyebrow="Bewertungsverfahren" title="Die passende Methode für Ihre Immobilie" text="Die Auswahl richtet sich nach Objektart, Nutzung und verfügbarer Datengrundlage. Je nach Immobilie werden auch mehrere Verfahren herangezogen." />
+      <SectionIntro variant="inline" line={false} eyebrow="Bewertungsverfahren" title="Die passende Methode für Ihre Immobilie" text="Die Auswahl des Bewertungsverfahrens richtet sich nach der Objektart und der tatsächlichen Nutzung. Je nach Immobilie werden auch mehrere Verfahren herangezogen." />
       <div className="svc-grid svc-grid--3">{METHODS.map(m => <article key={m.title} className="svc"><LineIcon name={m.icon} size={36} /><h3 className="svc__title head">{m.title}</h3><p className="svc__text">{m.text}</p></article>)}</div>
       <p className="owner-method-source">Grundlage: <a className="link-underline" href="https://www.gesetze-im-internet.de/immowertv_2022/__6.html" target="_blank" rel="noopener noreferrer">§ 6 Immobilienwertermittlungsverordnung</a></p>
     </section>

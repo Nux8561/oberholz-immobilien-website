@@ -1,4 +1,5 @@
-.cities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+/* zwei Standorte (Essen, Münster): Kacheln mittig in Kartenbreite */
+.cities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 744px; margin: 0 auto; }
 .city {
   position: relative; display: grid; grid-template-columns: 1fr 24px; grid-template-rows: auto auto; column-gap: 12px;
   padding: 16px; background: var(--c-white); box-shadow: var(--shadow-card);
@@ -15,5 +16,4 @@
 .city__link::after { content: ''; position: absolute; inset: 0; }
 .city__link svg { transition: transform var(--dur) var(--ease); }
 .city:hover .city__link svg { transform: translateX(4px); }
-@media (max-width: 959px) { .cities { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .cities { grid-template-columns: 1fr; } }

@@ -7,16 +7,16 @@ import Contact from '../components/Contact/Contact';
 import { faqLd, usePageMeta } from '../layout/PageMeta';
 import { homeFaq } from '../data/siteFaq';
 
-/** Startseite – bewusst kurz: Suche, Verkauf, Vermittlungen, Standorte, Team, Ratgeber, Fragen, Kontakt. */
+/** Startseite – bewusst kurz: Suche, Verkauf, Team, Vermittlungen, Standorte, Ratgeber, Fragen, Kontakt. */
 export default function Home() {
   usePageMeta({ jsonLd: [faqLd(homeFaq)] });
   return (
     <>
       <Hero />
       <Selling />
+      <Careers />
       <Lifestyle />
       <CityCards />
-      <Careers />
       <Magazine />
       <HomeFaq />
       <Contact />

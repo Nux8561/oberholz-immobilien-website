@@ -1,13 +1,13 @@
 # Oberholz Immobilien
 
-> Immobilienmakler im Ruhrgebiet und im Münsterland mit gleichwertigen Hauptstandorten in Essen und Münster sowie Aktivität in Bochum. Leistungen: kostenlose Immobilienbewertung, Immobilienverkauf, Vermietung, Rückmietverkauf, Kapitalanlagen/Mehrfamilienhäuser und Vermittlung von Finanzierungen. Inhaber: Michael Oberholz (Sachverständiger). Zentrale Rufnummer 0201 61447786, WhatsApp 0179 4468850, E-Mail mail@oberholz-immobilien.com. Website-Hosting: Cloudflare Pages.
+> Immobilienmakler mit Büros in Essen und Münster, tätig im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland. Leistungen: kostenlose Immobilienbewertung, Immobilienverkauf, Vermietung, Rückmietverkauf, Kapitalanlagen/Mehrfamilienhäuser und Vermittlung von Finanzierungen. Inhaber: Michael Oberholz (Sachverständiger). Zentrale Rufnummer 0201 61447786, WhatsApp 0179 4468850, E-Mail mail@oberholz-immobilien.com. Website-Hosting: Cloudflare Pages.
 
 Wichtige Fakten:
-- Tätigkeitsgebiet: Ruhrgebiet (u. a. Essen, Bochum) und Münsterland
-- Büros: Benderstraße 2, 45257 Essen (Tel. 0201 61447786); Wichernstraße 29, 48147 Münster (Tel. 0251 28 42 90 90, zugleich Anschrift laut Impressum); Auf’m Bleck 10, 44799 Bochum (Tel. 0201 61447786, Tätigkeitsgebiet)
+- Tätigkeitsgebiet: Ruhrgebiet, Rheinland, Bergisches Land und Münsterland
+- Büros: Benderstraße 2, 45257 Essen (Tel. 0201 61447786); Wichernstraße 29, 48147 Münster (Tel. 0251 28 42 90 90, zugleich Anschrift laut Impressum)
 - Team: Michael Oberholz (Inhaber & Sachverständiger), Felix Lesch, Michael Penn, Lubka Röger (Immobilienberatung), Pascal Kopp (Transaktionsberatung)
 - Zulassung: Immobilienmakler nach § 34c GewO (Aufsicht: Stadt Münster, Ordnungsamt)
-- Erreichbarkeit: Telefon 0201 61447786 (zentral), WhatsApp 0179 4468850, Mo–Fr 8–19 Uhr, Sa 8–16 Uhr
+- Erreichbarkeit: Telefon 0201 61447786 (zentral), WhatsApp 0179 4468850, Mo–Fr 10–20 Uhr, Sa 10–18 Uhr
 - Bewertungen: Google-Unternehmensprofil „Oberholz Immobilien“
 - Kooperationen: DVAG – Deutsche Vermögensberatung, Swiss Life, Interhyp; Finanzierungspartner u. a. Postbank, Santander, ING, PSD Bank, DKB
 
@@ -24,11 +24,10 @@ Wichtige Fakten:
 - [Immobilie verkaufen in Essen](https://www.oberholz-immobilien.com/regionen/essen/verkaufen)
 - [Immobilienbewertung Essen](https://www.oberholz-immobilien.com/regionen/essen/immobilienbewertung)
 - [Wohnung verkaufen in Essen](https://www.oberholz-immobilien.com/regionen/essen/wohnung-verkaufen)
-- [Immobilienmakler Bochum](https://www.oberholz-immobilien.com/regionen/bochum)
-- [Immobilie verkaufen in Bochum](https://www.oberholz-immobilien.com/regionen/bochum/verkaufen)
-- [Immobilienbewertung Bochum](https://www.oberholz-immobilien.com/regionen/bochum/immobilienbewertung)
-- [Wohnung verkaufen in Bochum](https://www.oberholz-immobilien.com/regionen/bochum/wohnung-verkaufen)
-- [Münsterland – Angebote](https://www.oberholz-immobilien.com/immobilien/kaufen?ort=M%C3%BCnsterland)
+- [Immobilienmakler Münster](https://www.oberholz-immobilien.com/regionen/muenster)
+- [Immobilie verkaufen in Münster](https://www.oberholz-immobilien.com/regionen/muenster/verkaufen)
+- [Immobilienbewertung Münster](https://www.oberholz-immobilien.com/regionen/muenster/immobilienbewertung)
+- [Wohnung verkaufen in Münster](https://www.oberholz-immobilien.com/regionen/muenster/wohnung-verkaufen)
 
 ## Immobilienangebote
 - [Immobilien kaufen](https://www.oberholz-immobilien.com/immobilien/kaufen)

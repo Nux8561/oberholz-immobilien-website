@@ -15,7 +15,7 @@ export function Careers() {
 export function Lifestyle() {
   return (
     <>
-      <SectionIntro title={lifestyle.title} text={lifestyle.text} id="lifestyle" />
+      <SectionIntro title={lifestyle.title} id="lifestyle" />
       <LifestyleGallery />
     </>
   );

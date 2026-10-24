@@ -123,13 +123,12 @@ def write_outputs(routes):
 /magazin/* /ratgeber 301
 /standorte /regionen 301
 /stadt/essen /regionen/essen 301
-/stadt/bochum /regionen/bochum 301
-/stadt/muenster /immobilien/kaufen?ort=M%C3%BCnsterland 301
+/stadt/muenster /regionen/muenster 301
 /stadt/* /regionen 301
 /makler-werden /ueber-uns 301
-/kontakt/muenster /kontakt 301
+/kontakt/muenster /regionen/muenster 301
 /kontakt/essen /regionen/essen 301
-/kontakt/bochum /regionen/bochum 301
+/kontakt/bochum /regionen 301
 /leistungen /verkaufen 301
 /vermarktung /verkaufen 301
 /wohnung-kaufen /immobilien/kaufen?typ=Wohnung 301
@@ -137,8 +136,10 @@ def write_outputs(routes):
 /downloads /ratgeber#downloads 301
 /ueber-uns/qualifikation /ueber-uns#qualifikation 301
 /ueber-uns/iso-9001 /ueber-uns#qualitaet 301
-/regionen/muenster /immobilien/kaufen?ort=M%C3%BCnsterland 301
-/regionen/muenster/verkaufen /verkaufen 301
+/regionen/bochum /regionen 301
+/regionen/bochum/verkaufen /verkaufen 301
+/regionen/bochum/immobilienbewertung /bewertung 301
+/regionen/bochum/wohnung-verkaufen /verkaufen 301
 ''', encoding='utf-8')
     print(f'Sitemap: {len(set(routes))} vollständig gerenderte URLs; 404 und 301-Weiterleitungen erstellt.', flush=True)
 

@@ -1,4 +1,4 @@
-# Seitenstruktur Oberholz Immobilien (Stand 17.10.2026)
+# Seitenstruktur Oberholz Immobilien (Stand 24.10.2026)
 
 Hauptmenü mit vier Bereichen plus „Jetzt kontaktieren“. Alles andere hängt darunter.
 
@@ -17,9 +17,9 @@ Startseite
 │   ├── Rückmietverkauf              /rueckmietverkauf
 │   └── Immotipp (Prämie)            /immotipp
 ├── Über uns                         /ueber-uns  (Team, Qualifikationen, ISO 9001, Partner)
-│   ├── Standorte                    /regionen   (Essen · Münster · Bochum)
+│   ├── Standorte                    /regionen   (Essen · Münster)
 │   │   ├── Essen                    /regionen/essen
-│   │   └── Bochum                   /regionen/bochum
+│   │   └── Münster                  /regionen/muenster
 │   └── Kontakt                      /kontakt
 └── Ratgeber                         /ratgeber   (Beiträge, Rechner, Leitfäden & Downloads)
     ├── Beiträge                     /ratgeber/<thema>  (23)
@@ -32,8 +32,8 @@ Rechtliches im Footer: Impressum · Datenschutz · Cookie-Hinweise · Merkliste 
 
 ## Nur für Google (nicht im Menü)
 
-Sechs lokale Seiten bleiben für die Suche bestehen und sind von den Stadtseiten Essen und Bochum verlinkt:
-`/regionen/<essen|bochum>/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`.
+Sechs lokale Seiten bleiben für die Suche bestehen und sind von den Stadtseiten Essen und Münster verlinkt:
+`/regionen/<essen|muenster>/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`.
 
 ## Zusammengelegt am 17.10.2026
 
@@ -46,7 +46,8 @@ Diese Seiten gibt es nicht mehr einzeln. Alte Links leiten automatisch (301) wei
 | /service | Ratgeber, Abschnitt Rechner |
 | /downloads | Ratgeber, Abschnitt Leitfäden & Downloads |
 | /ueber-uns/qualifikation, /ueber-uns/iso-9001 | Über uns, Abschnitt Qualifikationen |
-| /kontakt/essen, /kontakt/bochum | /regionen/essen, /regionen/bochum |
+| /kontakt/essen, /kontakt/muenster | /regionen/essen, /regionen/muenster |
+| /regionen/bochum (+ Unterseiten, bis 24.10.2026) | /regionen, /verkaufen, /bewertung |
 
 Startseite: Finanzierungs-Banner und der Block „Ihr nächster Schritt vor Ort“ entfallen.
 

@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { officeBySlug, photos } from '../../data/content';
 import { ROUTES } from '../../data/routes';
-import { ownerContent, ownerMarketSource, type OwnerCity, type OwnerKind } from '../../data/ownerContent';
+import { ownerContent, ownerMarketSource, sellSteps, type OwnerCity, type OwnerKind } from '../../data/ownerContent';
 import { faqLd, localServiceLd, usePageMeta } from '../../layout/PageMeta';
 import PageHero from '../../components/PageHero/PageHero';
 import Rich, { FaqBlock } from '../../components/Rich/Rich';
@@ -13,9 +13,9 @@ import NotFound from '../NotFound';
 import { BTN_CALL } from './shared';
 
 export function OwnerLinks({ city, exclude }: { city?: OwnerCity; exclude?: OwnerKind }) {
-  const cities: OwnerCity[] = city ? [city] : ['essen', 'bochum'];
+  const cities: OwnerCity[] = city ? [city] : ['essen', 'muenster'];
   return <section className="wrap">
-    <SectionIntro variant="inline" line={false} eyebrow="Für Eigentümer" title={city ? `Ihr nächster Schritt in ${officeBySlug(city)!.city}` : 'Verkauf und Bewertung in Essen und Bochum'} />
+    <SectionIntro variant="inline" line={false} eyebrow="Für Eigentümer" title={city ? `Ihr nächster Schritt in ${officeBySlug(city)!.city}` : 'Verkauf und Bewertung in Essen und Münster'} />
     <div className={`owner-links${city ? ' owner-links--local' : ''}`}>
       {cities.map((slug) => {
         const name = officeBySlug(slug)!.city;
@@ -30,6 +30,16 @@ export function OwnerLinks({ city, exclude }: { city?: OwnerCity; exclude?: Owne
           <ul>{links.map((x) => <li key={x.to}><Link to={x.to}><span>{x.label}</span><IconArrowRight size={18} /></Link></li>)}</ul>
         </nav>;
       })}
+    </div>
+  </section>;
+}
+
+/** Verkaufsablauf als drei Kacheln – auf /verkaufen und den lokalen Makler- und Verkaufsseiten */
+export function SellSteps({ title = 'Drei Schritte. Ein gemeinsames Ziel.' }: { title?: string }) {
+  return <section className="wrap">
+    <SectionIntro variant="inline" line={false} eyebrow="Vom ersten Gespräch bis zur Schlüsselübergabe" title={title} />
+    <div className="svc-grid svc-grid--3">
+      {sellSteps.map((s, i) => <article className="svc" key={s.title}><p className="eyebrow">Schritt 0{i + 1}</p><h3 className="svc__title head">{s.title}</h3><p className="svc__text">{s.text}</p></article>)}
     </div>
   </section>;
 }

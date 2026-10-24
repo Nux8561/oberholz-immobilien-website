@@ -4,7 +4,7 @@ import { IconArrowRight } from '../Icons';
 import SmartLink from '../SmartLink/SmartLink';
 import './CityCards.css';
 
-/** Standorte Essen · Münster · Bochum – Grid 3×360px (Gap 24), Card 360×316, Padding 16, Bild 328×220, H3 20/28, Sub 14/24. */
+/** Standorte Essen · Münster – Grid 3×360px (Gap 24), Card 360×316, Padding 16, Bild 328×220, H3 20/28, Sub 14/24. */
 export default function CityCards() {
   return (
     <div className="wrap">

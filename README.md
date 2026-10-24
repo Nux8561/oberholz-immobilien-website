@@ -21,7 +21,7 @@ npm run build:seo        # Produktions-Build + Prerendering, sitemap.xml, robots
 | Startseite | `/` |
 | Immobilien | `/immobilien/kaufen` · `/immobilien/mieten` (Filter, Kapitalanlage `?anlage=1`, KI-Freitextsuche, Karte, Suche speichern) · `/expose/:id` (aktueller ImmoScout-Bestand) · `/kapitalanlage` · `/finanzierung` |
 | Verkaufen | `/verkaufen` · `/bewertung` (Funnel) · `/vermieten` · `/rueckmietverkauf` · `/immotipp` |
-| Über uns | `/ueber-uns` (+ `#team`, `#qualifikation`, `#qualitaet`, `#partner`) · `/regionen` (Standorte) · `/regionen/essen` · `/regionen/bochum` (+ je `/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`) · `/kontakt` |
+| Über uns | `/ueber-uns` (+ `#team`, `#qualifikation`, `#qualitaet`, `#partner`) · `/regionen` (Standorte) · `/regionen/essen` · `/regionen/muenster` (+ je `/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`) · `/kontakt` |
 | Ratgeber | `/ratgeber` (+ `#rechner`, `#downloads`) · `/ratgeber/thema/:kategorie` · `/ratgeber/:slug` (23 Artikel) · `/whitepaper/:slug` (6 Leitfäden) · `/service/budgetrechner` · `/service/finanzierungsrechner` · `/service/wert-hebel-rechner` · `/immopedia` · `/immopedia/:slug` (1.999 Begriffe) |
 | Sonstiges | `/mein-bereich` (Merkliste, gespeicherte Suchen) · `/impressum` · `/datenschutz` · `/cookie-hinweise` |
 
@@ -34,8 +34,8 @@ Alte Pfade der ersten Template-Version (`/standorte`, `/stadt/:city`, `/magazin`
 - `src/data/routes.ts` – alle Routen
 - `src/data/properties.ts` + `listings.json` – Objekte (Fotos: `public/assets/oberholz/objekte/`). Abgleich mit ImmoScout24: `python3 scripts/import_immoscout.py` liest das Homepage-Modul der bisherigen Website (Ergebnisliste 82828525), übernimmt Texte, Eckdaten, bis zu 12 Fotos und den Ansprechpartner und löscht Fotos nicht mehr angebotener Objekte. Danach `npm run build:seo`. Regionen-Zuordnung der Orte: `REGION_GROUPS` in `properties.ts`.
 - `src/data/oberholz/content.json` – übernommene Seiteninhalte (Blöcke), FAQs; Zugriff über `src/data/oberholz/index.ts`
-- `src/data/ownerContent.ts` – redaktionelle Eigentümertexte für Essen und Bochum: Makler, Hausverkauf, Immobilienbewertung und Wohnungsverkauf. Diese Texte und FAQs werden für die lokalen Seiten anstelle der importierten Regions-Blöcke verwendet.
-- `src/pages/oberholz/LocalOwner.tsx` – lokale Bewertung und Wohnungsverkauf sowie gemeinsame Eigentümer- und Ratgeber-Verlinkung. Neue Routen: `/regionen/essen/immobilienbewertung`, `/regionen/bochum/immobilienbewertung`, `/regionen/essen/wohnung-verkaufen`, `/regionen/bochum/wohnung-verkaufen`.
+- `src/data/ownerContent.ts` – redaktionelle Eigentümertexte für Essen und Münster: Makler, Hausverkauf, Immobilienbewertung und Wohnungsverkauf. Diese Texte und FAQs werden für die lokalen Seiten anstelle der importierten Regions-Blöcke verwendet.
+- `src/pages/oberholz/LocalOwner.tsx` – lokale Bewertung und Wohnungsverkauf sowie gemeinsame Eigentümer- und Ratgeber-Verlinkung. Neue Routen: `/regionen/essen/immobilienbewertung`, `/regionen/muenster/immobilienbewertung`, `/regionen/essen/wohnung-verkaufen`, `/regionen/muenster/wohnung-verkaufen`.
 - `src/data/ratgeber/*.ts` – eigene Ratgeber-Artikel der Redaktion (Aufbau wie E&V-Ratgeber: Lesezeit, Inhaltsverzeichnis, „Das Wichtigste in Kürze“, Tabellen, FAQ)
 - `public/assets/oberholz/media/team/` – Teamfoto und Gesichtsausschnitte, erzeugt mit `scripts/compose_team.py`
 - `public/data/immopedia/` – Glossar (Index + je Begriff eine JSON-Datei, wird bei Bedarf geladen)

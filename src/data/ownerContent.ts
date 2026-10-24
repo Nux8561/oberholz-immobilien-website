@@ -1,7 +1,7 @@
 import type { QA, RichBlock } from './oberholz';
 
 export type OwnerKind = 'makler' | 'verkaufen' | 'bewertung' | 'wohnung';
-export type OwnerCity = 'essen' | 'bochum';
+export type OwnerCity = 'essen' | 'muenster';
 export type OwnerContent = {
   title: string;
   metaTitle: string;
@@ -9,8 +9,21 @@ export type OwnerContent = {
   intro: string;
   checks: string[];
   blocks: RichBlock[];
+  /** Makler- und Verkaufsseiten: Überschrift des Ablaufs (als Kacheln wie auf /verkaufen) und Blöcke danach */
+  stepsTitle?: string;
+  after?: RichBlock[];
   faq: QA[];
 };
+
+/** Verkaufsablauf in drei Schritten – gleicher Wortlaut auf /verkaufen und den lokalen Seiten (Kunde Runde 3) */
+export const sellSteps = [
+  { title: 'Klärung von Marktwert und Ausgangslage', text: 'Wir sehen uns Ihre Immobilie und die Objektunterlagen an. Gemeinsam besprechen wir den Zeitplan, die Zielgruppe und einen konkurrenzfähigen Angebotspreis.' },
+  { title: 'Gezielter Marktauftritt', text: 'Wir erstellen ein aussagekräftiges Exposé, koordinieren Objektanfragen und Besichtigungen und besprechen die Rückmeldungen der Kaufinteressenten mit Ihnen.' },
+  { title: 'Sicherer Verkaufsabschluss', text: 'Wir steuern die Kaufpreisverhandlung und die Beauftragung des Notariats. Die anschließende Schlüsselübergabe rundet den Verkaufsprozess ab.' },
+];
+
+/** Antwort „Welche Unterlagen …?“ – gleicher Wortlaut auf Bewertungs- und Regionsseiten */
+export const documentsAnswer = 'Hilfreich sind Grundrisse, Angaben zur Wohn- und Grundstücksfläche, dem Baujahr, den erfolgten Modernisierungen sowie der Energieausweis und ein Grundbuchauszug. Für Wohnungen sind WEG-Protokolle und für vermietete Objekte die Mietverträge und Ertragsangaben relevant. Fehlende Unterlagen besprechen wir gemeinsam.';
 
 const h2 = (text: string): RichBlock => ({ t: 'h2', text });
 const h3 = (text: string): RichBlock => ({ t: 'h3', text });
@@ -22,21 +35,21 @@ const ul = (...items: string[]): RichBlock => ({ t: 'ul', items });
 const local = {
   essen: {
     city: 'Essen',
-    districts: 'Rüttenscheid, Bredeney, Kettwig, Werden, Kupferdreh oder Altenessen',
+    districts: 'Rüttenscheid, Bredeney, Kettwig, Werden, Kupferdreh oder Überruhr',
     market: 'Der Essener Grundstücksmarktbericht unterscheidet unter anderem bebaute Grundstücke, Wohnungseigentum und Immobilienrichtwerte. Für Ihre Entscheidung kommt es darauf an, welches Vergleichssegment zu Ihrem Haus oder Ihrer Wohnung passt. Ein Durchschnitt über die ganze Stadt bildet weder die einzelne Straße noch den Zustand Ihrer Immobilie ab.',
-    house: 'Beim Hausverkauf in Essen schauen wir auf das Zusammenspiel von Grundstück, Gebäude und Mikrolage. Ein Reihenhaus in Kupferdreh, ein Einfamilienhaus in Kettwig und ein Altbau in Rüttenscheid lassen sich nicht mit demselben pauschalen Quadratmeterpreis bewerten. Wir besprechen, welche Vergleichsobjekte geeignet sind und welche Besonderheiten Ihrer Immobilie berücksichtigt werden müssen.',
+    house: 'Beim Hausverkauf in Essen schauen wir auf das Zusammenspiel von Grundstück, Gebäude und Mikrolage. Ein Reihenhaus in Kupferdreh, ein Einfamilienhaus in Kettwig und eine Altbauwohnung in Rüttenscheid lassen sich nicht mit demselben pauschalen Quadratmeterpreis bewerten. Wir zeigen auf, welche Vergleichsobjekte geeignet sind und welche Besonderheiten Ihrer Immobilie berücksichtigt werden müssen.',
     flat: 'Eine Wohnung in Rüttenscheid spricht je nach Größe, Grundriss und Nutzung andere Käufer an als eine vermietete Wohnung in Altenessen oder eine Maisonette in Werden. Für die Vermarktung Ihrer Essener Eigentumswohnung betrachten wir deshalb die konkrete Wohnlage und den Status der Wohnung gemeinsam mit den Unterlagen der Eigentümergemeinschaft.',
     valuation: 'Was ist mein Haus in Essen wert? Die Antwort beginnt bei der Adresse und dem Zustand, nicht bei einem pauschalen Stadtwert. Wir erfassen Grundstück, Wohnfläche, Modernisierungen und Nutzung. Ob Ihre Immobilie in Bredeney, Kettwig oder einem anderen Essener Stadtteil liegt: Entscheidend bleibt die einzelne Immobilie.',
     source: { title: 'Gutachterausschuss Essen: Grundstücksmarktbericht 2026', href: 'https://gmb.gutachterausschuss-essen.de/' },
   },
-  bochum: {
-    city: 'Bochum',
-    districts: 'Stiepel, Weitmar, Wattenscheid, Langendreer, Linden oder Wiemelhausen',
-    market: 'Der Bochumer Gutachterausschuss leitet seine Marktdaten aus ausgewerteten Kaufverträgen ab und veröffentlicht neben dem Grundstücksmarktbericht auch einen Zwischenbericht. Diese Daten helfen, tatsächliche Abschlüsse von bloßen Angebotspreisen zu unterscheiden. Die Übertragung auf Ihre Immobilie erfordert zusätzlich den Blick auf Lage, Zustand und Nutzung.',
-    house: 'Für einen Hausverkauf in Bochum prüfen wir zuerst, was genau verkauft werden soll: etwa ein selbst genutztes Haus in Stiepel, ein Reihenhaus in Weitmar oder ein vermietetes Objekt in Langendreer. Neben dem Grundstück und dem Gebäudezustand beeinflussen bestehende Mietverhältnisse, Modernisierungen und die verfügbaren Unterlagen die Verkaufsstrategie.',
-    flat: 'Beim Wohnungsverkauf in Bochum zählt nicht nur der Eindruck bei der Besichtigung. Eine Wohnung in Wattenscheid, Weitmar oder Wiemelhausen ist zugleich Teil einer Eigentümergemeinschaft. Käufer müssen deshalb auch Hausgeld, Rücklage und geplante Maßnahmen am Gebäude nachvollziehen können. Diese Informationen bereiten wir gemeinsam mit den Wohnungsunterlagen auf.',
-    valuation: 'Wie viel ist Ihre Immobilie in Bochum wert? Wir unterscheiden zwischen dem Wert eines selbst genutzten Hauses, einer Eigentumswohnung und eines vermieteten Objekts. Bei einer Wohnung in Weitmar können beispielsweise die Unterlagen der Gemeinschaft besonders wichtig sein, bei einem Mietshaus in Langendreer die Erträge und der Instandhaltungsbedarf. Die Bewertung richtet sich nach Ihrem Objekt.',
-    source: { title: 'Gutachterausschuss Bochum: Grundstücksmarkt- und Zwischenberichte', href: 'https://gars.nrw/bochum/produkte-bochum/grundstuecksmarktberichte-bochum' },
+  muenster: {
+    city: 'Münster',
+    districts: 'Kreuzviertel, Gievenbeck, Hiltrup, Roxel, Wolbeck oder Mecklenbeck',
+    market: 'Der Gutachterausschuss für Grundstückswerte in der Stadt Münster wertet die Kaufverträge der Stadt aus und veröffentlicht die Ergebnisse jährlich im Grundstücksmarktbericht. Er unterscheidet unter anderem Eigentumswohnungen, Ein- und Zweifamilienhäuser und Bauland. Für Ihre Entscheidung kommt es darauf an, welches Vergleichssegment zu Ihrer Immobilie passt. Ein Durchschnitt über die ganze Stadt bildet weder die einzelne Lage noch den Zustand Ihrer Immobilie ab.',
+    house: 'Beim Hausverkauf in Münster schauen wir auf das Zusammenspiel von Grundstück, Gebäude und Mikrolage. Ein Reihenhaus in Hiltrup, ein Einfamilienhaus in Roxel und eine Altbauwohnung im Kreuzviertel lassen sich nicht mit demselben pauschalen Quadratmeterpreis bewerten. Wir zeigen auf, welche Vergleichsobjekte geeignet sind und welche Besonderheiten Ihrer Immobilie berücksichtigt werden müssen.',
+    flat: 'Eine Wohnung im Kreuzviertel spricht je nach Größe, Grundriss und Nutzung andere Käufer an als eine vermietete Wohnung in Gievenbeck oder eine Maisonette in Mecklenbeck. Für die Vermarktung Ihrer Münsteraner Eigentumswohnung betrachten wir deshalb die konkrete Wohnlage und den Status der Wohnung gemeinsam mit den Unterlagen der Eigentümergemeinschaft.',
+    valuation: 'Was ist mein Haus in Münster wert? Die Antwort beginnt bei der Adresse und dem Zustand, nicht bei einem pauschalen Stadtwert. Wir erfassen Grundstück, Wohnfläche, Modernisierungen und Nutzung. Ob Ihre Immobilie in Hiltrup, Wolbeck oder einem anderen Münsteraner Stadtteil liegt: Entscheidend bleibt die einzelne Immobilie.',
+    source: { title: 'Gutachterausschuss Münster: Grundstücksmarktbericht 2026', href: 'https://www.stadt-muenster.de/aktuelles/newsdetail/grundstuecksmarktbericht-2026' },
   },
 } as const;
 
@@ -49,7 +62,7 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
     { q: `Was ist mein Haus in ${city} wert?`, a: 'Der Marktwert hängt unter anderem von der konkreten Lage, Grundstück und Wohnfläche, Zustand, Modernisierungen und Nutzung ab. Für eine persönliche Einschätzung sehen wir uns Ihre Angaben und Unterlagen an und besprechen einen Vor-Ort-Termin. Einen pauschalen Wert ohne diese Prüfung nennen wir nicht.' },
     { q: `Ist die Immobilienbewertung in ${city} kostenlos?`, a: 'Unsere erste Marktwerteinschätzung im Rahmen eines Verkaufs- oder Vermietungsgesprächs ist kostenlos und unverbindlich. Wenn Sie ein förmliches Gutachten benötigen, klären wir Zweck, Umfang und mögliche Kosten vor einer Beauftragung.' },
     { q: 'Ist ein Bodenrichtwert der Wert meines Hauses?', a: 'Nein. Der Bodenrichtwert bezieht sich auf den Boden einer Richtwertzone. Für den Wert einer bebauten Immobilie müssen zusätzlich das Gebäude und die konkreten Eigenschaften von Grundstück und Nutzung berücksichtigt werden.' },
-    { q: 'Welche Unterlagen helfen bei der Wertermittlung?', a: 'Hilfreich sind Adresse, Baujahr, Wohn- und Grundstücksfläche, Grundrisse, Angaben zu Modernisierungen und ein vorhandener Energieausweis. Bei Wohnungen kommen Unterlagen der Eigentümergemeinschaft hinzu, bei vermieteten Objekten Mietverträge und eine Übersicht der Erträge.' },
+    { q: 'Welche Unterlagen helfen bei der Wertermittlung?', a: documentsAnswer },
     { q: 'Kann ich vor einer Verkaufsentscheidung eine Bewertung anfragen?', a: 'Ja. Eine Einschätzung kann helfen, Verkauf, Vermietung oder eine spätere Entscheidung abzuwägen. Beschreiben Sie uns Ihren Anlass und den Stand Ihrer Überlegungen.' },
   ];
 
@@ -114,19 +127,18 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
     description: selling
       ? `Haus oder Immobilie in ${city} verkaufen: Bewertung, Unterlagen und Vermarktung mit klarer Strategie. Oberholz Immobilien begleitet Sie persönlich.`
       : `Immobilienmakler in ${city}: Oberholz Immobilien begleitet Eigentümer bei Bewertung, Hausverkauf, Wohnungsverkauf und Vermietung. Persönlich vor Ort.`,
-    intro: selling ? `Sie möchten Ihr Haus oder Ihre Immobilie in ${city} verkaufen? Wir begleiten Sie von der ersten Bewertung über Unterlagen und Vermarktung bis zur Übergabe – mit einer Strategie, die zu Ihrem Objekt und Ihren Zielen passt.` : `Sie möchten Ihre Immobilie in ${city} verkaufen, vermieten oder zunächst ihren Wert kennen? Wir begleiten Sie mit persönlicher Beratung, einer nachvollziehbaren Bewertung und einer Vermarktung, die zu Ihrem Objekt passt.`,
-    checks: ['Ein fester Ansprechpartner für Ihr Vorhaben', 'Bewertung und Unterlagen gemeinsam betrachten', 'Verkaufsstrategie passend zu Ihrer Immobilie'],
+    intro: selling ? `Sie möchten Ihr Haus oder Ihre Immobilie in ${city} verkaufen? Wir begleiten Sie von der ersten Bewertung über Unterlagen und Vermarktung bis zur Übergabe – mit einer Strategie, die zu Ihrem Objekt und Ihren Zielen passt.` : `Sie möchten Ihre Immobilie in ${city} und Umgebung verkaufen, vermieten oder zunächst ihren Wert erfahren? Wir begleiten Sie mit persönlicher Beratung, einer transparenten Bewertung und einer Vermarktung, die zu Ihrem Objekt passt.`,
+    checks: ['Ein fester Ansprechpartner für Ihr Vorhaben', 'Sichtung und Einholung von Objektunterlagen', 'Verkaufsstrategie passend zu Ihrer Immobilie'],
     blocks: [
       h2(selling ? `Hausverkauf in ${city}: zuerst den Ausgangspunkt klären` : `Wobei wir Eigentümer in ${city} unterstützen`),
-      p(selling ? 'Bevor ein Exposé entsteht, klären wir Ihre Ziele: Soll ein selbst genutztes Haus verkauft werden, geht es um ein Erbe oder möchten Sie eine Kapitalanlage veräußern? Auch der Zeitrahmen, bestehende Mietverhältnisse und bekannte Arbeiten am Gebäude gehören in dieses erste Gespräch.' : 'Eine gute Maklerbegleitung beginnt mit Ihrer Situation. Bei einem geplanten Hausverkauf stehen Preis und Ablauf im Mittelpunkt. Bei einer Eigentumswohnung kommt die Gemeinschaft hinzu, bei einer vermieteten Immobilie die laufende Nutzung. Wenn Sie noch zwischen Verkauf und Vermietung abwägen, schaffen wir zunächst eine Grundlage für diese Entscheidung.'),
-      h2(`Lage und Objekt in ${city} einzeln betrachten`),
+      p(selling ? 'Bevor ein Exposé entsteht, klären wir Ihre Ziele: Soll ein selbst genutztes Haus verkauft werden, geht es um ein Erbe oder möchten Sie eine Kapitalanlage veräußern? Auch der Zeitrahmen, bestehende Mietverhältnisse und bekannte Arbeiten am Gebäude gehören in dieses erste Gespräch.' : 'Eine gute Maklerbegleitung beginnt mit dem Verständnis Ihrer Situation. Beim Hausverkauf spielen das Grundstück, die Bausubstanz und der energetische Zustand eine wichtige Rolle. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet. Wenn Sie noch zwischen Verkauf und Vermietung abwägen, schaffen wir zunächst eine Grundlage für diese Entscheidung.'),
+      h2(`Objekt und Lage in ${city} individuell betrachten`),
       p(l.house),
       ...(selling ? [p(l.market)] : []),
-      p(`Wir besprechen Immobilien unter anderem in ${l.districts}. Die Nennung eines Stadtteils ersetzt keine Objektprüfung: Straße, Gebäudezustand, Grundstück und Nutzung bleiben entscheidend. Deshalb beginnen wir mit Ihren konkreten Angaben statt mit einem pauschalen Preisversprechen.`),
-      h2(selling ? 'So bereiten wir Ihren Immobilienverkauf vor' : 'So arbeiten wir mit Ihnen zusammen'),
-      h3('Bewertung und Preisstrategie'), p('Wir ordnen Lage, Zustand und Unterlagen ein und besprechen einen nachvollziehbaren Angebotspreis. Dabei unterscheiden wir den angestrebten Verkaufspreis von einem bereits belegten Marktwert.'),
-      h3('Unterlagen und Präsentation'), p('Wir sichten die vorhandenen Dokumente und halten fest, was ergänzt werden muss. Auf dieser Grundlage entstehen die Objektpräsentation und die Informationen für Interessenten und finanzierende Banken.'),
-      h3('Vermarktung und Abschluss'), p('Wir stimmen die Käuferansprache mit Ihnen ab, koordinieren Besichtigungen und begleiten Rückfragen und Verhandlungen. Nach einer Einigung unterstützen wir bei der Abstimmung bis zum Notartermin und zur Übergabe.'),
+      p(`Wir vermitteln Immobilien unter anderem in ${l.districts}. Die Nennung eines Stadtteils ersetzt keine Objektprüfung: Straße, Gebäudezustand, Grundstück und Nutzung bleiben entscheidend. Deshalb bewerten wir anhand Ihrer konkreten Angaben anstatt der Abgabe eines pauschalen Preisversprechens.`),
+    ],
+    stepsTitle: selling ? 'So bereiten wir Ihren Immobilienverkauf vor' : 'So arbeiten wir mit Ihnen zusammen',
+    after: [
       h2('Wenn sich Ihre Lebenssituation verändert'),
       p('Eine geerbte Immobilie, eine Trennung oder der Wunsch nach einem kleineren Zuhause können sehr unterschiedliche Entscheidungen erfordern. Zunächst sollten Ziel, Nutzung und finanzielle Möglichkeiten geklärt werden. Eine Bewertung hilft bei der Orientierung; rechtliche oder steuerliche Einzelheiten werden bei Bedarf mit den zuständigen Fachleuten abgestimmt.'),
       h2('Unsaniertes Haus, vermietete Wohnung oder Mehrfamilienhaus?'),
@@ -135,9 +147,9 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
     faq: [
       { q: `Wie finde ich einen passenden Immobilienmakler in ${city}?`, a: 'Fragen Sie, wie die Bewertung begründet wird, welche Leistungen der Auftrag umfasst und wer Sie persönlich betreut. Lassen Sie sich die geplante Vermarktung und die Konditionen erklären. Ein konkreter Ablauf ist aussagekräftiger als ein pauschales Versprechen zum höchsten Preis.' },
       { q: `Was kostet die Begleitung beim Hausverkauf in ${city}?`, a: 'Die Kosten richten sich nach dem vereinbarten Auftrag und den anwendbaren rechtlichen Vorgaben. Wir besprechen die Leistungen und Konditionen vor der Beauftragung mit Ihnen. Eine erste Beratung ist kostenlos und unverbindlich.' },
-      { q: `Wie lange dauert es, ein Haus in ${city} zu verkaufen?`, a: 'Das hängt unter anderem von Lage, Zustand, Preisstrategie und der Vollständigkeit der Unterlagen ab. Auch die Finanzierung des Käufers und die Abwicklung des Kaufvertrags benötigen Zeit. Einen festen Verkaufstermin können wir ohne Prüfung nicht zusagen.' },
-      { q: 'Welche Unterlagen sollte ich zum ersten Gespräch bereithalten?', a: 'Adresse, Grundrisse, Baujahr, Wohnfläche und Angaben zu Modernisierungen sind ein guter Anfang. Hilfreich sind außerdem ein vorhandener Energieausweis und Grundbuchunterlagen. Bei vermieteten Objekten und Eigentumswohnungen sehen wir uns zusätzlich Miet- beziehungsweise Gemeinschaftsunterlagen an.' },
-      { q: 'Kann ich auch eine geerbte oder sanierungsbedürftige Immobilie anfragen?', a: 'Ja. Beschreiben Sie uns den Zustand, die aktuelle Nutzung und Ihre Überlegungen. Wir klären zunächst, welche Unterlagen und Einschätzungen für Ihre Entscheidung gebraucht werden. Ein sofortiger Verkaufsentschluss ist dafür nicht erforderlich.' },
+      { q: `Wie lange dauert es, ein Haus in ${city} zu verkaufen?`, a: 'Das hängt unter anderem von Lage, Zustand, Preisstrategie und der Vollständigkeit der Unterlagen ab. Auch die Finanzierung des Käufers und die Abwicklung des Kaufvertrags benötigen Zeit. Einen festen Verkaufstermin können wir ohne Prüfung nicht zusagen, streben jedoch einen erfolgreichen Verkauf in den ersten sechs Monaten an.' },
+      { q: 'Welche Unterlagen sollte ich zum ersten Gespräch bereithalten?', a: documentsAnswer },
+      { q: 'Kann ich auch für eine geerbte oder sanierungsbedürftige Immobilie anfragen?', a: 'Ja. Beschreiben Sie uns den Zustand, die aktuelle Nutzung und Ihre Überlegungen. Wir klären zunächst, welche Unterlagen und Einschätzungen für Ihre Entscheidung gebraucht werden. Ein sofortiger Verkaufsentschluss ist dafür nicht erforderlich.' },
     ],
   };
 }

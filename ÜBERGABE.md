@@ -13,11 +13,11 @@ React, TypeScript und Vite; vollständige statische HTML-Ausgabe für Suchmaschi
 
 ## Inhalte und Gestaltung
 
-- Vier neue lokale Seiten: Bewertung und Wohnungsverkauf, jeweils in Essen und Bochum.
+- Lokale Seiten: Makler, Verkauf, Bewertung und Wohnungsverkauf, jeweils für Essen und Münster (Bochum seit 24.10.2026 entfernt, alte Adressen leiten weiter).
 - Bestehende Makler- und Verkaufsseiten beider Städte überarbeitet, mit unterschiedlichen lokalen Schwerpunkten, eigenen Fragen und amtlichen Marktquellen.
 - Verkaufs- und Bewertungsübersicht gestrafft; wiederholte Leistungsraster und übernommene Konkurrenzvergleiche entfernt.
 - Korrekte Bewertungsverfahren: Vergleichswert, Ertragswert und Sachwert. Quelle: § 6 ImmoWertV.
-- Kontaktseite auf Essen, Bochum und Münsterland ausgerichtet; lokale Kontaktseiten zeigen die jeweilige Anschrift. Die rechtliche Anschrift wurde nicht verändert.
+- Kontaktseite auf die Büros Essen und Münster ausgerichtet; lokale Kontaktseiten zeigen die jeweilige Anschrift. Die rechtliche Anschrift wurde nicht verändert.
 - Startseite mit genau einer Hauptüberschrift, sechs lokalen Eigentümer-Einstiegen und sichtbaren FAQ passend zu den FAQ-Strukturdaten.
 - Hero-Bildspalten folgen auf Desktop der Texthöhe. Mobile Typografie, lange Fachwörter, Buttons und Statistikraster korrigiert. Sprunglink zum Inhalt und reduzierte Bewegung berücksichtigt.
 - Sechs echte PDF-Lesefassungen vorhandener Ratgeber unter `public/downloads/leitfaeden/`, jeweils zwei Seiten. Die Downloadseiten nennen den tatsächlichen Umfang und verlinken die Dateien direkt. Frühere Versprechen von 9–13 Seiten beziehungsweise 25 Quellen wurden entfernt. Die PDFs sind Lesefassungen der vorhandenen Artikel, keine neuen Fachgutachten.
@@ -53,7 +53,7 @@ Die PDF-Dateien sind bereits enthalten; bei Änderungen der Originalartikel kön
 1. **Formularzustellung:** Die Formulare validieren Angaben und bereiten eine E-Mail vor. Der Besucher muss sie über sein E-Mail-Programm selbst versenden. Ein automatischer Mail- oder CRM-Eingang ist nicht eingerichtet; ein tatsächlicher Versand wurde nicht behauptet. Der Hinweis ist vor der Formularaktion sichtbar.
 2. **Hauptdomain:** Ziel und DNS-Anbindung bestätigen, anschließend auf der tatsächlichen Hauptdomain prüfen und die Sitemap in Search Console einreichen.
 3. **Firmierung:** Der Bestand nennt „Oberholz Immobilien“, an anderer Stelle „EE Experten GmbH“. Rechtsform, Vertretungsberechtigung und Pflichtangaben müssen vom Auftraggeber verbindlich geliefert beziehungsweise bestätigt werden.
-4. **Öffnungszeiten:** Im Bestand stehen widersprüchliche Zeiten. Aktuell verwendet: Mo–Fr 8–19, Sa 8–16 Uhr. Noch keine Bestätigung des Auftraggebers.
+4. **Öffnungszeiten:** Am 24.10.2026 von Felix Lesch bestätigt: Mo–Fr 10–20 Uhr, Sa 10–18 Uhr.
 5. **Fachliche Freigabe:** Übernommene Ratgeber, Autorenzuordnung, Qualifikationen, Zertifizierungsstand, Rechtstexte, Google-Bewertungen und Objektangebote vom Auftraggeber abschließend prüfen lassen. Keine neue fachliche oder rechtliche Freigabe durch die technische Überarbeitung.
 
 Zentrale Rufnummer überall: `0201 61447786` (Festnetz Essen). WhatsApp überall: `0179 4468850` (Mobil Felix Lesch). Münster-Festnetz `0251 28 42 90 90` nur beim Büro Münster, bei Objekten in Münster und als Zusatz im Impressum. Ansprechpartner je Objekt: `listingAgents` in `src/data/content.ts` (Standard Felix Lesch). Die Objekte stammen aus statischen Bestandsdaten; eine automatische Objekt-Schnittstelle ist nicht eingerichtet.

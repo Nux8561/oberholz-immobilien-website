@@ -4,7 +4,7 @@ import { homeFaq, page, textOf } from '../../data/oberholz';
 import { brand, officeBySlug, officeLink, offices, photos, team, whatsappUrl } from '../../data/content';
 import { ROUTES } from '../../data/routes';
 import { ownerContent, type OwnerCity } from '../../data/ownerContent';
-import { OwnerGuides, OwnerLinks, OwnerMarketSource } from './LocalOwner';
+import { OwnerGuides, OwnerLinks, OwnerMarketSource, SellSteps } from './LocalOwner';
 import { properties, REGION_TITLES, regionOf } from '../../data/properties';
 import { faqLd, localServiceLd, usePageMeta } from '../../layout/PageMeta';
 import PageHero from '../../components/PageHero/PageHero';
@@ -19,11 +19,17 @@ import NotFound from '../NotFound';
 import Partners from '../../components/Partners/Partners';
 import { BTN_CALL, BTN_KONTAKT, PropertyStrip, splitIntro } from './shared';
 
+/** Ansprechpartner im Kopf der Regionsseiten (Kunde Runde 3): Essen Felix Lesch, Münster Michael Oberholz */
+const REGION_ADVISOR: Record<string, { image: string; name: string }> = {
+  essen: { image: photos.advisorE, name: 'Felix Lesch' },
+  muenster: { image: photos.advisorA, name: 'Michael Oberholz' },
+};
+
 
 export function TeamSection() {
   return (
     <section className="wrap" id="team" style={{ scrollMarginTop: 140 }}>
-      <SectionIntro variant="inline" line={false} eyebrow="Unser Team" title="Ihre Ansprechpartner bei Oberholz Immobilien" text="Makler, Gutachter und Berater – persönlich für Sie da in Essen, Münster und Bochum." />
+      <SectionIntro variant="inline" line={false} eyebrow="Unser Team" title="Ihre Ansprechpartner bei Oberholz Immobilien" text="Makler, Gutachter und Berater – persönlich für Sie da in Essen, Münster und Umgebung." />
       <ul className="rich__team">
         {team.map((m) => (
           <li key={m.name}>
@@ -88,14 +94,12 @@ function OfficeCards() {
         <article key={o.slug} className="office">
           <div className="office__img"><img src={o.image} alt={`Stadtansicht ${o.city}`} loading="lazy" /></div>
           <div className="office__body">
-            <p className="eyebrow">{o.hub ? `Hauptstandort ${o.city}` : `Büro ${o.city}`}</p>
+            <p className="eyebrow">Büro {o.city}</p>
             <h3 className="office__title head">{o.area}</h3>
             <p>{o.street}<br />{o.zipCity}<br />Telefon <a href={o.phoneHref} className="link-underline">{o.phoneDisplay}</a></p>
             <div className="office__links">
-              {o.page ? <>
-                <Link to={ROUTES.region(o.slug)}><IconArrowRight size={16} />Immobilienmakler {o.city}</Link>
-                <Link to={ROUTES.regionVerkaufen(o.slug)}><IconArrowRight size={16} />Immobilie verkaufen in {o.city}</Link>
-              </> : <Link to={officeLink(o)}><IconArrowRight size={16} />Immobilien im Münsterland</Link>}
+              <Link to={officeLink(o)}><IconArrowRight size={16} />Immobilienmakler {o.city}</Link>
+              <Link to={ROUTES.regionVerkaufen(o.slug)}><IconArrowRight size={16} />Immobilie verkaufen in {o.city}</Link>
             </div>
           </div>
         </article>
@@ -134,7 +138,7 @@ export function Kontakt() {
 
   return (
     <>
-      <PageHero eyebrow="Kontakt" title="Persönlich für Sie da" text="Sie planen einen Verkauf, suchen eine Immobilie oder haben Fragen zur Bewertung? Sprechen Sie mit unserem Team in Essen und Münster – Bochum gehört zu unserem Tätigkeitsgebiet." image={photos.advisorE} alt="Felix Lesch" cutout rating buttons={[BTN_CALL]} />
+      <PageHero eyebrow="Kontakt" title="Persönlich für Sie da" text="Sie planen einen Verkauf, suchen eine Immobilie oder haben Fragen zur Bewertung Ihrer Immobilie? Sprechen Sie mit unserem Team in Essen und Münster." image={photos.advisorE} alt="Felix Lesch" cutout rating buttons={[BTN_CALL]} />
       <section className="wrap" id="formular">
         <div className="contact-grid">
           <div>
@@ -145,7 +149,7 @@ export function Kontakt() {
         </div>
       </section>
       <section className="wrap">
-        <SectionIntro variant="inline" line={false} eyebrow="Standorte" title="Unsere Büros in Essen, Münster und Bochum" />
+        <SectionIntro variant="inline" line={false} eyebrow="Standorte" title="Unsere Büros in Essen und Münster" />
         <OfficeCards />
       </section>
     </>
@@ -160,7 +164,7 @@ const listingRegions = () => Object.keys(REGION_TITLES)
   .filter(([, cities]) => cities.length > 0);
 
 export function Regionen() {
-  usePageMeta({ title: 'Standorte: Essen, Münster, Bochum', crumbs: [{ label: 'Standorte' }], footer: 'accordion', description: 'Oberholz Immobilien ist in Essen, Münster und Bochum aktiv – mit festen Ansprechpartnern für Verkauf, Vermietung und Wertermittlung.' });
+  usePageMeta({ title: 'Standorte: Essen und Münster', crumbs: [{ label: 'Standorte' }], footer: 'accordion', description: 'Oberholz Immobilien mit Büros in Essen und Münster – feste Ansprechpartner für Verkauf, Vermietung und Wertermittlung im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' });
   const b = page('regionen').blocks;
   return (
     <>
@@ -196,21 +200,17 @@ function RegionPage({ kind }: { kind: 'makler' | 'verkaufen' }) {
   const { city = '' } = useParams();
   const o = officeBySlug(city);
   const content = o ? ownerContent(city as OwnerCity, kind) : undefined;
-  const key = o ? `regionen-${o.slug}-${kind === 'makler' ? 'immobilienmakler' : 'immobilie-verkaufen'}` : '';
   const label = o ? (kind === 'makler' ? `Immobilienmakler ${o.city}` : `Immobilie verkaufen in ${o.city}`) : '';
   usePageMeta(o && content ? { title: content.metaTitle, crumbs: [{ label: 'Standorte', to: ROUTES.regionen }, ...(kind === 'verkaufen' ? [{ label: o.city, to: ROUTES.region(o.slug) }] : []), { label: kind === 'makler' ? o.city : 'Immobilie verkaufen' }], footer: 'accordion', description: content.description, image: o.image, jsonLd: [localServiceLd(o.city, o.area, kind === 'makler' ? ROUTES.region(o.slug) : ROUTES.regionVerkaufen(o.slug), kind), faqLd(content.faq)] } : { title: 'Seite nicht gefunden', noindex: true });
   if (!o || !content) return <NotFound />;
-  // Essen verkaufen: Felix Lesch (Kunde #23); sonst Bild aus den Regionsblöcken bzw. Michael Oberholz
-  const essenVerkauf = o.slug === 'essen' && kind === 'verkaufen';
-  const { rest } = splitIntro(page(key).blocks);
-  const advisor = rest.find((x) => x.t === 'img' && / - /.test(x.alt)) as { src: string; alt: string } | undefined;
-  const heroImage = essenVerkauf ? photos.advisorE : (advisor?.src ?? photos.advisorA);
-  const heroAlt = essenVerkauf ? 'Felix Lesch' : (advisor?.alt?.split(' - ')[0] ?? 'Michael Oberholz');
+  const advisor = REGION_ADVISOR[o.slug] ?? REGION_ADVISOR.essen;
   return (
     <>
-      <PageHero eyebrow={o.area} title={content.title} text={content.intro} checks={content.checks} image={heroImage} alt={heroAlt} cutout rating
+      <PageHero eyebrow={o.area} title={content.title} text={content.intro} checks={content.checks} image={advisor.image} alt={advisor.name} cutout rating
         buttons={[{ label: kind === 'makler' ? 'Kostenlose Erstberatung' : 'Immobilie bewerten lassen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
       <Rich blocks={content.blocks} />
+      {content.stepsTitle && <SellSteps title={content.stepsTitle} />}
+      {content.after && <Rich blocks={content.after} />}
       <div className="rich"><div className="rich__text"><FaqBlock title={`Häufige Fragen: ${label}`} items={content.faq} /></div></div>
       <Funnel title={kind === 'makler' ? `Ihr Anliegen in ${o.city}` : `Immobilie in ${o.city} verkaufen`} intent={kind === 'verkaufen' ? 'Verkaufen' : undefined} />
       <OwnerLinks city={city as OwnerCity} exclude={kind} />

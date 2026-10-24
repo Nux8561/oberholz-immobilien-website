@@ -85,8 +85,8 @@ export const faqLd = (items: { q: string; a: string }[]) => ({
   mainEntity: items.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
 });
 
-/** Stadtzentren der drei Kernregionen (für areaServed) */
-const CITY_GEO: Record<string, [number, number]> = { Essen: [51.4556, 7.0116], Bochum: [51.4818, 7.2162] };
+/** Stadtzentren der Standorte (für areaServed) */
+const CITY_GEO: Record<string, [number, number]> = { Essen: [51.4556, 7.0116], 'Münster': [51.9607, 7.6261] };
 const LEISTUNGEN = ['Immobilienbewertung', 'Immobilienverkauf', 'Vermietung', 'Rückmietverkauf', 'Kapitalanlage', 'Finanzierungsvermittlung'];
 
 /** Lokale Leistung „Immobilienmakler in <Stadt>“ – verknüpft mit der Organisation aus index.html (lokale Suche & KI-Antworten) */

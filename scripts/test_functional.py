@@ -144,7 +144,7 @@ async def mobile(b):
     local = page.locator('.owner-home')
     await local.scroll_into_view_if_needed()
     names = await page.locator('.cities .city__name').all_inner_texts()
-    ok('Startseite: Standorte Essen · Münster · Bochum', names == ['Essen', 'Münster', 'Bochum'], ' / '.join(names))
+    ok('Startseite: Standorte Essen · Münster', names == ['Essen', 'Münster'], ' / '.join(names))
     ok('Startseite: Slider ohne Objektfotos', await page.locator(".hcar__slide img[src*='/objekte/']").count() == 0)
     await local.locator('.rich__faq .acc__btn').first.click()
     ok('Startseite: FAQ öffnet Antwort', len(await local.locator('.acc__item.is-open .acc__panel').inner_text()) > 40)
@@ -278,7 +278,7 @@ async def subpages(b):
 
     # Overflow ausgewählter Seiten (Mobile + Tablet); vollständige Prüfung: scripts/check_links.py
     worst = []
-    for path in ("immobilien/kaufen", "expose/170744873", "verkaufen", "bewertung", "ueber-uns", "service/finanzierungsrechner", "ratgeber", "immopedia", "regionen/bochum", "kontakt"):
+    for path in ("immobilien/kaufen", "expose/170744873", "verkaufen", "bewertung", "ueber-uns", "service/finanzierungsrechner", "ratgeber", "immopedia", "regionen/muenster", "kontakt"):
         for w in (360, 768):
             pg = await new_page(b, w, 900, mobile=w < 768)
             await pg.goto(LOCAL_URL + path); await pg.wait_for_load_state("networkidle")
@@ -324,7 +324,8 @@ async def contact_widget(b):
     ok("Footer: WhatsApp-Icon", await page.locator(".ftr a[href*='wa.me/491794468850']").count() >= 1)
     ok("Footer: 3 Kooperationspartner verlinkt", await page.locator(".ftr__partners a[target=_blank]").count() == 3)
     cities = await page.locator(".ftr__office-city").all_inner_texts()
-    ok("Footer: Büros Essen · Münster · Bochum (Münster in der Mitte)", len(cities) == 3 and "MÜNSTER" in cities[1].upper(), " / ".join(cities))
+    ok("Footer: Büros Essen · Münster (ohne Bochum)", len(cities) == 2 and "MÜNSTER" in cities[1].upper(), " / ".join(cities))
+    ok("Footer: kein LinkedIn-Button", await page.locator(".ftr a[href*='linkedin']").count() == 0)
     ok("Footer: Münster mit 0251, sonst zentrale 0201", await page.locator(".ftr__office >> nth=1").locator("a[href='tel:+4925128429090']").count() == 1
        and await page.locator(".ftr__office >> nth=0").locator("a[href='tel:+4920161447786']").count() == 1)
     ok("Keine alte WhatsApp-Festnetznummer", await page.locator("a[href*='wa.me/4920161447786'], a[href*='wa.me/4925128429090']").count() == 0)
@@ -366,7 +367,7 @@ async def contact_widget(b):
     await go("impressum")
     txt = await page.locator("main").inner_text()
     ok("Impressum: kein veralteter ODR-Hinweis, Schlichtungsstelle vorhanden", "consumers/odr" not in txt and "Schlichtungsstelle" in txt)
-    for city in ("essen", "bochum"):
+    for city in ("essen", "muenster"):
         await go(f"regionen/{city}")
         ld = await page.evaluate("document.getElementById('ld-page')?.textContent || ''")
         ok(f"GEO: Service-Strukturdaten {city}", '"@type":"Service"' in ld and '"areaServed"' in ld)

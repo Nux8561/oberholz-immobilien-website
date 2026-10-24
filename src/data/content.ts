@@ -28,17 +28,17 @@ export const brand = {
   whatsapp: '491794468850',
   whatsappDisplay: '0179 4468850',
   email: 'mail@oberholz-immobilien.com',
-  /** Noch nicht vom Auftraggeber final bestätigt (siehe ÜBERGABE.md) */
-  hours: 'Mo–Fr 8:00–19:00 Uhr, Sa 8:00–16:00 Uhr',
+  /** Bestätigt von Felix Lesch (Kundenfeedback Runde 3, 24.10.2026) */
+  hours: 'Mo–Fr 10:00–20:00 Uhr, Sa 10:00–18:00 Uhr',
   rating: 5.0,
   reviews: 28,
-  regions: ['Essen', 'Münster', 'Bochum'],
-  /** Essen gehört zum Ruhrgebiet – daher nie „Essen, Münsterland und Ruhrgebiet“ nebeneinander */
-  claim: 'Essen · Münster · Bochum',
+  regions: ['Essen', 'Münster'],
+  /** Tätigkeitsgebiet rund um die Büros Essen und Münster */
+  areas: ['Ruhrgebiet', 'Rheinland', 'Bergisches Land', 'Münsterland'],
+  claim: 'Essen · Münster',
   logo: `${M}/oberholz-logo.png`,
   googleUrl: 'https://www.google.com/maps/place/Oberholz+Immobilien/@51.9735915,7.6248835,17z/data=!4m6!3m5!1s0x47b9bb4567805459:0xa08f5b6274a4201c!8m2!3d51.9735915!4d7.6248835!16s%2Fg%2F11shxgxbpq',
   geo: { lat: 51.4556, lng: 7.0116 },
-  linkedinUrl: 'https://www.linkedin.com/company/oberholz-immobilien',
 };
 
 /** WhatsApp-Link mit vorausgefülltem Text (Mobilnummer Felix Lesch) */
@@ -65,23 +65,21 @@ export const partners = {
   ],
 };
 
-/** Standorte in fester Reihenfolge Essen · Münster · Bochum (Münster in der Mitte).
- *  Rufnummer je Büro: Münster hat die Münsteraner Festnetznummer, sonst gilt die zentrale Essener Nummer.
- *  „page“: eigene Regionsseite (Essen, Bochum); Münster verweist auf die Münsterland-Objekte. */
+/** Standorte Essen und Münster (Bochum ist seit Runde 3 kein Standort mehr).
+ *  Rufnummer je Büro: Münster hat die Münsteraner Festnetznummer, Essen die zentrale Nummer.
+ *  „page“: eigene Regionsseite mit lokalen Eigentümerseiten. */
 export const offices = [
   { slug: 'essen', city: 'Essen', area: 'Essen und Ruhrgebiet', street: 'Benderstraße 2', zipCity: '45257 Essen', image: '/assets/stock/staedte/essen.jpg', page: true, hub: true,
     phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786', contactName: 'Felix Lesch' },
-  { slug: 'muenster', city: 'Münster', area: 'Münster und Münsterland', street: 'Wichernstraße 29', zipCity: '48147 Münster', image: '/assets/stock/staedte/muenster.jpg', page: false, hub: true,
-    phoneDisplay: '0251 28 42 90 90', phoneHref: 'tel:+4925128429090', link: `${ROUTES.kaufen}?ort=M%C3%BCnsterland`, contactName: 'Michael Oberholz' },
-  { slug: 'bochum', city: 'Bochum', area: 'Bochum und Umgebung', street: 'Auf’m Bleck 10', zipCity: '44799 Bochum', image: '/assets/stock/staedte/bochum.jpg', page: true,
-    phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786' },
+  { slug: 'muenster', city: 'Münster', area: 'Münster und Münsterland', street: 'Wichernstraße 29', zipCity: '48147 Münster', image: '/assets/stock/staedte/muenster.jpg', page: true, hub: true,
+    phoneDisplay: '0251 28 42 90 90', phoneHref: 'tel:+4925128429090', contactName: 'Michael Oberholz' },
 ] as { slug: string; city: string; area: string; street: string; zipCity: string; image: string; page: boolean; hub?: boolean; phoneDisplay: string; phoneHref: string; link?: string; contactName?: string }[];
 
-/** Essen und Münster als gleichwertige Hauptstandorte (ohne Bochum als eigenes Büro-Kontaktpaar) */
+/** Büros mit persönlichem Ansprechpartner (Essen und Münster) */
 export const hubOffices = () => offices.filter((o) => o.hub);
 /** Link „Region ansehen“ eines Büros */
 export const officeLink = (o: (typeof offices)[number]) => o.link ?? ROUTES.region(o.slug);
-/** Nur Büros mit eigener Regionsseite (Essen, Bochum) – für Stadtseiten, Routen und lokale Strukturdaten */
+/** Nur Büros mit eigener Regionsseite (Essen, Münster) – für Stadtseiten, Routen und lokale Strukturdaten */
 export const officeBySlug = (slug: string) => offices.find((o) => o.slug === slug && o.page);
 
 const face = (slug: string) => `${M}/team/face-${slug}.jpg`;
@@ -150,15 +148,15 @@ export type MegaMenuData = {
 /** Hauptnavigation: bewusst schlank – vier Bereiche mit je wenigen, klaren Zielen. */
 export const megaMenus: MegaMenuData[] = [
   {
-    label: 'Immobilien', to: ROUTES.kaufen, title: 'Immobilien finden',
-    text: 'Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung im Ruhrgebiet und im Münsterland.',
+    label: 'Kaufen', to: ROUTES.kaufen, title: 'Immobilie kaufen',
+    text: 'Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung.',
     columns: [{
       eyebrow: 'Kaufen & Mieten', links: [
         { label: 'Immobilien kaufen', to: ROUTES.kaufen }, { label: 'Immobilien mieten', to: ROUTES.mieten },
         { label: 'Kapitalanlagen & Mehrfamilienhäuser', to: ROUTES.kapitalanlage }, { label: 'Finanzierung', to: ROUTES.finanzierung },
       ],
     }],
-    promo: { image: photos.team, eyebrow: 'Persönliche Beratung', title: 'Ihre Ansprechpartner in Essen, Münster und Bochum', to: ROUTES.kontakt },
+    promo: { image: photos.team, eyebrow: 'Persönliche Beratung', title: 'Ihre Ansprechpartner in Essen und Münster', to: ROUTES.kontakt },
     mobileCta: { label: 'Alle Immobilien ansehen', to: ROUTES.kaufen },
   },
   {
@@ -176,7 +174,7 @@ export const megaMenus: MegaMenuData[] = [
   },
   {
     label: 'Über uns', to: ROUTES.ueberUns, title: 'Oberholz Immobilien',
-    text: 'Makler und Gutachter unter einem Dach – mit Büros in Essen, Münster und Bochum.',
+    text: 'Makler und Gutachter unter einem Dach – mit Büros in Essen und Münster.',
     columns: [{
       eyebrow: 'Unternehmen', links: [
         { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Unser Team', to: ROUTES.team },
@@ -203,6 +201,8 @@ export const megaMenus: MegaMenuData[] = [
 
 export const hero = {
   title: 'Ihr Immobilienmakler in Essen und Münster',
+  /** Tätigkeitsgebiet als Zeile unter der Überschrift (Kunde Runde 3) */
+  areas: 'Ruhrgebiet · Rheinland · Bergisches Land · Münsterland',
   modes: ['Kaufen', 'Mieten', 'KI-Suche'] as const,
   placeholder: 'Stadt, Stadtteil, Postleitzahl oder Objekt-Nr.',
   propertyTypes: [
@@ -212,9 +212,9 @@ export const hero = {
   /** Slider: Stadtpanoramen aus der Region (keine Objektfotos). Bilder: Unsplash, siehe public/assets/stock/BILDNACHWEISE.json */
   slides: [
     { image: '/assets/stock/staedte/essen.jpg', pos: '70% 40%', title: 'Essen', sub: 'Zeche Zollverein · Büro Essen', to: ROUTES.region('essen') },
-    { image: '/assets/stock/staedte/muenster.jpg', pos: '50% 45%', title: 'Münster', sub: 'Prinzipalmarkt · Büro Münster', to: `${ROUTES.kaufen}?ort=M%C3%BCnsterland` },
+    { image: '/assets/stock/staedte/muenster.jpg', pos: '50% 45%', title: 'Münster', sub: 'Prinzipalmarkt · Büro Münster', to: ROUTES.region('muenster') },
     { image: '/assets/stock/staedte/duisburg.jpg', pos: '50% 50%', title: 'Ruhrgebiet', sub: 'Tiger & Turtle, Duisburg', to: `${ROUTES.kaufen}?ort=Ruhrgebiet` },
-    { image: '/assets/stock/staedte/bochum.jpg', pos: '50% 55%', title: 'Bochum', sub: 'Tätigkeitsgebiet Bochum', to: ROUTES.region('bochum') },
+    { image: '/assets/stock/staedte/duesseldorf.jpg', pos: '50% 50%', title: 'Rheinland', sub: 'Rheinturm & Medienhafen, Düsseldorf', to: ROUTES.kaufen },
     { image: '/assets/stock/staedte/muensterland.jpg', pos: '50% 50%', title: 'Münsterland', sub: 'Zwischen Kanal und Feldern', to: `${ROUTES.kaufen}?ort=M%C3%BCnsterland` },
   ],
   /** Eigentümergewinnung zuerst; Kaufangebote sind nachrangig (eigene Suchseite). */
@@ -227,18 +227,18 @@ export const hero = {
 
 export const selling = {
   eyebrow: 'Immobilie verkaufen',
-  title: 'Verkauf mit Gutachterkompetenz – im Ruhrgebiet und im Münsterland',
-  text: 'Wir beurteilen Ihre Immobilie als Team aus Maklern und Gutachtern: von der Marktwertermittlung über Exposé und Strategie bis zur Schlüsselübergabe – transparent und persönlich.',
+  title: 'Verkauf mit Gutachterkompetenz – im Rhein-Ruhr-Gebiet und im Münsterland',
+  text: 'Wir beurteilen Ihre Immobilie ganzheitlich als Team bestehend aus Maklern und Immobiliengutachter und begleiten Ihren Immobilienverkauf von der Marktwertermittlung bis zur Schlüsselübergabe – transparent und persönlich.',
   benefits: [
-    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner im Ruhrgebiet und im Münsterland.' },
-    { icon: 'globe', title: 'Gutachterkompetenz', text: 'DIN-zertifizierte Marktwertermittlung als Basis für eine realistische Preisstrategie.' },
-    { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und die Abstimmung der erforderlichen Verkaufsunterlagen – inklusive vorhandenem Energieausweis und Finanzierungsbegleitung.' },
+    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner in der Rhein-Ruhr-Region und dem Münsterland.' },
+    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Professionelle Marktwertermittlung durch zertifizierten Immobiliengutachter für eine realistische Preisstrategie.' },
+    { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und die Abstimmung aller erforderlichen Verkaufsunterlagen.' },
   ],
   card: {
     image: photos.verkauf,
     alt: 'Makler und Eigentümerpaar besiegeln einen Hausverkauf per Handschlag',
     title: 'Erfolgreich verkaufen – mit Oberholz Immobilien',
-    text: 'Über unser Banken-Netzwerk finden wir finanzierungsstarke Käufer, verhandeln in Ihrem Interesse und begleiten Sie bis zur Übergabe.',
+    text: 'Über unser Käufernetzwerk finden wir bonitätsstarke Kunden, verhandeln in Ihrem Interesse und begleiten Sie bis zur Übergabe Ihrer Immobilie.',
     cta: 'Jetzt erfolgreich verkaufen',
     to: ROUTES.verkaufen,
   },
@@ -246,19 +246,19 @@ export const selling = {
 
 export const cities = {
   eyebrow: 'Unsere Standorte',
-  title: 'Essen und Münster – und Bochum als Tätigkeitsgebiet',
-  text: 'Essen und Münster sind unsere gleichwertigen Hauptstandorte. In Bochum und der Region sind wir ebenfalls persönlich für Sie da.',
+  title: 'Essen und Münster',
+  text: 'Mit unseren Standorten in Essen und Münster betreuen wir Ihre Immobilie im Ruhrgebiet, dem Rheinland, dem Bergischen Land und dem Münsterland.',
   items: offices.map((o) => ({ name: o.city, sub: `${o.street} · ${o.zipCity}`, image: o.image, to: officeLink(o) })),
 };
 
 export const careers = {
   eyebrow: 'Unser Team',
-  title: 'Persönliche Beratung von Menschen, die Ihre Region kennen',
-  text: 'Makler und Gutachter unter einem Dach – seit über 20 Jahren begleiten wir Eigentümer, Käufer und Investoren in Essen, Münster und der Region.',
+  title: 'Persönliche Beratung von Experten in Ihrer Region',
+  text: 'Seit 2011 begleiten wir Eigentümer, Käufer und Investoren in Essen, Münster und Umgebung.',
   card: {
     image: photos.team,
     alt: 'Das Team von Oberholz Immobilien',
-    title: 'Ihr Team in Essen, Münster und Bochum',
+    title: 'Ihr Team von Oberholz Immobilien',
     text: 'Michael Oberholz, Felix Lesch und das Team beraten Sie persönlich – unsere Erstberatungsgespräche sind unverbindlich und kostenlos.',
     cta: 'Team kennenlernen',
     to: ROUTES.team,
@@ -267,7 +267,6 @@ export const careers = {
 
 export const lifestyle = {
   title: 'Objekte aus unserer Vermittlung',
-  text: 'Häuser und Wohnungen, die wir im Ruhrgebiet, im Bergischen Land und im Münsterland begleiten – von der ersten Einschätzung bis zum Vertragsabschluss.',
   galleryButton: 'Zur Galerie',
   more: 'Mehr erfahren',
   items: [
@@ -303,7 +302,7 @@ export const relatedTopics = {
   eyebrow: 'Weitere Themen',
   title: 'Passende Themen für Ihre Region',
   groups: [
-    { icon: 'house', title: 'Immobilien im Ruhrgebiet', text: 'Häuser, Wohnungen und Kapitalanlagen zwischen Essen, Bochum und Duisburg.', ...groupLinks(['Essen', 'Bochum', 'Duisburg', 'Gelsenkirchen', 'Bergkamen']) },
+    { icon: 'house', title: 'Immobilien im Ruhrgebiet', text: 'Häuser, Wohnungen und Kapitalanlagen im Ruhrgebiet.', ...groupLinks(['Essen', 'Duisburg', 'Gelsenkirchen', 'Bergkamen']) },
     { icon: 'apartment', title: 'Immobilien im Münsterland', text: 'Häuser und Wohnungen in Münster, Coesfeld, Stadtlohn und Umgebung.', ...groupLinks(['Münster', 'Coesfeld', 'Stadtlohn']) },
     { icon: 'townhouse', title: 'Immobilien im Bergischen Land', text: 'Angebote in Velbert und Umgebung.', ...groupLinks(['Velbert']) },
   ],
@@ -318,8 +317,8 @@ export const contact = {
 };
 
 export const footer = {
-  claim: 'Ihr Immobilienpartner im Ruhrgebiet und Münsterland',
-  socials: ['linkedin', 'google', 'whatsapp'] as const,
+  claim: 'Ihr Immobilienpartner in Essen, Münster und Umgebung',
+  socials: ['google', 'whatsapp'] as const,
   columns: [
     { title: 'Leistungen', links: [
       { label: 'Immobilien kaufen', to: ROUTES.kaufen }, { label: 'Immobilie verkaufen', to: ROUTES.verkaufen },

@@ -28,21 +28,19 @@ const Regionen = pick(U, 'Regionen'), Region = pick(U, 'Region'), RegionVerkaufe
 const MeinBereich = pick(G, 'MeinBereich'), Impressum = pick(G, 'Impressum'), Datenschutz = pick(G, 'Datenschutz'), CookieHinweise = pick(G, 'CookieHinweise');
 const RegionBewertung = pick(O, 'RegionBewertung'), RegionWohnungVerkaufen = pick(O, 'RegionWohnungVerkaufen');
 
-/** Alte Pfade leiten weiter. Münster hat keine eigene Stadtseite → Münsterland-Objekte. */
+/** Standorte mit eigener Regionsseite; Bochum ist seit Runde 3 kein Standort mehr. */
+const REGION_SLUGS = ['essen', 'muenster'];
+
+/** Alte Pfade leiten weiter. */
 function RedirectCity() {
   const { city = '' } = useParams();
-  if (city === 'muenster') return <Navigate to="/immobilien/kaufen?ort=M%C3%BCnsterland" replace />;
-  return <Navigate to={['essen', 'bochum'].includes(city) ? `/regionen/${city}` : '/regionen'} replace />;
+  return <Navigate to={REGION_SLUGS.includes(city) ? `/regionen/${city}` : '/regionen'} replace />;
 }
 
-/** Frühere Kontakt-Stadtseiten → Standortseite der Stadt (Münster → Kontakt) */
+/** Frühere Kontakt-Stadtseiten → Standortseite der Stadt */
 function RedirectKontaktCity() {
   const { city = '' } = useParams();
-  return <Navigate to={['essen', 'bochum'].includes(city) ? `/regionen/${city}` : '/kontakt'} replace />;
-}
-
-function RedirectMuensterAway({ to = '/regionen' }: { to?: string }) {
-  return <Navigate to={to} replace />;
+  return <Navigate to={REGION_SLUGS.includes(city) ? `/regionen/${city}` : '/kontakt'} replace />;
 }
 
 export default function App() {
@@ -79,8 +77,11 @@ export default function App() {
             <Route path="kontakt" element={<Kontakt />} />
             <Route path="kontakt/:city" element={<RedirectKontaktCity />} />
             <Route path="regionen" element={<Regionen />} />
-            <Route path="regionen/muenster" element={<RedirectMuensterAway to="/immobilien/kaufen?ort=M%C3%BCnsterland" />} />
-            <Route path="regionen/muenster/verkaufen" element={<RedirectMuensterAway to="/verkaufen" />} />
+            {/* Bochum-Seiten (bis Runde 3) → allgemeine Seiten */}
+            <Route path="regionen/bochum" element={<Navigate to="/regionen" replace />} />
+            <Route path="regionen/bochum/verkaufen" element={<Navigate to="/verkaufen" replace />} />
+            <Route path="regionen/bochum/immobilienbewertung" element={<Navigate to="/bewertung" replace />} />
+            <Route path="regionen/bochum/wohnung-verkaufen" element={<Navigate to="/verkaufen" replace />} />
             <Route path="regionen/:city" element={<Region />} />
             <Route path="regionen/:city/verkaufen" element={<RegionVerkaufen />} />
             <Route path="regionen/:city/immobilienbewertung" element={<RegionBewertung />} />

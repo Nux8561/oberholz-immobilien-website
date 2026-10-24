@@ -33,7 +33,10 @@ export default function Hero() {
   return (
     <section className={`hero${scrolled ? ' is-scrolled' : ''}`} style={{ '--hero-lift': `${-lift}px` } as React.CSSProperties} aria-label="Immobiliensuche">
       <div className="hero__head">
-        <h1 className="hero__title head">{hero.title}</h1>
+        <div className="hero__heading">
+          <h1 className="hero__title head">{hero.title}</h1>
+          <p className="hero__areas">{hero.areas}</p>
+        </div>
         <PropertySearch />
       </div>
       <div className="hero__carousel"><HeroCarousel /></div>

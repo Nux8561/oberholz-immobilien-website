@@ -102,6 +102,6 @@ export function parseWish(text: string) {
 export const WISH_EXAMPLES = [
   '3-Zimmer-Wohnung in Essen mit Balkon',
   'Haus mit Garten im Ruhrgebiet bis 450.000 €',
-  'Kapitalanlage in Bochum',
+  'Kapitalanlage im Ruhrgebiet',
   'Barrierefreie Wohnung in Essen',
 ];

@@ -288,7 +288,7 @@ export default function Search() {
       </section>
 
       <section className="wrap srch-sec">
-        <SectionIntro variant="inline" line={false} eyebrow="Persönlich vor Ort" title="Ihre Ansprechpartner in der Region" text="Ob Kauf, Verkauf oder Vermietung – unser Team ist in Essen, Münster und Bochum für Sie da." />
+        <SectionIntro variant="inline" line={false} eyebrow="Persönlich vor Ort" title="Ihre Ansprechpartner in der Region" text="Ob Kauf, Verkauf oder Vermietung – unser Team ist in Essen, Münster und Umgebung für Sie da." />
         <div className="offices">
           {offices.map((o) => (
             <Link key={o.slug} to={officeLink(o)} className="city b-tile">

@@ -3,7 +3,7 @@ import './SectionIntro.css';
 
 type Props = {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   text?: ReactNode;
   level?: 'h1' | 'h2';
   /** 'section' = eigener Wrapper (896px), 'inline' = innerhalb eines Content-Wrappers */

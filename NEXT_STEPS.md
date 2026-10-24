@@ -2,6 +2,16 @@
 
 > Für die Übergabe an Oberholz siehe **ÜBERGABE.md** (Livegang, Kunden-Checkliste, Pflege).
 
+## Erledigt (24.10.2026, Kundenfeedback Runde 3 in getrevu)
+- Sicherung davor: Git-Tag `stand-vor-runde-3`.
+- Bochum ist kein Standort mehr: aus Footer, Kontakt, Standorten, Menü, Slider, Strukturdaten und llms.txt entfernt. `/regionen/bochum/*` leitet per 301 auf die allgemeinen Seiten weiter.
+- Neue Münster-Seiten wie Essen: `/regionen/muenster` (+ `/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`), Kopfbild Michael Oberholz; Essen mit Felix Lesch.
+- Ortsnennungen in allgemeinen Texten verallgemeinert („Essen, Münster und Umgebung“); konkrete Städte und Stadtteile nur noch auf den lokalen Seiten.
+- Startseite: Tätigkeitsgebiet unter der Überschrift, Team-Abschnitt vor den Objekten, Texte laut Felix Lesch; Menü „Immobilien“ → „Kaufen“; LinkedIn entfernt.
+- Öffnungszeiten laut Felix Lesch: Mo–Fr 10–20 Uhr, Sa 10–18 Uhr (Website, Strukturdaten, llms.txt).
+- Kapitalanlage ohne Finanzierungsboxen (direkt weiter mit Rechnern), Finanzierung ohne Teamleiste und mit je drei Punkten, Verkaufsablauf als gemeinsame Kacheln (`SellSteps`) auf /verkaufen und den Regionsseiten.
+- „Seit über 20 Jahren“ auf „Seit 2011“ angeglichen (Angabe Felix Lesch).
+
 ## Erledigt (19.10.2026, Gespräch mit Felix Lesch)
 - Objekte auf den echten ImmoScout-Bestand gebracht (13 statt 21): verkaufte und fremde Objekte (u. a. Krefeld, Bottrop, Hitzacker, Auetal) samt Fotos entfernt, 5 neue übernommen. Neues Skript `scripts/import_immoscout.py` für den Abgleich, bis der API-Zugang da ist.
 - Ansprechpartner laut ImmoScout: Michael Penn (Coesfeld, Stadtlohn, mit seiner Mobilnummer), Michael Oberholz (Mietwohnung Gelsenkirchen), sonst Felix Lesch.
@@ -53,7 +63,7 @@
 - Widerspruch der alten Seite: Panel „9 echte Bewertungen“ vs. sonst „28 Bewertungen“ – aktuelle Zahl im Google-Profil prüfen (`brand.reviews`).
 
 ## Mit Oberholz zu klären
-1. **Öffnungszeiten**: Startseite „Mo–Sa 8–19 Uhr“, Kontakt-Stadtseiten + strukturierte Daten „Mo–Fr 8–19, Sa 8–16 Uhr“ (verwendet).
+1. ~~**Öffnungszeiten**~~: am 24.10.2026 von Felix Lesch bestätigt (Mo–Fr 10–20, Sa 10–18 Uhr).
 2. **Telefon in strukturierten Daten** der alten Seite: +49-711-… (Stuttgart) – verwendet wird jetzt die zentrale Nummer 0201 61447786 (Büro Münster: 0251 28 42 90 90).
 3. **Firmierung**: Regionsseiten nennen „Oberholz Immobilien der EE Experten GmbH“, Impressum nur „Oberholz Immobilien“ ohne Inhaber/Rechtsform (Pflichtangabe!).
 3a. **Objekt-Zuständigkeit**: kommt seit 19.10. aus ImmoScout („Angeboten von“). Offen: PLZ 45884 beim Zweifamilienhaus 171739024 ist bei ImmoScout als Essen eingetragen, gehört aber zu Gelsenkirchen – bei Felix prüfen.
@@ -67,4 +77,4 @@
 ## Technisch offen
 - Formular-Backend: Code liegt unter `functions/api/contact.js` (Resend). Aktivierung: Cloudflare Pages Secret `RESEND_API_KEY` (+ optional `CONTACT_TO` / `CONTACT_FROM`). Ohne Secret: Formulare zeigen 503-Hinweis, kein Schein-Erfolg.
 - Objekte automatisch aus ImmoScout24 aktualisieren: API-Zugang bei Michael Oberholz anfragen (WhatsApp-Gruppe). Bis dahin `python3 scripts/import_immoscout.py` von Hand. Bestand und Ortsfilter stammen bereits aus dem Import (`listings.json`).
-- Firmierung / Rechtsform und Öffnungszeiten: weiterhin Kundenbestätigung (Impressum bleibt „Oberholz Immobilien“ ohne erfundene GmbH; Zeiten Mo–Fr 8–19 / Sa 8–16 unverändert, aber unbestätigt).
+- Firmierung / Rechtsform: weiterhin Kundenbestätigung (Impressum bleibt „Oberholz Immobilien“ ohne erfundene GmbH).

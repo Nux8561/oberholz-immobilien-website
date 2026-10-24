@@ -130,7 +130,7 @@ export default function ContactWidget() {
             </div>
             <button type="button" className="cw__close" aria-label="Schließen" onClick={() => setOpen(false)}><IconClose /></button>
           </div>
-          <ul className="cw__usp"><li>Unverbindlich</li><li>Makler nach § 34c GewO</li><li>Büros in Essen · Münster · Bochum</li></ul>
+          <ul className="cw__usp"><li>Unverbindlich</li><li>Makler nach § 34c GewO</li><li>Büros in Essen · Münster</li></ul>
           <div className="cw__tabs" role="tablist">
             {TABS.map(([k, l]) => <button key={k} type="button" role="tab" aria-selected={tab === k} className={tab === k ? 'is-active' : ''} onClick={() => { setTab(k); setDone(false); setSubmitError(null); }}>{l}</button>)}
           </div>
