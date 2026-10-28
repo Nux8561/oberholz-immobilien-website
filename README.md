@@ -54,9 +54,9 @@ Neu erzeugen: `scripts/crawl_oberholz.py` → `extract_*.py` → `build_oberholz
 ## Formulare
 
 Alle Formulare (Funnel, Kontaktformulare, Kontakt-Widget mit Anfrage und Rückruf, Exposé, Immotipp, Wert-Hebel-Rechner) posten an
-`/api/contact` (`functions/api/contact.js`, Cloudflare Pages Function). Die Function leitet jede Anfrage als JSON (`event: website.lead`)
-an das Anfrage-Portal weiter: Kontaktdaten flach und unter `contact`, dazu `type` (bewertung, verkauf, rueckruf …), `form`, `intent`,
-`property`, `listing`, `office`, `consent`, `page`, `attribution` (UTM, gclid …), `client` sowie alle Rohfelder (`fields`, `fields_list`).
+`/api/contact` (`functions/api/contact.js`, Cloudflare Pages Function). Die Function leitet jede Anfrage als flaches JSON
+(`event: website.lead`, `version: 2`) an das Courtage-Portal weiter: Standardfelder (`first_name`, `last_name`, `email`, `phone`) und
+deutsche Schlüssel wie `anfrageart`, `objektart`, `ort_der_immobilie`, `buero`, `seite`, `utm_source` – Feldliste und Mapping in `PORTAL-MAPPING.md`.
 Doppelte Absendungen verhindert der Header `Idempotency-Key`. Ein verstecktes Honeypot-Feld filtert einfache Spam-Bots.
 Pages-Secrets: `LEAD_WEBHOOK_URL` (Ingest-Adresse des Portals, enthält den Zugangsschlüssel – nie ins Repo), optional zusätzlich
 `RESEND_API_KEY` mit `CONTACT_TO`/`CONTACT_FROM` für eine E-Mail-Benachrichtigung. Ohne beides antwortet die Function mit 503 und
