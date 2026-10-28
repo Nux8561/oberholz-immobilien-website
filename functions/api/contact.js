@@ -108,7 +108,7 @@ function buildLead(body, request) {
       ? Object.fromEntries(Object.entries(meta.calculator).slice(0, 30).map(([k, v]) => [str(k, 60), typeof v === 'number' ? v : str(v, 200)]))
       : undefined,
     office,
-    consent: { privacy: meta.consent?.privacy === true, text: str(meta.consent?.text, 1000), at: str(ctx.submitted_at, 40) ?? now },
+    consent: { privacy: meta.consent?.privacy === true, confirmation: str(meta.consent?.confirmation, 500), text: str(meta.consent?.text, 1000), at: str(ctx.submitted_at, 40) ?? now },
     page: {
       url: str(ctx.page?.url, 1000) ?? str(body.page, 1000),
       path: str(ctx.page?.path, 300),

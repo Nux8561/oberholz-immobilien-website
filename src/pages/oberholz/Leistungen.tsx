@@ -60,7 +60,7 @@ const sellFaq = [
 export function Verkaufen() {
   usePageMeta({ title: 'Immobilie verkaufen in Essen, Münster & Umgebung', description: 'Haus oder Wohnung verkaufen: persönliche Bewertung, vollständige Unterlagen und begleitete Vermarktung mit Oberholz Immobilien in Essen, Münster und Umgebung.', crumbs: crumbs('Immobilie verkaufen'), footer: 'accordion', image: photos.advisorA, jsonLd: [faqLd(sellFaq)] });
   return <>
-    <PageHero eyebrow="Immobilie verkaufen" title="Ihr Immobilienverkauf. Persönlich begleitet." text="Ob Haus, Eigentumswohnung oder Mehrfamilienhaus: Wir begleiten Ihren Verkauf in Essen, Münster und Umgebung – von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Ein fester Ansprechpartner', 'Bewertung und Vermarktung aus einer Hand', 'Ein klarer Plan für Ihre Immobilie']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+    <PageHero eyebrow="Immobilie verkaufen" title="Immobilie verkaufen in Essen und Münster" text="Erst der fundierte Marktwert, dann der passende Käufer: Ob Haus, Eigentumswohnung oder Mehrfamilienhaus – wir begleiten Ihren Verkauf in Essen, Münster und Umgebung von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Marktwert durch einen zertifizierten Immobiliengutachter', 'Bonitätsgeprüfte Käufer aus unserem Netzwerk', 'Ein fester Ansprechpartner in Essen oder Münster']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
     <SellSteps />
     <Rich blocks={[{ t: 'h2', text: 'Ihr Objekt bestimmt die Strategie' }, { t: 'p', text: 'Beim Hausverkauf spielen das Grundstück, die Bausubstanz und der energetische Zustand eine wichtige Rolle. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet.' }, { t: 'p', text: 'Wir erklären Ihnen, welche Faktoren den Preis Ihres Objekts beeinflussen, welche Unterlagen für Kaufinteressenten benötigt werden und welche weiteren Faktoren für Ihre Zielgruppe relevant sind. So schaffen wir eine belastbare Grundlage für Ihre Entscheidung.' }]} />
     <OwnerLinks exclude="makler" />
@@ -184,7 +184,7 @@ const valuationFaq = [
 export function Bewertung() {
   usePageMeta({ title: 'Kostenlose Immobilienbewertung in Essen & Münster', crumbs: crumbs('Immobilienbewertung'), footer: 'accordion', description: 'Was ist Ihr Haus oder Ihre Wohnung wert? Persönliche, kostenlose Marktwerteinschätzung in Essen, Münster und Umgebung. Jetzt Bewertung anfragen.', image: photos.bewertung, jsonLd: [faqLd(valuationFaq)] });
   return <>
-    <PageHero eyebrow="Immobilienbewertung" title="Der Wert Ihrer Immobilie. Verständlich erklärt." image={photos.bewertung} alt="Besprechung von Immobilienunterlagen" rating text="Sie möchten wissen, was Ihr Haus oder Ihre Wohnung wert ist? Wir betrachten Lage, Zustand und Unterlagen persönlich – als Grundlage für Ihre nächsten Schritte." checks={['Kostenlose erste Marktwerteinschätzung', 'Persönlicher Blick auf Ihr Objekt', 'Für Essen, Münster und Umgebung']} buttons={[{ label: 'Bewertung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+    <PageHero eyebrow="Immobilienbewertung" title="Was ist Ihre Immobilie wert?" image={photos.bewertung} alt="Besprechung von Immobilienunterlagen" rating text="Makler und Gutachter bewerten Ihr Haus oder Ihre Wohnung gemeinsam: persönlich vor Ort und nachvollziehbar begründet. Auch wenn Sie noch nicht wissen, ob Sie verkaufen möchten." checks={['Kostenlose erste Marktwerteinschätzung', 'Besichtigung statt Online-Schätzung', 'Für Essen, Münster und Umgebung']} buttons={[{ label: 'Wert ermitteln lassen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
     <section className="wrap">
       <SectionIntro variant="inline" line={false} eyebrow="Bewertungsverfahren" title="Die passende Methode für Ihre Immobilie" text="Die Auswahl des Bewertungsverfahrens richtet sich nach der Objektart und der tatsächlichen Nutzung. Je nach Immobilie werden auch mehrere Verfahren herangezogen." />
       <div className="svc-grid svc-grid--3">{METHODS.map(m => <article key={m.title} className="svc"><LineIcon name={m.icon} size={36} /><h3 className="svc__title head">{m.title}</h3><p className="svc__text">{m.text}</p></article>)}</div>
@@ -209,7 +209,7 @@ export function Immotipp() {
       <Rich blocks={[
         { t: 'h2', text: 'So funktioniert das Tippgeber-Programm' },
         { t: 'h3', text: 'Tipp abgeben' }, { t: 'p', text: 'Sie nennen uns eine Immobilie, deren Eigentümer verkaufen möchte – über das Formular oder telefonisch.' },
-        { t: 'h3', text: 'Wir übernehmen' }, { t: 'p', text: 'Wir sprechen die Eigentümer diskret an und begleiten den Verkauf persönlich.' },
+        { t: 'h3', text: 'Wir übernehmen' }, { t: 'p', text: 'Mit dem Einverständnis der Eigentümer nehmen wir diskret Kontakt auf und begleiten den Verkauf persönlich.' },
         { t: 'h3', text: 'Prämie erhalten' }, { t: 'p', text: 'Kommt durch Ihren Tipp ein Verkauf zustande, erhalten Sie eine Prämie von mindestens 500 €.' },
       ]} />
       <section className="wrap" id="anfrage">
@@ -217,6 +217,7 @@ export function Immotipp() {
           <SectionIntro variant="inline" line={false} eyebrow="Tippgeber-Formular" title={textOf(b[3])} text={textOf(b[4])} />
           <div className="lead__box">
             <ContactForm subject="Immotipp – Tippgeber-Hinweis" submitLabel="Tipp jetzt absenden" meta={{ form: 'immotipp', type: 'immotipp' }}
+              confirm="Die Eigentümer wissen von meinem Tipp und sind damit einverstanden, dass Oberholz Immobilien sie kontaktiert."
               message="Art der Immobilie: … | Ort/PLZ: … | Ansprechpartner & Telefonnummer der Eigentümer (falls bekannt): …"
               benefits={['Kein Aufwand – Formular ausfüllen genügt.', 'Gilt für Häuser, Wohnungen und Grundstücke.', 'Diskret & vertraulich.']} />
           </div>

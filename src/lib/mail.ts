@@ -19,7 +19,7 @@ export type LeadMeta = {
   property?: { kind?: string; subtype?: string; detail?: string; location?: string; units?: number; living_area_m2?: number; plot_area_m2?: number };
   listing?: { id: string; title?: string; city?: string; district?: string; agent?: string; url?: string };
   calculator?: Record<string, string | number | undefined>;
-  consent?: { privacy: boolean; text?: string };
+  consent?: { privacy: boolean; text?: string; confirmation?: string };
   /** Honeypot: von Menschen nie ausgefüllt */
   hp?: string;
 };

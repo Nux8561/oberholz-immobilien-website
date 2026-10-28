@@ -225,10 +225,10 @@ export const hero = {
 export const selling = {
   eyebrow: 'Immobilie verkaufen',
   title: 'Verkauf mit Gutachterkompetenz – im Rhein-Ruhr-Gebiet und im Münsterland',
-  text: 'Wir beurteilen Ihre Immobilie ganzheitlich als Team bestehend aus Maklern und Immobiliengutachter und begleiten Ihren Immobilienverkauf von der Marktwertermittlung bis zur Schlüsselübergabe – transparent und persönlich.',
+  text: 'Wir beurteilen Ihre Immobilie ganzheitlich als Team aus Maklern und Immobiliengutachtern und begleiten Ihren Immobilienverkauf von der Marktwertermittlung bis zur Schlüsselübergabe – transparent und persönlich.',
   benefits: [
     { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner in der Rhein-Ruhr-Region und dem Münsterland.' },
-    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Professionelle Marktwertermittlung durch zertifizierten Immobiliengutachter für eine realistische Preisstrategie.' },
+    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Professionelle Marktwertermittlung durch einen zertifizierten Immobiliengutachter für eine realistische Preisstrategie.' },
     { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und die Abstimmung aller erforderlichen Verkaufsunterlagen.' },
   ],
   card: {

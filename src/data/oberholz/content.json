@@ -538,7 +538,7 @@
           "items": [
             "Verkauf zum Marktwert",
             "Weiter wohnen im eigenen Zuhause",
-            "Sofortige Auszahlung des Kaufpreises",
+            "Kaufpreis nach dem Notartermin",
             "Finanzielle Sicherheit & Flexibilität"
           ]
         },
@@ -714,11 +714,11 @@
       "blocks": [
         {
           "t": "h2",
-          "text": "Immobilientipp geben – Bonus kassieren!"
+          "text": "Ihr Tipp ist uns mindestens 500 € wert"
         },
         {
           "t": "p",
-          "text": "Sie kennen jemanden, der verkaufen möchte? Wir belohnen Ihren Tipp – mit mindestens 500 €."
+          "text": "Sie kennen jemanden in Essen, Münster oder Umgebung, der eine Immobilie verkaufen möchte? Kommt durch Ihre Empfehlung ein Verkauf zustande, erhalten Sie eine Prämie von mindestens 500 €."
         },
         {
           "t": "ul",
@@ -731,7 +731,7 @@
         },
         {
           "t": "h3",
-          "text": "Jetzt Tipp abgeben & profitieren!"
+          "text": "Jetzt Tipp abgeben"
         },
         {
           "t": "p",

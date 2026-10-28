@@ -7,7 +7,7 @@ import { IconCheck, IconMail } from '../Icons';
 import './ContactForm.css';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-type Key = 'vorname' | 'nachname' | 'email' | 'telefon' | 'dsgvo';
+type Key = 'vorname' | 'nachname' | 'email' | 'telefon' | 'dsgvo' | 'confirm';
 type Errors = Partial<Record<Key, string>>;
 
 type Props = {
@@ -21,17 +21,20 @@ type Props = {
   doneText?: string;
   /** strukturierte Angaben für das Anfrage-Portal (Art der Anfrage, Objekt, Exposé …) */
   meta?: LeadMeta;
+  /** zusätzliche Pflichtbestätigung, z. B. Einverständnis der Eigentümer beim Tippgeber-Hinweis */
+  confirm?: string;
 };
 
 /** Anfrageformular: Client-Validierung, Versand über /api/contact, Erfolg erst nach Server-Bestätigung. */
 export default function ContactForm({
   subject, message = '', submitLabel = 'Details anfragen', extra = [], phoneRequired = false,
   benefits = ['Persönliche Rückmeldung durch unser Team.', 'Unverbindlich und kostenfrei.', 'Ihre Daten nutzen wir nur für diese Anfrage.'],
-  doneText, meta,
+  doneText, meta, confirm,
 }: Props) {
   const formId = useId();
   const [v, setV] = useState({ vorname: '', nachname: '', email: '', telefon: '', nachricht: message });
   const [dsgvo, setDsgvo] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -50,6 +53,7 @@ export default function ContactForm({
     if (!v.nachname.trim()) err.nachname = 'Bitte geben Sie Ihren Nachnamen ein.';
     if (!EMAIL_RE.test(v.email.trim())) err.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
     if (phoneRequired && v.telefon.replace(/\D/g, '').length < 6) err.telefon = 'Bitte geben Sie eine Telefonnummer für Rückfragen an.';
+    if (confirm && !confirmed) err.confirm = 'Bitte bestätigen Sie das Einverständnis.';
     if (!dsgvo) err.dsgvo = 'Bitte bestätigen Sie die Datenschutzhinweise.';
     setErrors(err);
     setSubmitError(null);
@@ -62,6 +66,7 @@ export default function ContactForm({
       ['E-Mail', v.email],
       ['Telefon', v.telefon],
       ['Nachricht', v.nachricht],
+      [confirm ? 'Bestätigung' : '', confirm && confirmed ? confirm : undefined],
     ];
     const fields = raw.filter(([, val]) => val).map(([k, val]) => [k, String(val)] as [string, string]);
     const result = await submitContact({
@@ -72,7 +77,7 @@ export default function ContactForm({
         ...meta,
         contact: { ...meta?.contact, first_name: v.vorname.trim(), last_name: v.nachname.trim(), email: v.email.trim(), phone: v.telefon.trim() || undefined },
         message: v.nachricht.trim() || undefined,
-        consent: { privacy: true, text: `Ich bin damit einverstanden, dass ${brand.company} meine Angaben zur Bearbeitung dieser Anfrage verwendet und mich telefonisch oder per E-Mail kontaktiert.` },
+        consent: { privacy: true, ...(confirm ? { confirmation: confirm } : {}), text: `Ich bin damit einverstanden, dass ${brand.company} meine Angaben zur Bearbeitung dieser Anfrage verwendet und mich telefonisch oder per E-Mail kontaktiert.` },
         hp,
       },
     });
@@ -121,6 +126,13 @@ export default function ContactForm({
         <span className="cform__label">Ihre Nachricht</span>
         <textarea rows={3} value={v.nachricht} onChange={set('nachricht')} />
       </label>
+      {confirm && (
+        <div className={`cform__consent${errors.confirm ? ' has-error' : ''}`}>
+          <input id={`${formId}-confirm`} type="checkbox" checked={confirmed} onChange={() => { setConfirmed(!confirmed); setErrors({ ...errors, confirm: undefined }); }} />
+          <label htmlFor={`${formId}-confirm`} className="is-open">*{confirm}</label>
+          {errors.confirm && <span className="cform__error" role="alert">{errors.confirm}</span>}
+        </div>
+      )}
       <div className={`cform__consent${errors.dsgvo ? ' has-error' : ''}`}>
         <input id={`${formId}-dsgvo`} type="checkbox" checked={dsgvo} onChange={() => { setDsgvo(!dsgvo); setErrors({ ...errors, dsgvo: undefined }); }} />
         <label htmlFor={`${formId}-dsgvo`} className="is-open">
