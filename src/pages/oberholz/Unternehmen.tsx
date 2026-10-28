@@ -49,7 +49,7 @@ export function TeamSection() {
 
 export function UeberUns() {
   const { title, text, rest } = splitIntro(page('ueber-uns').blocks);
-  usePageMeta({ title: 'Über uns: Team & Immobilienmakler Michael Oberholz', crumbs: [{ label: 'Über uns' }], footer: 'accordion', description: text, image: photos.team, jsonLd: [faqLd(homeFaq)] });
+  usePageMeta({ title: 'Über uns: Makler und Gutachter in Essen & Münster', crumbs: [{ label: 'Über uns' }], footer: 'accordion', description: text, image: photos.team, jsonLd: [faqLd(homeFaq)] });
   return (
     <>
       <PageHero eyebrow="Über uns" title={title} text={text} image={photos.advisorG} alt="Michael Oberholz" cutout rating buttons={[BTN_KONTAKT, BTN_CALL]} />

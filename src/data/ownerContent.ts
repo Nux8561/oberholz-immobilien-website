@@ -122,7 +122,7 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
 
   const selling = kind === 'verkaufen';
   return {
-    title: selling ? `Haus oder Immobilie verkaufen in ${city}` : `Ihr Immobilienmakler in ${city} – persönlich an Ihrer Seite`,
+    title: selling ? `Haus oder Immobilie verkaufen in ${city}` : `Ihr Immobilienmakler in ${city}`,
     metaTitle: selling ? `Hausverkauf ${city} – Immobilie verkaufen` : `Immobilienmakler ${city} – Verkauf & Bewertung`,
     description: selling
       ? `Haus oder Immobilie in ${city} verkaufen: Bewertung, Unterlagen und Vermarktung mit klarer Strategie. Oberholz Immobilien begleitet Sie persönlich.`

@@ -9,6 +9,8 @@
 .hero__title { font-size: 56px; line-height: 67px; color: var(--c-strong); }
 /* Tätigkeitsgebiet als kleinere Zeile unter der Überschrift (Kunde Runde 3) */
 .hero__areas { margin-top: 12px; font-size: 18px; line-height: 28px; letter-spacing: .02em; color: var(--c-muted); }
+.hero__owner { margin-top: 8px; font-size: 16px; line-height: 24px; }
+.hero__owner-link { font-weight: 600; }
 .hero__carousel { margin-top: 40px; }
 
 .hero__teasers {

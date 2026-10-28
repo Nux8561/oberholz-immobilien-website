@@ -200,6 +200,8 @@ export const hero = {
   title: 'Ihr Immobilienmakler in Essen und Münster',
   /** Tätigkeitsgebiet als Zeile unter der Überschrift (Kunde Runde 3) */
   areas: 'Ruhrgebiet · Rheinland · Bergisches Land · Münsterland',
+  /** Einstieg für Eigentümer direkt unter der Überschrift (die Suche darunter richtet sich an Käufer) */
+  owner: { text: 'Sie möchten verkaufen?', label: 'Kostenlose Bewertung anfragen', to: ROUTES.bewertung },
   modes: ['Kaufen', 'Mieten', 'KI-Suche'] as const,
   placeholder: 'Stadt, Stadtteil, Postleitzahl oder Objekt-Nr.',
   propertyTypes: [

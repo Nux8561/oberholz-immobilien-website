@@ -63,7 +63,7 @@ export default function PropertySearch({ initialMode = 'Kaufen', initialQuery = 
   return (
     <form className="psearch" ref={rootRef} onSubmit={submit} role="search" aria-label="Immobiliensuche">
       <fieldset className="psearch__modes">
-        <legend className="sr-only">Wählen Sie eine Vermarktungsart</legend>
+        <legend className="sr-only">Was suchen Sie?</legend>
         {hero.modes.map((m) => (
           <label key={m} className={`psearch__mode${mode === m ? ' is-selected' : ''}`}>
             <input type="radio" name="mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="sr-only" />
