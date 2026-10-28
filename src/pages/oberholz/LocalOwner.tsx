@@ -93,7 +93,6 @@ function LocalOwnerPage({ kind }: { kind: 'bewertung' | 'wohnung' }) {
     <PageHero eyebrow={`${topic} · ${o.city}`} title={content.title} text={content.intro} checks={content.checks}
       image={isValuation ? photos.bewertung : o.image} alt={isValuation ? 'Persönliches Gespräch zur Immobilienbewertung' : `Blick auf ${o.city}`}
       buttons={[{ label: isValuation ? 'Bewertung anfragen' : 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, callButton(o)]} />
-    <Rich blocks={content.blocks} />
     <section className="wrap" id="anfrage">
       <div className="lead">
         <SectionIntro variant="inline" line={false} eyebrow="Persönliches Erstgespräch"
@@ -104,6 +103,7 @@ function LocalOwnerPage({ kind }: { kind: 'bewertung' | 'wohnung' }) {
           submitLabel={isValuation ? 'Bewertung anfragen' : 'Anfrage senden'} message={`Ich möchte ${isValuation ? 'eine Immobilie bewerten lassen' : 'meine Eigentumswohnung verkaufen'} in ${o.city}. Adresse / Stadtteil: …\nAktuelle Nutzung und mein Anliegen: …`} /></div>
       </div>
     </section>
+    <Rich collapse blocks={content.blocks} />
     <div className="rich"><div className="rich__text"><FaqBlock title={`Häufige Fragen zum Thema ${topic} in ${o.city}`} items={content.faq} /></div></div>
     <OwnerLinks city={slug} exclude={kind} />
     <OwnerGuides />

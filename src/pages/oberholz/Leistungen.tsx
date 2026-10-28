@@ -39,7 +39,7 @@ function ServicePage(o: ServiceOpts & { k: string }) {
       <PageHero eyebrow={o.eyebrow} title={title} text={text} checks={checks?.map(short).slice(0, 4)} image={o.heroImage ?? team[0]?.src ?? photos.advisorA}
         alt="" cutout rating buttons={[o.funnel === false ? BTN_KONTAKT : { label: 'Jetzt anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
       {o.teamStrip !== false && team.length > 1 && <div className="rich"><div className="rich__wide"><TeamStrip imgs={team} /></div></div>}
-      <Rich blocks={body} />
+      <Rich collapse blocks={body} />
       {o.extra}
       {o.funnel !== false && <Funnel intent={o.intent} />}
       {o.tools && <TeaserBand items={o.tools.map((t) => TOOL_TEASERS[t])} />}
@@ -66,9 +66,9 @@ export function Verkaufen() {
   return <>
     <PageHero eyebrow="Immobilie verkaufen" title="Immobilie verkaufen in Essen und Münster" text="Erst der fundierte Marktwert, dann der passende Käufer: Ob Haus, Eigentumswohnung oder Mehrfamilienhaus – wir begleiten Ihren Verkauf in Essen, Münster und Umgebung von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Marktwert durch einen zertifizierten Immobiliengutachter', 'Bonitätsgeprüfte Käufer aus unserem Netzwerk', 'Ein fester Ansprechpartner in Essen oder Münster']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
     <SellSteps />
-    <Rich blocks={[{ t: 'h2', text: 'Ihr Objekt bestimmt die Strategie' }, { t: 'p', text: 'Beim Hausverkauf spielen das Grundstück, die Bausubstanz und der energetische Zustand eine wichtige Rolle. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet.' }, { t: 'p', text: 'Wir erklären Ihnen, welche Faktoren den Preis Ihres Objekts beeinflussen, welche Unterlagen für Kaufinteressenten benötigt werden und welche weiteren Faktoren für Ihre Zielgruppe relevant sind. So schaffen wir eine belastbare Grundlage für Ihre Entscheidung.' }]} />
-    <OwnerLinks exclude="makler" />
     <Funnel intent="Verkaufen" title="Lassen Sie uns über Ihren Verkauf sprechen" />
+    <Rich collapse blocks={[{ t: 'h2', text: 'Ihr Objekt bestimmt die Strategie' }, { t: 'p', text: 'Beim Hausverkauf spielen das Grundstück, die Bausubstanz und der energetische Zustand eine wichtige Rolle. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet.' }, { t: 'p', text: 'Wir erklären Ihnen, welche Faktoren den Preis Ihres Objekts beeinflussen, welche Unterlagen für Kaufinteressenten benötigt werden und welche weiteren Faktoren für Ihre Zielgruppe relevant sind. So schaffen wir eine belastbare Grundlage für Ihre Entscheidung.' }]} />
+    <OwnerLinks exclude="makler" />
     <div className="rich"><div className="rich__text"><FaqBlock title="Häufige Fragen zum Immobilienverkauf" items={sellFaq} /></div></div>
     <OwnerGuides />
     <Contact variant="page" />
@@ -83,7 +83,7 @@ export function Vermieten() {
         checks={['Marktgerechte Mieteinschätzung', 'Geprüfte Interessenten', 'Persönlicher Ansprechpartner']}
         image={photos.advisorD} alt="Lubka Röger" cutout rating
         buttons={[{ label: 'Vermietung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
-      <Rich blocks={[
+      <Rich collapse blocks={[
         { t: 'h2', text: 'Vermietung mit klarem Ablauf' },
         { t: 'p', text: 'Zuerst besprechen wir Objekt, Zielmiete und Ihre Anforderungen an künftige Mieter. Anschließend bereiten wir die Vermarktung vor, koordinieren Besichtigungen und unterstützen Sie bei der Auswahl des geeigneten Mieters.' },
         { t: 'p', text: 'Für die Vermietung sind vollständige Unterlagen notwendig – etwa Grundrisse, Wohnflächenangaben und ein Energieausweis. Wir unterstützen Sie bei der Zusammenstellung relevanter Unterlagen.' },
@@ -150,7 +150,7 @@ export function Rueckmietverkauf() {
       <PageHero eyebrow="Rückmietverkauf" title="Verkaufen und im eigenen Zuhause wohnen bleiben" image={photos.senioren} alt="Älteres Paar auf der Terrasse seines Hauses" rating
         text="Beim Rückmietverkauf verkaufen Sie Ihre Immobilie zum Marktwert und mieten sie direkt zurück. So erhalten Sie den Kaufpreis und bleiben in Ihrem vertrauten Umfeld wohnen."
         checks={checks.items} buttons={[{ label: 'Beratung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
-      <Rich blocks={[
+      <Rich collapse blocks={[
         { t: 'h2', text: 'So funktioniert der Rückmietverkauf' },
         { t: 'h3', text: 'Marktwert ermitteln' }, { t: 'p', text: 'Wir bewerten Ihre Immobilie persönlich vor Ort – als Grundlage für einen fairen Kaufpreis.' },
         { t: 'h3', text: 'Käufer & Mietvertrag' }, { t: 'p', text: 'Wir suchen einen passenden Käufer und vereinbaren mit ihm einen langfristigen Mietvertrag für Sie.' },
@@ -189,13 +189,13 @@ export function Bewertung() {
   usePageMeta({ title: 'Kostenlose Immobilienbewertung in Essen & Münster', crumbs: crumbs('Immobilienbewertung'), footer: 'accordion', description: 'Was ist Ihr Haus oder Ihre Wohnung wert? Persönliche, kostenlose Marktwerteinschätzung in Essen, Münster und Umgebung. Jetzt Bewertung anfragen.', image: photos.bewertung, jsonLd: [faqLd(valuationFaq)] });
   return <>
     <PageHero eyebrow="Immobilienbewertung" title="Was ist Ihre Immobilie wert?" image={photos.bewertung} alt="Besprechung von Immobilienunterlagen" rating text="Makler und Gutachter bewerten Ihr Haus oder Ihre Wohnung gemeinsam: persönlich vor Ort und nachvollziehbar begründet. Auch wenn Sie noch nicht wissen, ob Sie verkaufen möchten." checks={['Kostenlose erste Marktwerteinschätzung', 'Besichtigung statt Online-Schätzung', 'Für Essen, Münster und Umgebung']} buttons={[{ label: 'Wert ermitteln lassen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+    <Funnel intent="Bewerten" eyebrow="Kostenlose erste Einschätzung" title="Erzählen Sie uns von Ihrer Immobilie" />
     <section className="wrap">
       <SectionIntro variant="inline" line={false} eyebrow="Bewertungsverfahren" title="Die passende Methode für Ihre Immobilie" text="Die Auswahl des Bewertungsverfahrens richtet sich nach der Objektart und der tatsächlichen Nutzung. Je nach Immobilie werden auch mehrere Verfahren herangezogen." />
       <div className="svc-grid svc-grid--3">{METHODS.map(m => <article key={m.title} className="svc"><LineIcon name={m.icon} size={36} /><h3 className="svc__title head">{m.title}</h3><p className="svc__text">{m.text}</p></article>)}</div>
       <p className="owner-method-source">Grundlage: <a className="link-underline" href="https://www.gesetze-im-internet.de/immowertv_2022/__6.html" target="_blank" rel="noopener noreferrer">§ 6 Immobilienwertermittlungsverordnung</a></p>
     </section>
     <OwnerLinks exclude="makler" />
-    <Funnel intent="Bewerten" eyebrow="Kostenlose erste Einschätzung" title="Erzählen Sie uns von Ihrer Immobilie" />
     <div className="rich"><div className="rich__text"><FaqBlock title="Häufige Fragen zur Immobilienbewertung" items={valuationFaq} /></div></div>
     <Contact variant="page" />
   </>;
@@ -210,7 +210,7 @@ export function Immotipp() {
     <>
       <PageHero eyebrow="Immotipp" title={textOf(b[0])} text={textOf(b[1])} checks={(b[2] as { items: string[] }).items} image={photos.advisorB} cutout rating
         buttons={[{ label: 'Tipp jetzt abgeben', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
-      <Rich blocks={[
+      <Rich collapse blocks={[
         { t: 'h2', text: 'So funktioniert das Tippgeber-Programm' },
         { t: 'h3', text: 'Tipp abgeben' }, { t: 'p', text: 'Sie nennen uns eine Immobilie, deren Eigentümer verkaufen möchte – über das Formular oder telefonisch.' },
         { t: 'h3', text: 'Wir übernehmen' }, { t: 'p', text: 'Mit dem Einverständnis der Eigentümer nehmen wir diskret Kontakt auf und begleiten den Verkauf persönlich.' },

@@ -1,7 +1,7 @@
 // Darstellung der übernommenen Seiteninhalte (content.json) im Stil der Seiten-Templates:
 // Fließtext auf 896px, wiederkehrende Muster (Teamleiste, Vergleichstabelle, Schrittfolgen,
 // Spaltenlisten, FAQ, Downloads) werden automatisch erkannt und als eigene Bausteine gerendert.
-import { Fragment, type ReactNode } from 'react';
+import { Fragment, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import type { QA, RichBlock } from '../../data/oberholz';
 import { brand, faceOf, reviewFaces, team } from '../../data/content';
@@ -152,13 +152,28 @@ function Item({ text }: { text: string }) {
   return m ? <><strong>{m[1]}:</strong> {m[2]}</> : <>{t}</>;
 }
 
-function Block({ b }: { b: RichBlock }) {
+/** Ab dieser Länge wird ein Absatz auf dem Handy nach vier Zeilen gekürzt („Weiterlesen“). Der Text bleibt vollständig im HTML. */
+const LONG_P = 260;
+
+function LongP({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={`rich__more${open ? ' is-open' : ''}`}>
+      <p className="rich__p">{text}</p>
+      <button type="button" className="rich__more-btn link-underline" aria-expanded={open} onClick={() => setOpen(!open)}>
+        {open ? 'Weniger anzeigen' : 'Weiterlesen'}
+      </button>
+    </div>
+  );
+}
+
+function Block({ b, collapse = false }: { b: RichBlock; collapse?: boolean }) {
   switch (b.t) {
     case 'h1': return <h2 className="rich__h2 head">{clean(b.text)}</h2>;
     case 'h2': return <h2 className="rich__h2 head">{clean(b.text)}</h2>;
     case 'h3': return <h3 className="rich__h3 head">{clean(b.text)}</h3>;
     case 'h4': return <h4 className="rich__h4">{clean(b.text)}</h4>;
-    case 'p': return <p className="rich__p">{clean(b.text)}</p>;
+    case 'p': return collapse && b.text.length >= LONG_P ? <LongP text={clean(b.text)} /> : <p className="rich__p">{clean(b.text)}</p>;
     case 'blockquote': return <blockquote className="rich__quote head">{clean(b.text)}</blockquote>;
     case 'ul': return <ul className="rich__checks">{b.items.map((x, i) => <li key={i}><span className="rich__tick"><IconCheck size={14} /></span><span><Item text={x} /></span></li>)}</ul>;
     case 'ol': return <ol className="rich__ol">{b.items.map((x, i) => <li key={i}><Item text={x} /></li>)}</ol>;
@@ -215,14 +230,14 @@ export function FaqBlock({ title, items, eyebrow = 'FAQ' }: { title: string; ite
   );
 }
 
-/** Rendert Inhaltsblöcke. `skip` entfernt bereits im Seitenkopf verwendete Blöcke. */
-export default function Rich({ blocks, faq = [], after }: { blocks: RichBlock[]; faq?: QA[]; after?: ReactNode }) {
+/** Rendert Inhaltsblöcke. `collapse` kürzt lange Absätze auf dem Handy (Eigentümerseiten). */
+export default function Rich({ blocks, faq = [], after, collapse = false }: { blocks: RichBlock[]; faq?: QA[]; after?: ReactNode; collapse?: boolean }) {
   const nodes = parse(blocks, faq);
   return (
     <div className="rich">
       {nodes.map((n, i) => {
         switch (n.k) {
-          case 'block': return <div key={i} className="rich__text"><Block b={n.b} /></div>;
+          case 'block': return <div key={i} className="rich__text"><Block b={n.b} collapse={collapse} /></div>;
           case 'eyebrow': return <div key={i} className="rich__text"><p className="eyebrow rich__eyebrow">{n.text}</p></div>;
           case 'team': return <div key={i} className="rich__wide"><TeamStrip imgs={n.imgs} /></div>;
           case 'advisor': return <div key={i} className="rich__text"><AdvisorCard img={n.img} /></div>;

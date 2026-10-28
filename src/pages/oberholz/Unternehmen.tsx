@@ -53,7 +53,7 @@ export function UeberUns() {
   return (
     <>
       <PageHero eyebrow="Über uns" title={title} text={text} image={photos.advisorG} alt="Michael Oberholz" cutout rating buttons={[BTN_KONTAKT, BTN_CALL]} />
-      <Rich blocks={rest} />
+      <Rich collapse blocks={rest} />
       <TeamSection />
       <QualifikationSection />
       <Partners kinds={['kooperation', 'finanzierung', 'portale']} id="partner" />
@@ -208,11 +208,11 @@ function RegionPage({ kind }: { kind: 'makler' | 'verkaufen' }) {
     <>
       <PageHero eyebrow={o.area} title={content.title} text={content.intro} checks={content.checks} image={advisor.image} alt={advisor.name} cutout rating
         buttons={[{ label: kind === 'makler' ? 'Kostenlose Erstberatung' : 'Immobilie bewerten lassen', to: '#anfrage', variant: 'accent' }, callButton(o)]} />
-      <Rich blocks={content.blocks} />
-      {content.stepsTitle && <SellSteps title={content.stepsTitle} />}
-      {content.after && <Rich blocks={content.after} />}
-      <div className="rich"><div className="rich__text"><FaqBlock title={`Häufige Fragen: ${label}`} items={content.faq} /></div></div>
+      <Rich collapse blocks={content.blocks} />
       <Funnel title={kind === 'makler' ? `Ihr Anliegen in ${o.city}` : `Immobilie in ${o.city} verkaufen`} intent={kind === 'verkaufen' ? 'Verkaufen' : undefined} />
+      {content.stepsTitle && <SellSteps title={content.stepsTitle} />}
+      {content.after && <Rich collapse blocks={content.after} />}
+      <div className="rich"><div className="rich__text"><FaqBlock title={`Häufige Fragen: ${label}`} items={content.faq} /></div></div>
       <OwnerLinks city={city as OwnerCity} exclude={kind} />
       <OwnerGuides />
       <OwnerMarketSource city={city as OwnerCity} />

@@ -105,8 +105,14 @@
 @media (max-width: 959px) {
   .rich__cols--3, .rich__cols--2, .rich__steps--3 { grid-template-columns: minmax(0, 1fr); }
 }
+/* „Weiterlesen“ nur auf dem Handy */
+.rich__more-btn { display: none; }
 @media (max-width: 767px) {
   .rich { padding: 0 16px 16px; }
+  .rich__more { margin-bottom: 20px; }
+  .rich__more .rich__p { margin-bottom: 0; }
+  .rich__more:not(.is-open) .rich__p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .rich__more-btn { display: inline-block; margin-top: 4px; padding: 0; font-size: 15px; font-weight: 600; background: none; border: 0; color: inherit; cursor: pointer; }
   .rich__h2 { margin-top: 40px; font-size: 26px; line-height: 34px; }
   .rich__h3 { font-size: 21px; line-height: 29px; }
   .rich__p { font-size: 16px; line-height: 28px; }
