@@ -34,7 +34,7 @@
 .rich__fig img { width: 100%; height: auto; }
 
 /* Team */
-.rich__team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+.rich__team { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
 .rich__team li { display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 20px; color: var(--c-muted); }
 .rich__team strong { margin-top: 12px; font-size: 16px; line-height: 24px; font-weight: 500; color: var(--c-strong); }
 .rich__team-img { display: block; aspect-ratio: 3 / 4; overflow: hidden; background: var(--c-cream); }

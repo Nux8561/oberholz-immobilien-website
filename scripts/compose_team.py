@@ -19,6 +19,8 @@ def cream(w, h):
 
 
 def group():
+    # Nur Fotos aus demselben Shooting. Robin Sandkamp (Azubi) hat ein Passfoto-Ausschnitt und steht
+    # deshalb nicht im Gruppenbild, sondern nur als eigene Karte im Team (content.ts → team).
     order = [("lubka-roeger", .15), ("michael-penn", .85), ("felix-lesch", .33), ("pascal-kopp", .67), ("michael-oberholz", .5)]
     W, H = 1500, 1000
     bg = cream(W, H)

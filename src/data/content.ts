@@ -94,6 +94,7 @@ export const team = [
     phoneDisplay: '0173 2056491', phoneHref: 'tel:+491732056491' },
   { name: 'Pascal Kopp', role: 'Transaktionsberater', image: `${M}/oberholz-team/pascal-kopp.png`, face: face('pascal-kopp') },
   { name: 'Lubka Röger', role: 'Immobilienberaterin', image: `${M}/oberholz-team/lubka-roeger.png`, face: face('lubka-roeger') },
+  { name: 'Robin Sandkamp', role: 'Auszubildender Immobilienkaufmann', image: `${M}/oberholz-team/robin-sandkamp.png`, face: face('robin-sandkamp') },
 ];
 
 /** Ansprechpartner je Objekt: kommt aus dem ImmoScout-Exposé („Angeboten von“, Feld `agent` in listings.json).
@@ -111,7 +112,8 @@ export const faceOf = (name: string) => team.find((m) => name.startsWith(m.name)
 export const reviewFaces = ['ute_kern', 'karsten_pfeiffer', 'alihan_bekc', 'guiseppe_pescatore'].map((n) => `${M}/headbanner-testimonials/${n}.png`);
 
 /** Personenfotos sind freigestellte Hochformate (PNG): Michael Oberholz = A/G, Michael Penn = B, Pascal Kopp = C/F,
- *  Lubka Röger = D, Felix Lesch = E. „team“ ist daraus zusammengesetzt (scripts/compose_team.py). */
+ *  Lubka Röger = D, Felix Lesch = E. „team“ ist daraus zusammengesetzt (scripts/compose_team.py).
+ *  Robin Sandkamp (Azubi) ist bewusst nicht im Gruppenbild, nur als eigene Karte im Team. */
 export const photos = {
   team: `${M}/team/team-gruppe.jpg`,
   beratung: '/assets/szenen/beratung.jpg',
