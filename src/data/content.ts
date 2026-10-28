@@ -224,10 +224,10 @@ export const hero = {
 
 export const selling = {
   eyebrow: 'Immobilie verkaufen',
-  title: 'Verkauf mit Gutachterkompetenz – im Rhein-Ruhr-Gebiet und im Münsterland',
+  title: 'Verkauf mit Gutachterkompetenz – im Ruhrgebiet, Rheinland und Münsterland',
   text: 'Wir beurteilen Ihre Immobilie ganzheitlich als Team aus Maklern und Immobiliengutachtern und begleiten Ihren Immobilienverkauf von der Marktwertermittlung bis zur Schlüsselübergabe – transparent und persönlich.',
   benefits: [
-    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner in der Rhein-Ruhr-Region und dem Münsterland.' },
+    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner im Ruhrgebiet, im Rheinland, im Bergischen Land und im Münsterland.' },
     { icon: 'globe', title: 'Gutachterkompetenz', text: 'Professionelle Marktwertermittlung durch einen zertifizierten Immobiliengutachter für eine realistische Preisstrategie.' },
     { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und die Abstimmung aller erforderlichen Verkaufsunterlagen.' },
   ],
@@ -323,7 +323,7 @@ export const footer = {
       { label: 'Rückmietverkauf', to: ROUTES.rueckmietverkauf }, { label: 'Finanzierung', to: ROUTES.finanzierung },
     ] },
     { title: 'Unternehmen', links: [
-      { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Team', to: ROUTES.team },
+      { label: 'Über uns', to: ROUTES.ueberUns },
       { label: 'Standorte', to: ROUTES.regionen }, { label: 'Ratgeber', to: ROUTES.ratgeber },
       { label: 'Kontakt', to: ROUTES.kontakt }, { label: 'Immotipp', to: ROUTES.immotipp },
     ] },
