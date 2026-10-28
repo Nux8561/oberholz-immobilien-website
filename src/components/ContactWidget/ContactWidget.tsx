@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { brand, hubOffices, team, whatsappUrl } from '../../data/content';
 import { ROUTES } from '../../data/routes';
-import { submitContact } from '../../lib/mail';
+import { submitContact, type LeadType } from '../../lib/mail';
 import { openRatings } from '../RatingPanel/RatingPanel';
 import Stars from '../Stars/Stars';
 import { IconClose, IconPhone as Phone } from '../Icons';
@@ -13,6 +13,10 @@ import './ContactWidget.css';
 
 const TOPICS = ['Immobilie verkaufen', 'Immobilie vermieten', 'Immobilienbewertung', 'Rückmietverkauf', 'Kaufberatung', 'Kapitalanlage / Mehrfamilienhaus', 'Finanzierung', 'Bestandskunde', 'Kooperationsanfrage', 'Sonstiges'];
 type Tab = 'anfrage' | 'anrufen' | 'rueckruf' | 'whatsapp' | 'kontakt';
+const TOPIC_TYPE: Record<string, LeadType> = {
+  'Immobilie verkaufen': 'verkauf', 'Immobilie vermieten': 'vermietung', Immobilienbewertung: 'bewertung',
+  Rückmietverkauf: 'rueckmietverkauf', Finanzierung: 'finanzierung',
+};
 const TABS: [Tab, string][] = [['anfrage', 'Anfrage'], ['anrufen', 'Anrufen'], ['rueckruf', 'Rückruf'], ['whatsapp', 'WhatsApp'], ['kontakt', 'Kontakt']];
 
 const EVT = 'oh-contact-open';
@@ -27,13 +31,15 @@ export default function ContactWidget() {
   const [tab, setTab] = useState<Tab>('anfrage');
   const [visible, setVisible] = useState(false);
   const [hint, setHint] = useState(() => { try { return sessionStorage.getItem('oh-hint') !== '0'; } catch { return true; } });
-  const [f, setF] = useState({ name: '', email: '', tel: '', topic: '', msg: '', zeit: 'Vormittags' });
+  const [f, setF] = useState({ name: '', email: '', tel: '', topic: '', msg: '', zeit: 'Vormittags', hp: '' });
   const [err, setErr] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const face = team.find((m) => m.name === 'Felix Lesch')?.face ?? team[1].face;
+  // Auf den Münster-Seiten ruft die Kontaktleiste das Büro Münster an
+  const callHref = useLocation().pathname.startsWith('/regionen/muenster') ? brand.phoneMuensterHref : brand.phoneHref;
 
   useEffect(() => {
     // erscheint nach dem ersten Scrollen, verschwindet am Seitenende (Footer-Links bleiben frei)
@@ -74,6 +80,14 @@ export default function ContactWidget() {
     const result = await submitContact({
       subject: kind === 'rueckruf' ? `Rückrufbitte: ${f.topic}` : `Anfrage: ${f.topic}`,
       fields,
+      meta: {
+        form: kind === 'rueckruf' ? 'widget-rueckruf' : 'widget-anfrage',
+        type: kind === 'rueckruf' ? 'rueckruf' : TOPIC_TYPE[f.topic] ?? 'beratung',
+        topic: f.topic,
+        contact: { name: f.name.trim(), email: f.email.trim() || undefined, phone: f.tel.trim() || undefined, callback_time: kind === 'rueckruf' ? f.zeit : undefined },
+        message: f.msg.trim() || undefined,
+        hp: f.hp,
+      },
     });
     setSending(false);
     if (result.ok) setDone(true);
@@ -113,7 +127,7 @@ export default function ContactWidget() {
 
       {/* Kontaktleiste unten (Handy) */}
       <nav className="cw-bar" aria-label="Schnellkontakt">
-        <a href={brand.phoneHref}><IconPhone /><span>Anrufen</span></a>
+        <a href={callHref}><IconPhone /><span>Anrufen</span></a>
         <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><IconWa /><span>WhatsApp</span></a>
         <button type="button" onClick={() => openContact('anfrage')}><img src={face} alt="" /><span>Beratung</span></button>
       </nav>
@@ -147,6 +161,7 @@ export default function ContactWidget() {
               <form onSubmit={submit('anfrage')} noValidate>
                 <p className="cw__lead">Unverbindliche Anfrage</p>
                 {field('name', 'Vor- und Nachname', 'text', true)}
+                <label className="cform__hp" aria-hidden="true">Website <input tabIndex={-1} autoComplete="off" value={f.hp} onChange={set('hp')} /></label>
                 {field('email', 'E-Mail-Adresse', 'email')}
                 {field('tel', 'Telefonnummer', 'tel')}
                 {topicSelect}
@@ -166,6 +181,7 @@ export default function ContactWidget() {
               <form onSubmit={submit('rueckruf')} noValidate>
                 <p className="cw__lead">Kostenlosen Rückruf anfordern</p>
                 {field('name', 'Ihr Name', 'text', true)}
+                <label className="cform__hp" aria-hidden="true">Website <input tabIndex={-1} autoComplete="off" value={f.hp} onChange={set('hp')} /></label>
                 {topicSelect}
                 {field('tel', 'Telefonnummer', 'tel', true)}
                 <div className="cw__field"><span>Gewünschter Zeitraum</span>

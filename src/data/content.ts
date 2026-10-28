@@ -142,31 +142,33 @@ export type MegaMenuData = {
   to: string;
   title: string;
   text: string;
+  /** leer = einfacher Link ohne Untermenü */
   columns: MenuColumn[];
-  promo: { image: string; eyebrow: string; title: string; to: string; stacked?: boolean };
-  mobileCta: MenuLink;
+  promo?: { image: string; eyebrow: string; title: string; to: string; stacked?: boolean };
+  mobileCta?: MenuLink;
 };
 
-/** Hauptnavigation: bewusst schlank – vier Bereiche mit je wenigen, klaren Zielen. */
+export const hasFlyout = (m: MegaMenuData) => m.columns.length > 0;
+
+/** Hauptnavigation: bewusst schlank – jedes Ziel steht im Header nur einmal (Standorte, Merkliste und Kontakt stehen oben rechts). */
 export const megaMenus: MegaMenuData[] = [
   {
     label: 'Kaufen', to: ROUTES.kaufen, title: 'Immobilie kaufen',
     text: 'Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung.',
     columns: [{
       eyebrow: 'Kaufen & Mieten', links: [
-        { label: 'Immobilien kaufen', to: ROUTES.kaufen }, { label: 'Immobilien mieten', to: ROUTES.mieten },
+        { label: 'Immobilien mieten', to: ROUTES.mieten },
         { label: 'Kapitalanlagen & Mehrfamilienhäuser', to: ROUTES.kapitalanlage }, { label: 'Finanzierung', to: ROUTES.finanzierung },
       ],
     }],
-    promo: { image: photos.team, eyebrow: 'Persönliche Beratung', title: 'Ihre Ansprechpartner in Essen und Münster', to: ROUTES.kontakt },
-    mobileCta: { label: 'Alle Immobilien ansehen', to: ROUTES.kaufen },
+    promo: { image: '/assets/ratgeber/haus-kaufen-ohne-eigenkapital.jpg', eyebrow: 'Budgetrechner', title: 'Wie viel Immobilie können Sie sich leisten?', to: ROUTES.budgetrechner },
+    mobileCta: { label: 'Budget berechnen', to: ROUTES.budgetrechner },
   },
   {
     label: 'Verkaufen', to: ROUTES.verkaufen, title: 'Immobilie verkaufen oder vermieten',
     text: 'Von der kostenlosen Bewertung bis zur Schlüsselübergabe – persönlich begleitet von Maklern und Gutachtern aus der Region.',
     columns: [{
       eyebrow: 'Für Eigentümer', links: [
-        { label: 'Immobilie verkaufen', to: ROUTES.verkaufen }, { label: 'Kostenlose Bewertung', to: ROUTES.bewertung },
         { label: 'Immobilie vermieten', to: ROUTES.vermieten }, { label: 'Rückmietverkauf', to: ROUTES.rueckmietverkauf },
         { label: 'Immotipp: ab 500 € Prämie', to: ROUTES.immotipp },
       ],
@@ -175,29 +177,22 @@ export const megaMenus: MegaMenuData[] = [
     mobileCta: { label: 'Bewertung anfragen', to: ROUTES.bewertung },
   },
   {
+    // Team und Qualifikationen stehen auf derselben Seite, Standorte und Kontakt oben rechts – daher ohne Untermenü
     label: 'Über uns', to: ROUTES.ueberUns, title: 'Oberholz Immobilien',
     text: 'Makler und Gutachter unter einem Dach – mit Büros in Essen und Münster.',
-    columns: [{
-      eyebrow: 'Unternehmen', links: [
-        { label: 'Über uns', to: ROUTES.ueberUns }, { label: 'Unser Team', to: ROUTES.team },
-        { label: 'Qualifikationen', to: ROUTES.qualifikation }, { label: 'Standorte', to: ROUTES.regionen },
-        { label: 'Kontakt', to: ROUTES.kontakt },
-      ],
-    }],
-    promo: { image: photos.team, eyebrow: 'Über uns', title: 'Immobilienvermittlung mit Gutachterkompetenz', to: ROUTES.ueberUns },
-    mobileCta: { label: 'Kontakt aufnehmen', to: ROUTES.kontakt },
+    columns: [],
   },
   {
     label: 'Ratgeber', to: ROUTES.ratgeber, title: 'Ratgeber',
     text: 'Verständliche Beiträge, Leitfäden und Rechner für Käufer, Verkäufer und Erben.',
     columns: [{
       eyebrow: 'Wissen & Werkzeuge', links: [
-        { label: 'Alle Beiträge', to: ROUTES.ratgeber }, { label: 'Leitfäden & Downloads', to: ROUTES.downloads },
-        { label: 'Rechner', to: ROUTES.service }, { label: 'Immobilien-Lexikon', to: ROUTES.immopedia },
+        { label: 'Immobilien-Lexikon', to: ROUTES.immopedia },
+        { label: 'Wert-Hebel-Rechner', to: ROUTES.wertHebel }, { label: 'Finanzierungsrechner', to: ROUTES.finanzierungsrechner },
       ],
     }],
     promo: { image: '/assets/ratgeber/immobilie-geerbt-der-erben-kompass-fuer-die-ersten-wochen.jpg', eyebrow: 'Leitfaden', title: 'Der Erben-Kompass: Orientierung für geerbte Immobilien', to: ROUTES.whitepaper('erben-kompass') },
-    mobileCta: { label: 'Zum Ratgeber', to: ROUTES.ratgeber },
+    mobileCta: { label: 'Erben-Kompass herunterladen', to: ROUTES.whitepaper('erben-kompass') },
   },
 ];
 
@@ -290,7 +285,7 @@ export const magazine = {
     alt: 'Hände sortieren Familienfotos, Briefe und Hausschlüssel',
     title: 'Der Erben-Kompass',
     text: 'Orientierung für geerbte Immobilien: erste Schritte, Erbengemeinschaft, Bewertung und offene Fragen. Als kompakte PDF-Lesefassung kostenlos herunterladen.',
-    cta: 'Leitfaden anfordern',
+    cta: 'Zum kostenlosen Download',
     to: ROUTES.whitepaper('erben-kompass'),
   },
 };

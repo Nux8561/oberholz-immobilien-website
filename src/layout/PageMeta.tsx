@@ -46,7 +46,7 @@ export function usePageMeta(meta: PageMeta) {
   const key = JSON.stringify(meta);
   useEffect(() => {
     set(meta);
-    const title = meta.title ? `${meta.title} | ${brand.name}` : `${brand.name} | Immobilienmakler Ruhrgebiet & Münsterland`;
+    const title = meta.title ? `${meta.title} | ${brand.name}` : `Immobilienmakler Essen & Münster | ${brand.name}`;
     const description = (meta.description ?? DEFAULT_DESCRIPTION).replace(/\s+/g, ' ').slice(0, 300);
     const url = canonicalPageUrl(window.location.pathname);
     document.title = title;

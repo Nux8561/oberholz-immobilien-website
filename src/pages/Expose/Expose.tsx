@@ -173,7 +173,9 @@ export default function Expose() {
         <span className="expo__line" aria-hidden="true" />
         <div className="expo__form-box">
           <SectionIntro variant="inline" line={false} center eyebrow="Fordern Sie alle Details zur Immobilie an" title="Mehr Informationen über diese Immobilie erhalten" />
-          <ContactForm subject={`Exposé-Anfrage ${p.id}: ${p.title}`} message="Ich interessiere mich für diese Immobilie und hätte gerne weitere Informationen. Bitte kontaktieren Sie mich." />
+          <ContactForm subject={`Exposé-Anfrage ${p.id}: ${p.title}`} message="Ich interessiere mich für diese Immobilie und hätte gerne weitere Informationen. Bitte kontaktieren Sie mich."
+            meta={{ form: 'expose', type: 'expose', intent: [p.mode === 'mieten' ? 'Mieten' : 'Kaufen'], office: p.city === 'Münster' ? 'muenster' : undefined,
+              listing: { id: p.id, title: p.title, city: p.city, district: p.district, agent: agent.name, url: typeof window !== 'undefined' ? window.location.href : undefined } }} />
         </div>
       </section>
 

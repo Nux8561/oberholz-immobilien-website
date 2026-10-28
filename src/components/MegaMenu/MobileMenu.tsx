@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { megaMenus } from '../../data/content';
+import { hasFlyout, megaMenus } from '../../data/content';
 import Logo from '../Logo';
 import { IconChevronLeft, IconChevronRight, IconClose, IconPin, IconUser } from '../Icons';
 import SmartLink from '../SmartLink/SmartLink';
@@ -34,15 +34,18 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
           <ul className="mnav__list">
             {megaMenus.map((item, i) => (
               <li key={item.label}>
-                <button type="button" className="mnav__row head" onClick={() => setSub(i)}>
-                  {item.label}<IconChevronRight />
-                </button>
+                {hasFlyout(item) ? (
+                  <button type="button" className="mnav__row head" onClick={() => setSub(i)}>
+                    {item.label}<IconChevronRight />
+                  </button>
+                ) : (
+                  <SmartLink label={item.label} to={item.to} className="mnav__row head" onNavigate={onClose} />
+                )}
               </li>
             ))}
           </ul>
           <ul className="mnav__meta">
             <li><SmartLink label="Standorte" to={ROUTES.regionen} className="mnav__meta-item" onNavigate={onClose}><IconPin />Standorte</SmartLink></li>
-            <li><SmartLink label="Merkliste" to={ROUTES.meinBereich} className="mnav__meta-item" onNavigate={onClose}><IconUser />Merkliste</SmartLink></li>
           </ul>
           <SmartLink label="Jetzt kontaktieren" to={ROUTES.kontakt} className="btn btn--small mnav__cta" onNavigate={onClose} />
         </section>
@@ -64,7 +67,7 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
                   </ul>
                 </div>
               ))}
-              <SmartLink label={m.mobileCta.label} to={m.mobileCta.to} className="btn btn--outline mnav__sub-cta" onNavigate={onClose} />
+              {m.mobileCta && <SmartLink label={m.mobileCta.label} to={m.mobileCta.to} className="btn btn--outline mnav__sub-cta" onNavigate={onClose} />}
             </div>
           )}
         </section>

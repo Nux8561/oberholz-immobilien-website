@@ -10,7 +10,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import Contact from '../../components/Contact/Contact';
 import { IconArrowRight } from '../../components/Icons';
 import NotFound from '../NotFound';
-import { BTN_CALL } from './shared';
+import { callButton } from './shared';
 
 export function OwnerLinks({ city, exclude }: { city?: OwnerCity; exclude?: OwnerKind }) {
   const cities: OwnerCity[] = city ? [city] : ['essen', 'muenster'];
@@ -92,7 +92,7 @@ function LocalOwnerPage({ kind }: { kind: 'bewertung' | 'wohnung' }) {
   return <>
     <PageHero eyebrow={`${topic} · ${o.city}`} title={content.title} text={content.intro} checks={content.checks}
       image={isValuation ? photos.bewertung : o.image} alt={isValuation ? 'Persönliches Gespräch zur Immobilienbewertung' : `Blick auf ${o.city}`}
-      buttons={[{ label: isValuation ? 'Bewertung anfragen' : 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+      buttons={[{ label: isValuation ? 'Bewertung anfragen' : 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, callButton(o)]} />
     <Rich blocks={content.blocks} />
     <section className="wrap" id="anfrage">
       <div className="lead">
@@ -100,7 +100,8 @@ function LocalOwnerPage({ kind }: { kind: 'bewertung' | 'wohnung' }) {
           title={isValuation ? `Ihre Immobilie in ${o.city} einschätzen lassen` : `Ihre Wohnung in ${o.city} verkaufen`}
           text="Nennen Sie uns die Adresse, die Objektart und Ihr Anliegen. Wir besprechen mit Ihnen, welche Angaben und Unterlagen für den nächsten Schritt hilfreich sind." />
         <div className="lead__box"><ContactForm key={`${city}-${kind}`} subject={`${topic} ${o.city}`}
-          submitLabel="Anfrage vorbereiten" message={`Ich möchte ${isValuation ? 'eine Immobilie bewerten lassen' : 'meine Eigentumswohnung verkaufen'} in ${o.city}. Adresse / Stadtteil: …\nAktuelle Nutzung und mein Anliegen: …`} /></div>
+          meta={{ form: `lokal-${kind}`, type: isValuation ? 'bewertung' : 'verkauf', intent: [isValuation ? 'Bewerten' : 'Verkaufen'], office: city as 'essen' | 'muenster', property: { kind: isValuation ? undefined : 'Wohnung' } }}
+          submitLabel={isValuation ? 'Bewertung anfragen' : 'Anfrage senden'} message={`Ich möchte ${isValuation ? 'eine Immobilie bewerten lassen' : 'meine Eigentumswohnung verkaufen'} in ${o.city}. Adresse / Stadtteil: …\nAktuelle Nutzung und mein Anliegen: …`} /></div>
       </div>
     </section>
     <div className="rich"><div className="rich__text"><FaqBlock title={`Häufige Fragen zum Thema ${topic} in ${o.city}`} items={content.faq} /></div></div>

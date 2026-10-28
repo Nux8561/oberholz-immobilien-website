@@ -106,3 +106,6 @@ img[src*="/bannerright-1440/t7a"], img[src*="/oberholz-team/"] {
   object-position: 50% 0;
   background: linear-gradient(180deg, #f4efe5 0%, #e9e1d1 100%);
 }
+
+/* Honeypot gegen Spam-Bots – für Menschen unsichtbar */
+.cform__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }

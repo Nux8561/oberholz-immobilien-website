@@ -133,6 +133,9 @@ export default function WertHebel() {
             <h3 className="head">Ergebnis prüfen lassen: Ihre ehrliche Ersteinschätzung</h3>
             <p className="wizard__hint">Welche Maßnahme sich bei Ihrem Haus wirklich rechnet und welche Förderung Sie konkret bekommen, prüfen wir gern persönlich.</p>
             <ContactForm subject="Wert-Hebel-Rechner: Ersteinschätzung" submitLabel="Ersteinschätzung anfragen"
+              meta={{ form: 'wert-hebel-rechner', type: 'wert-hebel', property: { kind: 'Wohnhaus', subtype: s.haustyp, living_area_m2: s.flaeche, location: s.plz || undefined },
+                calculator: { baujahr: s.baujahr, vermuteter_wert_eur: s.wert, heizung: s.heizung, fassade_gedaemmt: s.fassade, dach_gedaemmt: s.dach, fenster: s.fenster,
+                  energieklasse_geschaetzt: KLASSEN[klasse], werteffekt_von_eur: Math.round(sumLo), werteffekt_bis_eur: Math.round(sumHi) } }}
               extra={[['Haustyp', s.haustyp], ['Baujahr', s.baujahr], ['Wohnfläche', `${s.flaeche} m²`], ['Vermuteter Wert', eur(s.wert)], ['PLZ', s.plz], ['Heizung', s.heizung],
                 ['Fassade gedämmt', s.fassade], ['Dach gedämmt', s.dach], ['Fenster', s.fenster], ['Energieklasse (geschätzt)', KLASSEN[klasse]], ['Werteffekt (geschätzt)', `${eur(sumLo)} – ${eur(sumHi)}`]]} />
           </div>

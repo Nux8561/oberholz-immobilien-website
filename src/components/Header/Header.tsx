@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Logo from '../Logo';
 import MegaMenu from '../MegaMenu/MegaMenu';
 import MobileMenu from '../MegaMenu/MobileMenu';
-import { megaMenus } from '../../data/content';
+import { hasFlyout, megaMenus } from '../../data/content';
 import { IconMenu, IconPin, IconUser } from '../Icons';
 import { useFavorites } from '../../lib/store';
 import { brand } from '../../data/content';
@@ -92,14 +92,16 @@ export default function Header() {
         <nav className="hdr__nav" aria-label="Hauptnavigation">
           <ul className="hdr__list">
             {megaMenus.map((m, i) => (
-              <li key={m.label} className="hdr__item" onMouseEnter={() => scheduleOpen(i)}>
+              <li key={m.label} className="hdr__item" onMouseEnter={() => (hasFlyout(m) ? scheduleOpen(i) : close())}>
                 <SmartLink label={m.label} to={m.to} className={`hdr__link${open === i ? ' is-active' : ''}`} onNavigate={close}>
                   {m.label}
                 </SmartLink>
-                <button type="button" className="hdr__flyout-trigger" aria-expanded={open === i} aria-controls={`flyout-${i}`}
-                  onClick={() => (open === i ? close() : (clearTimers(), setOpen(i)))}>
-                  <span className="sr-only">{m.label} Untermenü öffnen</span>
-                </button>
+                {hasFlyout(m) && (
+                  <button type="button" className="hdr__flyout-trigger" aria-expanded={open === i} aria-controls={`flyout-${i}`}
+                    onClick={() => (open === i ? close() : (clearTimers(), setOpen(i)))}>
+                    <span className="sr-only">{m.label} Untermenü öffnen</span>
+                  </button>
+                )}
               </li>
             ))}
           </ul>

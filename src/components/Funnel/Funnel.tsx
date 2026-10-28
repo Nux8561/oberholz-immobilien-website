@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LineIcon, type LineIconName } from '../../blocks/LineIcons';
 import ContactForm from '../ContactForm/ContactForm';
+import type { LeadType } from '../../lib/mail';
 import { IconCheck, IconChevronLeft } from '../Icons';
 import './Funnel.css';
 
@@ -13,6 +14,7 @@ const WOHNARTEN = ['Einfamilienhaus', 'Reihenhaus', 'Doppelhaus / Hälfte', 'Meh
 const GEWERBEARTEN = ['Produktion', 'Lager / Logistik', 'Büro / Praxis', 'Handel', 'Sonstiges'];
 const ABSICHTEN = ['Verkaufen', 'Vermieten', 'Bewerten'];
 const ERREICHBAR = ['Vormittags', 'Mittags', 'Nachmittags', 'Abends'];
+const LEAD_TYPE: Record<string, LeadType> = { Verkaufen: 'verkauf', Vermieten: 'vermietung', Bewerten: 'bewertung' };
 
 type State = { art?: string; wohnart?: string; wohnungen: number; wohnflaeche: number; grundstueck: number; gewerbeart?: string; absicht: string[]; ort: string; erreichbar: string[] };
 
@@ -131,6 +133,19 @@ export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Ve
             <div className="funnel__chips">{ERREICHBAR.map((e) => <button key={e} type="button" aria-pressed={s.erreichbar.includes(e)} className={`chip${s.erreichbar.includes(e) ? ' is-active' : ''}`} onClick={() => toggle('erreichbar', e)}>{e}</button>)}</div>
             <ContactForm subject={`Anfrage ${s.absicht.join('/') || 'Vermittlung'}: ${s.art ?? 'Immobilie'}`} submitLabel="Anfrage absenden" phoneRequired
               extra={[['Objektart', s.art], ['Details', detail], ['Vorhaben', s.absicht.join(', ')], ['PLZ/Ort', s.ort], ['Erreichbar', s.erreichbar.join(', ')]]}
+              meta={{
+                form: 'funnel',
+                type: LEAD_TYPE[intent && s.absicht.includes(intent) ? intent : s.absicht[0]] ?? 'beratung',
+                intent: s.absicht,
+                contact: { reachable: s.erreichbar },
+                property: {
+                  kind: s.art, detail: detail || undefined, location: s.ort.trim() || undefined,
+                  subtype: s.art === 'Wohnhaus' ? s.wohnart : s.art === 'Gewerbe' ? s.gewerbeart : undefined,
+                  units: s.art === 'Wohnhaus' && needsUnits ? s.wohnungen : undefined,
+                  living_area_m2: s.art === 'Wohnung' ? s.wohnflaeche : undefined,
+                  plot_area_m2: s.art === 'Grundstück' ? s.grundstueck : undefined,
+                },
+              }}
               benefits={['Kostenlose und unverbindliche Erstberatung.', 'Persönlicher Ansprechpartner vor Ort.', 'Diskret und vertraulich.']} />
           </div>
         )}

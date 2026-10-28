@@ -105,7 +105,7 @@ function FinanceRequest() {
           <SectionIntro variant="inline" line={false} eyebrow="Finanzierung anfragen" title="Wir prüfen Ihre Finanzierung – unverbindlich und kostenfrei"
             text="Nennen Sie uns kurz Ihr Vorhaben. Wir melden uns mit einer ersten Einschätzung und den nächsten Schritten." />
         </div>
-        <div className="lead__box"><ContactForm subject="Finanzierungsanfrage" submitLabel="Finanzierung anfragen" message="Ich interessiere mich für eine Immobilienfinanzierung. Kaufpreis ca.: … / Eigenkapital ca.: …" /></div>
+        <div className="lead__box"><ContactForm subject="Finanzierungsanfrage" submitLabel="Finanzierung anfragen" meta={{ form: 'finanzierung', type: 'finanzierung' }} message="Ich interessiere mich für eine Immobilienfinanzierung. Kaufpreis ca.: … / Eigenkapital ca.: …" /></div>
       </div>
     </section>
   );
@@ -157,7 +157,7 @@ export function Rueckmietverkauf() {
       <section className="wrap" id="anfrage">
         <div className="lead">
           <SectionIntro variant="inline" line={false} eyebrow="Persönliche Beratung" title="Rückmietverkauf unverbindlich prüfen lassen" text="Wir melden uns persönlich bei Ihnen und besprechen Ihre Situation vertraulich." />
-          <div className="lead__box"><ContactForm subject="Anfrage Rückmietverkauf" submitLabel="Beratung anfragen" phoneRequired message="Ich interessiere mich für einen Rückmietverkauf meiner Immobilie." /></div>
+          <div className="lead__box"><ContactForm subject="Anfrage Rückmietverkauf" submitLabel="Beratung anfragen" phoneRequired meta={{ form: 'rueckmietverkauf', type: 'rueckmietverkauf', intent: ['Verkaufen', 'Zurückmieten'] }} message="Ich interessiere mich für einen Rückmietverkauf meiner Immobilie." /></div>
         </div>
       </section>
       <ServiceGrid exclude="rueckmiet" title="Weitere Leistungen" />
@@ -216,7 +216,7 @@ export function Immotipp() {
         <div className="lead">
           <SectionIntro variant="inline" line={false} eyebrow="Tippgeber-Formular" title={textOf(b[3])} text={textOf(b[4])} />
           <div className="lead__box">
-            <ContactForm subject="Immotipp – Tippgeber-Hinweis" submitLabel="Tipp jetzt absenden"
+            <ContactForm subject="Immotipp – Tippgeber-Hinweis" submitLabel="Tipp jetzt absenden" meta={{ form: 'immotipp', type: 'immotipp' }}
               message="Art der Immobilie: … | Ort/PLZ: … | Ansprechpartner & Telefonnummer der Eigentümer (falls bekannt): …"
               benefits={['Kein Aufwand – Formular ausfüllen genügt.', 'Gilt für Häuser, Wohnungen und Grundstücke.', 'Diskret & vertraulich.']} />
           </div>

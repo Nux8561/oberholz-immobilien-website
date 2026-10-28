@@ -2,7 +2,7 @@ import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../../data/content';
 import { ROUTES } from '../../data/routes';
-import { submitContact } from '../../lib/mail';
+import { submitContact, type LeadMeta } from '../../lib/mail';
 import { IconCheck, IconMail } from '../Icons';
 import './ContactForm.css';
 
@@ -19,13 +19,15 @@ type Props = {
   phoneRequired?: boolean;
   benefits?: string[] | false;
   doneText?: string;
+  /** strukturierte Angaben für das Anfrage-Portal (Art der Anfrage, Objekt, Exposé …) */
+  meta?: LeadMeta;
 };
 
 /** Anfrageformular: Client-Validierung, Versand über /api/contact, Erfolg erst nach Server-Bestätigung. */
 export default function ContactForm({
   subject, message = '', submitLabel = 'Details anfragen', extra = [], phoneRequired = false,
   benefits = ['Persönliche Rückmeldung durch unser Team.', 'Unverbindlich und kostenfrei.', 'Ihre Daten nutzen wir nur für diese Anfrage.'],
-  doneText,
+  doneText, meta,
 }: Props) {
   const formId = useId();
   const [v, setV] = useState({ vorname: '', nachname: '', email: '', telefon: '', nachricht: message });
@@ -34,6 +36,7 @@ export default function ContactForm({
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [hp, setHp] = useState('');
 
   const set = (k: keyof typeof v) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setV({ ...v, [k]: e.target.value });
@@ -61,7 +64,18 @@ export default function ContactForm({
       ['Nachricht', v.nachricht],
     ];
     const fields = raw.filter(([, val]) => val).map(([k, val]) => [k, String(val)] as [string, string]);
-    const result = await submitContact({ subject, fields });
+    const result = await submitContact({
+      subject,
+      fields,
+      meta: {
+        form: 'kontaktformular',
+        ...meta,
+        contact: { ...meta?.contact, first_name: v.vorname.trim(), last_name: v.nachname.trim(), email: v.email.trim(), phone: v.telefon.trim() || undefined },
+        message: v.nachricht.trim() || undefined,
+        consent: { privacy: true, text: `Ich bin damit einverstanden, dass ${brand.company} meine Angaben zur Bearbeitung dieser Anfrage verwendet und mich telefonisch oder per E-Mail kontaktiert.` },
+        hp,
+      },
+    });
     setSending(false);
     if (result.ok) {
       setSent(true);
@@ -100,6 +114,9 @@ export default function ContactForm({
         {field('email', 'E-Mail', 'email')}
         {field('telefon', 'Telefon', 'tel', phoneRequired)}
       </div>
+      <label className="cform__hp" aria-hidden="true">
+        Website <input tabIndex={-1} autoComplete="off" value={hp} onChange={(e) => setHp(e.target.value)} />
+      </label>
       <label className="cform__field cform__field--full">
         <span className="cform__label">Ihre Nachricht</span>
         <textarea rows={3} value={v.nachricht} onChange={set('nachricht')} />

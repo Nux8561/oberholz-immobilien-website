@@ -30,6 +30,9 @@ export const short = (s: string) => s.split(/:\s/)[0];
 
 export const BTN_BEWERTUNG: Btn = { label: 'Kostenlose Bewertung', to: `${ROUTES.bewertung}#anfrage`, variant: 'accent' };
 export const BTN_CALL: Btn = { label: `Anrufen: ${brand.phoneDisplay}`, to: brand.phoneHref, variant: 'outline', icon: 'phone' };
+/** Anruf-Knopf mit der Nummer des Büros (Münster-Seiten: 0251 …) */
+export const callButton = (office?: { phoneDisplay: string; phoneHref: string }): Btn =>
+  office ? { ...BTN_CALL, label: `Anrufen: ${office.phoneDisplay}`, to: office.phoneHref } : BTN_CALL;
 export const BTN_KONTAKT: Btn = { label: 'Kontakt aufnehmen', to: ROUTES.kontakt, variant: 'outline' };
 
 export type Service = { key: string; title: string; text: string; to: string; icon: LineIconName; items: string[] };

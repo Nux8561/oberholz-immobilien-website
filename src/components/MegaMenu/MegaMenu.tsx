@@ -1,4 +1,4 @@
-import { megaMenus } from '../../data/content';
+import { hasFlyout, megaMenus } from '../../data/content';
 import { IconArrowRight } from '../Icons';
 import SmartLink from '../SmartLink/SmartLink';
 import './MegaMenu.css';
@@ -7,9 +7,9 @@ import './MegaMenu.css';
 export default function MegaMenu({ openIndex, onClose }: { openIndex: number | null; onClose: () => void }) {
   return (
     <>
-      {megaMenus.map((m, i) => (
+      {megaMenus.map((m, i) => hasFlyout(m) && (
         <div key={m.label} id={`flyout-${i}`} className={`flyout${openIndex === i ? ' is-open' : ''}`} aria-hidden={openIndex !== i}>
-          <div className={`flyout__inner${m.promo.stacked ? ' flyout__inner--wide' : ''}`}>
+          <div className={`flyout__inner${m.promo?.stacked ? ' flyout__inner--wide' : ''}`}>
             <div className="flyout__intro">
               <p className="flyout__title head">{m.title}</p>
               <p className="flyout__text">{m.text}</p>
@@ -24,14 +24,16 @@ export default function MegaMenu({ openIndex, onClose }: { openIndex: number | n
                 </ul>
               </div>
             ))}
-            <SmartLink label={m.promo.title} to={m.promo.to} className={`promo${m.promo.stacked ? ' promo--stacked' : ''}`} tabIndex={openIndex === i ? 0 : -1} onNavigate={onClose}>
-              <span className="promo__media"><img src={m.promo.image} alt="" loading="lazy" /></span>
-              <span className="promo__body">
-                <span className="eyebrow promo__eyebrow">{m.promo.eyebrow}</span>
-                <span className="promo__title head">{m.promo.title}</span>
-                <IconArrowRight className="promo__arrow" />
-              </span>
-            </SmartLink>
+            {m.promo && (
+              <SmartLink label={m.promo.title} to={m.promo.to} className={`promo${m.promo.stacked ? ' promo--stacked' : ''}`} tabIndex={openIndex === i ? 0 : -1} onNavigate={onClose}>
+                <span className="promo__media"><img src={m.promo.image} alt="" loading="lazy" /></span>
+                <span className="promo__body">
+                  <span className="eyebrow promo__eyebrow">{m.promo.eyebrow}</span>
+                  <span className="promo__title head">{m.promo.title}</span>
+                  <IconArrowRight className="promo__arrow" />
+                </span>
+              </SmartLink>
+            )}
           </div>
         </div>
       ))}

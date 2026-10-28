@@ -17,7 +17,7 @@ import { IconArrowRight } from '../../components/Icons';
 import { LineIcon } from '../../blocks/LineIcons';
 import NotFound from '../NotFound';
 import Partners from '../../components/Partners/Partners';
-import { BTN_CALL, BTN_KONTAKT, PropertyStrip, splitIntro } from './shared';
+import { BTN_CALL, BTN_KONTAKT, PropertyStrip, callButton, splitIntro } from './shared';
 
 /** Ansprechpartner im Kopf der Regionsseiten (Kunde Runde 3): Essen Felix Lesch, Münster Michael Oberholz */
 const REGION_ADVISOR: Record<string, { image: string; name: string }> = {
@@ -143,7 +143,7 @@ export function Kontakt() {
         <div className="contact-grid">
           <div>
             <SectionIntro variant="inline" line={false} eyebrow="Schreiben Sie uns" title="Wobei können wir Ihnen helfen?" text="Schildern Sie uns Ihr Anliegen. Wir besprechen mit Ihnen die nächsten Schritte." />
-            <ContactForm subject="Kontaktanfrage über die Website" submitLabel="Nachricht senden" />
+            <ContactForm subject="Kontaktanfrage über die Website" submitLabel="Nachricht senden" meta={{ form: 'kontaktseite', type: 'kontakt' }} />
           </div>
           <ContactHubs />
         </div>
@@ -207,7 +207,7 @@ function RegionPage({ kind }: { kind: 'makler' | 'verkaufen' }) {
   return (
     <>
       <PageHero eyebrow={o.area} title={content.title} text={content.intro} checks={content.checks} image={advisor.image} alt={advisor.name} cutout rating
-        buttons={[{ label: kind === 'makler' ? 'Kostenlose Erstberatung' : 'Immobilie bewerten lassen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+        buttons={[{ label: kind === 'makler' ? 'Kostenlose Erstberatung' : 'Immobilie bewerten lassen', to: '#anfrage', variant: 'accent' }, callButton(o)]} />
       <Rich blocks={content.blocks} />
       {content.stepsTitle && <SellSteps title={content.stepsTitle} />}
       {content.after && <Rich blocks={content.after} />}

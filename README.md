@@ -53,10 +53,14 @@ Neu erzeugen: `scripts/crawl_oberholz.py` → `extract_*.py` → `build_oberholz
 
 ## Formulare
 
-Formulare posten an `/api/contact` (`functions/api/contact.js`, Cloudflare Pages Function + Resend).
-Erfolg wird erst nach HTTP-2xx angezeigt. Zur Aktivierung in den Pages-Secrets setzen:
-`RESEND_API_KEY` (Pflicht), optional `CONTACT_TO` (Standard `mail@oberholz-immobilien.com`) und `CONTACT_FROM`
-(verifizierte Absenderadresse in Resend). Ohne Key antwortet die Function mit 503 und verständlicher Fehlermeldung.
+Alle Formulare (Funnel, Kontaktformulare, Kontakt-Widget mit Anfrage und Rückruf, Exposé, Immotipp, Wert-Hebel-Rechner) posten an
+`/api/contact` (`functions/api/contact.js`, Cloudflare Pages Function). Die Function leitet jede Anfrage als JSON (`event: website.lead`)
+an das Anfrage-Portal weiter: Kontaktdaten flach und unter `contact`, dazu `type` (bewertung, verkauf, rueckruf …), `form`, `intent`,
+`property`, `listing`, `office`, `consent`, `page`, `attribution` (UTM, gclid …), `client` sowie alle Rohfelder (`fields`, `fields_list`).
+Doppelte Absendungen verhindert der Header `Idempotency-Key`. Ein verstecktes Honeypot-Feld filtert einfache Spam-Bots.
+Pages-Secrets: `LEAD_WEBHOOK_URL` (Ingest-Adresse des Portals, enthält den Zugangsschlüssel – nie ins Repo), optional zusätzlich
+`RESEND_API_KEY` mit `CONTACT_TO`/`CONTACT_FROM` für eine E-Mail-Benachrichtigung. Ohne beides antwortet die Function mit 503 und
+verständlicher Fehlermeldung. Erfolg wird erst nach HTTP-2xx angezeigt.
 Merkliste/Suchen liegen nur im `localStorage`.
 
 ## Design-Tokens

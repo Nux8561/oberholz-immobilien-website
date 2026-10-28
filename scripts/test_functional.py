@@ -173,8 +173,8 @@ async def subpages(b):
     ok("Navigation → Verkaufen", page.url.endswith("/verkaufen"), page.url)
     await page.mouse.move(700, 600); await page.wait_for_timeout(300)
     await page.hover(".hdr__link:has-text('Verkaufen')"); await page.wait_for_timeout(400)
-    await page.click("#flyout-1 .flyout__link:has-text('Kostenlose Bewertung')"); await page.wait_for_timeout(400)
-    ok("Mega-Menü-Link → Bewertung", page.url.endswith("/bewertung"), page.url)
+    await page.click("#flyout-1 .promo"); await page.wait_for_timeout(400)
+    ok("Mega-Menü-Kachel → Bewertung", page.url.endswith("/bewertung"), page.url)
     ok("Unterseite: Breadcrumb", await page.locator(".crumbs").count() == 1)
     ok("Unterseite: Footer-Akkordeon (Desktop)", await page.locator(".ftr--accordion .ftr__acc").first.is_visible())
 
