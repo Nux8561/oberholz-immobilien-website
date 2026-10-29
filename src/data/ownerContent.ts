@@ -68,9 +68,9 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
 
   if (kind === 'bewertung') return {
     title: `Immobilienbewertung in ${city}`,
-    metaTitle: `Immobilienbewertung ${city} – persönlich vor Ort`,
+    metaTitle: `Immobilienbewertung ${city}: persönlich vor Ort`,
     description: `Immobilienbewertung in ${city}: Haus oder Wohnung persönlich einschätzen lassen. Lage, Zustand und Unterlagen prüfen. Kostenloses Erstgespräch anfragen.`,
-    intro: `Was ist Ihr Haus oder Ihre Wohnung in ${city} wert? Wir betrachten Lage, Zustand und Unterlagen persönlich mit Ihnen – als nachvollziehbare Grundlage für Ihre nächste Entscheidung.`,
+    intro: `Was ist Ihr Haus oder Ihre Wohnung in ${city} wert? Wir prüfen Lage, Zustand und Unterlagen persönlich mit Ihnen. So erhalten Sie eine nachvollziehbare Grundlage für Ihre nächste Entscheidung.`,
     checks: ['Persönliche Einschätzung statt pauschalem Onlinepreis', 'Haus, Eigentumswohnung oder vermietete Immobilie', 'Kostenloses und unverbindliches Erstgespräch'],
     blocks: [
       h2(`Immobilienwert in ${city} ermitteln: von den Daten zur Entscheidung`),
@@ -91,9 +91,9 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
 
   if (kind === 'wohnung') return {
     title: `Wohnung verkaufen in ${city}`,
-    metaTitle: `Wohnung verkaufen ${city} – Eigentümerberatung`,
+    metaTitle: `Wohnung verkaufen in ${city}: Beratung für Eigentümer`,
     description: `Eigentumswohnung in ${city} verkaufen: Marktwert, WEG-Unterlagen, Hausgeld und Vermietung einordnen. Persönliche Begleitung durch Oberholz Immobilien.`,
-    intro: `Sie möchten Ihre Eigentumswohnung in ${city} verkaufen? Wir klären mit Ihnen den Marktwert, die Unterlagen der Eigentümergemeinschaft und die passende Vermarktung – für freie und vermietete Wohnungen.`,
+    intro: `Sie möchten Ihre Eigentumswohnung in ${city} verkaufen? Wir klären mit Ihnen den Marktwert, die Unterlagen der Eigentümergemeinschaft und die passende Vermarktung. Für freie und vermietete Wohnungen.`,
     checks: ['Bewertung von Wohnung und Gemeinschaft zusammen denken', 'Freie oder vermietete Eigentumswohnung', 'Unterlagen, Vermarktung und Übergabe persönlich begleiten'],
     blocks: [
       h2(`Eigentumswohnung in ${city}: den Verkauf vom Käufer her vorbereiten`),
@@ -123,11 +123,11 @@ export function ownerContent(slug: OwnerCity, kind: OwnerKind): OwnerContent {
   const selling = kind === 'verkaufen';
   return {
     title: selling ? `Haus oder Immobilie verkaufen in ${city}` : `Ihr Immobilienmakler in ${city}`,
-    metaTitle: selling ? `Hausverkauf ${city} – Immobilie verkaufen` : `Immobilienmakler ${city} – Verkauf & Bewertung`,
+    metaTitle: selling ? `Haus verkaufen in ${city}: Bewertung und Verkauf` : `Immobilienmakler ${city}: Verkauf und Bewertung`,
     description: selling
       ? `Haus oder Immobilie in ${city} verkaufen: Bewertung, Unterlagen und Vermarktung mit klarer Strategie. Oberholz Immobilien begleitet Sie persönlich.`
       : `Immobilienmakler in ${city}: Oberholz Immobilien begleitet Eigentümer bei Bewertung, Hausverkauf, Wohnungsverkauf und Vermietung. Persönlich vor Ort.`,
-    intro: selling ? `Sie möchten Ihr Haus oder Ihre Immobilie in ${city} verkaufen? Wir begleiten Sie von der ersten Bewertung über Unterlagen und Vermarktung bis zur Übergabe – mit einer Strategie, die zu Ihrem Objekt und Ihren Zielen passt.` : `Sie möchten Ihre Immobilie in ${city} und Umgebung verkaufen, vermieten oder zunächst ihren Wert erfahren? Wir begleiten Sie mit persönlicher Beratung, einer transparenten Bewertung und einer Vermarktung, die zu Ihrem Objekt passt.`,
+    intro: selling ? `Sie möchten Ihr Haus oder Ihre Immobilie in ${city} verkaufen? Wir begleiten Sie von der ersten Bewertung über Unterlagen und Vermarktung bis zur Schlüsselübergabe. Mit einer Strategie, die zu Ihrem Objekt und Ihren Zielen passt.` : `Sie möchten Ihre Immobilie in ${city} und Umgebung verkaufen, vermieten oder zunächst ihren Wert erfahren? Wir begleiten Sie mit persönlicher Beratung, einer transparenten Bewertung und einer Vermarktung, die zu Ihrem Objekt passt.`,
     checks: ['Ein fester Ansprechpartner für Ihr Vorhaben', 'Sichtung und Einholung von Objektunterlagen', 'Verkaufsstrategie passend zu Ihrer Immobilie'],
     blocks: [
       h2(selling ? `Hausverkauf in ${city}: zuerst den Ausgangspunkt klären` : `Wobei wir Eigentümer in ${city} unterstützen`),

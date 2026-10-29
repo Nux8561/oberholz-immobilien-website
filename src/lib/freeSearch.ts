@@ -73,7 +73,7 @@ export function interpretWish(text: string): Wish {
   }
   if (params.has('preis_max') || params.has('preis_min')) {
     const f = (v: string | null) => (v ? `${Number(v).toLocaleString('de-DE')} €` : '');
-    recognized.push(params.has('preis_min') && params.has('preis_max') ? `${f(params.get('preis_min'))} – ${f(params.get('preis_max'))}` : params.has('preis_max') ? `bis ${f(params.get('preis_max'))}` : `ab ${f(params.get('preis_min'))}`);
+    recognized.push(params.has('preis_min') && params.has('preis_max') ? `${f(params.get('preis_min'))} bis ${f(params.get('preis_max'))}` : params.has('preis_max') ? `bis ${f(params.get('preis_max'))}` : `ab ${f(params.get('preis_min'))}`);
   }
 
   // Zimmer: „3 Zimmer“, „3-Zi“, „ab 4 Zimmern“, „3–4 Zimmer“

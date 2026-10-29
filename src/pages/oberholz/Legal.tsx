@@ -28,7 +28,7 @@ export function Impressum() {
         { t: 'p', text: `Tel. Essen ${brand.phoneDisplay} · Tel. Münster ${brand.phoneMuensterDisplay} · WhatsApp ${brand.whatsappDisplay}` },
         { t: 'p', text: `E-Mail: ${brand.email} (Impressum-Kontakt: info@sv-oberholz.de) · Bürotermine nach Vereinbarung` },
         { t: 'h3', text: 'Steuer & Aufsicht' },
-        { t: 'p', text: 'Finanzamt Münster-Innenstadt · USt.-IdNr. DE297711149' },
+        { t: 'p', text: 'Finanzamt Münster-Innenstadt · USt-IdNr. DE297711149' },
         { t: 'p', text: 'Berufsaufsichtsbehörde (Erlaubnis nach § 34c GewO): Stadt Münster, Ordnungsamt, Klemensstr. 10, Münster' },
         { t: 'h3', text: 'Versicherungen' },
         { t: 'p', text: 'Eine Vermögensschadenhaftpflichtversicherung besteht bei der ERGO Versicherungsgruppe AG, Victoriaplatz 2, 40198 Düsseldorf. Eine Vertrauensschadenhaftpflichtversicherung besteht über den Immobilienverband Deutschland IVD bei der ERGO Versicherungsgruppe AG, Victoriaplatz 2, 40198 Düsseldorf.' },
@@ -69,7 +69,7 @@ export function Datenschutz() {
         { t: 'h2', text: 'Links zu Partnern und externen Diensten' },
         { t: 'p', text: 'Diese Website enthält Links zu Google Maps, Google-Bewertungen, LinkedIn sowie zu unseren Kooperations- und Finanzierungspartnern und Immobilienportalen. Beim bloßen Aufruf unserer Seiten werden keine Daten an diese Anbieter übertragen. Erst wenn Sie einen Link anklicken, verlassen Sie unsere Website; für die Verarbeitung auf der Zielseite ist der jeweilige Anbieter verantwortlich.' },
         { t: 'h2', text: 'Aufsichtsbehörde' },
-        { t: 'p', text: 'Gemäß Art. 77 DSGVO können Sie sich bei einer Aufsichtsbehörde beschweren, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes. Zuständig für uns ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2–4, 40213 Düsseldorf.' },
+        { t: 'p', text: 'Gemäß Art. 77 DSGVO können Sie sich bei einer Aufsichtsbehörde beschweren, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes. Zuständig für uns ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2-4, 40213 Düsseldorf.' },
       ]} />
     </div>
   );
@@ -107,7 +107,7 @@ export function MeinBereich() {
   return (
     <>
       <SectionIntro level="h1" eyebrow="Merkliste" title="Ihre Merkliste und gespeicherten Suchen"
-        text="Alles wird nur in diesem Browser gespeichert – ohne Konto und ohne Anmeldung." />
+        text="Alles wird nur in diesem Browser gespeichert, ohne Konto und ohne Anmeldung." />
       <section className="wrap">
         <SectionIntro variant="inline" line={false} eyebrow="Merkliste" title={`${items.length} ${items.length === 1 ? 'gemerkte Immobilie' : 'gemerkte Immobilien'}`} />
         {items.length ? (
@@ -130,7 +130,7 @@ export function MeinBereich() {
         ) : (
           <div className="mb-empty"><p>Noch keine Suche gespeichert. Nutzen Sie in der Immobiliensuche „Suche speichern“.</p><Link to={ROUTES.kaufen} className="btn">Zur Suche</Link></div>
         )}
-        <p className="calc__note" style={{ marginTop: 24 }}>Sie möchten über neue Angebote informiert werden? <Link to={ROUTES.kontakt} className="link-underline">Sprechen Sie uns an</Link> – wir nehmen Ihren Suchauftrag persönlich auf. <button type="button" className="link-underline" onClick={openCookieSettings}>Cookie-Einstellungen</button></p>
+        <p className="calc__note" style={{ marginTop: 24 }}>Sie möchten über neue Angebote informiert werden? <Link to={ROUTES.kontakt} className="link-underline">Sprechen Sie uns an</Link>. Wir nehmen Ihren Suchauftrag persönlich auf. <button type="button" className="link-underline" onClick={openCookieSettings}>Cookie-Einstellungen</button></p>
       </section>
       <TeaserBand items={[TOOL_TEASERS.budget, TOOL_TEASERS.finanzierung, TOOL_TEASERS.immotipp]} />
     </>

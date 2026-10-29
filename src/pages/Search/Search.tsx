@@ -84,7 +84,7 @@ export default function Search() {
   const where = ort || 'NRW und Umgebung';
   const what = anlage ? 'Kapitalanlage' : typen.length === 1 ? typen[0] : 'Immobilie';
   const heading = `${what} ${mode === 'mieten' ? 'mieten' : 'kaufen'} in ${where}`;
-  usePageMeta({ title: heading, footer: 'open', description: `${heading}: aktuelle Häuser, Wohnungen und Kapitalanlagen aus der Vermittlung von Oberholz Immobilien – mit persönlichem Ansprechpartner vor Ort.`, noindex: qs.toString().length > 0 });
+  usePageMeta({ title: heading, footer: 'open', description: `${heading}: aktuelle Häuser, Wohnungen und Kapitalanlagen aus der Vermittlung von Oberholz Immobilien, mit persönlichem Ansprechpartner vor Ort.`, noindex: qs.toString().length > 0 });
 
   const inMode = useMemo(() => properties.filter((p) => p.mode === mode), [mode]);
   const results = useMemo(() => {
@@ -128,7 +128,7 @@ export default function Search() {
   const shown = results.slice((page - 1) * PER_PAGE, page * PER_PAGE);
   const saveSearch = () => {
     const url = `${window.location.pathname}${window.location.search}`;
-    notify(saved.add(heading, url) ? 'Suche gespeichert – Sie finden sie unter „Merkliste“.' : 'Diese Suche ist bereits gespeichert.');
+    notify(saved.add(heading, url) ? 'Suche gespeichert. Sie finden sie unter „Merkliste“.' : 'Diese Suche ist bereits gespeichert.');
   };
 
   const submitWhere = (e: React.FormEvent) => {
@@ -166,7 +166,7 @@ export default function Search() {
               ))}
               <label className="fcheck"><input type="checkbox" checked={anlage} onChange={() => update({ anlage: anlage ? null : '1' })} />Kapitalanlage</label>
             </Pop>
-            <Pop label={pmin || pmax ? `${pmin ? `${pmin.toLocaleString('de-DE')} €` : '0 €'} – ${pmax ? `${pmax.toLocaleString('de-DE')} €` : 'max'}` : 'Preis'} active={!!(pmin || pmax)}>
+            <Pop label={pmin || pmax ? `${pmin ? `${pmin.toLocaleString('de-DE')} €` : '0 €'} bis ${pmax ? `${pmax.toLocaleString('de-DE')} €` : 'max'}` : 'Preis'} active={!!(pmin || pmax)}>
               <div className="frange">
                 <label>Min.<input type="number" inputMode="numeric" min={0} step={10000} defaultValue={pmin || ''} placeholder="0 €" onBlur={(e) => update({ preis_min: e.target.value || null })} /></label>
                 <label>Max.<input type="number" inputMode="numeric" min={0} step={10000} defaultValue={pmax || ''} placeholder="beliebig" onBlur={(e) => update({ preis_max: e.target.value || null })} /></label>
@@ -205,13 +205,13 @@ export default function Search() {
         )}
 
         <div className="srch__container">
-          <h1 className="srch__title head">{heading} – {results.length} {results.length === 1 ? 'Ergebnis' : 'Ergebnisse'}</h1>
+          <h1 className="srch__title head">{heading}: {results.length} {results.length === 1 ? 'Ergebnis' : 'Ergebnisse'}</h1>
           {ki && (
             <div className="kibox" role="status">
               <p className="kibox__q"><span className="kibox__badge">KI-Suche</span> „{ki}“</p>
               <ul className="kibox__chips">
                 {interpretWish(ki).recognized.map((r) => <li key={r}>{r}</li>)}
-                {interpretWish(ki).recognized.length === 0 && <li className="is-empty">Keine Kriterien erkannt – zeige alle Angebote</li>}
+                {interpretWish(ki).recognized.length === 0 && <li className="is-empty">Keine Kriterien erkannt. Wir zeigen alle Angebote.</li>}
               </ul>
               <button type="button" className="link-underline" onClick={() => setQs(new URLSearchParams())}>KI-Filter zurücksetzen</button>
             </div>
@@ -288,7 +288,7 @@ export default function Search() {
       </section>
 
       <section className="wrap srch-sec">
-        <SectionIntro variant="inline" line={false} eyebrow="Persönlich vor Ort" title="Ihre Ansprechpartner in der Region" text="Ob Kauf, Verkauf oder Vermietung – unser Team ist in Essen, Münster und Umgebung für Sie da." />
+        <SectionIntro variant="inline" line={false} eyebrow="Persönlich vor Ort" title="Ihre Ansprechpartner in der Region" text="Ob Kauf, Verkauf oder Vermietung: Unser Team ist in Essen, Münster und Umgebung für Sie da." />
         <div className="offices">
           {offices.map((o) => (
             <Link key={o.slug} to={officeLink(o)} className="city b-tile">
@@ -355,7 +355,7 @@ function MapView({ items }: { items: Property[] }) {
             <strong>{city}</strong> {list.length > 1 ? `${list.length} Objekte` : Number.isFinite(minPrice(list)) ? `${Math.round(minPrice(list) / 1000)} T€` : 'a. A.'}
           </Link>
         ))}
-        <p className="srch__map-note">Schematische Darstellung – Lage nach Ort, nicht hausgenau</p>
+        <p className="srch__map-note">Schematische Darstellung: Lage nach Ort, nicht hausgenau</p>
       </div>
       {outside.length > 0 && (
         <p className="srch__map-more">Außerhalb des Kartenausschnitts: {outside.map(([city, l], i) => (

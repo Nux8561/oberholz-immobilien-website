@@ -172,7 +172,7 @@ export default function ContactWidget() {
               </form>
             ) : tab === 'anrufen' ? (
               <div className="cw__call">
-                <p className="cw__lead">Rufen Sie uns an – unverbindlich und kostenlos</p>
+                <p className="cw__lead">Rufen Sie uns an. Kostenlos und unverbindlich.</p>
                 <a className="btn btn--accent cw__submit" href={brand.phoneHref}><IconPhone /> Essen {brand.phoneDisplay}</a>
                 <a className="btn cw__submit" href={brand.phoneMuensterHref}>Münster {brand.phoneMuensterDisplay}</a>
                 <p className="cw__hours">{brand.hours}</p>

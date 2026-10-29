@@ -69,7 +69,7 @@ export default function Header() {
         <div className="hdr__logo"><Logo /></div>
         <ul className="hdr__meta">
           <li className="hdr__meta-desk">
-            <button type="button" className="hdr__meta-item hdr__rating" onClick={openRatings} aria-haspopup="dialog" aria-label={`Google-Bewertung ${brand.rating.toFixed(1).replace('.', ',')} von 5 – Bewertungen ansehen`}>
+            <button type="button" className="hdr__meta-item hdr__rating" onClick={openRatings} aria-haspopup="dialog" aria-label={`Google-Bewertung ${brand.rating.toFixed(1).replace('.', ',')} von 5, Bewertungen ansehen`}>
               <span className="hdr__rating-star" aria-hidden="true">★</span>
               <span className="hdr__meta-label"><strong>{brand.rating.toFixed(1).replace('.', ',')}</strong>/5 · {brand.reviews} Google-Bewertungen</span>
             </button>

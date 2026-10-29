@@ -116,7 +116,7 @@ export default function Funnel({ eyebrow = 'Immobilien-Vermittlung', title = 'Ve
                 </button>
               ))}
             </div>
-            <p className="funnel__hint">Mehrfachauswahl möglich – wir beraten Sie gern zu beiden Wegen.</p>
+            <p className="funnel__hint">Mehrfachauswahl möglich. Wir beraten Sie gern zu beiden Wegen.</p>
             <button type="button" className="btn funnel__next" disabled={!s.absicht.length} onClick={next}>Weiter</button>
           </fieldset>
         )}

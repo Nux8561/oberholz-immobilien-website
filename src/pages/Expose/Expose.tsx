@@ -75,7 +75,7 @@ export default function Expose() {
       else { await navigator.clipboard.writeText(url); notify('Link in die Zwischenablage kopiert.'); }
     } catch { notify('Teilen abgebrochen.'); }
   };
-  const gallery = p.images.map((src, i) => ({ src, alt: `${p.title} – Bild ${i + 1}`, title: p.title }));
+  const gallery = p.images.map((src, i) => ({ src, alt: `${p.title}, Bild ${i + 1}`, title: p.title }));
   const facts: [string, string][] = [
     ['Objekt-Nr.', p.id], ['Objektart', p.type], ['Vermarktung', p.mode === 'mieten' ? 'Miete' : 'Kauf'],
     ['Lage', `${p.zip} ${p.city}${p.district ? `, ${p.district}` : ''}`],
@@ -100,7 +100,7 @@ export default function Expose() {
     <div className="expo">
       <div className="expo__actions">
         <button type="button" className="expo__action" onClick={share}><I name="share" />Teilen</button>
-        <button type="button" className="expo__action" aria-pressed={fav} onClick={() => notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt – zu finden unter „Merkliste“.' : 'Von der Merkliste entfernt.')}>
+        <button type="button" className="expo__action" aria-pressed={fav} onClick={() => notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt. Sie finden sie unter „Merkliste“.' : 'Von der Merkliste entfernt.')}>
           <IconHeart on={fav} />{fav ? 'Auf der Merkliste' : 'Merken'}
         </button>
       </div>

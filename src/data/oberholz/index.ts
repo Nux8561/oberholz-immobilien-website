@@ -48,9 +48,9 @@ export type Article = {
 
 /** Ratgeber-Kategorien (Käufer, Verkäufer, Eigentümer & Erben) */
 export const CATEGORIES: { slug: Category; label: string; title: string; text: string }[] = [
-  { slug: 'kaeufer', label: 'Käufer', title: 'Tipps für Käufer', text: 'Budget, Nebenkosten, Besichtigung und Kaufvertrag – so finden und finanzieren Sie die passende Immobilie.' },
-  { slug: 'verkaeufer', label: 'Verkäufer', title: 'Tipps für Verkäufer', text: 'Bewertung, Unterlagen, Vermarktung und Steuern – so verkaufen Sie zum marktgerechten Preis.' },
-  { slug: 'eigentuemer', label: 'Eigentümer & Erben', title: 'Tipps für Eigentümer, Vermieter und Erben', text: 'Vermieten, modernisieren, erben oder umziehen – Entscheidungshilfen rund um Ihre Immobilie.' },
+  { slug: 'kaeufer', label: 'Käufer', title: 'Tipps für Käufer', text: 'Budget, Nebenkosten, Besichtigung und Kaufvertrag: So finden und finanzieren Sie die passende Immobilie.' },
+  { slug: 'verkaeufer', label: 'Verkäufer', title: 'Tipps für Verkäufer', text: 'Bewertung, Unterlagen, Vermarktung und Steuern: So verkaufen Sie zum marktgerechten Preis.' },
+  { slug: 'eigentuemer', label: 'Eigentümer & Erben', title: 'Tipps für Eigentümer, Vermieter und Erben', text: 'Vermieten, modernisieren, erben oder umziehen: Entscheidungshilfen rund um Ihre Immobilie.' },
 ];
 export const categoryOf = (slug: string) => CATEGORIES.find((c) => c.slug === slug);
 
@@ -144,7 +144,6 @@ const PDF_META: Record<string, [string, string]> = {
   merkblatt_ea: ['Merkblatt Energieausweis', '0,5 MB'],
   merkblatt_wr: ['Merkblatt Sanierung & Förderung', '2,8 MB'],
   whitepaper_was_leisten_wir_fuer_sie: ['Whitepaper: Was leisten wir für Sie?', '0,4 MB'],
-  'broschuere_energieberatung-oberholz': ['Broschüre: Immobilienvermittlung mit Gutachterkompetenz', '3,6 MB'],
 };
 
 /** Gruppen aus der Seite „Dokumente & Downloads“: Beschreibung (p) + PDF-Link paarweise */

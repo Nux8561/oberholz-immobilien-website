@@ -26,7 +26,7 @@ export default function PropertyCard({ p, compact = false }: { p: Property; comp
           <div className="pcard__badges">{p.badges.map((b) => <span key={b} className={`pcard__badge${b === 'Exklusiv' ? ' pcard__badge--dark' : ''}`}>{b}</span>)}</div>
         )}
         <button type="button" className={`pcard__fav${fav ? ' is-active' : ''}`} aria-pressed={fav} aria-label={fav ? 'Von Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
-          onClick={(e) => { e.preventDefault(); notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt – zu finden unter „Merkliste“.' : 'Von der Merkliste entfernt.'); }}>
+          onClick={(e) => { e.preventDefault(); notify(favs.toggle(p.id) ? 'Zur Merkliste hinzugefügt. Sie finden sie unter „Merkliste“.' : 'Von der Merkliste entfernt.'); }}>
           <IconHeart fill={fav ? 'var(--c-accent)' : 'rgba(13,13,13,.6)'} stroke="#fff" />
         </button>
         {p.images.length > 1 && (

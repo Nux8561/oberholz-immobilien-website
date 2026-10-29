@@ -32,7 +32,7 @@ function useIndex() {
 }
 
 export function Immopedia() {
-  usePageMeta({ title: 'Immopedia – Wissenslexikon für Immobilien', crumbs: [{ label: 'Immopedia' }], footer: 'accordion', description: 'Immopedia: rund 2.000 Fachbegriffe rund um Immobilienkauf, -verkauf, Finanzierung, Bewertung und Recht – kurz und verständlich erklärt von Oberholz Immobilien.' });
+  usePageMeta({ title: 'Immopedia: Wissenslexikon für Immobilien', crumbs: [{ label: 'Immopedia' }], footer: 'accordion', description: 'Immopedia: rund 2.000 Fachbegriffe rund um Immobilienkauf, -verkauf, Finanzierung, Bewertung und Recht, kurz und verständlich erklärt von Oberholz Immobilien.' });
   const { list, error } = useIndex();
   const [qs, setQs] = useSearchParams();
   const q = qs.get('q') ?? '';
@@ -57,7 +57,7 @@ export function Immopedia() {
     <>
       <PageHero eyebrow="Immopedia" title="Fachbegriffe rund um Immobilienkauf und -verkauf einfach erklärt" image={photos.advisorG} cutout
         text="Ob Grundschuld, Teilungserklärung oder Vorkaufsrecht: Immopedia ist unser digitales Nachschlagewerk mit kompakten Erklärungen zu Kauf, Verkauf, Finanzierung, Bewertung und Recht."
-        checks={['Alle wichtigen Begriffe rund um Immobilienkauf und -verkauf', 'Kurz, klar & verständlich erklärt', 'Kostenlos nachschlagen – auch unterwegs']} />
+        checks={['Alle wichtigen Begriffe rund um Immobilienkauf und -verkauf', 'Kurz, klar & verständlich erklärt', 'Kostenlos nachschlagen, auch unterwegs']} />
       <section className="wrap ipedia">
         <form className="ipedia__search" role="search" onSubmit={(e) => e.preventDefault()}>
           <IconSearch />
@@ -108,7 +108,7 @@ export function Begriff() {
   }, [slug]);
   const term = data && data !== 'missing' ? data.term : slug;
   const firstText = data && data !== 'missing' ? (data.blocks.find((b) => b.t === 'p') as { text?: string } | undefined)?.text : undefined;
-  usePageMeta({ title: `${term} – Immopedia`, noindex: data === 'missing', crumbs: [{ label: 'Immopedia', to: ROUTES.immopedia }, { label: term }], footer: 'accordion', description: firstText?.slice(0, 158), jsonLd: data && data !== 'missing' ? [{ '@context': 'https://schema.org', '@type': 'DefinedTerm', name: data.term, description: firstText, inDefinedTermSet: 'Immopedia – Oberholz Immobilien' }] : [] });
+  usePageMeta({ title: `${term}: Erklärung im Immobilien-Lexikon`, noindex: data === 'missing', crumbs: [{ label: 'Immopedia', to: ROUTES.immopedia }, { label: term }], footer: 'accordion', description: firstText?.slice(0, 158), jsonLd: data && data !== 'missing' ? [{ '@context': 'https://schema.org', '@type': 'DefinedTerm', name: data.term, description: firstText, inDefinedTermSet: 'Immopedia – Oberholz Immobilien' }] : [] });
 
   const neighbours = useMemo(() => {
     if (!list) return [];

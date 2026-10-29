@@ -5,7 +5,7 @@ import './Logo.css';
 /** Oberholz-Logo (Original-Datei der bisherigen Website); Fläche im Header 299×60 (Desktop). */
 export default function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <Link to="/" className={`logo${compact ? ' logo--compact' : ''}`} aria-label={`${brand.name} – Startseite`}>
+    <Link to="/" className={`logo${compact ? ' logo--compact' : ''}`} aria-label={`${brand.name}, Startseite`}>
       <img className="logo__img" src={brand.logo} alt={brand.name} width={519} height={238} />
     </Link>
   );

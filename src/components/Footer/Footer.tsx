@@ -15,7 +15,7 @@ export default function Footer({ variant = 'open' }: { variant?: 'open' | 'accor
     <footer className={`ftr ftr--${variant}`}>
       <div className="ftr__wrap ftr__wrap--brand">
         <div className="ftr__brand">
-          <Link to="/" className="ftr__logo" aria-label={`${brand.name} – Startseite`}>
+          <Link to="/" className="ftr__logo" aria-label={`${brand.name}, Startseite`}>
             <img src={brand.logo} alt={brand.name} width={200} height={92} />
           </Link>
           <div className="ftr__brand-copy">

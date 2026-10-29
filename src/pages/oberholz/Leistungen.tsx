@@ -54,7 +54,7 @@ const sellFaq = [
   { q: 'Welche Unterlagen brauche ich zum Verkauf?', a: documentsAnswer },
   { q: 'Was ist meine Immobilie wert?', a: 'Entscheidend sind die konkrete Lage, Zustand, Fläche, Nutzung und die aktuelle Nachfrage. Ein städtischer Durchschnittspreis ersetzt keine Objektbewertung. Für Essen und Münster finden Sie auf unseren lokalen Bewertungsseiten die jeweiligen Besonderheiten und offiziellen Marktquellen.' },
   { q: 'Kann ich auch eine vermietete oder geerbte Immobilie verkaufen?', a: 'Ja. Bestehende Mietverhältnisse und die Eigentumssituation müssen dabei früh berücksichtigt werden. Wir ordnen die nächsten Schritte gemeinsam mit Ihnen ein; bei rechtlichen oder steuerlichen Fragen beziehen Sie bitte Ihr Notariat beziehungsweise Ihre Steuerberatung ein.' },
-  { q: 'Lohnt sich ein Makler, wenn ich auch privat verkaufen könnte?', a: 'Privat zu verkaufen ist möglich. Aufwendig sind vor allem eine realistische Preisfindung, vollständige Unterlagen, die Prüfung der Kaufinteressenten auf ihre Finanzierung, die Besichtigungen und die Verhandlung bis zum Notartermin. Diese Schritte übernehmen wir für Sie – mit Gutachterkompetenz im Team. Ob sich das für Ihre Immobilie lohnt, besprechen wir offen im kostenlosen Erstgespräch.' },
+  { q: 'Lohnt sich ein Makler, wenn ich auch privat verkaufen könnte?', a: 'Privat zu verkaufen ist möglich. Aufwendig sind vor allem eine realistische Preisfindung, vollständige Unterlagen, die Prüfung der Kaufinteressenten auf ihre Finanzierung, die Besichtigungen und die Verhandlung bis zum Notartermin. Diese Schritte übernehmen wir für Sie, mit Gutachterkompetenz im Team. Ob sich das für Ihre Immobilie lohnt, besprechen wir offen im kostenlosen Erstgespräch.' },
   { q: 'Was, wenn meine Immobilie aus meiner Sicht mehr wert ist?', a: 'Wir begründen unsere Einschätzung mit Vergleichsdaten und den Besonderheiten Ihrer Immobilie und gehen Ihre Sicht gemeinsam mit Ihnen durch. Ein zu hoch angesetzter Angebotspreis verlängert häufig die Vermarktung und führt später zu Preisnachlässen. Die Entscheidung über den Angebotspreis treffen Sie.' },
   { q: 'Muss ich mich nach der Bewertung für einen Verkauf entscheiden?', a: 'Nein. Die erste Marktwerteinschätzung ist kostenlos und unverbindlich. Sie können sie auch nutzen, um Verkauf, Vermietung oder Abwarten in Ruhe abzuwägen.' },
   { q: 'Was kostet mich der Makler?', a: 'Das erste Gespräch und die Marktwerteinschätzung sind kostenlos. Beim Verkauf einer Wohnung oder eines Einfamilienhauses teilen sich Verkäufer und Käufer die Maklerprovision in der Regel zu gleichen Teilen. Höhe und Leistungen vereinbaren wir vor Beginn schriftlich mit Ihnen.' },
@@ -64,7 +64,7 @@ const sellFaq = [
 export function Verkaufen() {
   usePageMeta({ title: 'Immobilie verkaufen in Essen, Münster & Umgebung', description: 'Haus oder Wohnung verkaufen: persönliche Bewertung, vollständige Unterlagen und begleitete Vermarktung mit Oberholz Immobilien in Essen, Münster und Umgebung.', crumbs: crumbs('Immobilie verkaufen'), footer: 'accordion', image: photos.advisorA, jsonLd: [faqLd(sellFaq)] });
   return <>
-    <PageHero eyebrow="Immobilie verkaufen" title="Immobilie verkaufen in Essen und Münster" text="Erst der fundierte Marktwert, dann der passende Käufer: Ob Haus, Eigentumswohnung oder Mehrfamilienhaus – wir begleiten Ihren Verkauf in Essen, Münster und Umgebung von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Marktwert durch einen zertifizierten Immobiliengutachter', 'Bonitätsgeprüfte Käufer aus unserem Netzwerk', 'Ein fester Ansprechpartner in Essen oder Münster']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
+    <PageHero eyebrow="Immobilie verkaufen" title="Immobilie verkaufen in Essen und Münster" text="Erst der fundierte Marktwert, dann der passende Käufer. Ob Haus, Eigentumswohnung oder Mehrfamilienhaus: Wir begleiten Ihren Verkauf in Essen, Münster und Umgebung von der ersten Wertermittlung bis zur Schlüsselübergabe." checks={['Marktwert durch einen zertifizierten Immobiliengutachter', 'Bonitätsgeprüfte Käufer aus unserem Netzwerk', 'Ein fester Ansprechpartner in Essen oder Münster']} image={photos.advisorA} alt="Michael Oberholz" cutout rating buttons={[{ label: 'Verkauf besprechen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
     <SellSteps />
     <Funnel intent="Verkaufen" title="Lassen Sie uns über Ihren Verkauf sprechen" />
     <Rich collapse blocks={[{ t: 'h2', text: 'Ihr Objekt bestimmt die Strategie' }, { t: 'p', text: 'Beim Hausverkauf spielen das Grundstück, die Bausubstanz und der energetische Zustand eine wichtige Rolle. Bei der Eigentumswohnung kommen Hausgeld, Rücklagen und Beschlüsse der Eigentümergemeinschaft hinzu. Eine vermietete Immobilie wird zudem anhand ihrer Erträge und Mietverhältnisse eingeordnet.' }, { t: 'p', text: 'Wir erklären Ihnen, welche Faktoren den Preis Ihres Objekts beeinflussen, welche Unterlagen für Kaufinteressenten benötigt werden und welche weiteren Faktoren für Ihre Zielgruppe relevant sind. So schaffen wir eine belastbare Grundlage für Ihre Entscheidung.' }]} />
@@ -78,7 +78,7 @@ export function Vermieten() {
   usePageMeta({ title: 'Immobilie vermieten und verpachten', crumbs: crumbs('Vermietung'), footer: 'accordion', description: 'Vermietung und Verpachtung mit Oberholz Immobilien: marktgerechte Miete, geprüfte Interessenten und persönliche Begleitung in Essen, Münster und der Umgebung.' });
   return (
     <>
-      <PageHero eyebrow="Vermietung & Verpachtung" title="Ihre Immobilie vermieten – persönlich begleitet"
+      <PageHero eyebrow="Vermietung & Verpachtung" title="Immobilie vermieten in Essen und Münster"
         text="Wir unterstützen Sie bei der Vermietung in Essen, Münster und der Umgebung: von der Mietpreis-Einschätzung über die Suche nach geeigneten Interessenten bis zum Mietvertrag."
         checks={['Marktgerechte Mieteinschätzung', 'Geprüfte Interessenten', 'Persönlicher Ansprechpartner']}
         image={photos.advisorD} alt="Lubka Röger" cutout rating
@@ -86,7 +86,7 @@ export function Vermieten() {
       <Rich collapse blocks={[
         { t: 'h2', text: 'Vermietung mit klarem Ablauf' },
         { t: 'p', text: 'Zuerst besprechen wir Objekt, Zielmiete und Ihre Anforderungen an künftige Mieter. Anschließend bereiten wir die Vermarktung vor, koordinieren Besichtigungen und unterstützen Sie bei der Auswahl des geeigneten Mieters.' },
-        { t: 'p', text: 'Für die Vermietung sind vollständige Unterlagen notwendig – etwa Grundrisse, Wohnflächenangaben und ein Energieausweis. Wir unterstützen Sie bei der Zusammenstellung relevanter Unterlagen.' },
+        { t: 'p', text: 'Für die Vermietung brauchen Sie vollständige Unterlagen, etwa Grundrisse, Wohnflächenangaben und einen Energieausweis. Wir helfen Ihnen, alles zusammenzustellen.' },
         { t: 'h2', text: 'Was wir für Vermieter übernehmen' },
         { t: 'ul', items: ['Einschätzung einer marktgerechten Miete', 'Exposé und gezielte Vermarktung', 'Koordination von Anfragen und Besichtigungen', 'Abschluss des Mietvertrags'] },
       ]} />
@@ -106,7 +106,7 @@ function FinanceRequest() {
     <section className="wrap" id="anfrage">
       <div className="lead">
         <div>
-          <SectionIntro variant="inline" line={false} eyebrow="Finanzierung anfragen" title="Wir prüfen Ihre Finanzierung – unverbindlich und kostenfrei"
+          <SectionIntro variant="inline" line={false} eyebrow="Finanzierung anfragen" title="Wir prüfen Ihre Finanzierung, kostenfrei und unverbindlich"
             text="Nennen Sie uns kurz Ihr Vorhaben. Wir melden uns mit einer ersten Einschätzung und den nächsten Schritten." />
         </div>
         <div className="lead__box"><ContactForm subject="Finanzierungsanfrage" submitLabel="Finanzierung anfragen" meta={{ form: 'finanzierung', type: 'finanzierung' }} message="Ich interessiere mich für eine Immobilienfinanzierung. Kaufpreis ca.: … / Eigenkapital ca.: …" /></div>
@@ -143,7 +143,7 @@ export const Kapitalanlage = () => (
 /* ---------- Rückmietverkauf ---------- */
 
 export function Rueckmietverkauf() {
-  usePageMeta({ title: 'Rückmietverkauf: verkaufen und wohnen bleiben', crumbs: crumbs('Rückmietverkauf'), footer: 'accordion', description: 'Rückmietverkauf mit Oberholz Immobilien: Immobilie zum Marktwert verkaufen, Kaufpreis erhalten und weiter im eigenen Zuhause wohnen – persönlich beraten in Essen, Münster und Umgebung.', image: photos.senioren });
+  usePageMeta({ title: 'Rückmietverkauf: verkaufen und wohnen bleiben', crumbs: crumbs('Rückmietverkauf'), footer: 'accordion', description: 'Rückmietverkauf mit Oberholz Immobilien: Immobilie zum Marktwert verkaufen, Kaufpreis erhalten und weiter im eigenen Zuhause wohnen. Persönliche Beratung in Essen, Münster und Umgebung.', image: photos.senioren });
   const checks = page('home').blocks.filter((x) => x.t === 'ul')[5] as { items: string[] };
   return (
     <>
@@ -152,11 +152,11 @@ export function Rueckmietverkauf() {
         checks={checks.items} buttons={[{ label: 'Beratung anfragen', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
       <Rich collapse blocks={[
         { t: 'h2', text: 'So funktioniert der Rückmietverkauf' },
-        { t: 'h3', text: 'Marktwert ermitteln' }, { t: 'p', text: 'Wir bewerten Ihre Immobilie persönlich vor Ort – als Grundlage für einen fairen Kaufpreis.' },
+        { t: 'h3', text: 'Marktwert ermitteln' }, { t: 'p', text: 'Wir bewerten Ihre Immobilie persönlich vor Ort. Das ist die Grundlage für einen fairen Kaufpreis.' },
         { t: 'h3', text: 'Käufer & Mietvertrag' }, { t: 'p', text: 'Wir suchen einen passenden Käufer und vereinbaren mit ihm einen langfristigen Mietvertrag für Sie.' },
         { t: 'h3', text: 'Notar & Auszahlung' }, { t: 'p', text: 'Nach dem Notartermin erhalten Sie den Kaufpreis und wohnen als Mieter weiter in Ihrem Zuhause.' },
         { t: 'h2', text: 'Für wen eignet sich der Rückmietverkauf?' },
-        { t: 'p', text: 'Für Eigentümer, die Kapital aus ihrer Immobilie freisetzen möchten – etwa für den Ruhestand, die Familie oder eine Pflegesituation –, ohne umzuziehen. Ob die Lösung zu Ihnen passt, klären wir in einem unverbindlichen Gespräch, gern gemeinsam mit Ihren Angehörigen.' },
+        { t: 'p', text: 'Für Eigentümer, die Kapital aus ihrer Immobilie freisetzen möchten, ohne umzuziehen. Zum Beispiel für den Ruhestand, die Familie oder eine Pflegesituation. Ob die Lösung zu Ihnen passt, klären wir in einem unverbindlichen Gespräch, gern gemeinsam mit Ihren Angehörigen.' },
       ]} />
       <section className="wrap" id="anfrage">
         <div className="lead">
@@ -173,7 +173,7 @@ export function Rueckmietverkauf() {
 /* ---------- Immobilienbewertung ---------- */
 
 const METHODS = [
-  { title: 'Vergleichswertverfahren', icon: 'house' as const, text: 'Vergleichbare Verkäufe und geeignete Vergleichsfaktoren bilden die Grundlage – zum Beispiel bei selbstgenutzten Eigentumswohnungen und Einfamilienhäusern.' },
+  { title: 'Vergleichswertverfahren', icon: 'house' as const, text: 'Grundlage sind vergleichbare Verkäufe und geeignete Vergleichsfaktoren, zum Beispiel bei selbstgenutzten Eigentumswohnungen und Einfamilienhäusern.' },
   { title: 'Ertragswertverfahren', icon: 'money' as const, text: 'Bei vermieteten Immobilien stehen die marktüblichen Erträge und die Bewirtschaftungskosten im Mittelpunkt.' },
   { title: 'Sachwertverfahren', icon: 'document' as const, text: 'Bei eigengenutzten Immobilien ergeben der Bodenwert und der Zeitwert des Gebäudes addiert den Sachwert der Immobilie. Dieser wird an die Marktsituation angepasst.' },
 ];
@@ -204,7 +204,7 @@ export function Bewertung() {
 /* ---------- Immotipp ---------- */
 
 export function Immotipp() {
-  usePageMeta({ title: 'Immotipp: ab 500 € Tippgeber-Prämie', crumbs: [{ label: 'Immotipp' }], footer: 'accordion', description: 'Sie kennen jemanden, der seine Immobilie verkaufen möchte? Geben Sie Oberholz Immobilien einen Tipp und erhalten Sie mindestens 500 € Prämie – diskret und unkompliziert.' });
+  usePageMeta({ title: 'Immotipp: ab 500 € Tippgeber-Prämie', crumbs: [{ label: 'Immotipp' }], footer: 'accordion', description: 'Sie kennen jemanden, der seine Immobilie verkaufen möchte? Geben Sie Oberholz Immobilien einen Tipp und erhalten Sie mindestens 500 € Prämie. Diskret und unkompliziert.' });
   const b = page('immotipp').blocks;
   return (
     <>
@@ -212,7 +212,7 @@ export function Immotipp() {
         buttons={[{ label: 'Tipp jetzt abgeben', to: '#anfrage', variant: 'accent' }, BTN_CALL]} />
       <Rich collapse blocks={[
         { t: 'h2', text: 'So funktioniert das Tippgeber-Programm' },
-        { t: 'h3', text: 'Tipp abgeben' }, { t: 'p', text: 'Sie nennen uns eine Immobilie, deren Eigentümer verkaufen möchte – über das Formular oder telefonisch.' },
+        { t: 'h3', text: 'Tipp abgeben' }, { t: 'p', text: 'Sie nennen uns per Formular oder Telefon eine Immobilie, deren Eigentümer verkaufen möchte.' },
         { t: 'h3', text: 'Wir übernehmen' }, { t: 'p', text: 'Mit dem Einverständnis der Eigentümer nehmen wir diskret Kontakt auf und begleiten den Verkauf persönlich.' },
         { t: 'h3', text: 'Prämie erhalten' }, { t: 'p', text: 'Kommt durch Ihren Tipp ein Verkauf zustande, erhalten Sie eine Prämie von mindestens 500 €.' },
       ]} />
@@ -220,10 +220,10 @@ export function Immotipp() {
         <div className="lead">
           <SectionIntro variant="inline" line={false} eyebrow="Tippgeber-Formular" title={textOf(b[3])} text={textOf(b[4])} />
           <div className="lead__box">
-            <ContactForm subject="Immotipp – Tippgeber-Hinweis" submitLabel="Tipp jetzt absenden" meta={{ form: 'immotipp', type: 'immotipp' }}
+            <ContactForm subject="Immotipp: Tippgeber-Hinweis" submitLabel="Tipp jetzt absenden" meta={{ form: 'immotipp', type: 'immotipp' }}
               confirm="Die Eigentümer wissen von meinem Tipp und sind damit einverstanden, dass Oberholz Immobilien sie kontaktiert."
               message="Art der Immobilie: … | Ort/PLZ: … | Ansprechpartner & Telefonnummer der Eigentümer (falls bekannt): …"
-              benefits={['Kein Aufwand – Formular ausfüllen genügt.', 'Gilt für Häuser, Wohnungen und Grundstücke.', 'Diskret & vertraulich.']} />
+              benefits={['Kein Aufwand: Das Formular genügt.', 'Gilt für Häuser, Wohnungen und Grundstücke.', 'Diskret & vertraulich.']} />
           </div>
         </div>
       </section>

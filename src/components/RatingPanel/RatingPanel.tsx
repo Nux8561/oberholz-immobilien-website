@@ -7,7 +7,7 @@ import './RatingPanel.css';
 const EVT = 'oh-rating-open';
 export const openRatings = () => window.dispatchEvent(new Event(EVT));
 
-const SCALE: [string, string][] = [['5,00 – 4,50', 'Sehr gut'], ['4,49 – 3,50', 'Gut'], ['3,49 – 2,50', 'Befriedigend'], ['2,49 – 1,50', 'Ausreichend'], ['1,49 – 1,00', 'Mangelhaft']];
+const SCALE: [string, string][] = [['4,50 bis 5,00', 'Sehr gut'], ['3,50 bis 4,49', 'Gut'], ['2,50 bis 3,49', 'Befriedigend'], ['1,50 bis 2,49', 'Ausreichend'], ['1,00 bis 1,49', 'Mangelhaft']];
 const grade = (v: number) => (v >= 4.5 ? 'Sehr gut' : v >= 3.5 ? 'Gut' : v >= 2.5 ? 'Befriedigend' : v >= 1.5 ? 'Ausreichend' : 'Mangelhaft');
 
 /** Bewertungs-Panel wie auf der bisherigen Website: Klick auf die Bewertung öffnet die Übersicht,
@@ -58,7 +58,7 @@ export default function RatingPanel() {
         {origin && (
           <div className="rpanel__origin">
             <p>Die angezeigten Bewertungen stammen aus dem öffentlichen Google-Unternehmensprofil von {brand.name} ({brand.street}, {brand.city.replace(', Deutschland', '')}).</p>
-            <p>Es handelt sich um echte Google-Kundenrezensionen – unverändert und öffentlich nachvollziehbar.</p>
+            <p>Es handelt sich um echte Google-Kundenrezensionen, unverändert und öffentlich nachvollziehbar.</p>
           </div>
         )}
         <a className="btn btn--accent rpanel__cta" href={brand.googleUrl} target="_blank" rel="noopener noreferrer">Alle Google-Bewertungen ansehen</a>

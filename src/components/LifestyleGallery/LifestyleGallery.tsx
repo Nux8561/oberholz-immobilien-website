@@ -35,7 +35,7 @@ export function LifestyleGrid({ items }: { items: Item[] }) {
   }, [open, close, step]);
 
   const tile = (i: number, big: boolean) => (
-    <button key={i} type="button" className={`gtile${big ? ' gtile--big' : ''}`} onClick={() => show(i)} aria-label={`${items[i].title} – Bild vergrößern`}>
+    <button key={i} type="button" className={`gtile${big ? ' gtile--big' : ''}`} onClick={() => show(i)} aria-label={`${items[i].title}: Bild vergrößern`}>
       <img src={items[i].image} alt={items[i].alt} loading="lazy" />
       <span className="gtile__overlay">
         <span className="gtile__title head">{items[i].title}</span>

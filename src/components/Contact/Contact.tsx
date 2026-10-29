@@ -17,7 +17,7 @@ export default function Contact({ variant = 'home' }: { variant?: 'home' | 'page
       <div className="contact__inner">
         <div className="wrap contact__wrap">
           <SectionIntro variant="inline" line={false} center eyebrow={contact.eyebrow} id="kontakt-title"
-            title={<>{contact.title.split(' – ')[0]} –<br />{contact.title.split(' – ')[1]}</>} />
+            title={<>{contact.title.split('. ')[0]}.<br />{contact.title.split('. ').slice(1).join('. ')}</>} />
           <div className="contact__hubs">
             {hubs.map((o) => {
               const person = personFor(o.contactName);

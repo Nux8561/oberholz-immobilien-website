@@ -29,7 +29,7 @@ const REGION_ADVISOR: Record<string, { image: string; name: string }> = {
 export function TeamSection() {
   return (
     <section className="wrap" id="team" style={{ scrollMarginTop: 140 }}>
-      <SectionIntro variant="inline" line={false} eyebrow="Unser Team" title="Ihre Ansprechpartner bei Oberholz Immobilien" text="Makler, Gutachter und Berater – persönlich für Sie da in Essen, Münster und Umgebung." />
+      <SectionIntro variant="inline" line={false} eyebrow="Unser Team" title="Ihre Ansprechpartner bei Oberholz Immobilien" text="Makler, Gutachter und Berater, persönlich für Sie da in Essen, Münster und Umgebung." />
       <ul className="rich__team">
         {team.map((m) => (
           <li key={m.name}>
@@ -71,13 +71,13 @@ function QualifikationSection() {
       <div id="qualifikation" style={{ scrollMarginTop: 140 }}>
         <Rich blocks={[
           { t: 'h2', text: 'Unsere Qualifikationen im Überblick' },
-          { t: 'p', text: 'Oberholz Immobilien steht für gebündelte Fachkompetenz in Immobilienvermittlung und Wertermittlung – mit zugelassenen Maklern nach § 34c GewO und Gutachterkompetenz im Team.' },
+          { t: 'p', text: 'Oberholz Immobilien steht für gebündelte Fachkompetenz in Immobilienvermittlung und Wertermittlung: zugelassene Makler nach § 34c GewO und Gutachterkompetenz im Team.' },
           { t: 'h3', text: 'Immobilienmakler nach § 34c GewO' },
           { t: 'p', text: 'Wir vermitteln Immobilien mit der erforderlichen gewerberechtlichen Erlaubnis und begleiten Eigentümer sowie Kaufinteressenten persönlich durch den gesamten Prozess.' },
           { t: 'h3', text: 'Wertermittlung und Gutachterkompetenz' },
           { t: 'p', text: 'Marktwertermittlungen und gutachterliche Einschätzungen bilden die Grundlage für realistische Preise und nachvollziehbare Verkaufsstrategien.' },
           { t: 'h3', text: 'Vermarktung und Unterlagen' },
-          { t: 'p', text: 'Exposé, Fotografie und die Abstimmung der erforderlichen Verkaufsunterlagen – einschließlich eines vorhandenen Energieausweises – gehören zu unserer Begleitung. Die Ausstellung von Energieausweisen gehört nicht zu unseren Leistungen.' },
+          { t: 'p', text: 'Exposé, Fotografie und die Abstimmung der erforderlichen Verkaufsunterlagen gehören zu unserer Begleitung, einschließlich eines vorhandenen Energieausweises. Die Ausstellung von Energieausweisen gehört nicht zu unseren Leistungen.' },
         ]} />
       </div>
       <div id="qualitaet" style={{ scrollMarginTop: 140 }}><Rich blocks={[iso[0], iso[1], iso[6], iso[7]]} /></div>
@@ -164,11 +164,11 @@ const listingRegions = () => Object.keys(REGION_TITLES)
   .filter(([, cities]) => cities.length > 0);
 
 export function Regionen() {
-  usePageMeta({ title: 'Standorte: Essen und Münster', crumbs: [{ label: 'Standorte' }], footer: 'accordion', description: 'Oberholz Immobilien mit Büros in Essen und Münster – feste Ansprechpartner für Verkauf, Vermietung und Wertermittlung im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' });
+  usePageMeta({ title: 'Standorte: Essen und Münster', crumbs: [{ label: 'Standorte' }], footer: 'accordion', description: 'Oberholz Immobilien mit Büros in Essen und Münster: feste Ansprechpartner für Verkauf, Vermietung und Wertermittlung im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' });
   const b = page('regionen').blocks;
   return (
     <>
-      <PageHero eyebrow="Standorte" title={textOf(b[0])} text={`${textOf(b[1])} Persönliche Beratung, Verkauf und Wertermittlung – mit festen Ansprechpartnern vor Ort.`} image="/assets/stock/staedte/muensterland.jpg" alt="Landschaft im Münsterland" rating buttons={[BTN_KONTAKT, BTN_CALL]} />
+      <PageHero eyebrow="Standorte" title={textOf(b[0])} text={`${textOf(b[1])} Persönliche Beratung, Verkauf und Wertermittlung mit festen Ansprechpartnern vor Ort.`} image="/assets/stock/staedte/muensterland.jpg" alt="Landschaft im Münsterland" rating buttons={[BTN_KONTAKT, BTN_CALL]} />
       <section className="wrap"><OfficeCards /></section>
       <section className="wrap">
         <SectionIntro variant="inline" line={false} eyebrow="Immobilien in der Umgebung" title="Auch im Umland für Sie da" />

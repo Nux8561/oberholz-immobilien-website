@@ -16,7 +16,7 @@ export type PageMeta = {
   noindex?: boolean;
 };
 
-const DEFAULT_DESCRIPTION = `${brand.name}: Ihr Immobilienmakler im Ruhrgebiet und Münsterland – Verkauf, Vermietung, kostenlose Bewertung und Rückmietverkauf, persönlich vor Ort.`;
+const DEFAULT_DESCRIPTION = `${brand.name}: Ihr Immobilienmakler in Essen und Münster für Verkauf, Vermietung, kostenlose Bewertung und Rückmietverkauf. Persönlich vor Ort im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.`;
 const DEFAULT_IMAGE = '/assets/szenen/beratung.jpg';
 
 const Ctx = createContext<{ meta: PageMeta; set: (m: PageMeta) => void }>({ meta: {}, set: () => {} });

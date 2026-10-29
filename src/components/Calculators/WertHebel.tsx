@@ -116,14 +116,14 @@ export default function WertHebel() {
         <div className="wizard__result wizard__step--left" aria-live="polite">
           <div className="wizard__kpis">
             <div><p className="eyebrow">Geschätzte Energieklasse heute</p><p className="calc__big head">{KLASSEN[klasse]}</p></div>
-            <div><p className="eyebrow">Möglicher Werteffekt gesamt</p><p className="calc__big head">{eur(sumLo)} – {eur(sumHi)}</p></div>
+            <div><p className="eyebrow">Möglicher Werteffekt gesamt</p><p className="calc__big head">{eur(sumLo)} bis {eur(sumHi)}</p></div>
           </div>
           {gainTotal > 0 && <p className="wizard__hint">Mit allen energetischen Maßnahmen wäre etwa Klasse {KLASSEN[Math.max(0, Math.round(klasse - gainTotal))]} erreichbar.</p>}
-          {rows.length === 0 ? <p className="wizard__hint">Ihre Immobilie ist bereits gut aufgestellt – große Wert-Hebel sind nicht erkennbar.</p> : (
+          {rows.length === 0 ? <p className="wizard__hint">Ihre Immobilie ist bereits gut aufgestellt. Große Wert-Hebel sind nicht erkennbar.</p> : (
             <div className="rich__table-wrap">
               <table className="rich__table calc__table">
                 <thead><tr><th>Maßnahme</th><th>Kosten (ca.)</th><th>Werteffekt (ca.)</th><th>Förderung</th></tr></thead>
-                <tbody>{rows.map(({ m, e }) => <tr key={m.title}><td>{m.title}</td><td>{eur(m.cost[0])} – {eur(m.cost[1])}</td><td>{eur(e[0])} – {eur(e[1])}</td><td>{m.funding}</td></tr>)}</tbody>
+                <tbody>{rows.map(({ m, e }) => <tr key={m.title}><td>{m.title}</td><td>{eur(m.cost[0])} bis {eur(m.cost[1])}</td><td>{eur(e[0])} bis {eur(e[1])}</td><td>{m.funding}</td></tr>)}</tbody>
               </table>
             </div>
           )}
@@ -137,7 +137,7 @@ export default function WertHebel() {
                 calculator: { baujahr: s.baujahr, vermuteter_wert_eur: s.wert, heizung: s.heizung, fassade_gedaemmt: s.fassade, dach_gedaemmt: s.dach, fenster: s.fenster,
                   energieklasse_geschaetzt: KLASSEN[klasse], werteffekt_von_eur: Math.round(sumLo), werteffekt_bis_eur: Math.round(sumHi) } }}
               extra={[['Haustyp', s.haustyp], ['Baujahr', s.baujahr], ['Wohnfläche', `${s.flaeche} m²`], ['Vermuteter Wert', eur(s.wert)], ['PLZ', s.plz], ['Heizung', s.heizung],
-                ['Fassade gedämmt', s.fassade], ['Dach gedämmt', s.dach], ['Fenster', s.fenster], ['Energieklasse (geschätzt)', KLASSEN[klasse]], ['Werteffekt (geschätzt)', `${eur(sumLo)} – ${eur(sumHi)}`]]} />
+                ['Fassade gedämmt', s.fassade], ['Dach gedämmt', s.dach], ['Fenster', s.fenster], ['Energieklasse (geschätzt)', KLASSEN[klasse]], ['Werteffekt (geschätzt)', `${eur(sumLo)} bis ${eur(sumHi)}`]]} />
           </div>
         </div>
       )}

@@ -4,7 +4,7 @@ import './Partners.css';
 
 type Kind = keyof typeof partners;
 const TEXT: Record<Kind, { eyebrow: string; title: string; text: string }> = {
-  kooperation: { eyebrow: 'Kooperationen', title: 'Starke Partner an unserer Seite', text: 'Für Finanzierung, Vorsorge und Absicherung arbeiten wir mit etablierten Partnern zusammen – so erhalten Sie alles aus einer Hand.' },
+  kooperation: { eyebrow: 'Kooperationen', title: 'Starke Partner an unserer Seite', text: 'Für Finanzierung, Vorsorge und Absicherung arbeiten wir mit etablierten Partnern zusammen. So erhalten Sie alles aus einer Hand.' },
   finanzierung: { eyebrow: 'Finanzierungspartner', title: 'Unsere Finanzierungspartner', text: 'Über unser Banken-Netzwerk vergleichen wir Angebote und finden die Finanzierung, die zu Ihnen passt.' },
   portale: { eyebrow: 'Reichweite', title: 'Ihre Immobilie auf führenden Portalen', text: 'Neben unserem Käufernetzwerk präsentieren wir Ihre Immobilie auf reichweitenstarken Immobilienportalen.' },
 };

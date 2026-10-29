@@ -16,11 +16,11 @@ type V = { preis: number; land: string; makler: boolean; ek: number; einkommen: 
 const STEPS = [
   { q: 'Welche Immobilie schwebt Ihnen vor?', hint: 'Nennen Sie den ungefähren Kaufpreis. Kein Objekt in Sicht? Nehmen Sie einen Wunschwert.' },
   { q: 'In welchem Bundesland kaufen Sie?', hint: 'Die Grunderwerbsteuer ist von Land zu Land verschieden. Notar & Grundbuch (ca. 2 %) rechnen wir automatisch ein.' },
-  { q: 'Wie viel Eigenkapital bringen Sie mit?', hint: 'Ersparnisse, Bausparguthaben, Wertpapiere, Schenkungen – alles, was Sie einbringen können.' },
-  { q: 'Ihr monatliches Haushaltsnettoeinkommen', hint: 'Gehälter, feste Nebeneinkünfte, Mieteinnahmen, Kindergeld – inklusive Partner:in.' },
+  { q: 'Wie viel Eigenkapital bringen Sie mit?', hint: 'Ersparnisse, Bausparguthaben, Wertpapiere und Schenkungen, also alles, was Sie einbringen können.' },
+  { q: 'Ihr monatliches Haushaltsnettoeinkommen', hint: 'Gehälter, feste Nebeneinkünfte, Mieteinnahmen und Kindergeld, auch die Ihres Partners.' },
   { q: 'Was zahlen Sie aktuell an Kaltmiete?', hint: 'Ihre heutige Miete fällt beim Kauf weg. Wohnen Sie mietfrei, tragen Sie 0 ein.' },
   { q: 'Haben Sie laufende Kredite oder Raten?', hint: 'Bald endende Verpflichtungen bewerten wir milder. Keine Kredite? Einfach 0 lassen.' },
-  { q: 'Wie alt sind Sie?', hint: 'Bei mehreren Käufern nehmen Sie die ältere Person – das ist die vorsichtigere Annahme.' },
+  { q: 'Wie alt sind Sie?', hint: 'Bei mehreren Käufern nehmen Sie die ältere Person. Das ist die vorsichtigere Annahme.' },
 ];
 
 function Money({ value, onChange, label }: { value: number; onChange: (n: number) => void; label: string }) {
@@ -65,7 +65,7 @@ export default function BudgetCalculator() {
       case 1: return (
         <>
           <select className="calc__select" value={v.land} onChange={(e) => set({ land: e.target.value })} aria-label="Bundesland">
-            {GREST.map(([l, p]) => <option key={l} value={l}>{l} – Grunderwerbsteuer {pct(p, 1)}</option>)}
+            {GREST.map(([l, p]) => <option key={l} value={l}>{l}: Grunderwerbsteuer {pct(p, 1)}</option>)}
           </select>
           <label className="calc__check"><input type="checkbox" checked={v.makler} onChange={(e) => set({ makler: e.target.checked })} />Kauf über Makler (Käuferprovision {pct(MAKLER)})</label>
         </>
@@ -119,13 +119,13 @@ export default function BudgetCalculator() {
             <div><dt>Restschuld nach 10 Jahren</dt><dd>{eur(rest10)}</dd></div>
             <div><dt>Annahmen</dt><dd>{pct(ZINS)} Zins, {pct(TILGUNG, 0)} Tilgung</dd></div>
           </dl>
-          {v.ek < nk && <p className="wizard__tip">Ihr Eigenkapital deckt die Kaufnebenkosten noch nicht vollständig – Banken verlangen dafür meist einen Zinsaufschlag.</p>}
+          {v.ek < nk && <p className="wizard__tip">Ihr Eigenkapital deckt die Kaufnebenkosten noch nicht vollständig. Banken verlangen dafür meist einen Zinsaufschlag.</p>}
           {tooLong && <p className="wizard__tip">Bei {pct(TILGUNG, 0)} Tilgung wäre das Darlehen erst mit etwa {Math.round(v.alter + years)} Jahren getilgt. Eine höhere Tilgung sorgt für Schuldenfreiheit bis zum Ruhestand.</p>}
           <div className="wizard__nav">
             <button type="button" className="btn btn--outline" onClick={() => setStep(0)}>↺ Neu berechnen</button>
             <Link to={`${ROUTES.finanzierung}#anfrage`} className="btn btn--accent">Einschätzung bestätigen lassen</Link>
           </div>
-          <p className="calc__note">Orientierung auf Basis marktüblicher Annahmen – keine Finanzierungszusage.</p>
+          <p className="calc__note">Orientierung auf Basis marktüblicher Annahmen, keine Finanzierungszusage.</p>
         </div>
       )}
     </div>

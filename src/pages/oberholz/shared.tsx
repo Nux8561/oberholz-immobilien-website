@@ -43,13 +43,13 @@ const homeLists = page('home').blocks.filter((b) => b.t === 'ul').map((b) => (b 
 export const valuationMethods = homeLists[4];
 
 export const services: Service[] = [
-  { key: 'verkauf', title: 'Immobilie verkaufen', text: 'Vom realistischen Marktwert bis zum Notartermin – mit Konzept und Gutachterkompetenz.', to: ROUTES.verkaufen, icon: 'sale', items: homeLists[1] },
-  { key: 'bewertung', title: 'Immobilienbewertung', text: 'Kostenfreie, persönliche Einschätzung vor Ort – als Grundlage jeder Entscheidung.', to: ROUTES.bewertung, icon: 'chart', items: homeLists[2] },
+  { key: 'verkauf', title: 'Immobilie verkaufen', text: 'Vom realistischen Marktwert bis zum Notartermin, mit Konzept und Gutachterkompetenz.', to: ROUTES.verkaufen, icon: 'sale', items: homeLists[1] },
+  { key: 'bewertung', title: 'Immobilienbewertung', text: 'Kostenfreie, persönliche Einschätzung vor Ort als Grundlage jeder Entscheidung.', to: ROUTES.bewertung, icon: 'chart', items: homeLists[2] },
   { key: 'vermietung', title: 'Vermietung', text: 'Marktgerechte Miete, geprüfte Mieter und ein rechtssicherer Mietvertrag.', to: ROUTES.vermieten, icon: 'key', items: homeLists[3] },
   { key: 'rueckmiet', title: 'Rückmietverkauf', text: 'Verkaufen und weiter im eigenen Zuhause wohnen.', to: ROUTES.rueckmietverkauf, icon: 'house', items: homeLists[5] },
   { key: 'finanzierung', title: 'Finanzierung', text: 'Bankengerechte Unterlagen und ein breites Banken-Netzwerk.', to: ROUTES.finanzierung, icon: 'money', items: ['Bankengerechte Unterlagen', 'Breites Banken-Netzwerk', 'Fördermittel- und KfW-Beratung'] },
   { key: 'kapitalanlage', title: 'Kapitalanlage', text: 'Mehrfamilienhäuser und vermietete Wohnungen mit Ertragswertblick.', to: ROUTES.kapitalanlage, icon: 'multi', items: ['Mehrfamilienhäuser & Renditeobjekte', 'Ertragswert- und Mietanalyse', 'Finanzierung über unser Banken-Netzwerk'] },
-  { key: 'abwicklung', title: 'Betreuung & Abwicklung', text: 'Verhandlung, Notar, Ämter – wir koordinieren alles bis zur Übergabe.', to: ROUTES.kontakt, icon: 'signature', items: homeLists[6] },
+  { key: 'abwicklung', title: 'Betreuung & Abwicklung', text: 'Verhandlung, Notar und Ämter: Wir koordinieren alles bis zur Übergabe.', to: ROUTES.kontakt, icon: 'signature', items: homeLists[6] },
 ];
 
 export function ServiceGrid({ exclude, title = 'Unsere Leistungen', eyebrow = 'Alles aus einer Hand' }: { exclude?: string; title?: string; eyebrow?: string }) {
@@ -109,11 +109,11 @@ export function TeaserBand({ items, id }: { items: { eyebrow: string; title: str
 }
 
 export const TOOL_TEASERS = {
-  bewertung: { eyebrow: 'Immobilienbewertung', title: 'Was ist Ihre Immobilie wert?', text: 'Kostenlose und unverbindliche Einschätzung vor Ort – persönlich durch unser Team.', to: `${ROUTES.bewertung}#anfrage`, cta: 'Bewertung anfragen', image: '/assets/szenen/bewertung.jpg' },
-  budget: { eyebrow: 'Budgetrechner', title: 'Kann ich mir eine Immobilie leisten?', text: 'Ihr realistischer Kaufpreisrahmen in zwei Minuten – ehrlich und ohne Anmeldung.', to: ROUTES.budgetrechner, cta: 'Budget prüfen', image: '/assets/ratgeber/kaufnebenkosten-nrw.jpg' },
+  bewertung: { eyebrow: 'Immobilienbewertung', title: 'Was ist Ihre Immobilie wert?', text: 'Kostenlose und unverbindliche Einschätzung vor Ort, persönlich durch unser Team.', to: `${ROUTES.bewertung}#anfrage`, cta: 'Bewertung anfragen', image: '/assets/szenen/bewertung.jpg' },
+  budget: { eyebrow: 'Budgetrechner', title: 'Kann ich mir eine Immobilie leisten?', text: 'Ihr realistischer Kaufpreisrahmen in zwei Minuten. Ehrlich und ohne Anmeldung.', to: ROUTES.budgetrechner, cta: 'Budget prüfen', image: '/assets/ratgeber/kaufnebenkosten-nrw.jpg' },
   finanzierung: { eyebrow: 'Finanzierungsrechner', title: 'Nebenkosten, Rate und Restschuld', text: 'Mit Grunderwerbsteuer Ihres Bundeslandes und Zinsbindung nach Wahl.', to: ROUTES.finanzierungsrechner, cta: 'Rate berechnen', image: '/assets/szenen/beratung.jpg' },
   wertHebel: { eyebrow: 'Wert-Hebel-Rechner', title: 'Was bringt welche Modernisierung?', text: 'Überschlägig: Werteffekt, Kosten und Förderung einzelner Maßnahmen.', to: ROUTES.wertHebel, cta: 'Wert-Hebel prüfen', image: '/assets/ratgeber/energieausweis-beim-verkauf.jpg' },
-  immotipp: { eyebrow: 'Immotipp', title: 'Tipp geben – ab 500 € Prämie', text: 'Sie kennen jemanden, der verkaufen möchte? Wir belohnen Ihren Hinweis.', to: ROUTES.immotipp, cta: 'Tipp abgeben', image: photos.schluessel },
+  immotipp: { eyebrow: 'Immotipp', title: 'Tipp geben, ab 500 € Prämie erhalten', text: 'Sie kennen jemanden, der verkaufen möchte? Wir belohnen Ihren Hinweis.', to: ROUTES.immotipp, cta: 'Tipp abgeben', image: photos.schluessel },
 };
 
 export type FaqList = QA[];

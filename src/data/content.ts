@@ -29,7 +29,7 @@ export const brand = {
   whatsappDisplay: '0179 4468850',
   email: 'mail@oberholz-immobilien.com',
   /** Bestätigt von Felix Lesch (Kundenfeedback Runde 3, 24.10.2026) */
-  hours: 'Mo–Fr 10:00–20:00 Uhr, Sa 10:00–18:00 Uhr',
+  hours: 'Mo bis Fr 10 bis 20 Uhr, Sa 10 bis 18 Uhr',
   rating: 5.0,
   reviews: 28,
   regions: ['Essen', 'Münster'],
@@ -166,7 +166,7 @@ export const megaMenus: MegaMenuData[] = [
   },
   {
     label: 'Verkaufen', to: ROUTES.verkaufen, title: 'Immobilie verkaufen oder vermieten',
-    text: 'Von der kostenlosen Bewertung bis zur Schlüsselübergabe – persönlich begleitet von Maklern und Gutachtern aus der Region.',
+    text: 'Von der kostenlosen Bewertung bis zur Schlüsselübergabe. Persönlich begleitet von Maklern und Gutachtern aus der Region.',
     columns: [{
       eyebrow: 'Für Eigentümer', links: [
         { label: 'Immobilie vermieten', to: ROUTES.vermieten }, { label: 'Rückmietverkauf', to: ROUTES.rueckmietverkauf },
@@ -179,7 +179,7 @@ export const megaMenus: MegaMenuData[] = [
   {
     // Team und Qualifikationen stehen auf derselben Seite, Standorte und Kontakt oben rechts – daher ohne Untermenü
     label: 'Über uns', to: ROUTES.ueberUns, title: 'Oberholz Immobilien',
-    text: 'Makler und Gutachter unter einem Dach – mit Büros in Essen und Münster.',
+    text: 'Makler und Gutachter unter einem Dach, mit Büros in Essen und Münster.',
     columns: [],
   },
   {
@@ -225,10 +225,10 @@ export const hero = {
 export const selling = {
   eyebrow: 'Immobilie verkaufen',
   title: 'Verkaufen mit Gutachterkompetenz',
-  text: 'Bei uns bewerten Makler und Gutachter Ihre Immobilie gemeinsam. So gehen Sie mit einem Preis an den Markt, der hält – und wir begleiten Sie bis zur Schlüsselübergabe.',
+  text: 'Bei uns bewerten Makler und Gutachter Ihre Immobilie gemeinsam. So gehen Sie mit einem Preis an den Markt, der hält. Bis zur Schlüsselübergabe bleiben wir an Ihrer Seite.',
   benefits: [
-    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Ein fester Ansprechpartner in Essen oder Münster – für Immobilien im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' },
-    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Den Marktwert ermittelt ein zertifizierter Gutachter aus unserem Team – nicht ein Online-Rechner.' },
+    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Ein fester Ansprechpartner in Essen oder Münster für Immobilien im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' },
+    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Den Marktwert ermittelt ein zertifizierter Gutachter aus unserem Team und kein Online-Rechner.' },
     { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und alle Unterlagen, die Käufer und Banken sehen wollen.' },
   ],
   card: {
@@ -256,7 +256,7 @@ export const careers = {
     image: photos.team,
     alt: 'Das Team von Oberholz Immobilien',
     title: 'Ihr Team von Oberholz Immobilien',
-    text: 'Michael Oberholz, Felix Lesch und das Team beraten Sie persönlich – unsere Erstberatungsgespräche sind unverbindlich und kostenlos.',
+    text: 'Unser Team aus Maklern und Gutachtern berät Sie persönlich. Das erste Gespräch ist kostenlos und unverbindlich.',
     cta: 'Team kennenlernen',
     to: ROUTES.team,
   },
@@ -279,7 +279,7 @@ export const lifestyle = {
 export const magazine = {
   eyebrow: 'Ratgeber & Leitfäden',
   title: 'Wissen für Eigentümer, Käufer und Erben',
-  text: 'Fundierte Beiträge zu Marktentwicklung, Verkauf, Bewertung und Energie – mit Quellen belegt. Dazu unsere Leitfäden zum Download, vom Erben-Kompass bis zum Whitepaper zum Generationenwechsel.',
+  text: 'Verständliche Beiträge zu Markt, Verkauf, Bewertung und Energie, jeweils mit Quellen. Dazu Leitfäden zum Download, vom Erben-Kompass bis zum Generationenwechsel.',
   card: {
     image: '/assets/ratgeber/immobilie-geerbt-der-erben-kompass-fuer-die-ersten-wochen.jpg',
     alt: 'Hände sortieren Familienfotos, Briefe und Hausschlüssel',
@@ -307,7 +307,7 @@ export const relatedTopics = {
 
 export const contact = {
   eyebrow: 'Kontakt',
-  title: 'Sprechen Sie mit uns – persönlich und unverbindlich',
+  title: 'Sprechen Sie mit uns. Persönlich und unverbindlich.',
   avatars: [team[1].face, team[0].face],
   office: 'Oberholz Immobilien',
   cta: 'Jetzt kontaktieren',

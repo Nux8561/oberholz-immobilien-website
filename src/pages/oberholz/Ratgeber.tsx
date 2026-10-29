@@ -106,12 +106,12 @@ function Downloads() {
 
 /** Ratgeber-Startseite: Top-Beitrag, Kategorien mit je drei Beiträgen, Leitfäden. */
 export function Ratgeber() {
-  usePageMeta({ title: 'Immobilien-Ratgeber: Wissen für Käufer, Verkäufer und Eigentümer', crumbs: [{ label: 'Ratgeber' }], footer: 'accordion', description: 'Der Immobilien-Ratgeber von Oberholz Immobilien: Kaufnebenkosten, Ablauf beim Hauskauf, Immobilienbewertung, Verkauf, Vermietung, Erbe und Steuern – verständlich erklärt.' });
+  usePageMeta({ title: 'Immobilien-Ratgeber: Wissen für Käufer, Verkäufer und Eigentümer', crumbs: [{ label: 'Ratgeber' }], footer: 'accordion', description: 'Der Immobilien-Ratgeber von Oberholz Immobilien: Kaufnebenkosten, Ablauf beim Hauskauf, Immobilienbewertung, Verkauf, Vermietung, Erbe und Steuern, verständlich erklärt.' });
   const [top] = articles;
   return (
     <>
-      <SectionIntro level="h1" eyebrow="Ratgeber" title="Ihr Immobilien-Ratgeber – Wissen, Tipps und Entscheidungshilfen"
-        text="Fundierte Beiträge für Käufer, Verkäufer, Eigentümer und Erben: verständlich erklärt, mit Beispielrechnungen und Checklisten – von unserem Team aus Maklern und Gutachtern." />
+      <SectionIntro level="h1" eyebrow="Ratgeber" title="Ihr Immobilien-Ratgeber: Wissen, Tipps und Entscheidungshilfen"
+        text="Fundierte Beiträge für Käufer, Verkäufer, Eigentümer und Erben: verständlich erklärt, mit Beispielrechnungen und Checklisten. Geschrieben von unserem Team aus Maklern und Gutachtern." />
       <div className="wrap" style={{ paddingTop: 0, paddingBottom: 24 }}><CategoryNav /></div>
       <section className="wrap" style={{ paddingTop: 0 }}>
         <Link to={ROUTES.artikel(top.slug)} className="feature">
