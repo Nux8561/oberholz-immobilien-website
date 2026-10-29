@@ -36,7 +36,6 @@ export default function Hero() {
         <div className="hero__heading">
           <h1 className="hero__title head">{hero.title}</h1>
           <p className="hero__areas">{hero.areas}</p>
-          <p className="hero__owner">{hero.owner.text} <SmartLink label={hero.owner.label} to={hero.owner.to} className="link-underline hero__owner-link" /></p>
         </div>
         <PropertySearch />
       </div>

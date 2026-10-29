@@ -200,8 +200,6 @@ export const hero = {
   title: 'Ihr Immobilienmakler in Essen und Münster',
   /** Tätigkeitsgebiet als Zeile unter der Überschrift (Kunde Runde 3) */
   areas: 'Ruhrgebiet · Rheinland · Bergisches Land · Münsterland',
-  /** Einstieg für Eigentümer direkt unter der Überschrift (die Suche darunter richtet sich an Käufer) */
-  owner: { text: 'Sie möchten verkaufen?', label: 'Kostenlose Bewertung anfragen', to: ROUTES.bewertung },
   modes: ['Kaufen', 'Mieten', 'KI-Suche'] as const,
   placeholder: 'Stadt, Stadtteil, Postleitzahl oder Objekt-Nr.',
   propertyTypes: [
@@ -226,19 +224,19 @@ export const hero = {
 
 export const selling = {
   eyebrow: 'Immobilie verkaufen',
-  title: 'Verkauf mit Gutachterkompetenz – im Ruhrgebiet, Rheinland und Münsterland',
-  text: 'Wir beurteilen Ihre Immobilie ganzheitlich als Team aus Maklern und Immobiliengutachtern und begleiten Ihren Immobilienverkauf von der Marktwertermittlung bis zur Schlüsselübergabe – transparent und persönlich.',
+  title: 'Verkaufen mit Gutachterkompetenz',
+  text: 'Bei uns bewerten Makler und Gutachter Ihre Immobilie gemeinsam. So gehen Sie mit einem Preis an den Markt, der hält – und wir begleiten Sie bis zur Schlüsselübergabe.',
   benefits: [
-    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Verkauf und Vermietung mit festem Ansprechpartner im Ruhrgebiet, im Rheinland, im Bergischen Land und im Münsterland.' },
-    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Professionelle Marktwertermittlung durch einen zertifizierten Immobiliengutachter für eine realistische Preisstrategie.' },
-    { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und die Abstimmung aller erforderlichen Verkaufsunterlagen.' },
+    { icon: 'pin', title: 'Persönlich vor Ort', text: 'Ein fester Ansprechpartner in Essen oder Münster – für Immobilien im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' },
+    { icon: 'globe', title: 'Gutachterkompetenz', text: 'Den Marktwert ermittelt ein zertifizierter Gutachter aus unserem Team – nicht ein Online-Rechner.' },
+    { icon: 'advisor', title: 'Alles aus einer Hand', text: 'Exposé, Grundrisse und alle Unterlagen, die Käufer und Banken sehen wollen.' },
   ],
   card: {
     image: photos.verkauf,
     alt: 'Makler und Eigentümerpaar besiegeln einen Hausverkauf per Handschlag',
-    title: 'Erfolgreich verkaufen – mit Oberholz Immobilien',
-    text: 'Über unser Käufernetzwerk finden wir bonitätsstarke Kunden, verhandeln in Ihrem Interesse und begleiten Sie bis zur Übergabe Ihrer Immobilie.',
-    cta: 'Jetzt erfolgreich verkaufen',
+    title: 'Geprüfte Käufer, sichere Abwicklung',
+    text: 'Wir sprechen bonitätsgeprüfte Käufer aus unserem Netzwerk an, verhandeln in Ihrem Interesse und bleiben bis zur Übergabe an Ihrer Seite.',
+    cta: 'Verkauf besprechen',
     to: ROUTES.verkaufen,
   },
 };
