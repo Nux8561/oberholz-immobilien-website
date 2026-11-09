@@ -11,7 +11,6 @@ import FinanceCalculator from '../../components/Calculators/FinanceCalculator';
 import BudgetCalculator from '../../components/Calculators/BudgetCalculator';
 import WertHebel from '../../components/Calculators/WertHebel';
 import { BTN_CALL, TeaserBand, TOOL_TEASERS } from './shared';
-import Partners from '../../components/Partners/Partners';
 
 const crumbs = (label: string) => [{ label: 'Ratgeber', to: ROUTES.ratgeber }, { label: 'Rechner', to: ROUTES.service }, { label }];
 
@@ -45,7 +44,6 @@ export function Finanzierungsrechner() {
         <SectionIntro variant="inline" line={false} center eyebrow="Rechner" title={textOf(b[3])} text={textOf(b[4])} />
         <FinanceCalculator />
       </section>
-      <Partners kinds={['finanzierung']} />
       <Rich blocks={b.slice(6)} />
       <TeaserBand items={[TOOL_TEASERS.budget, TOOL_TEASERS.wertHebel]} />
       <Contact variant="page" />

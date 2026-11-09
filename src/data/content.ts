@@ -22,14 +22,14 @@ export const brand = {
   phoneDisplay: '0201 61447786',
   phoneHref: 'tel:+4920161447786',
   /** Festnetz Münster – Büro Münster, Michael Oberholz, Impressum */
-  phoneMuensterDisplay: '0251 28 42 90 90',
+  phoneMuensterDisplay: '0251 28429090',
   phoneMuensterHref: 'tel:+4925128429090',
   /** WhatsApp überall: Mobilnummer Felix Lesch */
   whatsapp: '491794468850',
   whatsappDisplay: '0179 4468850',
   email: 'mail@oberholz-immobilien.com',
   /** Bestätigt von Felix Lesch (Kundenfeedback Runde 3, 24.10.2026) */
-  hours: 'Mo bis Fr 10 bis 20 Uhr, Sa 10 bis 18 Uhr',
+  hours: 'Mo bis Fr 10:00 bis 20:00 Uhr, Sa 10:00 bis 18:00 Uhr',
   rating: 5.0,
   reviews: 28,
   regions: ['Essen', 'Münster'],
@@ -45,23 +45,12 @@ export const brand = {
 export const whatsappUrl = (text = 'Hallo Oberholz Immobilien, ich habe eine Frage:') =>
   `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(text)}`;
 
-/** Kooperationen und Partner (wie auf der bisherigen Website) */
+/** Immobilienportale für die Vermarktung. Keine Darstellung von Kooperations- oder Bankpartnern. */
 export const partners = {
-  kooperation: [
-    { name: 'DVAG – Deutsche Vermögensberatung', logo: `${M}/dvag-logo.svg`, url: 'https://www.dvag.de/' },
-    { name: 'Swiss Life', logo: `${M}/swiss-life-logo.svg`, url: 'https://www.swisslife.de/' },
-    { name: 'Interhyp', logo: `${M}/interhyp-logo.svg`, url: 'https://www.interhyp.de/' },
-  ],
-  finanzierung: [
-    { name: 'Postbank', logo: `${M}/postbank-logo.svg` },
-    { name: 'Santander', logo: `${M}/santander.svg` },
-    { name: 'ING', logo: `${M}/ing-diba-logo-optimized.svg` },
-    { name: 'PSD Bank', logo: `${M}/psd_bank_logo.svg` },
-    { name: 'DKB', logo: `${M}/deutsche_kreditbank_ag_logo_2016.svg` },
-  ],
   portale: [
     { name: 'Kleinanzeigen', logo: `${M}/kleinanzeigen.svg`, url: 'https://www.kleinanzeigen.de/' },
-    { name: 'Immowelt', logo: `${M}/immowelt.png`, url: 'https://www.immowelt.de/' },
+    /** zweizeiliges Logo, daher höher als die einzeiligen (Quelle: Wikimedia Commons, gemeinfrei) */
+    { name: 'ImmoScout24', logo: `${M}/immoscout24.svg`, url: 'https://www.immobilienscout24.de/', h: 64 },
   ],
 };
 
@@ -72,7 +61,7 @@ export const offices = [
   { slug: 'essen', city: 'Essen', area: 'Essen und Ruhrgebiet', street: 'Benderstraße 2', zipCity: '45257 Essen', image: '/assets/stock/staedte/essen.jpg', page: true, hub: true,
     phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786', contactName: 'Felix Lesch' },
   { slug: 'muenster', city: 'Münster', area: 'Münster und Münsterland', street: 'Wichernstraße 29', zipCity: '48147 Münster', image: '/assets/stock/staedte/muenster.jpg', page: true, hub: true,
-    phoneDisplay: '0251 28 42 90 90', phoneHref: 'tel:+4925128429090', contactName: 'Michael Oberholz' },
+    phoneDisplay: '0251 28429090', phoneHref: 'tel:+4925128429090', contactName: 'Michael Oberholz' },
 ] as { slug: string; city: string; area: string; street: string; zipCity: string; image: string; page: boolean; hub?: boolean; phoneDisplay: string; phoneHref: string; link?: string; contactName?: string }[];
 
 /** Büros mit persönlichem Ansprechpartner (Essen und Münster) */
@@ -84,17 +73,18 @@ export const officeBySlug = (slug: string) => offices.find((o) => o.slug === slu
 
 const face = (slug: string) => `${M}/team/face-${slug}.jpg`;
 
+/** Rollen laut Felix Lesch (Kundenfeedback 09.11.2026): alle Immobilienmakler/-in, Standortleitung Essen und Münster ergänzt. */
 export const team = [
-  { name: 'Michael Oberholz', role: 'Inhaber & Sachverständiger', image: `${M}/oberholz-team/michael-oberholz.png`, face: face('michael-oberholz'),
-    phoneDisplay: '0251 28 42 90 90', phoneHref: 'tel:+4925128429090', office: 'Münster' },
-  { name: 'Felix Lesch', role: 'Immobilienberater', image: `${M}/oberholz-team/felix-lesch.png`, face: face('felix-lesch'),
+  { name: 'Michael Oberholz', role: 'Inhaber · Immobilienmakler · Standortleiter Münster', image: `${M}/oberholz-team/michael-oberholz.png`, face: face('michael-oberholz'),
+    phoneDisplay: '0251 28429090', phoneHref: 'tel:+4925128429090', office: 'Münster' },
+  { name: 'Felix Lesch', role: 'Immobilienmakler · Standortleiter Essen', image: `${M}/oberholz-team/felix-lesch.png`, face: face('felix-lesch'),
     phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786', office: 'Essen' },
   /** eigene Mobilnummer wie im ImmoScout-Exposé – bei seinen Objekten statt der zentralen Nummer */
-  { name: 'Michael Penn', role: 'Immobilienberater', image: `${M}/oberholz-team/michael-penn.png`, face: face('michael-penn'),
+  { name: 'Michael Penn', role: 'Immobilienmakler', image: `${M}/oberholz-team/michael-penn.png`, face: face('michael-penn'),
     phoneDisplay: '0173 2056491', phoneHref: 'tel:+491732056491' },
-  { name: 'Pascal Kopp', role: 'Transaktionsberater', image: `${M}/oberholz-team/pascal-kopp.png`, face: face('pascal-kopp') },
-  { name: 'Lubka Röger', role: 'Immobilienberaterin', image: `${M}/oberholz-team/lubka-roeger.png`, face: face('lubka-roeger') },
-  { name: 'Robin Sandkamp', role: 'Auszubildender Immobilienkaufmann', image: `${M}/oberholz-team/robin-sandkamp.png`, face: face('robin-sandkamp') },
+  { name: 'Pascal Kopp', role: 'Immobilienmakler', image: `${M}/oberholz-team/pascal-kopp.png`, face: face('pascal-kopp') },
+  { name: 'Lubka Röger', role: 'Immobilienmaklerin', image: `${M}/oberholz-team/lubka-roeger.png`, face: face('lubka-roeger') },
+  { name: 'Robin Sandkamp', role: 'Auszubildender Immobilienkaufmann', image: `${M}/oberholz-team/robin-sandkamp-studio.png`, face: face('robin-sandkamp') },
 ];
 
 /** Ansprechpartner je Objekt: kommt aus dem ImmoScout-Exposé („Angeboten von“, Feld `agent` in listings.json).
@@ -153,18 +143,6 @@ export const hasFlyout = (m: MegaMenuData) => m.columns.length > 0;
 /** Hauptnavigation: bewusst schlank – jedes Ziel steht im Header nur einmal (Standorte, Merkliste und Kontakt stehen oben rechts). */
 export const megaMenus: MegaMenuData[] = [
   {
-    label: 'Kaufen', to: ROUTES.kaufen, title: 'Immobilie kaufen',
-    text: 'Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung.',
-    columns: [{
-      eyebrow: 'Kaufen & Mieten', links: [
-        { label: 'Immobilien mieten', to: ROUTES.mieten },
-        { label: 'Kapitalanlagen & Mehrfamilienhäuser', to: ROUTES.kapitalanlage }, { label: 'Finanzierung', to: ROUTES.finanzierung },
-      ],
-    }],
-    promo: { image: '/assets/ratgeber/haus-kaufen-ohne-eigenkapital.jpg', eyebrow: 'Budgetrechner', title: 'Wie viel Immobilie können Sie sich leisten?', to: ROUTES.budgetrechner },
-    mobileCta: { label: 'Budget berechnen', to: ROUTES.budgetrechner },
-  },
-  {
     label: 'Verkaufen', to: ROUTES.verkaufen, title: 'Immobilie verkaufen oder vermieten',
     text: 'Von der kostenlosen Bewertung bis zur Schlüsselübergabe. Persönlich begleitet von Maklern und Gutachtern aus der Region.',
     columns: [{
@@ -175,6 +153,18 @@ export const megaMenus: MegaMenuData[] = [
     }],
     promo: { image: photos.bewertung, eyebrow: 'Immobilienbewertung', title: 'Fordern Sie eine kostenfreie und unverbindliche Bewertung an', to: ROUTES.bewertung },
     mobileCta: { label: 'Bewertung anfragen', to: ROUTES.bewertung },
+  },
+  {
+    label: 'Kaufen', to: ROUTES.kaufen, title: 'Immobilie kaufen',
+    text: 'Häuser, Wohnungen und Kapitalanlagen aus unserer Vermittlung.',
+    columns: [{
+      eyebrow: 'Kaufen & Mieten', links: [
+        { label: 'Immobilien mieten', to: ROUTES.mieten },
+        { label: 'Kapitalanlagen & Mehrfamilienhäuser', to: ROUTES.kapitalanlage }, { label: 'Finanzierung', to: ROUTES.finanzierung },
+      ],
+    }],
+    promo: { image: '/assets/ratgeber/haus-kaufen-ohne-eigenkapital.jpg', eyebrow: 'Budgetrechner', title: 'Wie viel Immobilie können Sie sich leisten?', to: ROUTES.budgetrechner },
+    mobileCta: { label: 'Budget berechnen', to: ROUTES.budgetrechner },
   },
   {
     // Team und Qualifikationen stehen auf derselben Seite, Standorte und Kontakt oben rechts – daher ohne Untermenü

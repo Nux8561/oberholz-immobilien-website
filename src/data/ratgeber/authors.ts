@@ -21,9 +21,9 @@ export const AUTHOR_OF: Record<string, string> = {
 
 /** Kurzprofile für die Autorenbox – nur Rolle und Tätigkeitsfeld, keine erfundenen Qualifikationen. */
 export const AUTHOR_BIO: Record<string, string> = {
-  'Michael Oberholz': 'Inhaber von Oberholz Immobilien und Sachverständiger. Er verantwortet Bewertung, Verkaufsstrategie und die Begleitung von Eigentümern im Ruhrgebiet und im Münsterland.',
-  'Michael Penn': 'Immobilienberater bei Oberholz Immobilien mit Schwerpunkt auf Unterlagen, Finanzierung und energetischen Fragen rund um Kauf und Verkauf.',
-  'Pascal Kopp': 'Transaktionsberater bei Oberholz Immobilien. Er begleitet Käufer und Verkäufer durch Vertrag, Notartermin und Übergabe, auch bei Erbfällen und Übertragungen.',
-  'Felix Lesch': 'Immobilienberater bei Oberholz Immobilien mit Schwerpunkt auf Vermietung, Kapitalanlage und der Abwägung zwischen Vermieten und Verkaufen.',
-  'Lubka Röger': 'Immobilienberaterin bei Oberholz Immobilien. Sie betreut Eigentümer und Kaufinteressenten persönlich von der Besichtigung bis zur Übergabe.',
+  'Michael Oberholz': 'Inhaber von Oberholz Immobilien, Immobilienmakler und Standortleiter in Münster. Er verantwortet Bewertung, Verkaufsstrategie und die Begleitung von Eigentümern im Ruhrgebiet und im Münsterland.',
+  'Michael Penn': 'Immobilienmakler bei Oberholz Immobilien mit Schwerpunkt auf Unterlagen, Finanzierung und energetischen Fragen rund um Kauf und Verkauf.',
+  'Pascal Kopp': 'Immobilienmakler bei Oberholz Immobilien. Er begleitet Käufer und Verkäufer durch Vertrag, Notartermin und Übergabe, auch bei Erbfällen und Übertragungen.',
+  'Felix Lesch': 'Immobilienmakler bei Oberholz Immobilien und Standortleiter in Essen, mit Schwerpunkt auf Vermietung, Kapitalanlage und der Abwägung zwischen Vermieten und Verkaufen.',
+  'Lubka Röger': 'Immobilienmaklerin bei Oberholz Immobilien. Sie betreut Eigentümer und Kaufinteressenten persönlich von der Besichtigung bis zur Übergabe.',
 };

@@ -29,10 +29,17 @@ export function payoffYears(loan: number, zins: number, rate: number) {
   return -Math.log(1 - (loan * r) / rate) / Math.log(1 + r) / 12;
 }
 
-/** Sollzins-Annahme aus Zinsbindung und Beleihungsauslauf (Heuristik, keine Bankkondition) */
+/** Marktzins-Annahme für alle Rechner (Sollzins bei 10 Jahren Zinsbindung).
+ *  Wird von Hand gepflegt: bei Zinsänderungen nur diese beiden Werte anpassen.
+ *  Stand laut Felix Lesch (Kundenfeedback 09.11.2026): aktuell um die 5 %. */
+export const ZINS_BASIS = 5.0;
+export const ZINS_STAND = 'November 2026';
+
+/** Sollzins-Annahme aus Zinsbindung und Beleihungsauslauf (Heuristik, keine Bankkondition).
+ *  Auf- und Abschläge je Zinsbindung relativ zu ZINS_BASIS (10 Jahre). */
 export function estimateZins(bindung: number, ltv: number) {
-  const base: Record<number, number> = { 5: 3.4, 10: 3.6, 15: 3.8, 20: 3.95, 25: 4.05, 30: 4.15 };
-  const b = base[bindung] ?? 3.6;
+  const offset: Record<number, number> = { 5: -0.2, 10: 0, 15: 0.2, 20: 0.35, 25: 0.45, 30: 0.55 };
+  const b = ZINS_BASIS + (offset[bindung] ?? 0);
   const add = ltv <= 0.6 ? -0.15 : ltv <= 0.8 ? 0 : ltv <= 0.9 ? 0.15 : ltv <= 1 ? 0.35 : 0.6;
   return Math.round((b + add) * 100) / 100;
 }

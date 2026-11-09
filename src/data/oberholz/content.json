@@ -5359,7 +5359,7 @@
         },
         {
           "t": "p",
-          "text": "Passt die Rate? Über unser Banken-Netzwerk und die Kooperation mit Wüstenrot finden wir die Finanzierung, die zu Ihnen passt."
+          "text": "Passt die Rate? Über unser Banken-Netzwerk finden wir die Finanzierung, die zu Ihnen passt."
         },
         {
           "t": "p",
@@ -5686,7 +5686,7 @@
         },
         {
           "t": "p",
-          "text": "Viele Online-Rechner nennen Ihnen eine Wunschsumme und wecken Erwartungen, die später an der Realität scheitern. Wir gehen einen anderen Weg. Unser Budget-Check bewertet Ihre Angaben nach denselben Kriterien, die auch Banken anlegen, und sagt Ihnen klar, ob Ihr Vorhaben gut tragbar, grundsätzlich machbar oder aktuell noch ambitioniert ist. So gewinnen Sie Sicherheit für die wichtigste Investition Ihres Lebens."
+          "text": "Viele Online-Rechner nennen Ihnen eine Wunschsumme und wecken Erwartungen, die später an der Realität scheitern. Wir gehen einen anderen Weg. Unser Budget-Check bewertet Ihre Angaben nach denselben Kriterien, die auch Banken heranziehen, und sagt Ihnen klar, ob Ihr Vorhaben gut tragbar, grundsätzlich machbar oder aktuell noch ambitioniert ist. So gewinnen Sie Sicherheit für die wichtigste Investition Ihres Lebens."
         },
         {
           "t": "h2",
@@ -5825,7 +5825,7 @@
         {
           "t": "ul",
           "items": [
-            "Eigenkapital aufbauen: Je mehr Sie einbringen, desto geringer das Darlehen und desto besser die Zinsen.",
+            "Eigenkapital aufbauen: Je mehr Sie einbringen, desto geringer das Darlehen und desto besser der Zinssatz.",
             "Fördermittel nutzen: Programme der KfW und regionale Zuschüsse senken Ihre Finanzierungskosten spürbar.",
             "Eigenleistung einbringen: Wer selbst mit anpackt, spart Handwerkerkosten und stärkt die Kalkulation.",
             "Grunderwerbsteuer optimieren: Bewegliches Inventar lässt sich unter Umständen getrennt ausweisen.",
@@ -5957,56 +5957,6 @@
         }
       ]
     },
-    "ueber-uns-iso-9001-zertifizierung": {
-      "title": "ISO 9001 Zertifizierung in Vorbereitung",
-      "blocks": [
-        {
-          "t": "h2",
-          "text": "Qualität mit System: auf dem Weg zur ISO 9001 Zertifizierung"
-        },
-        {
-          "t": "p",
-          "text": "Wir befinden uns aktuell im Zertifizierungsprozess nach DIN EN ISO 9001 durch den TÜV. Diese Qualitätsstandards gelten für unsere Immobilienvermittlung und Wertermittlung. Als Immobilienmakler übertragen wir diese Qualitätsstandards direkt auf die Vermittlung Ihrer Immobilie."
-        },
-        {
-          "t": "h3",
-          "text": "Was bedeutet ISO 9001?"
-        },
-        {
-          "t": "p",
-          "text": "Die DIN EN ISO 9001 ist die international führende Norm für Qualitätsmanagementsysteme. Sie verlangt dokumentierte Abläufe, klare Verantwortlichkeiten, messbare Qualitätsziele und die kontinuierliche Verbesserung aller Prozesse. Geprüft wird das nicht von uns selbst, sondern durch unabhängige Auditoren."
-        },
-        {
-          "t": "h3",
-          "text": "Warum das für Ihren Immobilienverkauf zählt"
-        },
-        {
-          "t": "p",
-          "text": "Ein Immobilienverkauf ist ein Prozess mit vielen Schritten: Bewertung, Unterlagen, Energieausweis, Vermarktung, Besichtigungen, Notartermin. Mit einem Qualitätsmanagement nach ISO 9001 laufen diese Schritte nach dokumentierten Standards ab, mit klaren Verantwortlichkeiten und überprüfbarer Qualität statt Zufall."
-        },
-        {
-          "t": "h3",
-          "text": "Was Sie als Eigentümer davon haben"
-        },
-        {
-          "t": "ul",
-          "items": [
-            "Verlässliche Abläufe von der Bewertung bis zur Schlüsselübergabe",
-            "Vollständige, geprüfte Unterlagen inklusive eines vorhandenen Energieausweises",
-            "Unabhängige Prüfung durch den TÜV statt bloßer Selbstauskunft",
-            "Kontinuierliche Verbesserung auf Basis von Kundenfeedback"
-          ]
-        },
-        {
-          "t": "h3",
-          "text": "Der aktuelle Stand"
-        },
-        {
-          "t": "p",
-          "text": "Wir verstehen den Weg zur Zertifizierung selbst als Qualitätsgewinn: Schon jetzt prüfen und optimieren wir unsere internen Abläufe Schritt für Schritt, um Transparenz, Verlässlichkeit und Servicequalität weiter zu steigern. Nach Abschluss der internen Vorbereitung folgt das externe Audit durch den TÜV. Sobald uns das Zertifikat vorliegt, informieren wir an dieser Stelle darüber; bis dahin werben wir bewusst nur mit dem laufenden Prozess."
-        }
-      ]
-    },
     "ueber-uns-qualifikation": {
       "title": "Oberholz Immobilien Qualifikationen – Immobiliengutachter, Makler & Marketing-Profis",
       "blocks": [
@@ -6106,7 +6056,7 @@
           "items": [
             "Zugelassene Immobilienmakler nach § 34c für rechtssichere Vermittlung",
             "Zertifizierte Immobiliengutachter für Verkehrswertgutachten und Marktanalysen",
-            "Eigene Architekten und Bauzeichner für Grundrisse, Ansichten und Flächenberechnungen",
+            "Abstimmung vorhandener Grundrisse, Ansichten und Flächenberechnungen",
             "Aufbereitung aller Unterlagen inklusive Sanierungskonzepten für Banken & Käufer",
             "Finanzierungslösungen über ein breites Banken-Netzwerk für schnellere Abschlüsse"
           ]
@@ -6197,9 +6147,9 @@
           "items": [
             "Kombination aus Marktkenntnis und Gutachterkompetenz: Wir verbinden Fachwissen aus zwei Welten. Das sorgt für realistische Preise und nachvollziehbare Verkaufsstrategien.",
             "Finanzierungsstärke: Dank unseres Banken-Netzwerks finden wir für Käufer die passende Finanzierung. Das ist die Grundlage für verlässliche Kaufzusagen.",
-            "Alles aus einer Hand: Exposés, Marktanalysen, Wertermittlungen und Verkaufsunterlagen erstellen bei uns Architekten, Bauzeichner und Gutachter intern.",
+            "Alles aus einer Hand: Wir begleiten Sie mit Exposés, Marktanalysen und Wertermittlungen und stimmen die erforderlichen Verkaufsunterlagen mit Ihnen ab.",
             "Professionelle Vermarktung: Unsere Agentur Platzhirsch Online setzt Immobilien mit aussagekräftigen Exposés und hochwertigen Architekturvisualisierungen in Szene.",
-            "Zwei Büros, ein Team: In Essen und Münster sind wir persönlich für Sie da, für Immobilien im Ruhrgebiet, im Rheinland, im Bergischen Land und im Münsterland."
+            "Zwei Büros, ein Bundesland: In Essen und Münster sind wir persönlich für Sie da, für Immobilien im Ruhrgebiet, im Rheinland, im Bergischen Land und im Münsterland."
           ]
         },
         {

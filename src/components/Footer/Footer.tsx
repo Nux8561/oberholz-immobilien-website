@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { brand, footer, officeLink, offices, partners, whatsappUrl } from '../../data/content';
+import { brand, footer, officeLink, offices, whatsappUrl } from '../../data/content';
 import { IconChevronUp, IconMinus, IconPlus, SocialIcon } from '../Icons';
 import SmartLink from '../SmartLink/SmartLink';
 import './Footer.css';
@@ -22,7 +22,9 @@ export default function Footer({ variant = 'open' }: { variant?: 'open' | 'accor
             <p className="ftr__claim head">{footer.claim}</p>
             <p className="ftr__tagline">{brand.claim}</p>
             <p className="ftr__reach">
-              <a href={brand.phoneHref} className="link-underline">{brand.phoneDisplay}</a>
+              Essen: <a href={brand.phoneHref} className="link-underline">{brand.phoneDisplay}</a>
+              <br />
+              Münster: <a href={brand.phoneMuensterHref} className="link-underline">{brand.phoneMuensterDisplay}</a>
               <span aria-hidden="true"> · </span>
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="link-underline">WhatsApp {brand.whatsappDisplay}</a>
               <br />
@@ -70,17 +72,6 @@ export default function Footer({ variant = 'open' }: { variant?: 'open' | 'accor
               </ul>
             </div>
           ))}
-        </div>
-      </div>
-
-      <div className="ftr__wrap">
-        <div className="ftr__partners">
-          <p className="ftr__col-title">In Kooperation mit</p>
-          <ul>
-            {partners.kooperation.map((p) => (
-              <li key={p.name}><a href={p.url} target="_blank" rel="noopener noreferrer" title={p.name}><img src={p.logo} alt={p.name} loading="lazy" /></a></li>
-            ))}
-          </ul>
         </div>
       </div>
 

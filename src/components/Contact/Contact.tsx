@@ -1,4 +1,4 @@
-import { brand, contact, hubOffices, team, whatsappUrl } from '../../data/content';
+import { brand, contact, hubOffices, team } from '../../data/content';
 import SectionIntro from '../SectionIntro/SectionIntro';
 import { IconMail } from '../Icons';
 import { Link } from 'react-router-dom';
@@ -38,8 +38,6 @@ export default function Contact({ variant = 'home' }: { variant?: 'home' | 'page
           <span className="contact__line" aria-hidden="true" />
           <p className="contact__shared">
             <a href={`mailto:${brand.email}`} className="link-underline">{brand.email}</a>
-            <span aria-hidden="true"> · </span>
-            WhatsApp: <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="link-underline">{brand.whatsappDisplay}</a>
           </p>
           <Link to={`${ROUTES.kontakt}#formular`} className="btn btn--icon contact__cta">
             <IconMail />{contact.cta}

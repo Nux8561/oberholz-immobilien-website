@@ -99,7 +99,7 @@ export default function App() {
             <Route path="service" element={<Navigate to="/ratgeber#rechner" replace />} />
             <Route path="downloads" element={<Navigate to="/ratgeber#downloads" replace />} />
             <Route path="ueber-uns/qualifikation" element={<Navigate to="/ueber-uns#qualifikation" replace />} />
-            <Route path="ueber-uns/iso-9001" element={<Navigate to="/ueber-uns#qualitaet" replace />} />
+            <Route path="ueber-uns/iso-9001" element={<Navigate to="/ueber-uns#qualifikation" replace />} />
             <Route path="commercial" element={<Navigate to="/kapitalanlage" replace />} />
             <Route path="magazin/*" element={<Navigate to="/ratgeber" replace />} />
             <Route path="standorte" element={<Navigate to="/regionen" replace />} />

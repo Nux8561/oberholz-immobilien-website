@@ -10,7 +10,6 @@ import Contact from '../../components/Contact/Contact';
 import SectionIntro from '../../components/SectionIntro/SectionIntro';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import { LineIcon } from '../../blocks/LineIcons';
-import Partners from '../../components/Partners/Partners';
 import { OwnerGuides, OwnerLinks, SellSteps } from './LocalOwner';
 import { documentsAnswer } from '../../data/ownerContent';
 import {
@@ -99,7 +98,7 @@ export function Vermieten() {
 export const Finanzierung = () => (
   <ServicePage k="leistungen-immobilienfinanzierung" crumb="Finanzierung" metaTitle="Immobilienfinanzierung"
     exclude="finanzierung" eyebrow="Immobilienfinanzierung" funnel={false} tools={['budget', 'finanzierung']} teamStrip={false}
-    extra={<><FinanceRequest /><Partners kinds={['kooperation', 'finanzierung']} /></>} />
+    extra={<FinanceRequest />} />
 );
 function FinanceRequest() {
   return (

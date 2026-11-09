@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../data/routes';
-import { DEFAULT_LAND, GREST, annuity, balanceAfter, eur, pct, payoffYears } from './calc';
+import { DEFAULT_LAND, GREST, ZINS_BASIS, ZINS_STAND, annuity, balanceAfter, eur, pct, payoffYears } from './calc';
 import { IconChevronLeft } from '../Icons';
 import './Calculators.css';
 
-const ZINS = 3.6;     // Annahme 10 Jahre Zinsbindung
+const ZINS = ZINS_BASIS; // Annahme 10 Jahre Zinsbindung, zentral in calc.ts gepflegt
 const TILGUNG = 2;
 const QUOTE = 0.35;   // Faustregel: Rate ≤ 35 % des Haushaltsnettoeinkommens
 const NOTAR = 2;
@@ -117,7 +117,7 @@ export default function BudgetCalculator() {
             <div><dt>Tragbare Rate (35 % abzgl. Kredite)</dt><dd>{eur(tragbar)}</dd></div>
             <div><dt>Rate im Vergleich zur heutigen Miete</dt><dd>{rate >= v.miete ? '+' : '−'}{eur(Math.abs(rate - v.miete))}</dd></div>
             <div><dt>Restschuld nach 10 Jahren</dt><dd>{eur(rest10)}</dd></div>
-            <div><dt>Annahmen</dt><dd>{pct(ZINS)} Zins, {pct(TILGUNG, 0)} Tilgung</dd></div>
+            <div><dt>Annahmen</dt><dd>{pct(ZINS)} Zins (Stand {ZINS_STAND}), {pct(TILGUNG, 0)} Tilgung</dd></div>
           </dl>
           {v.ek < nk && <p className="wizard__tip">Ihr Eigenkapital deckt die Kaufnebenkosten noch nicht vollständig. Banken verlangen dafür meist einen Zinsaufschlag.</p>}
           {tooLong && <p className="wizard__tip">Bei {pct(TILGUNG, 0)} Tilgung wäre das Darlehen erst mit etwa {Math.round(v.alter + years)} Jahren getilgt. Eine höhere Tilgung sorgt für Schuldenfreiheit bis zum Ruhestand.</p>}

@@ -39,7 +39,7 @@ export const personOf = (alt: string) => {
   const member = team.find((m) => name.startsWith(m.name));
   return {
     name,
-    role: role || member?.role || '',
+    role: member?.role || role || '',
     phoneDisplay: member?.phoneDisplay,
     phoneHref: member?.phoneHref,
   };

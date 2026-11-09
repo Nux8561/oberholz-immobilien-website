@@ -44,7 +44,7 @@ export const verkaeufer: EditorialArticle[] = [
         'Bei vermieteten Objekten: Mietverträge, Mieterliste, Nebenkostenabrechnungen',
       ),
       h2('3. Vermarktung vorbereiten'),
-      p('Gute Fotos, ein aussagekräftiges Exposé und klare Grundrisse entscheiden darüber, ob Interessenten anfragen. Kleine Maßnahmen wie Aufräumen, Malerarbeiten, ein gepflegter Garten oder ein paar Möbel weniger wirken oft stärker als teure Renovierungen. Visualisierungen können zeigen, was aus einer renovierungsbedürftigen Immobilie werden kann.'),
+      p('Hochwertige Fotos, ein aussagekräftiges Exposé und klare Grundrisse entscheiden darüber, ob Interessenten anfragen. Kleine Maßnahmen wie Aufräumen, Malerarbeiten, ein gepflegter Garten oder ein paar Möbel weniger wirken oft stärker als teure Renovierungen. Visualisierungen können zeigen, was aus einer renovierungsbedürftigen Immobilie werden kann.'),
       h3('Wo Käufer suchen'),
       ul('Immobilienportale mit hoher Reichweite', 'Vorgemerkte Suchkunden eines regionalen Maklers', 'Website und soziale Medien', 'Diskrete Vermarktung ohne öffentliches Inserat, wenn gewünscht'),
       h2('4. Besichtigungen durchführen'),

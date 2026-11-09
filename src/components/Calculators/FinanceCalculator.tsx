@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../data/routes';
-import { DEFAULT_LAND, GREST, annuity, balanceAfter, estimateZins, eur, pct, payoffYears } from './calc';
+import { DEFAULT_LAND, GREST, ZINS_BASIS, annuity, balanceAfter, estimateZins, eur, pct, payoffYears } from './calc';
 import './Calculators.css';
 
 const num = (s: string) => Number(s.replace(/\./g, '').replace(',', '.')) || 0;
@@ -16,7 +16,7 @@ export default function FinanceCalculator() {
   const [notar, setNotar] = useState('2,0');
   const [bindung, setBindung] = useState(10);
   const [auto, setAuto] = useState(true);
-  const [zinsManual, setZinsManual] = useState('3,6');
+  const [zinsManual, setZinsManual] = useState(ZINS_BASIS.toLocaleString('de-DE', { minimumFractionDigits: 1 }));
   const [tilgung, setTilgung] = useState('2,0');
 
   const r = useMemo(() => {

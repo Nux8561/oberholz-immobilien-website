@@ -35,10 +35,7 @@ export function TeamSection() {
           <li key={m.name}>
             <span className="rich__team-img"><img src={m.image} alt={m.name} loading="lazy" /></span>
             <strong>{m.name}</strong>
-            <span>{m.role}{m.office ? ` · ${m.office}` : ''}</span>
-            {m.phoneDisplay && m.phoneHref ? (
-              <a href={m.phoneHref} className="link-underline">{m.phoneDisplay}</a>
-            ) : null}
+            <span>{m.role}{m.office && !m.role.includes(m.office) ? ` · ${m.office}` : ''}</span>
           </li>
         ))}
       </ul>
@@ -52,20 +49,19 @@ export function UeberUns() {
   usePageMeta({ title: 'Über uns: Makler und Gutachter in Essen & Münster', crumbs: [{ label: 'Über uns' }], footer: 'accordion', description: text, image: photos.team, jsonLd: [faqLd(homeFaq)] });
   return (
     <>
-      <PageHero eyebrow="Über uns" title={title} text={text} image={photos.advisorG} alt="Michael Oberholz" cutout rating buttons={[BTN_KONTAKT, BTN_CALL]} />
+      <PageHero eyebrow="Über uns" title={title} text={text} image={photos.advisorG} alt="Michael Oberholz" cutout rating buttons={[BTN_KONTAKT, callButton({ phoneDisplay: brand.phoneMuensterDisplay, phoneHref: brand.phoneMuensterHref })]} />
       <Rich collapse blocks={rest} />
       <TeamSection />
       <QualifikationSection />
-      <Partners kinds={['kooperation', 'finanzierung', 'portale']} id="partner" />
+      <Partners kinds={['portale']} id="partner" />
       <div className="rich"><div className="rich__text"><FaqBlock title="Häufige Fragen" items={homeFaq} /></div></div>
       <Contact variant="page" />
     </>
   );
 }
 
-/** Qualifikationen und Qualitätsmanagement (früher eigene Unterseiten) als Abschnitt auf „Über uns“ */
+/** Qualifikationen als Abschnitt auf „Über uns“ */
 function QualifikationSection() {
-  const iso = page('ueber-uns-iso-9001-zertifizierung').blocks;
   return (
     <>
       <div id="qualifikation" style={{ scrollMarginTop: 140 }}>
@@ -77,10 +73,9 @@ function QualifikationSection() {
           { t: 'h3', text: 'Wertermittlung und Gutachterkompetenz' },
           { t: 'p', text: 'Marktwertermittlungen und gutachterliche Einschätzungen bilden die Grundlage für realistische Preise und nachvollziehbare Verkaufsstrategien.' },
           { t: 'h3', text: 'Vermarktung und Unterlagen' },
-          { t: 'p', text: 'Exposé, Fotografie und die Abstimmung der erforderlichen Verkaufsunterlagen gehören zu unserer Begleitung, einschließlich eines vorhandenen Energieausweises. Die Ausstellung von Energieausweisen gehört nicht zu unseren Leistungen.' },
+          { t: 'p', text: 'Exposé, Fotografie und die Abstimmung der erforderlichen Verkaufsunterlagen gehören zu unserer Begleitung, einschließlich eines vorhandenen Energieausweises.' },
         ]} />
       </div>
-      <div id="qualitaet" style={{ scrollMarginTop: 140 }}><Rich blocks={[iso[0], iso[1], iso[6], iso[7]]} /></div>
     </>
   );
 }

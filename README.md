@@ -21,7 +21,7 @@ npm run build:seo        # Produktions-Build + Prerendering, sitemap.xml, robots
 | Startseite | `/` |
 | Immobilien | `/immobilien/kaufen` · `/immobilien/mieten` (Filter, Kapitalanlage `?anlage=1`, KI-Freitextsuche, Karte, Suche speichern) · `/expose/:id` (aktueller ImmoScout-Bestand) · `/kapitalanlage` · `/finanzierung` |
 | Verkaufen | `/verkaufen` · `/bewertung` (Funnel) · `/vermieten` · `/rueckmietverkauf` · `/immotipp` |
-| Über uns | `/ueber-uns` (+ `#team`, `#qualifikation`, `#qualitaet`, `#partner`) · `/regionen` (Standorte) · `/regionen/essen` · `/regionen/muenster` (+ je `/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`) · `/kontakt` |
+| Über uns | `/ueber-uns` (+ `#team`, `#qualifikation`, `#partner`) · `/regionen` (Standorte) · `/regionen/essen` · `/regionen/muenster` (+ je `/verkaufen`, `/immobilienbewertung`, `/wohnung-verkaufen`) · `/kontakt` |
 | Ratgeber | `/ratgeber` (+ `#rechner`, `#downloads`) · `/ratgeber/thema/:kategorie` · `/ratgeber/:slug` (23 Artikel) · `/whitepaper/:slug` (6 Leitfäden) · `/service/budgetrechner` · `/service/finanzierungsrechner` · `/service/wert-hebel-rechner` · `/immopedia` · `/immopedia/:slug` (1.999 Begriffe) |
 | Sonstiges | `/mein-bereich` (Merkliste, gespeicherte Suchen) · `/impressum` · `/datenschutz` · `/cookie-hinweise` |
 
@@ -47,9 +47,9 @@ Neu erzeugen: `scripts/crawl_oberholz.py` → `extract_*.py` → `build_oberholz
 
 - `src/components/ContactWidget/` – Pop-up unten rechts (Anfrage, Anrufen, Rückruf, WhatsApp, Kontakt) und Handy-Kontaktleiste; `openContact(tab)` öffnet es von überall.
 - WhatsApp-Links über `whatsappUrl(text)` aus `src/data/content.ts` (`brand.whatsapp` = Mobilnummer Felix Lesch 0179 4468850).
-- Rufnummern: zentral `brand.phoneDisplay` (Essen 0201 61447786); `brand.phoneMuensterDisplay` (0251 28 42 90 90) nur für reine Münster-Inhalte (Büro Münster, Münster-Objekte, Impressum als Zusatz).
+- Rufnummern: zentral `brand.phoneDisplay` (Essen 0201 61447786); `brand.phoneMuensterDisplay` (0251 28429090) für Münster-Inhalte sowie als zusätzliche Büronummer im Footer.
 - Ansprechpartner je Objekt: Feld `agent` aus dem ImmoScout-Exposé, überschreibbar über `listingAgents` in `src/data/content.ts` (ohne Angabe: Felix Lesch). Hat das Teammitglied eine eigene Nummer (`phoneDisplay` in `team`, derzeit Michael Penn), zeigt das Exposé diese statt der zentralen Nummer.
-- `src/components/Partners/` – Logo-Raster aus `partners` (Kooperation, Finanzierung, Portale).
+- `src/components/Partners/` – Logo-Raster der Vermarktungsportale. Kooperations- und Bankenlogos sind auf Kundenwunsch entfernt.
 
 ## Formulare
 
