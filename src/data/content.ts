@@ -37,7 +37,10 @@ export const brand = {
   areas: ['Ruhrgebiet', 'Rheinland', 'Bergisches Land', 'Münsterland'],
   claim: 'Essen · Münster',
   logo: `${M}/oberholz-logo.png`,
-  googleUrl: 'https://www.google.com/maps/place/Oberholz+Immobilien/@51.9735915,7.6248835,17z/data=!4m6!3m5!1s0x47b9bb4567805459:0xa08f5b6274a4201c!8m2!3d51.9735915!4d7.6248835!16s%2Fg%2F11shxgxbpq',
+  /** Google-Unternehmensprofil Essen (Benderstraße 2, mehr Rezensionen als Münster). reviews = Essen 19 + Münster 9, Stand 10.11.2026 */
+  googleUrl: 'https://www.google.com/maps/place/Oberholz+Immobilien/@51.3889613,7.0834661,17z/data=!4m6!3m5!1s0x47b8dda4ad08016f:0xdf634f71dfa92324!8m2!3d51.3889613!4d7.0834661!16s%2Fg%2F11ts3pqm5l',
+  /** Google-Unternehmensprofil Münster (Wichernstraße 29) */
+  googleUrlMuenster: 'https://www.google.com/maps/place/Oberholz+Immobilien/@51.9735915,7.6248835,17z/data=!4m6!3m5!1s0x47b9bb4567805459:0xa08f5b6274a4201c!8m2!3d51.9735915!4d7.6248835!16s%2Fg%2F11shxgxbpq',
   geo: { lat: 51.4556, lng: 7.0116 },
 };
 
@@ -58,7 +61,7 @@ export const partners = {
  *  Rufnummer je Büro: Münster hat die Münsteraner Festnetznummer, Essen die zentrale Nummer.
  *  „page“: eigene Regionsseite mit lokalen Eigentümerseiten. */
 export const offices = [
-  { slug: 'essen', city: 'Essen', area: 'Essen und Ruhrgebiet', street: 'Benderstraße 2', zipCity: '45257 Essen', image: '/assets/stock/staedte/essen.jpg', page: true, hub: true,
+  { slug: 'essen', city: 'Essen', area: 'Essen, Ruhrgebiet, Rheinland und Bergisches Land', street: 'Benderstraße 2', zipCity: '45257 Essen', image: '/assets/stock/staedte/essen.jpg', page: true, hub: true,
     phoneDisplay: '0201 61447786', phoneHref: 'tel:+4920161447786', contactName: 'Felix Lesch' },
   { slug: 'muenster', city: 'Münster', area: 'Münster und Münsterland', street: 'Wichernstraße 29', zipCity: '48147 Münster', image: '/assets/stock/staedte/muenster.jpg', page: true, hub: true,
     phoneDisplay: '0251 28429090', phoneHref: 'tel:+4925128429090', contactName: 'Michael Oberholz' },

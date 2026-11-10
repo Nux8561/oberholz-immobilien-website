@@ -25,8 +25,8 @@ export default function Footer({ variant = 'open' }: { variant?: 'open' | 'accor
               Essen: <a href={brand.phoneHref} className="link-underline">{brand.phoneDisplay}</a>
               <br />
               Münster: <a href={brand.phoneMuensterHref} className="link-underline">{brand.phoneMuensterDisplay}</a>
-              <span aria-hidden="true"> · </span>
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="link-underline">WhatsApp {brand.whatsappDisplay}</a>
+              <br />
+              WhatsApp: <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="link-underline">{brand.whatsappDisplay}</a>
               <br />
               <a href={`mailto:${brand.email}`} className="link-underline">{brand.email}</a>
             </p>

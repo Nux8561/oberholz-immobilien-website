@@ -25,7 +25,7 @@ export function Impressum() {
         { t: 'h3', text: 'Angaben gemäß § 5 DDG' },
         { t: 'p', text: brand.company },
         { t: 'p', text: `${brand.street.replace('straße', 'str.')}, D-48147 Münster` },
-        { t: 'p', text: `Tel. Essen ${brand.phoneDisplay} · Tel. Münster ${brand.phoneMuensterDisplay} · WhatsApp ${brand.whatsappDisplay}` },
+        { t: 'p', text: `Tel. Münster ${brand.phoneMuensterDisplay} · Tel. Essen ${brand.phoneDisplay} · WhatsApp ${brand.whatsappDisplay}` },
         { t: 'p', text: `E-Mail: ${brand.email} (Impressum-Kontakt: info@sv-oberholz.de) · Bürotermine nach Vereinbarung` },
         { t: 'h3', text: 'Steuer & Aufsicht' },
         { t: 'p', text: 'Finanzamt Münster-Innenstadt · USt-IdNr. DE297711149' },
@@ -57,7 +57,7 @@ export function Datenschutz() {
       <h1 className="head">Datenschutzerklärung</h1>
       <Rich blocks={[
         { t: 'h2', text: 'Verantwortlicher' },
-        { t: 'p', text: `${brand.company}, ${brand.street}, ${brand.city.replace(', Deutschland', '')} · Telefon ${brand.phoneDisplay} · E-Mail ${brand.email}` },
+        { t: 'p', text: `${brand.company}, ${brand.owner}, ${brand.street}, ${brand.city.replace(', Deutschland', '')} · Telefon ${brand.phoneMuensterDisplay} · E-Mail ${brand.email}` },
         ...out,
         { t: 'h2', text: 'Merkliste, gespeicherte Suchen und Anfragen' },
         { t: 'p', text: 'Merkliste und gespeicherte Suchen werden ausschließlich im lokalen Speicher Ihres Browsers abgelegt und nicht an uns übertragen. Sie können diese Daten jederzeit unter „Merkliste“ oder in den Cookie-Einstellungen löschen.' },

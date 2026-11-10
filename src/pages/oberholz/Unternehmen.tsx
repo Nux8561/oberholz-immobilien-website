@@ -5,7 +5,7 @@ import { brand, officeBySlug, officeLink, offices, photos, team, whatsappUrl } f
 import { ROUTES } from '../../data/routes';
 import { ownerContent, type OwnerCity } from '../../data/ownerContent';
 import { OwnerGuides, OwnerLinks, OwnerMarketSource, SellSteps } from './LocalOwner';
-import { properties, REGION_TITLES, regionOf } from '../../data/properties';
+import { REGION_TITLES } from '../../data/properties';
 import { faqLd, localServiceLd, usePageMeta } from '../../layout/PageMeta';
 import PageHero from '../../components/PageHero/PageHero';
 import Rich, { FaqBlock } from '../../components/Rich/Rich';
@@ -153,10 +153,14 @@ export function Kontakt() {
 
 /* ---------- Regionen ---------- */
 
-/** Regionen mit aktuellen Objekten, je Region die Orte in fester Reihenfolge von REGION_TITLES */
-const listingRegions = () => Object.keys(REGION_TITLES)
-  .map((k) => [k, [...new Set(properties.filter((p) => regionOf(p.city) === k).map((p) => p.city))]] as const)
-  .filter(([, cities]) => cities.length > 0);
+/** Tätigkeitsgebiet im Umland: feste Regionen und Orte laut Kundenvorgabe (Felix Lesch, 09.11.2026),
+ *  unabhängig vom aktuellen Objektbestand. Schlüssel = REGION_TITLES / Ortsfilter der Suche. */
+const UMLAND: [region: string, cities: string[]][] = [
+  ['ruhrgebiet', ['Essen', 'Mülheim an der Ruhr', 'Bochum', 'Duisburg', 'Dortmund', 'Gelsenkirchen']],
+  ['rheinland', ['Düsseldorf', 'Köln']],
+  ['bergisches land', ['Wuppertal', 'Solingen', 'Remscheid']],
+  ['münsterland', ['Münster', 'Coesfeld', 'Stadtlohn', 'Steinfurt']],
+];
 
 export function Regionen() {
   usePageMeta({ title: 'Standorte: Essen und Münster', crumbs: [{ label: 'Standorte' }], footer: 'accordion', description: 'Oberholz Immobilien mit Büros in Essen und Münster: feste Ansprechpartner für Verkauf, Vermietung und Wertermittlung im Ruhrgebiet, Rheinland, Bergischen Land und Münsterland.' });
@@ -167,11 +171,10 @@ export function Regionen() {
       <section className="wrap"><OfficeCards /></section>
       <section className="wrap">
         <SectionIntro variant="inline" line={false} eyebrow="Immobilien in der Umgebung" title="Auch im Umland für Sie da" />
-        <div className="svc-grid svc-grid--3">
-          {/* nur Regionen und Orte mit aktuellem Objekt */}
-          {listingRegions().map(([k, cities]) => (
-            <Link key={k} to={k === 'weitere' ? ROUTES.kaufen : `${ROUTES.kaufen}?ort=${encodeURIComponent(REGION_TITLES[k])}`} className="svc">
-              <LineIcon name={k === 'weitere' ? 'globe' : 'pin'} size={40} />
+        <div className="svc-grid svc-grid--2">
+          {UMLAND.map(([k, cities]) => (
+            <Link key={k} to={`${ROUTES.kaufen}?ort=${encodeURIComponent(REGION_TITLES[k])}`} className="svc">
+              <LineIcon name="pin" size={40} />
               <h3 className="svc__title head">{REGION_TITLES[k]}</h3>
               <p className="svc__text">{cities.join(', ')}</p>
               <span className="svc__more">Immobilien ansehen <IconArrowRight size={18} /></span>

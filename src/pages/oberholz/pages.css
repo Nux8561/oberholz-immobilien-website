@@ -140,6 +140,8 @@
 }
 .svc-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 959px) { .svc-grid--3 { grid-template-columns: minmax(0, 1fr); } }
+.svc-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 599px) { .svc-grid--2 { grid-template-columns: minmax(0, 1fr); } }
 
 /* Ratgeber-Artikel */
 .cat-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
